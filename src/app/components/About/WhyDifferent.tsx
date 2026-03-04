@@ -1,0 +1,195 @@
+"use client";
+
+import Image from "next/image";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import Container from "../Container";
+
+type Feature = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+};
+
+function FeatureCard({ item }: { item: Feature }) {
+  return (
+    <div className="rounded-[26px] w-full overflow-hidden bg-white border border-gray-200 md:shadow-[0_14px_34px_rgba(0,0,0,0.10)]">
+      {/* Image */}
+      <div className="relative  h-[240px] sm:h-[260px]">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 90vw, 33vw"
+          priority={false}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="p-8">
+        <h3 className="font-[helvetica] text-[18px] font-semibold text-gray-900">
+          {item.title}
+        </h3>
+
+        <p className="mt-3 font-[helvetica] text-[14px] leading-7 text-gray-700">
+          {item.description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default function WhyDifferent() {
+  const items: Feature[] = useMemo(
+    () => [
+      {
+        id: "1",
+        title: "Privacy First",
+        description:
+          "We believe your holiday belongs to you. Our villas are designed to be private sanctuaries where you can be yourself, away from the eyes of strangers.",
+        image:
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp",
+      },
+      {
+        id: "2",
+        title: "Local Roots",
+        description:
+          "We are proudly Sri Lankan. Our staff are from the local villages, our food is sourced from local markets, and our experiences connect you with the local culture.",
+        image:
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp",
+      },
+      {
+        id: "3",
+        title: "Professional Standards",
+        description:
+          "While our vibe is relaxed, our standards are rigorous. We combine the warmth of a family run business with professional housekeeping, maintenance, and guest service protocols.",
+        image:
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp",
+      },
+    ],
+    []
+  );
+
+  // Mobile slider state
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [active, setActive] = useState(0);
+
+  // Update active index while scrolling (mobile only)
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        // Each slide has: min-w + gap. We infer "page" by closest snap point.
+        const children = Array.from(el.children) as HTMLElement[];
+        if (!children.length) return;
+
+        const elRect = el.getBoundingClientRect();
+        const centerX = elRect.left + elRect.width / 2;
+
+        let bestIdx = 0;
+        let bestDist = Number.POSITIVE_INFINITY;
+
+        children.forEach((child, idx) => {
+          const r = child.getBoundingClientRect();
+          const childCenter = r.left + r.width / 2;
+          const dist = Math.abs(childCenter - centerX);
+          if (dist < bestDist) {
+            bestDist = dist;
+            bestIdx = idx;
+          }
+        });
+
+        setActive(bestIdx);
+      });
+    };
+
+    el.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const scrollToIndex = (idx: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const child = el.children.item(idx) as HTMLElement | null;
+    if (!child) return;
+    child.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  };
+
+  return (
+    <section className="py-20 ">
+      <Container>
+        {/* Heading */}
+        <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <span className="italic">Why We Are</span>{" "}
+          <span className="font-semibold">Different</span>
+        </h2>
+
+        {/* ✅ MOBILE: swipe carousel like your screenshot */}
+        <div className="mt-14 md:hidden">
+          <div
+            ref={scrollerRef}
+            className="
+              flex gap-6 overflow-x-auto scroll-smooth
+              snap-x snap-mandatory
+              [-ms-overflow-style:none] [scrollbar-width:none]
+              [&::-webkit-scrollbar]:hidden
+            "
+          >
+            {items.map((item) => (
+              <div
+                key={item.id}
+                className="
+                  snap-center
+                  min-w-[100%]
+                  sm:min-w-[100%]
+                "
+              >
+                <FeatureCard item={item} />
+              </div>
+            ))}
+          </div>
+
+          {/* 1/3 indicator */}
+          <div className="mt-5 flex items-center justify-center gap-3">
+            <button
+              aria-label="Previous"
+              onClick={() => scrollToIndex(Math.max(0, active - 1))}
+              className="h-9 w-9 rounded-full border border-gray-200 bg-white shadow-sm active:scale-[0.98]"
+            >
+              ‹
+            </button>
+
+            <div className="text-[12px] font-[helvetica] text-gray-600">
+              {active + 1}/{items.length}
+            </div>
+
+            <button
+              aria-label="Next"
+              onClick={() => scrollToIndex(Math.min(items.length - 1, active + 1))}
+              className="h-9 w-9 rounded-full border border-gray-200 bg-white shadow-sm active:scale-[0.98]"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+
+        {/* ✅ TABLET/DESKTOP: normal grid */}
+        <div className="mt-14 hidden md:grid grid-cols-2 xl:grid-cols-3 md:gap-10">
+          {items.map((item) => (
+            <FeatureCard key={item.id} item={item} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
