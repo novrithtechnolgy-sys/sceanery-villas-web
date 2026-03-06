@@ -3,7 +3,7 @@ import Button from "./Button";
 // components/BookingBar.tsx
 export default function BookingBar() {
   return (
-    <div className="relative md:-mt-18 w-full mx-auto  md:px-8 lg:px-12 xl:px-20">
+    <div className="relative md:-mt-18 w-full mx-auto  md:px-8 lg:px-12 xl:px-28">
     <div>
       <div className="bg-white font-[helvetica] rounded-[22px] shadow-lg border border-gray-100 p-5 md:p-6">
         <div className="text-[16px] md:text-[18px]  font-regular text-gray-900">

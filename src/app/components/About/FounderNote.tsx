@@ -17,7 +17,7 @@ function QuoteIcon() {
 
 export default function FounderNote() {
   return (
-    <section className="py-24">
+    <section className="py-10 md:py-20">
       <Container>
 
         {/* Heading */}

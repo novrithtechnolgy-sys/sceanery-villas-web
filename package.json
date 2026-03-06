@@ -13,6 +13,7 @@
     "@sanity/vision": "^4.22.0",
     "clsx": "^2.1.1",
     "fa": "^1.0.1",
+    "lucide-react": "^0.577.0",
     "next": "16.1.6",
     "next-sanity": "^11.6.12",
     "react": "19.2.3",

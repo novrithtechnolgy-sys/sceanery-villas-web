@@ -5,13 +5,13 @@ import Container from "../Container";
 
 export default function MeetYourHosts() {
   return (
-    <section className="py-20">
+    <section className="py-10 md:py-20">
     <Container >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-14 items-center">
         
         {/* Left Content */}
-        <div className="lg:col-span-7">
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+        <div className="md:col-span-7">
+          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] text-center md:text-left leading-tight">
             <span className="italic">Meet Your</span>{" "}
             <span className="font-semibold">Hosts</span>
           </h2>
@@ -28,7 +28,7 @@ export default function MeetYourHosts() {
         </div>
 
         {/* Right Image */}
-        <div className="lg:col-span-5">
+        <div className="md:col-span-5">
           <div className="relative w-full h-[280px] md:h-[360px] rounded-[26px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.10)]">
             <Image
               src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772364254/6b01591a9d3fb91b08706b593a7a8b3a5df64245_x2mksk.webp"

@@ -306,7 +306,7 @@ export default function VillasCarousel() {
 
       {/* ---------------- DESKTOP/TABLET (sm and up) ---------------- */}
       <section className="hidden sm:block py-20 bg-white">
-        <div className="flex items-center justify-between px-4 md:px-8 lg:px-12 xl:px-20">
+        <div className="flex items-center justify-between px-4 md:px-8 lg:px-12 xl:px-28">
           <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic font-serif text-gray-900">Explore</span>{" "}
             <span className="font-semibold text-gray-900">Our Villas</span>

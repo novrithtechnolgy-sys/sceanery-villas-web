@@ -51,12 +51,12 @@ function SocialButton({
 
 export default function JoinOurJourney() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-10 md:py-20">
      <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-14 items-center">
         
         {/* Left Image */}
-        <div className="lg:col-span-5">
+        <div className="hidden md:block md:col-span-5">
           <div className="relative w-full h-[340px] md:h-[460px] rounded-[26px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.10)]">
             <Image
               src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772270839/3759e62b0e00282ac6fdc8cfd3c32e9eadd9cb52_wvs7yd.jpg"
@@ -68,7 +68,7 @@ export default function JoinOurJourney() {
         </div>
 
         {/* Right Content */}
-        <div className="lg:col-span-7 md:-mt-42">
+        <div className="md:col-span-7 md:-mt-42">
           <div className="text-center lg:text-center">
             <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
               <span className="italic">Join</span>{" "}

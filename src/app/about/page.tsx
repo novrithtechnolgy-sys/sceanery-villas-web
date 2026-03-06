@@ -15,9 +15,9 @@ export default function AboutPage() {
             <SceneryStory />
             <FounderNote />
             <WhyDifferent />
-            {/* <MeetYourHosts /> */}
-            {/* <JoinOurJourney /> */}
-            {/* <ExperienceDifference /> */}
+            <MeetYourHosts />
+            <JoinOurJourney />
+            <ExperienceDifference />
         </>
     );
 }

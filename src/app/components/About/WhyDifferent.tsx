@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Container from "../Container";
+import ArrowButton from "../ArrowButton";
 
 type Feature = {
   id: string;
@@ -15,7 +16,7 @@ function FeatureCard({ item }: { item: Feature }) {
   return (
     <div className="rounded-[26px] w-full overflow-hidden bg-white border border-gray-200 md:shadow-[0_14px_34px_rgba(0,0,0,0.10)]">
       {/* Image */}
-      <div className="relative  h-[240px] sm:h-[260px]">
+      <div className="relative h-[240px] sm:h-[200px]">
         <Image
           src={item.image}
           alt={item.title}
@@ -28,11 +29,11 @@ function FeatureCard({ item }: { item: Feature }) {
 
       {/* Content */}
       <div className="p-8">
-        <h3 className="font-[helvetica] text-[18px] font-semibold text-gray-900">
+        <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
           {item.title}
         </h3>
 
-        <p className="mt-3 font-[helvetica] text-[14px] leading-7 text-gray-700">
+        <p className="mt-3 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
           {item.description}
         </p>
       </div>
@@ -126,7 +127,7 @@ export default function WhyDifferent() {
   };
 
   return (
-    <section className="py-20 ">
+    <section className="py-10 md:py-20 ">
       <Container>
         {/* Heading */}
         <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
@@ -161,30 +162,27 @@ export default function WhyDifferent() {
 
           {/* 1/3 indicator */}
           <div className="mt-5 flex items-center justify-center gap-3">
-            <button
-              aria-label="Previous"
-              onClick={() => scrollToIndex(Math.max(0, active - 1))}
-              className="h-9 w-9 rounded-full border border-gray-200 bg-white shadow-sm active:scale-[0.98]"
-            >
-              ‹
-            </button>
-
+            <ArrowButton
+             direction="left"
+             disabled={active === 0}
+            onClick={() => scrollToIndex(Math.max(0, active - 1))}
+            />
             <div className="text-[12px] font-[helvetica] text-gray-600">
               {active + 1}/{items.length}
             </div>
 
-            <button
-              aria-label="Next"
+            <ArrowButton
+              direction="right"
+              disabled={active === items.length - 1}
               onClick={() => scrollToIndex(Math.min(items.length - 1, active + 1))}
-              className="h-9 w-9 rounded-full border border-gray-200 bg-white shadow-sm active:scale-[0.98]"
-            >
-              ›
-            </button>
+            />
+
+  
           </div>
         </div>
 
         {/* ✅ TABLET/DESKTOP: normal grid */}
-        <div className="mt-14 hidden md:grid grid-cols-2 xl:grid-cols-3 md:gap-10">
+        <div className="mt-14 hidden md:grid grid-cols-2 md:grid-cols-3 md:gap-10">
           {items.map((item) => (
             <FeatureCard key={item.id} item={item} />
           ))}

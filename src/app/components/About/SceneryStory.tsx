@@ -4,7 +4,7 @@ import Container from "../Container";
 
 export default function SceneryStory() {
   return (
-    <section className="py-20">
+    <section className="py-10 pt-20 md:py-20">
      <Container>
       <div className="max-w-[1000px] mx-auto text-center">
 

@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 type ButtonProps = {
   children: ReactNode;
-  variant?: "primary" | "outline" | "light";
+  variant?: "primary" | "outline" | "light" | "white";
   fullWidth?: boolean;
   onClick?: () => void;
   type?: "button" | "submit";
@@ -43,6 +43,9 @@ export default function Button({
 
         variant === "light" &&
           "bg-white/10 border border-gray-100 text-gray-100 hover:bg-gray-100 hover:text-gray-900",
+
+        variant === "white" &&
+          "bg-white text-gray-900 hover:bg-gray-100",
 
         disabled && "opacity-50 cursor-not-allowed",
 
