@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="pb-10 md:pb-20 pt-1 md:pt-2">
 
-        <div className="relative overflow-hidden md:rounded-[20px] rounded-t-[10px]  md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
+        <div className="relative overflow-hidden md:rounded-b-[20px] rounded-[20px] md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
           {/* Background Image */}
           <Image
             src="/208bb3164c040ef306a0874503fa5da68c734180.jpg"
@@ -36,16 +36,16 @@ export default function Hero() {
               <br />
               Book your perfect Sri Lankan escape.
             </p>
-{/* 
+
             <button className="md:hidden mt-6 md:mt-6 bg-white w-[200px] py-2 text-[14px] rounded-full text-black">
                 Book Now
-            </button> */}
+            </button>
           </div>
 
           {/* Booking Bar */}
        
 
-          <div className="h-20 md:h-20" />
+          <div className="h-28 md:h-20" />
         </div>
         <BookingBar />
     </section>
