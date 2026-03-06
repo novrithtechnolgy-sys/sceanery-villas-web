@@ -29,7 +29,7 @@ export default function Hero() {
               BENTOTA SRI LANKA
             </h1>
 
-            <p className="mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+            <p className="mt-4 md:mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
               Discover a curated collection of 6 private villas and residences in Bentota and Aluthgama.
               <br />
               From hilltop sanctuaries and group retreats to cozy homestays.
@@ -37,7 +37,7 @@ export default function Hero() {
               Book your perfect Sri Lankan escape.
             </p>
 
-            <button className="md:hidden mt-6 bg-white w-60 py-1 text-[14px] rounded-full text-black">
+            <button className="md:hidden mt-6 md:mt-6 bg-white w-[200px] py-2 text-[14px] rounded-full text-black">
                 Book Now
             </button>
           </div>

@@ -138,7 +138,7 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
         </div>
 
         <div className="relative -mt-10 pb-4">
-          <div className="rounded-[26px] bg-white px-5 pt-6 pb-5 border-2 border-gray-120">
+          <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border-1 border-gray-300">
             <h3 className=" font-[helvetica] text-[16px] font-semibold text-gray-900">{villa.title}</h3>
 
             {villa.description && <p className="font-[helvetica] mt-2 text-[14px] text-gray-700 leading-relaxed">{villa.description}</p>}

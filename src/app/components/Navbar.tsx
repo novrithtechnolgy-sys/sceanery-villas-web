@@ -49,7 +49,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
       <Container>
-        <div className="h-16 flex items-center justify-between">
+        <div className="md:h-16 h-14 flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
             <Image

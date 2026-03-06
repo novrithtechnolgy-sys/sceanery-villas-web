@@ -29,12 +29,12 @@ export default function ReadyEscapeSection() {
               READY FOR YOUR ESCAPE?
             </h2>
 
-            <p className="mt-6 text-white/90 text-[18px] leading-8 max-w-2xl">
+            <p className="mt-4 md:mt-6 text-white/90 text-[18px] leading-8 max-w-2xl">
               Book directly with us for the best rates and exclusive inclusions.
             </p>
 
             {/* Buttons */}
-            <div className="mt-12 flex flex-col sm:flex-row gap-6 items-center">
+            <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-6 items-center">
               
               {/* Primary */}
               <Button>

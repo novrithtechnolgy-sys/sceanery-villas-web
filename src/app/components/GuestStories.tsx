@@ -13,7 +13,7 @@ type Story = {
 
 function QuoteMark() {
   return (
-    <svg viewBox="0 0 64 48" className="h-16 w-16 text-gray-900">
+    <svg viewBox="0 0 64 48" className="h-8 w-8 md:h-16 md:w-16 text-gray-900">
       <path
         fill="currentColor"
         d="M18 0C8 0 0 8 0 18v12c0 10 8 18 18 18h6V28H16V18h14V0H18Zm40 0C48 0 40 8 40 18v12c0 10 8 18 18 18h6V28H56V18h14V0H58Z"
@@ -97,19 +97,19 @@ export default function GuestStories() {
         </div>
 
         {/* Content */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+        <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
           {/* Left quote card */}
           <div className="lg:col-span-6">
-            <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.08)] px-12 py-12">
-              <div className="mb-10">
-                <QuoteMark />
+            <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.08)] p-4 md:px-12  md:py-12">
+              <div className="mb-4 md:mb-10">
+                <QuoteMark  />
               </div>
 
               <p className="font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] leading-[30px] md:leading-10 text-gray-800 max-w-[530px]">
                 {active.quote}
               </p>
 
-              <div className="mt-12 font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+              <div className="mt-4 md:mt-12 font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                 {active.author}
               </div>
             </div>

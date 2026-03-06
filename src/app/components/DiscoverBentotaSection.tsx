@@ -67,7 +67,7 @@ function Card({ item }: { item: ExperienceCard }) {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
       {/* content */}
-      <div className="absolute left-7 right-7 bottom-7 text-white">
+      <div className=" absolute left-4 md:left-7 right-7 bottom-7 text-white">
         <div className="flex items-center gap-3">
           <div className="text-white/90">
             <Icon type={item.icon} />
@@ -133,7 +133,7 @@ export default function DiscoverBentotaSection() {
             <span className="font-semibold text-gray-900">Bentota</span>
           </h2>
 
-          <p className="mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+          <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
             Located on the Gold Coast of Sri Lanka, Bentota is the island’s premier beach destination.
             <br />
             But there is more to this town than just the ocean.
@@ -141,25 +141,25 @@ export default function DiscoverBentotaSection() {
         </div>
 
         {/* Grid (desktop like screenshot) */}
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="mt-8 md:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left column */}
           <div className="lg:col-span-8 space-y-4 md:space-y-8">
             <Card item={data[0]} />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
               <Card item={data[2]} />
               <Card item={data[3]} />
             </div>
           </div>
 
           {/* Right tall card */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 -mt-3">
             <Card item={data[1]} />
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-14 flex justify-center">
+        <div className="mt-8 md:mt-14 flex justify-center">
           <Button variant="primary">
             View Experiences
           </Button>

@@ -18,7 +18,7 @@ export default function IntroSection() {
           </h2>
 
           {/* Paragraph */}
-          <p className="mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+          <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
             Welcome to the Scenery Villas Collection. We believe true luxury is privacy and choice.
             Whether you are seeking the silence of a paddy field horizon, the charm of colonial
             heritage, a massive lodge for your entire tribe, or a quiet homestay for a long layover,
@@ -27,7 +27,7 @@ export default function IntroSection() {
         </div>
 
         {/* Image Layout */}
-        <div className="mt-16 flex flex-row items-center justify-center gap-4 md:gap-10">
+        <div className="mt-8 md:mt-16 flex flex-row items-center justify-center gap-4 md:gap-10">
           
           {/* Left Image */}
           <div className="relative w-[100px] h-[180px] md:w-[300px] md:h-[380px] rounded-[24px] overflow-hidden shadow-md">

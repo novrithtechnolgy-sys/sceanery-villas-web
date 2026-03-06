@@ -29,14 +29,14 @@ export default function Button({
       disabled={disabled}
       className={clsx(
         // 🔥 Fixed size system
-        "px-8 rounded-full py-1 md:py-3 text-[14px] font-semibold",
+        "px-8 rounded-full py-2 md:py-3 text-[14px] font-semibold",
         "flex items-center justify-center gap-2",
         "transition-all duration-200",
-         "w-60  lg:w-[400px]",
+         "w-[200px] lg:w-[400px]",
 
         // Variants
         variant === "primary" &&
-          "bg-gray-900 text-white hover:bg-black",
+          "bg-gray-900 text-white hover:bg-black border border-gray-900",
 
         variant === "outline" &&
           "border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white",

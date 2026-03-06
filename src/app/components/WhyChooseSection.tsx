@@ -55,7 +55,7 @@ function FeatureCardMobile({ feature }: { feature: Feature }) {
   return (
     <div className="w-full shrink-0">
       {/* outer card */}
-      <div className="rounded-[28px] bg-white overflow-hidden border border-gray-100">
+      <div className="rounded-[28px] bg-white overflow-hidden border border-gray-300">
         {/* image */}
         <div className="relative h-[220px]">
           <Image
@@ -68,8 +68,8 @@ function FeatureCardMobile({ feature }: { feature: Feature }) {
         </div>
 
         {/* content */}
-        <div className="p-6">
-          <div className="flex items-center gap-4 mb-3">
+        <div className="p-4">
+          <div className="flex items-center gap-4 mb-4">
             <IconBox>
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="5" y="11" width="14" height="9" rx="2" />
