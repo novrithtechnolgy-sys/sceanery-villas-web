@@ -142,7 +142,7 @@ export default function GuestStories() {
               className="relative h-[540px] w-full max-w-[520px] rounded-[28px] overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.10)]"
             >
               <Image
-                src={active.image}
+                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg"
                 alt={active.author}
                 fill
                 className="object-cover"

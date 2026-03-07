@@ -7,26 +7,21 @@ export default function Hero() {
   return (
     <section className="pb-10 md:pb-20 pt-1 md:pt-2">
 
-        <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[20px] md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
+        <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[20px] aspect-[8/10] md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5] ">
           {/* Background Image */}
-<div className="absolute inset-0">
-  <video
-    autoPlay
-    muted
-    loop
-    playsInline
-    className="w-full h-full object-cover"
-    poster="https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg"
-  >
-    <source src="https://res.cloudinary.com/dpjmcup95/video/upload/v1772887224/Best_villas_in_Sri_Lanka___Scenery_Villas___Top_rated___Ideal_for_relaxing___Kids_friendly___Bentota_mkgtc5.webm" type="video/mp4" />
-  </video>
-</div>
+          <Image
+            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg"
+            alt="Luxury Villa"
+            fill
+            priority
+            className="object-cover "
+          />
 
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/45" />
 
           {/* Hero Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-16 md:pt-28 2xl:pt-50">
+          <div className="relative z-10 flex flex-col h-full items-center justify-center text-center">
             <h1 className="font-[timesTen] text-white font-semibold tracking-wide leading-tight
                            text-[20px] md:text-[36px] xl:text-[46px] ">
               LUXURY VILLAS AND HOMESTAYS IN

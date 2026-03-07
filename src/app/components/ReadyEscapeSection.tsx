@@ -12,7 +12,7 @@ export default function ReadyEscapeSection() {
 
           {/* Background Image */}
           <Image
-            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80"
+            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896001/a79a72dc92065a82e3dcbaa5d44bc0b50a2e118a_bdo1wc.webp"
             alt="Mountain Escape"
             fill
             className="object-cover"
@@ -20,12 +20,12 @@ export default function ReadyEscapeSection() {
           />
 
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/30" />
 
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 py-20">
             
-            <h2 className="text-white font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] tracking-wide uppercase">
+            <h2 className="text-white font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] font-bold tracking-wide uppercase">
               READY FOR YOUR ESCAPE?
             </h2>
 

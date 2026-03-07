@@ -32,7 +32,7 @@ export default function IntroSection() {
           {/* Left Image */}
           <div className="relative w-[100px] h-[180px] md:w-[300px] md:h-[380px] rounded-[24px] overflow-hidden shadow-md">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg"
               alt="Beach workspace"
               fill
               className="object-cover"
@@ -42,7 +42,7 @@ export default function IntroSection() {
           {/* Center Image (Larger) */}
           <div className="relative w-[120px] h-[220px] md:w-[380px] md:h-[480px] rounded-[28px] overflow-hidden shadow-lg">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772270839/3759e62b0e00282ac6fdc8cfd3c32e9eadd9cb52_wvs7yd.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg"
               alt="Sunset palm beach"
               fill
               className="object-cover"
@@ -52,7 +52,7 @@ export default function IntroSection() {
           {/* Right Image */}
           <div className="relative w-[100px] h-[180px] md:w-[300px] md:h-[380px] rounded-[24px] overflow-hidden shadow-md">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772270841/b314894fec786357b46f083d9265cd2174c2c9ec_i6nmf7.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg"
               alt="Sea turtle"
               fill
               className="object-cover"
