@@ -30,7 +30,7 @@ function ExperienceCardMobile({ item }: { item: ExperienceCard }) {
   return (
     <div className="relative">
       {/* Image */}
-      <div className="relative h-[240px] rounded-[22px] overflow-hidden">
+      <div className="relative h-[200px] md:h-[220px] rounded-[20px] overflow-hidden">
         <Image
           src={imgUrl}
           alt={item.title}
@@ -42,11 +42,11 @@ function ExperienceCardMobile({ item }: { item: ExperienceCard }) {
 
       {/* Bottom overlay content */}
       <div className="relative -mt-10 md:px-4 pb-3">
-        <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.10)] p-6">
+        <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.10)] p-4 md:p-8">
           <h4 className="font-[helvetica] text-[16px] font-semibold text-gray-900">
             {item.title}
           </h4>
-          <p className="mt-3 font-[helvetica] text-[14px] leading-6 text-gray-700">
+          <p className="mt-4 md:mt-8 font-[helvetica] text-[14px] leading-6 text-gray-700">
             {item.desc}
           </p>
         </div>
@@ -117,7 +117,7 @@ function MobileCardCarousel({ cards }: { cards: ExperienceCard[] }) {
       <div
         ref={scrollerRef}
         className="
-          flex gap-5 overflow-x-auto scroll-smooth
+          flex gap-4 overflow-x-auto scroll-smooth
           snap-x snap-mandatory    
           [-ms-overflow-style:none] [scrollbar-width:none]
           [&::-webkit-scrollbar]:hidden
@@ -195,19 +195,19 @@ function ExperienceGroupUI({ group }: { group: ExperienceGroup }) {
         </h3>
 
         {group.subtitle && (
-          <p className="mt-5 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-6 md:leading-relaxed">
+          <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-6 md:leading-relaxed">
             {group.subtitle}
           </p>
         )}
       </div>
 
       {/* ✅ MOBILE: one card slider */}
-      <div className="md:hidden">
+      <div className="md:hidden mt-8">
         <MobileCardCarousel cards={cards} />
       </div>
 
       {/* ✅ DESKTOP: grid */}
-      <div className="hidden md:grid mt-10 grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto">
+      <div className="hidden md:grid mt-16 grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto">
         {cards.map((c) => (
           <ExperienceCardDesktop key={c._key} item={c} />
         ))}
@@ -250,7 +250,7 @@ export default function ExperiencesSectionsSanity() {
   }
 
   return (
-    <section className="bg-white">
+    <section className="bg-white py-10 md:py-20">
       <Container>
         {groups.map((g) => (
           <ExperienceGroupUI key={g._id} group={g} />

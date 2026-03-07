@@ -20,7 +20,7 @@ export default function MapTab({ villa }: { villa: any }) {
   }
 
   return (
-    <section className="py-14 md:py-20">
+    <section className="py-10 mb-20 md:mb-40 md:py-20">
       <Container>
 
         <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight mb-10 md:mb-14">
@@ -28,7 +28,7 @@ export default function MapTab({ villa }: { villa: any }) {
           <span className="font-semibold">{villaName}</span>
         </h2>
 
-        <div className="rounded-[28px] md:rounded-[34px] overflow-hidden bg-white shadow-sm">
+        <div className="rounded-[20px] overflow-hidden bg-white shadow-sm">
           <iframe
             title={`${villaName} map`}
             src={src}

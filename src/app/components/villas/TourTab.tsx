@@ -18,9 +18,9 @@ export default function TourTab({ villa }: { villa: any }) {
   }
 
   return (
-    <section className="py-20">
+    <section className="py-10 md:py-20">
       <Container>
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
         
         {/* LEFT TEXT */}
         <div className="">
@@ -29,13 +29,13 @@ export default function TourTab({ villa }: { villa: any }) {
             <span className="font-semibold">{tour.headingBold}</span>
           </h2>
 
-          <p className="mt-8 text-center md:text-left font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+          <p className="mt-4 md:mt-8 text-center md:text-left font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
             {tour.description}
           </p>
         </div>
 
         {/* RIGHT 360 VIEW */}
-        <div className="w-full h-[420px] md:h-[500px] rounded-xl md:rounded-3xl">
+        <div className="w-full h-[420px] md:h-[500px] rounded-[20px]">
           <iframe
             src={tour.tourUrl}
             width="100%"
@@ -44,7 +44,7 @@ export default function TourTab({ villa }: { villa: any }) {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-xl md:rounded-3xl"
+            className="rounded-[20px]"
           />
         </div>
 

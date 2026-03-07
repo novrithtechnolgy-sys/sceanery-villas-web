@@ -75,7 +75,7 @@ export default function JoinOurJourney() {
               <span className="font-semibold">Our Journey</span>
             </h2>
 
-            <p className="mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+            <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
               Follow us on social media for travel inspiration, villa updates,
               and a glimpse into daily life in beautiful Bentota.
             </p>
@@ -84,7 +84,7 @@ export default function JoinOurJourney() {
 
       </div>
         {/* Social Bar */}
-          <div className="md:w-full md:-mt-42 rounded-[18px] bg-gray-100 py-10 px-6 md:pl-150 flex items-center justify-center gap-8 z-[-1]">
+          <div className="md:w-full mt-8 md:-mt-42 rounded-[18px] bg-gray-100 py-8 md:py-10 px-6 md:pl-150 flex items-center justify-center gap-8 z-[-1]">
             <SocialButton href="#" label="Facebook">
               <IconFacebook className="h-6 w-6 text-gray-800" />
             </SocialButton>

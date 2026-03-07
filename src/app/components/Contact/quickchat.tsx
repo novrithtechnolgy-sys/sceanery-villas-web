@@ -33,7 +33,7 @@ export default function QuickChat() {
                 Let's turn these stories into reality
             </p>
 
-            <Button variant="primary" className="mt-10 w-[320px] md:w-[360px]">
+            <Button variant="primary" className="mt-10">
               Explore Our Villas
             </Button>
           </div>

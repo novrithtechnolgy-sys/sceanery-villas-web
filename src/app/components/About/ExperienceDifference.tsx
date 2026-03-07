@@ -11,7 +11,7 @@ export default function ExperienceDifference() {
       <Container >
         <div className="relative rounded-[26px] overflow-hidden">
           {/* Background Image */}
-          <div className="relative h-[320px] md:h-[420px]">
+          <div className="relative h-[260px] md:h-[420px]">
             <Image
               src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80"
               alt="Experience the difference"
@@ -29,7 +29,7 @@ export default function ExperienceDifference() {
               EXPERIENCE THE DIFFERENCE
             </h2>
 
-            <Button variant="primary" className="mt-10 w-[320px] md:w-[360px]">
+            <Button variant="primary" className="mt-10">
               Explore Our Villas
             </Button>
           </div>

@@ -67,10 +67,10 @@ export default function BlogPage() {
   }, [active]);
 
   return (
-    <section className="py-20">
+    <section className="py-10 md:py-20">
       <Container>
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-10 text-[14px] md:text-[16px] font-[helvetica] text-gray-700">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[14px] md:text-[16px] font-[helvetica] text-gray-700">
           <button
             onClick={() => setActive("all")}
             className={
@@ -111,7 +111,7 @@ export default function BlogPage() {
 
         {/* Grid */}
         {!loading && !err && (
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {posts.map((p) => {
               const img = p.mainImage
                 ? urlFor(p.mainImage).width(1200).quality(80).url()
@@ -139,7 +139,7 @@ export default function BlogPage() {
                     </div>
                   </div>
 
-                  <div className="p-8">
+                  <div className="p-4 md:p-8">
                     <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                       {p.title}
                     </h3>
@@ -150,7 +150,7 @@ export default function BlogPage() {
 
                     <Link
                       href={`/blogs/${p.slug.current}`}
-                      className="mt-8 inline-flex w-full justify-center rounded-full bg-gray-900 text-white py-3 text-[13px] font-semibold"
+                      className="mt-6 md:mt-8 inline-flex w-[200px] font-[helvetica] md:w-full justify-center rounded-full bg-gray-900 text-white px-8 rounded-full py-2 md:py-3 text-[14px]  font-semibold"
                     >
                       Read More
                     </Link>

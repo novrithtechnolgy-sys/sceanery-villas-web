@@ -30,7 +30,7 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-20">
+      <div className="mx-auto max-w-6xl px-6 py-10 md:py-20">
         {/* Title */}
         <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight text-gray-900">
           <span className="italic font-medium">Frequently Asked</span>{" "}
@@ -38,7 +38,7 @@ export default function FAQSection() {
         </h2>
 
         {/* Items */}
-        <div className="mx-auto mt-14 max-w-4xl">
+        <div className="mx-auto mt-4 md:mt-8 max-w-4xl">
           {faqs.map((item, idx) => {
             const isOpen = idx === openIndex;
 

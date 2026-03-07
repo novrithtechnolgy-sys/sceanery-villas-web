@@ -30,7 +30,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
     <section className="py-10 md:py-20">
       <Container>
         {/* Intro */}
-        <div className="grid md:grid-cols-2 gap-10 items-center pb-20">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center pb-10 md:pb-20">
           <div>
             <h2 className="text-center md:text-left font-[timesTen] md:flex md:flex-col text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
               <span className="italic font-serif text-gray-800">
@@ -42,13 +42,13 @@ export default function OverviewTab({ villa }: { villa: any }) {
             </h2>
 
             {villa.intro?.description && (
-              <p className="mt-8 text-center md:text-left font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed whitespace-pre-line">
+              <p className="mt-4 md:mt-8 text-center md:text-left font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed whitespace-pre-line">
                 {villa.intro.description}
               </p>
             )}
           </div>
 
-          <div className="relative h-[240px] md:h-[320px] md:h-full rounded-[26px] overflow-hidden bg-gray-100">
+          <div className="relative h-[240px] md:h-[320px] md:h-full rounded-[20px] overflow-hidden bg-gray-100">
             {introImg && (
               <Image src={introImg} alt="Intro" fill className="object-cover" />
             )}
@@ -59,22 +59,22 @@ export default function OverviewTab({ villa }: { villa: any }) {
         {!!highlightCards.length && (
           <div>
             {/* Section Title */}
-            <h3 className="md:mt-20 text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+            <h3 className="mt-10 md:mt-20 text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
               <span className="italic">{villa.highlights.headingItalic}</span>{" "}
               <span className="font-semibold">{villa.highlights.headingBold}</span>
             </h3>
 
             {/* Description */}
             {villa.highlights.description && (
-              <p className="mt-4 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed text-center max-w-3xl mx-auto px-4">
+              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed text-center max-w-3xl mx-auto px-4">
                 {villa.highlights.description}
               </p>
             )}
 
             {/* Mobile Slider */}
-            <div className="mt-8 md:hidden">
-              <div className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
-                <div className="relative h-[220px] bg-gray-100">
+            <div className="mt-8 md:mt-16 md:hidden">
+              <div className="overflow-hidden rounded-[20px] border border-gray-200 bg-white shadow-sm">
+                <div className="relative h-[200px] md:h-[220px] bg-gray-100">
                   {highlightCards[activeIndex]?.image && (
                     <Image
                       src={urlFor(highlightCards[activeIndex].image)
@@ -88,7 +88,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
                   )}
                 </div>
 
-                <div className="p-6">
+                <div className="p-4 md:p-8">
                   <div className="font-[helvetica] text-[16px] font-semibold text-gray-900">
                     {highlightCards[activeIndex]?.title}
                   </div>
@@ -99,7 +99,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
                 </div>
               </div>
 
-              <div className="mt-5 flex items-center justify-center gap-4">
+              <div className="mt-4 flex items-center justify-center gap-4">
                 <ArrowButton
                   onClick={prevSlide}
                   direction="left"
@@ -128,9 +128,9 @@ export default function OverviewTab({ villa }: { villa: any }) {
                 return (
                   <div
                     key={idx}
-                    className="overflow-hidden rounded-[22px] border border-gray-100 bg-white shadow-sm"
+                    className="overflow-hidden rounded-[20px] border border-gray-100 bg-white shadow-sm"
                   >
-                    <div className="relative h-[180px] bg-gray-100">
+                    <div className="relative h-[220px] bg-gray-100">
                       {img && (
                         <Image
                           src={img}
@@ -141,7 +141,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
                       )}
                     </div>
 
-                    <div className="p-5">
+                    <div className="p-8">
                       <div className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                         {h.title}
                       </div>

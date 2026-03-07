@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
+import ArrowButton from "../ArrowButton";
 
 const CARD_W = 440;
 const GAP = 40;
@@ -15,11 +15,37 @@ export default function VillaGalleryCarousel({
   items: any[];
 }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateScrollState = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const maxScrollLeft = el.scrollWidth - el.clientWidth;
+
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft < maxScrollLeft - 2);
+  };
 
   useEffect(() => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollLeft = INITIAL_OFFSET;
-  }, []);
+    const el = scrollRef.current;
+    if (!el) return;
+
+    el.scrollLeft = INITIAL_OFFSET;
+    updateScrollState();
+
+    const handleScroll = () => updateScrollState();
+    const handleResize = () => updateScrollState();
+
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      el.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [items.length]);
 
   const scrollByCard = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -37,12 +63,11 @@ export default function VillaGalleryCarousel({
   }
 
   return (
-    <section className="w-full py-12 md:py-20 overflow-hidden">
-
-      <div className="mt-6 md:mt-12 overflow-hidden">
+    <section className="w-full overflow-hidden py-10 md:py-20">
+      <div className="mt-6 overflow-hidden md:mt-12">
         <div
           ref={scrollRef}
-          className="flex gap-6 md:gap-10 overflow-x-auto scroll-smooth px-4 md:px-0"
+          className="flex gap-6 overflow-x-auto scroll-smooth px-4 md:gap-10 md:px-0"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
@@ -57,13 +82,13 @@ export default function VillaGalleryCarousel({
                 key={imgObj._key || i}
                 className="relative shrink-0 w-[80vw] md:w-[440px]"
               >
-                <div className="relative h-[230px] md:h-[300px] rounded-[28px] overflow-hidden bg-gray-100">
+                <div className="relative h-[230px] overflow-hidden rounded-[28px] bg-gray-100 md:h-[300px]">
                   <Image
                     src={img}
                     alt={imgObj.alt || `Villa image ${i + 1}`}
                     fill
                     className="object-cover"
-                    sizes="(max-width:768px) 80vw, 440px"
+                    sizes="(max-width: 768px) 80vw, 440px"
                   />
                 </div>
               </div>
@@ -72,23 +97,18 @@ export default function VillaGalleryCarousel({
         </div>
       </div>
 
-      {/* arrows */}
-      <div className="flex items-center justify-center gap-4 md:gap-6 mt-6 md:mt-12">
-        <button
-          type="button"
+      <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 md:gap-6">
+        <ArrowButton
+          direction="left"
+          disabled={!canScrollLeft}
           onClick={() => scrollByCard("left")}
-          className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-gray-300 bg-white shadow flex items-center justify-center"
-        >
-          <ChevronLeft className="w-5 h-5 md:w-7 md:h-7" />
-        </button>
+        />
 
-        <button
-          type="button"
+        <ArrowButton
+          direction="right"
+          disabled={!canScrollRight}
           onClick={() => scrollByCard("right")}
-          className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-gray-300 bg-white shadow flex items-center justify-center"
-        >
-          <ChevronRight className="w-5 h-5 md:w-7 md:h-7" />
-        </button>
+        />
       </div>
 
       <style jsx>{`

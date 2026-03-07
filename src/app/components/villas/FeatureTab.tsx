@@ -32,15 +32,15 @@ export default function FeatureTab({ villa }: { villa: any }) {
     <section className="py-10 md:py-20">
       <Container>
         {/* Section Title */}
-        <h2 className="mb-8 md:mb-12 text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+        <h2 className="mb-8 md:mb-16 text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
           <span className="italic">Key</span>{" "}
           <span className="font-semibold">Features</span>
         </h2>
 
         {/* Mobile Slider */}
         <div className="md:hidden">
-          <div className="overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm">
-            <div className="relative h-[215px] w-full bg-gray-100">
+          <div className="overflow-hidden rounded-[20px] border border-gray-200 bg-white shadow-sm">
+            <div className="relative h-[200px] md:h-[220px] w-full bg-gray-100">
               {activeImg && (
                 <Image
                   src={activeImg}
@@ -51,8 +51,8 @@ export default function FeatureTab({ villa }: { villa: any }) {
               )}
             </div>
 
-            <div className="p-6">
-              <div className="mb-4 flex items-center gap-3">
+            <div className="p-4">
+              <div className="mb-4 md:mb-8 flex items-center gap-4 md:gap-8">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-black text-white">
                   <FaSwimmingPool size={13} />
                 </div>
@@ -68,7 +68,7 @@ export default function FeatureTab({ villa }: { villa: any }) {
             </div>
           </div>
 
-          <div className="mt-5 flex items-center justify-center gap-4">
+          <div className="mt-4 flex items-center justify-center gap-4">
             <ArrowButton
               onClick={prevSlide}
               direction="left"
@@ -97,9 +97,9 @@ export default function FeatureTab({ villa }: { villa: any }) {
             return (
               <div
                 key={i}
-                className="overflow-hidden rounded-[28px] border border-gray-100 bg-white shadow"
+                className="overflow-hidden rounded-[20px] border border-gray-100 bg-white shadow"
               >
-                <div className="relative h-[230px] w-full">
+                <div className="relative h-[220px] w-full">
                   {img && (
                     <Image
                       src={img}
@@ -110,8 +110,8 @@ export default function FeatureTab({ villa }: { villa: any }) {
                   )}
                 </div>
 
-                <div className="p-6">
-                  <div className="mb-3 flex items-center gap-3">
+                <div className="p-8">
+                  <div className="mb-8 flex items-center gap-8">
                     <div className="flex h-9 w-9 items-center justify-center rounded-md bg-black text-white">
                       <FaSwimmingPool size={14} />
                     </div>

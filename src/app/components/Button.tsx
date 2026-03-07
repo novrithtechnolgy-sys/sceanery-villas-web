@@ -32,7 +32,7 @@ export default function Button({
         "px-8 rounded-full py-2 md:py-3 text-[14px] font-semibold",
         "flex items-center justify-center gap-2",
         "transition-all duration-200",
-         "w-[200px] lg:w-[400px]",
+         "w-[200px] lg:w-[340px]",
 
         // Variants
         variant === "primary" &&

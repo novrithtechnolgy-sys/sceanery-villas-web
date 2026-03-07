@@ -25,10 +25,10 @@ export default function ContactHero() {
           <h1 className="font-[timesTen] uppercase text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
             Let's Plan Your Escape
           </h1>
-          <p className="mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
            We are here to help you find the perfect villa.    
            </p>
-          <p className="mt-12 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
             Whether you have a specific property in mind or need a recommendation for your group size, our team is ready to assist. Reach out to us via phone, email, or the form below.
           </p>
 

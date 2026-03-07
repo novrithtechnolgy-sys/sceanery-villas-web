@@ -19,7 +19,7 @@ export default function WhereWeAreSection() {
   return (
     <section className="py-20">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Left: Map */}
           <div className="rounded-[28px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
             <div className="relative w-full h-[460px] md:h-[520px]">
@@ -40,13 +40,13 @@ export default function WhereWeAreSection() {
               <span className="font-semibold">We Are</span>
             </h2>
 
-            <p className="mt-8 max-w-[520px] font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-8 text-gray-700">
+            <p className="mt-4 md:mt-8 max-w-[520px] font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-8 text-gray-700">
               Our collection is located along the southern coast of Sri Lanka,
               centered around the towns of Bentota, Aluthgama, and Dharga Town.
             </p>
 
-            <div className="mt-10 flex flex-col items-center md:flex-row gap-4 max-w-[620px]">
-              <div className="mt-1 h-10 w-10  rounded-full border border-gray-200 flex items-center justify-center">
+            <div className="mt-8 flex flex-col items-center md:flex-row gap-4 max-w-[620px]">
+              <div className="md:-mt-9 h-10 w-10  rounded-full border border-gray-200 flex items-center justify-center">
                 <MapPin className="h-5 w-5 text-gray-900" />
               </div>
 
@@ -57,25 +57,27 @@ export default function WhereWeAreSection() {
               </p>
             </div>
 
-            <div className="mt-14 hidden md:block ">
+            <div className="mt-8 hidden md:block ">
               <a
                 href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-gray-900 text-white px-16 py-4 text-[14px] font-semibold shadow-sm hover:bg-black transition"
+                className="inline-flex items-center justify-center w-[200px] lg:w-[340px] rounded-full bg-gray-900 text-white px-16 py-3  text-[14px] font-semibold shadow-sm hover:bg-black transition"
               >
                 Get Directions
               </a>
             </div>
           </div>
+          <div className="flex justify-center md:hidden">
             <a
                 href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="md:hidden inline-flex items-center justify-center rounded-full bg-gray-900 text-white px-16 py-4 text-[14px] font-semibold shadow-sm hover:bg-black transition"
+                className="md:hidden inline-flex w-[200px] lg:w-[340px] items-center justify-center rounded-full bg-gray-900 text-white py-2 text-[14px] font-semibold shadow-sm hover:bg-black transition"
               >
                 Get Directions
               </a>
+            </div>
         </div>
       </Container>
     </section>

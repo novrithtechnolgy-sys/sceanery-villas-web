@@ -7,10 +7,10 @@ export default function Hero() {
   return (
     <section className="pb-10 md:pb-20 pt-1 md:pt-2">
 
-        <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[10px]  md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
+        <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[20px] md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
           {/* Background Image */}
           <Image
-            src="/208bb3164c040ef306a0874503fa5da68c734180.jpg"
+            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772883965/IMG-20250927-WA0049_1_ggytqt.jpg"
             alt="Luxury Villa"
             fill
             priority
@@ -29,7 +29,7 @@ export default function Hero() {
               BENTOTA SRI LANKA
             </h1>
 
-            <p className="mt-4 md:mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+            <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
               Discover a curated collection of 6 private villas and residences in Bentota and Aluthgama.
               <br />
               From hilltop sanctuaries and group retreats to cozy homestays.
@@ -37,7 +37,7 @@ export default function Hero() {
               Book your perfect Sri Lankan escape.
             </p>
 
-            <button className="md:hidden mt-6 md:mt-6 bg-white w-[200px] py-2 text-[14px] rounded-full text-black">
+            <button className="md:hidden font-[helvetica] font-semibold mt-8 md:mt-6 bg-white w-[200px] py-2 text-[14px] rounded-full text-black">
                 Book Now
             </button>
           </div>

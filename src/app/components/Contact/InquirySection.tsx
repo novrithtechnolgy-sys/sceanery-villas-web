@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Button from "../Button";
 
 type FormState = {
   fullName: string;
@@ -37,7 +38,7 @@ export default function InquirySection() {
   }
 
   return (
-    <section className="relative w-full bg-white md:py-60">
+    <section className="relative w-full bg-white py-10 md:py-60">
       {/* Background image with side-crop look */}
       <div className="hidden md:block relative h-[880px] md:h-[760px] lg:h-[720px] overflow-hidden">
         <Image
@@ -54,7 +55,7 @@ export default function InquirySection() {
       {/* Center Card */}
       <div className="relative md:absolute inset-0 flex items-center justify-center md:pl-84 md:py-10">
         <div className="w-full max-w-[820px] rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-200 overflow-hidden">
-          <form onSubmit={onSubmit} className="px-10 md:px-14 py-12 md:py-14">
+          <form onSubmit={onSubmit} className="px-8 md:px-14 py-8 md:py-14">
             {/* Title */}
             <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
               <span className="italic font-medium">Send an</span>{" "}
@@ -62,12 +63,12 @@ export default function InquirySection() {
             </h2>
 
             {/* Sub */}
-            <p className="mt-6  font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-7 text-gray-700">
+            <p className="mt-4 md:mt-8  font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-7 text-gray-700">
               Please fill out the details below, and our reservations team will get
               back to you within 24 hours with availability and a custom quote.
             </p>
 
-            <div className="mt-10 space-y-8">
+            <div className="mt-4 md:mt-8 space-y-4 md:space-y-8">
               {/* Full name */}
               <Field label="Full Name*" htmlFor="fullName">
                 <UnderlineInput
@@ -182,12 +183,11 @@ export default function InquirySection() {
 
               {/* Button */}
               <div className="pt-4">
-                <button
+                <Button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-full bg-gray-900 text-white px-14 py-4 text-[14px] font-semibold shadow-sm hover:bg-black transition"
                 >
                   Send Message
-                </button>
+                </Button>
               </div>
             </div>
           </form>
@@ -216,7 +216,7 @@ function Field({
       >
         {label}
       </label>
-      <div className="mt-4">{children}</div>
+      <div className="mt-2 md:mt-4">{children}</div>
     </div>
   );
 }
@@ -230,7 +230,7 @@ function UnderlineInput(
         {...props}
         className={[
           "w-full bg-transparent text-[16px] text-gray-900 outline-none",
-          "pb-3",
+          "mb-1 md:pb-3",
         ].join(" ")}
       />
       <div className="h-px w-full bg-gray-600/70" />

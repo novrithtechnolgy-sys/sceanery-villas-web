@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function AboutHero() {
   return (
     <section>
-      <div className="relative overflow-hidden rounded-t-[28px] md:rounded-b-[28px] h-[420px] md:h-[520px] lg:h-[600px]">
+      <div className="relative overflow-hidden rounded-t-[20px] md:rounded-b-[20px] h-[420px] md:h-[520px] lg:h-[600px]">
 
         {/* Background Image */}
         <Image
@@ -26,7 +26,7 @@ export default function AboutHero() {
             HOSPITALITY WITH HEART
           </h1>
 
-          <p className="mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
             We are not a hotel chain. We are a collection of private homes,
             curated for travelers who seek privacy, authenticity, and a deeper
             connection to Sri Lanka.

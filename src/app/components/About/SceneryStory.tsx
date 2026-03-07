@@ -15,7 +15,7 @@ export default function SceneryStory() {
         </h2>
 
         {/* First Paragraph */}
-        <p className="mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-800">
+        <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-800">
           Scenery Villas began with a simple idea: that the best travel
           experiences happen in private. We wanted to move away from the
           crowded lobbies and standardized rooms of large hotels to create
@@ -25,7 +25,7 @@ export default function SceneryStory() {
         </p>
 
         {/* Second Paragraph */}
-        <p className="mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-800">
+        <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-800">
           From the hilltop silence of Villa Mandalay to the gathering spaces
           of Treetop Resort, each property in our portfolio has been chosen
           for its character, its location, and its ability to make you feel

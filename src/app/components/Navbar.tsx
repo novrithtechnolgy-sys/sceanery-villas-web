@@ -190,8 +190,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          open ? "max-h-[900px] opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
+          open ? "max-h-[900px] opacity-100  z-50" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 pb-6 pt-4 bg-white border-t border-gray-100 space-y-4 text-[15px] text-gray-800">
@@ -254,7 +254,7 @@ export default function Navbar() {
                       key={villa.slug}
                       href={villaHref}
                       className={`block ${
-                        active ? "text-black font-semibold" : "text-gray-700"
+                        active ? "text-black font-semibold </div>" : "text-gray-700"
                       }`}
                       onClick={() => {
                         setOpen(false);

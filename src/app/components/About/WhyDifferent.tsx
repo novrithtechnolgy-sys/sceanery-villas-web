@@ -14,9 +14,9 @@ type Feature = {
 
 function FeatureCard({ item }: { item: Feature }) {
   return (
-    <div className="rounded-[26px] w-full overflow-hidden bg-white border border-gray-200 md:shadow-[0_14px_34px_rgba(0,0,0,0.10)]">
+    <div className="rounded-[20px] w-full overflow-hidden bg-white border border-gray-200 md:shadow-[0_14px_34px_rgba(0,0,0,0.10)]">
       {/* Image */}
-      <div className="relative h-[240px] sm:h-[200px]">
+      <div className="relative h-[200px] sm:h-[200px]">
         <Image
           src={item.image}
           alt={item.title}
@@ -28,12 +28,12 @@ function FeatureCard({ item }: { item: Feature }) {
       </div>
 
       {/* Content */}
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
           {item.title}
         </h3>
 
-        <p className="mt-3 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
+        <p className="mt-4 md:mt-4 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
           {item.description}
         </p>
       </div>
@@ -136,7 +136,7 @@ export default function WhyDifferent() {
         </h2>
 
         {/* ✅ MOBILE: swipe carousel like your screenshot */}
-        <div className="mt-14 md:hidden">
+        <div className="mt-8 md:mt-16 md:hidden">
           <div
             ref={scrollerRef}
             className="
@@ -161,7 +161,7 @@ export default function WhyDifferent() {
           </div>
 
           {/* 1/3 indicator */}
-          <div className="mt-5 flex items-center justify-center gap-3">
+          <div className="mt-4 flex items-center justify-center gap-3">
             <ArrowButton
              direction="left"
              disabled={active === 0}

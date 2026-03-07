@@ -33,7 +33,7 @@ export default function Inspired() {
                 Let's turn these stories into reality
             </p>
 
-            <Button variant="primary" className="mt-10 w-[320px] md:w-[360px]">
+            <Button variant="primary" className="mt-8">
               Explore Our Villas
             </Button>
           </div>

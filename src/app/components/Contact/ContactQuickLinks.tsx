@@ -33,14 +33,14 @@ export default function ContactQuickLinks() {
   ];
 
   return (
-    <section className="py-20">
+    <section className="py-10 md:py-20">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3">
           {items.map((it, idx) => (
             <div
               key={it.title}
               className={[
-                "flex flex-col items-center text-center py-10",
+                "flex flex-col items-center text-center py-4 md:py-10",
                 idx !== 0 ? "md:border-l md:border-gray-200" : "",
               ].join(" ")}
             >

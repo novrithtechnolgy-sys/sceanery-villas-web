@@ -16,7 +16,7 @@ export default function VillaHero({ villa }: { villa: any }) {
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div className="text-white max-w-2xl">
             <h1 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white">{villa.title}</h1>
-            {villa.tagline && <p className="mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">{villa.tagline}</p>}
+            {villa.tagline && <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">{villa.tagline}</p>}
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function VillaHero({ villa }: { villa: any }) {
     <div className="relative py-10 md:py-20 z-10 bg-[#f8f8f8] rounded-b-[22px]">
       <Container>
         <div className="rounded-[22px] max-w-5xl mx-auto p-4 md:p-6 z-10">
-          <div className="grid md:grid-cols-2 gap-4 nmd:gap-10">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-10">
 
             <Stat
               icon={<FaBed />}

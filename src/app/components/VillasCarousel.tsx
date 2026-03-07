@@ -64,7 +64,7 @@ function VillaCard({ villa }: { villa: Villa }) {
         </div>
 
         <div className="relative -mt-10">
-          <div className="rounded-t-[26px] bg-white px-5 lg:px-8 pt-8 pb-8">
+          <div className="rounded-t-[26px] bg-white px-4 lg:px-8 pt-8 pb-8">
             <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{villa.title}</h3>
 
             {villa.description && (
