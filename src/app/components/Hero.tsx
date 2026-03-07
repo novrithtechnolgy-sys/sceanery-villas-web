@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="pb-10 md:pb-20 pt-1 md:pt-2">
 
-        <div className="relative overflow-hidden md:rounded-b-[20px]  md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
+        <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[10px]  md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
           {/* Background Image */}
           <Image
             src="/208bb3164c040ef306a0874503fa5da68c734180.jpg"
