@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[20px] md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
           {/* Background Image */}
           <Image
-            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772883965/IMG-20250927-WA0049_1_ggytqt.jpg"
+            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg"
             alt="Luxury Villa"
             fill
             priority
