@@ -9,13 +9,18 @@ export default function Hero() {
 
         <div className="relative overflow-hidden md:rounded-b-[20px] rounded-t-[20px] md:aspect-[8/5] lg:aspect-[10/5] xl:aspect-[12/5]">
           {/* Background Image */}
-          <Image
-            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg"
-            alt="Luxury Villa"
-            fill
-            priority
-            className="object-cover "
-          />
+<div className="absolute inset-0">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-full object-cover"
+    poster="https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg"
+  >
+    <source src="https://res.cloudinary.com/dpjmcup95/video/upload/v1772887224/Best_villas_in_Sri_Lanka___Scenery_Villas___Top_rated___Ideal_for_relaxing___Kids_friendly___Bentota_mkgtc5.webm" type="video/mp4" />
+  </video>
+</div>
 
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/45" />
