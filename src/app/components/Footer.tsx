@@ -3,29 +3,32 @@
 import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok } from "react-icons/fa";
 import Container from "./Container";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F0F10] text-white ">
+    <footer className="bg-[#0F0F10] text-white py-10">
       <Container>
         {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-10 font-[helvetica] text-[14px] md:text-[16px]">
 
           {/* Left Column */}
           <div className="lg:col-span-6">
-            <h2 className="text-[32px] md:text-[40px] font-serif tracking-wide">
-              SCENERY VILLAS
-            </h2>
+          <Link href="/">
+            <Image
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772968765/c8f928687ebf28425689475c060719bf31a8df8f2_pzxi4y.png"
+              alt="Scenery Villas Logo"
+              width={140}
+              height={40}
+              className="object-contain w-[260px] h-[60px]"
+            />
+          </Link>
 
-            <p className="text-sm italic text-gray-400 mt-2">
-              Collection of villas for cherished moments
-            </p>
-
-            <p className="mt-10 text-gray-300 leading-8 max-w-[420px]">
+            <p className="mt-8 text-gray-300  leading-8 max-w-[420px]">
               Curating exceptional stays on the southern coast of Sri Lanka.
             </p>
 
-            <div className="mt-10 space-y-3 text-gray-300">
+            <div className="mt-8 space-y-3 text-gray-300">
               <p>hello@sceneryvillassrilanka.com</p>
               <p>+94 77 908 2515</p>
               <p>Dhargatown, Sri Lanka</p>
@@ -42,7 +45,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-10">
+          <div className="lg:col-span-6 grid grid-cols-2 gap-10 font-[helvetica] text-[14px] md:text-[16px]" >
 
             {/* Collection */}
             <div>
