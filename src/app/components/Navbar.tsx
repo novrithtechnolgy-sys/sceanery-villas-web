@@ -158,7 +158,7 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <button className="rounded-full bg-gray-900 text-white px-5 py-2 text-[13px] font-semibold hover:bg-black transition">
+            <button className="rounded-full font-[helvetica] bg-gray-900 text-white px-5 py-2 text-[13px] font-semibold hover:bg-black transition">
               Book Now
             </button>
           </div>
@@ -194,7 +194,7 @@ export default function Navbar() {
           open ? "max-h-[900px] opacity-100  z-50" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-6 pt-4 bg-white border-t border-gray-100 space-y-4 text-[15px] text-gray-800">
+        <div className="px-6 pb-6 pt-4 bg-white font-[helvetica] border-t border-gray-100 space-y-4 text-[14px] text-gray-800">
           <Link
             href="/"
             className={`block ${pathname === "/" ? "text-black font-semibold" : ""}`}
