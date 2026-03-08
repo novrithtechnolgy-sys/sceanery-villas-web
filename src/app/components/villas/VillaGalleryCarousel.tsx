@@ -1,13 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import ArrowButton from "../ArrowButton";
-
-const CARD_W = 440;
-const GAP = 40;
-const INITIAL_OFFSET = 220;
 
 export default function VillaGalleryCarousel({
   items = [],
@@ -15,44 +11,38 @@ export default function VillaGalleryCarousel({
   items: any[];
 }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
+  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
 
-  const updateScrollState = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-
-    const maxScrollLeft = el.scrollWidth - el.clientWidth;
-
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft < maxScrollLeft - 2);
-  };
+  // duplicate items for infinite illusion
+  const loopItems = [...items, ...items];
 
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
 
-    el.scrollLeft = INITIAL_OFFSET;
-    updateScrollState();
+    autoScrollRef.current = setInterval(() => {
+      if (!el) return;
 
-    const handleScroll = () => updateScrollState();
-    const handleResize = () => updateScrollState();
+      el.scrollLeft += 0.1; // speed
 
-    el.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
+      // when reaching half width reset
+      if (el.scrollLeft >= el.scrollWidth / 2) {
+        el.scrollLeft = 0;
+      }
+    }, 16); // ~60fps
 
     return () => {
-      el.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
+      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
     };
   }, [items.length]);
 
   const scrollByCard = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
+    const el = scrollRef.current;
+    if (!el) return;
 
-    const amount = CARD_W + GAP;
+    const amount = 480;
 
-    scrollRef.current.scrollBy({
+    el.scrollBy({
       left: direction === "right" ? amount : -amount,
       behavior: "smooth",
     });
@@ -67,19 +57,18 @@ export default function VillaGalleryCarousel({
       <div className="mt-6 overflow-hidden md:mt-12">
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth px-4 md:gap-10 md:px-0"
+          className="flex gap-6 overflow-x-auto px-4 md:gap-10 md:px-0"
           style={{
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            paddingRight: "80px",
           }}
         >
-          {items.map((imgObj, i) => {
+          {loopItems.map((imgObj, i) => {
             const img = urlFor(imgObj).width(1400).quality(90).url();
 
             return (
               <div
-                key={imgObj._key || i}
+                key={imgObj._key ? `${imgObj._key}-${i}` : i}
                 className="relative shrink-0 w-[80vw] md:w-[440px]"
               >
                 <div className="relative h-[230px] overflow-hidden rounded-[28px] bg-gray-100 md:h-[300px]">
@@ -98,17 +87,8 @@ export default function VillaGalleryCarousel({
       </div>
 
       <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 md:gap-6">
-        <ArrowButton
-          direction="left"
-          disabled={!canScrollLeft}
-          onClick={() => scrollByCard("left")}
-        />
-
-        <ArrowButton
-          direction="right"
-          disabled={!canScrollRight}
-          onClick={() => scrollByCard("right")}
-        />
+        <ArrowButton direction="left" onClick={() => scrollByCard("left")} />
+        <ArrowButton direction="right" onClick={() => scrollByCard("right")} />
       </div>
 
       <style jsx>{`

@@ -42,7 +42,7 @@ export default function IntroSection() {
           {/* Center Image (Larger) */}
           <div className="relative w-[120px] h-[220px] md:w-[380px] md:h-[480px] rounded-[28px] overflow-hidden shadow-lg">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp"
               alt="Sunset palm beach"
               fill
               className="object-cover"

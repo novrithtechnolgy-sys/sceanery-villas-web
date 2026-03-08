@@ -28,7 +28,7 @@ function getYoutubeEmbedUrl(url?: string) {
 
 export default function GalleryTab({ villa }: { villa: any }) {
   if (!villa.gallery?.length) {
-    return <div className="text-sm text-gray-600">No gallery items yet.</div>;
+    return <div className="text-sm text-gray-600"></div>;
   }
 
   return (

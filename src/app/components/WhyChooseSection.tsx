@@ -95,28 +95,28 @@ export default function WhyChooseSection() {
         title: "Private Dining",
         description:
           "From Sri Lankan rice and curry feasts to seafood BBQs, our private chefs craft meals around your cravings.",
-        image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
       },
       {
         id: "2",
         title: "Exclusive Use",
         description:
           "No strangers at the pool. No crowded buffets. The entire property is yours, ensuring total privacy and safety.",
-        image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
       },
       {
         id: "3",
         title: "The Real Bentota",
         description:
           "We guide you beyond the tourist traps. River safaris, hidden temples, and the best local spots, curated by our team.",
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772941365/upftzhasthk4h7vhswa9_qlbgjx.webp",
       },
       {
         id: "4",
         title: "Work and Play",
         description:
           "With high speed fiber internet and dedicated workspaces, our villas are perfect for digital nomads and workations.",
-        image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=80",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
       },
     ],
     []

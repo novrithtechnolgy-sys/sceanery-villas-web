@@ -324,7 +324,7 @@ export default function VillasCarousel() {
         </div>
 
         <div className="mt-12 overflow-hidden">
-          <div className="sm:pl-4 md:pl-8 lg:pl-12 xl:pl-20 pr-20">
+          <div className="sm:pl-4 md:pl-8 lg:pl-12 xl:pl-28 pr-20">
             <div className="pr-[220px]">
               <div
                 className="flex gap-4 md:gap-10 transition-transform duration-500 ease-out will-change-transform"
