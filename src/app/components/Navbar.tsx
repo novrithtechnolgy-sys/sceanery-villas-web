@@ -232,19 +232,6 @@ export default function Navbar() {
               }`}
             >
               <div className="ml-4 space-y-2 border-l border-gray-200 pl-4">
-                <Link
-                  href="/villas"
-                  className={`block ${
-                    pathname === "/villas" ? "text-black font-semibold" : "text-gray-700"
-                  }`}
-                  onClick={() => {
-                    setOpen(false);
-                    setMobileVillaOpen(false);
-                  }}
-                >
-                  View All Villas
-                </Link>
-
                 {villas.map((villa) => {
                   const villaHref = `/villas/${villa.slug}`;
                   const active = pathname === villaHref;
