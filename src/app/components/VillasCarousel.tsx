@@ -2,6 +2,7 @@
 
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import ArrowButton from "./ArrowButton";
@@ -11,11 +12,12 @@ type Villa = {
   badge?: string;
   title: string;
   description?: string;
-  image: any; // Sanity image object
+  image: any;
   bedrooms?: number;
   sleeps?: number;
   feature?: string;
   cta?: string;
+  slug?: string;
 };
 
 function IconBed({ className = "" }: { className?: string }) {
@@ -27,6 +29,7 @@ function IconBed({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
 function IconUsers({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -35,6 +38,7 @@ function IconUsers({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
 function IconLeaf({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -44,14 +48,13 @@ function IconLeaf({ className = "" }: { className?: string }) {
   );
 }
 
-
-/* ---------------- DESKTOP/TABLET CARD (original) ---------------- */
 function VillaCard({ villa }: { villa: Villa }) {
   const imgUrl = villa.image ? urlFor(villa.image).width(1600).quality(80).url() : "";
+  const href = villa.slug ? `/villas/${villa.slug}` : "#";
 
   return (
     <div className="shrink-0 w-[300px] md:w-[430px] xl:w-[560px]">
-      <div className="relative rounded-[28px] overflow-hidden bg-white border-1 border-gray-300">
+      <div className="relative rounded-[28px] overflow-hidden bg-white border border-gray-300">
         <div className="relative h-[250px]">
           {imgUrl && <Image src={imgUrl} alt={villa.title} fill className="object-cover" />}
           {!!villa.badge && (
@@ -65,10 +68,14 @@ function VillaCard({ villa }: { villa: Villa }) {
 
         <div className="relative -mt-10">
           <div className="rounded-t-[26px] bg-white px-4 lg:px-8 pt-8 pb-8">
-            <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{villa.title}</h3>
+            <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+              {villa.title}
+            </h3>
 
             {villa.description && (
-              <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">{villa.description}</p>
+              <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">
+                {villa.description}
+              </p>
             )}
 
             <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 xl:gap-14 text-[14px] md:text-[16px] text-gray-900">
@@ -87,9 +94,19 @@ function VillaCard({ villa }: { villa: Villa }) {
             </div>
 
             <div className="flex justify-center text-[14px] text-gray-900">
-              <Button variant="primary" className="mt-8">
-                {villa.cta ?? "Explore"}
-              </Button>
+              {villa.slug ? (
+                <Link href={href} className="mt-8 inline-block">
+                  <Button variant="primary">
+                    {villa.cta ?? "Explore"}
+                  </Button>
+                </Link>
+              ) : (
+                <Link href={href} className="mt-8 inline-block">
+                <Button variant="primary" className="" >
+                  {villa.cta ?? "Explore"}
+                </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -98,32 +115,55 @@ function VillaCard({ villa }: { villa: Villa }) {
   );
 }
 
-/* ---------------- MOBILE CARD (screenshot style) ---------------- */
-function MobileCTA({ children }: { children: React.ReactNode }) {
+function MobileCTA({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href?: string;
+}) {
+  const className = [
+    "w-60 rounded-full bg-black text-white",
+    "py-2 text-[14px] font-semibold text-center block",
+    "shadow-[0_12px_28px_rgba(0,0,0,0.18)]",
+    "active:scale-[0.99] transition",
+  ].join(" ");
+
+  if (!href) {
+    return (
+      <button
+        className={`${className} cursor-not-allowed`}
+        type="button"
+        disabled
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <button
-      className={[
-        "w-60 rounded-full bg-black text-white",
-        "py-2 text-[14px] font-semibold",
-        "shadow-[0_12px_28px_rgba(0,0,0,0.18)]",
-        "active:scale-[0.99] transition",
-      ].join(" ")}
-      type="button"
-    >
+    <Link href={href} className={className}>
       {children}
-    </button>
+    </Link>
   );
 }
 
 function VillaCardMobile({ villa }: { villa: Villa }) {
   const imgUrl = villa.image ? urlFor(villa.image).width(1400).quality(80).url() : "";
+  const href = villa.slug ? `/villas/${villa.slug}` : undefined;
 
   return (
     <div className="w-full shrink-0 px-4">
       <div className="relative overflow-hidden rounded-[28px] bg-white">
         <div className="relative h-[240px]">
           {imgUrl && (
-            <Image src={imgUrl} alt={villa.title} fill className="object-cover" sizes="(max-width: 640px) 100vw, 640px" />
+            <Image
+              src={imgUrl}
+              alt={villa.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 640px"
+            />
           )}
 
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-black/0" />
@@ -138,10 +178,16 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
         </div>
 
         <div className="relative -mt-10 pb-4">
-          <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border-1 border-gray-300">
-            <h3 className=" font-[helvetica] text-[16px] font-semibold text-gray-900">{villa.title}</h3>
+          <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border border-gray-300">
+            <h3 className="font-[helvetica] text-[16px] font-semibold text-gray-900">
+              {villa.title}
+            </h3>
 
-            {villa.description && <p className="font-[helvetica] mt-2 text-[14px] text-gray-700 leading-relaxed">{villa.description}</p>}
+            {villa.description && (
+              <p className="font-[helvetica] mt-2 text-[14px] text-gray-700 leading-relaxed">
+                {villa.description}
+              </p>
+            )}
 
             <div className="mt-4 grid grid-cols-3 gap-3 text-[14px] text-gray-900">
               <div className="flex items-center gap-2">
@@ -159,7 +205,9 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
             </div>
 
             <div className="mt-5 flex justify-center">
-              <MobileCTA>{villa.cta ?? `Explore ${villa.title}`}</MobileCTA>
+              <MobileCTA href={href}>
+                {villa.cta ?? `Explore ${villa.title}`}
+              </MobileCTA>
             </div>
           </div>
         </div>
@@ -168,18 +216,12 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
   );
 }
 
-/* ---------------- PAGE (BOTH VERSIONS) ---------------- */
 export default function VillasCarousel() {
   const [villas, setVillas] = useState<Villa[]>([]);
   const [loading, setLoading] = useState(true);
-
-  // desktop index
   const [index, setIndex] = useState(0);
-
-  // mobile index
   const [mIndex, setMIndex] = useState(0);
 
-  // mobile swipe
   const startX = useRef<number | null>(null);
   const lastX = useRef<number | null>(null);
   const dragging = useRef(false);
@@ -206,6 +248,7 @@ export default function VillasCarousel() {
     }
 
     load();
+
     return () => {
       mounted = false;
     };
@@ -225,16 +268,17 @@ export default function VillasCarousel() {
   const mCanPrev = mIndex > 0;
   const mCanNext = mIndex < total - 1;
 
-  // swipe
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     dragging.current = true;
     startX.current = e.clientX;
     lastX.current = e.clientX;
   };
+
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging.current) return;
     lastX.current = e.clientX;
   };
+
   const onPointerUp = () => {
     if (!dragging.current || startX.current == null || lastX.current == null) return;
     dragging.current = false;
@@ -247,6 +291,7 @@ export default function VillasCarousel() {
     if (dx > TH && mCanPrev) setMIndex((v) => Math.max(0, v - 1));
     if (dx < -TH && mCanNext) setMIndex((v) => Math.min(total - 1, v + 1));
   };
+
   const onPointerCancel = () => {
     dragging.current = false;
     startX.current = null;
@@ -258,7 +303,6 @@ export default function VillasCarousel() {
 
   return (
     <>
-      {/* ---------------- MOBILE (sm and below) ---------------- */}
       <section className="block sm:hidden bg-white py-10">
         <div className="px-4 text-center">
           <div className="text-[18px] font-semibold text-black">
@@ -284,8 +328,7 @@ export default function VillasCarousel() {
           </div>
         </div>
 
-        {/* ✅ MOBILE BUTTONS (WORKING) */}
-        <div className="flex items-center justify-center px-4">
+        <div className="flex items-center justify-center px-4 gap-6">
           <ArrowButton
             direction="left"
             disabled={!mCanPrev}
@@ -304,7 +347,6 @@ export default function VillasCarousel() {
         </div>
       </section>
 
-      {/* ---------------- DESKTOP/TABLET (sm and up) ---------------- */}
       <section className="hidden sm:block py-20 bg-white">
         <div className="flex items-center justify-between px-4 md:px-8 lg:px-12 xl:px-28">
           <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
@@ -313,13 +355,21 @@ export default function VillasCarousel() {
           </h2>
 
           <div className="flex items-center gap-8 text-gray-900">
-            <ArrowButton direction="left" disabled={!canPrev} onClick={() => canPrev && setIndex((v) => v - 1)} />
+            <ArrowButton
+              direction="left"
+              disabled={!canPrev}
+              onClick={() => canPrev && setIndex((v) => v - 1)}
+            />
 
             <div className="text-[14px] text-gray-800 tabular-nums">
               {index + 1} / {total}
             </div>
 
-            <ArrowButton direction="right" disabled={!canNext} onClick={() => canNext && setIndex((v) => v + 1)} />
+            <ArrowButton
+              direction="right"
+              disabled={!canNext}
+              onClick={() => canNext && setIndex((v) => v + 1)}
+            />
           </div>
         </div>
 

@@ -12,7 +12,8 @@ const query = groq`
     sleeps,
     feature,
     cta,
-    image
+    image,
+     "slug": slug.current
   }
 `;
 

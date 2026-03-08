@@ -4,8 +4,37 @@ import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok } from "react-icons/fa";
 import Container from "./Container";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+type VillaNavItem = {
+  title: string;
+  slug: string;
+};
 
 export default function Footer() {
+  const pathname = usePathname();
+  const [villas, setVillas] = useState<VillaNavItem[]>([]);
+
+    useEffect(() => {
+      const loadVillas = async () => {
+        try {
+          const res = await fetch("/api/villas", { cache: "no-store" });
+          if (!res.ok) return;
+          const data = await res.json();
+          setVillas(data || []);
+        } catch (error) {
+          console.error("Failed to load villas:", error);
+        }
+      };
+  
+      loadVillas();
+    }, []);
+  
+    const isVillaPage =
+      pathname === "/villas" || pathname.startsWith("/villas/");
+
+
   return (
     <footer className="bg-[#0F0F10] text-white py-10">
       <Container>
@@ -49,25 +78,38 @@ export default function Footer() {
 
             {/* Collection */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">The Collection</h4>
-              <ul className="space-y-4 text-gray-300">
-                <FooterLink href="#">Villa Mandalay</FooterLink>
-                <FooterLink href="#">Tara Garden</FooterLink>
-                <FooterLink href="#">Treetop Resort</FooterLink>
-                <FooterLink href="#">Villa Desire</FooterLink>
-                <FooterLink href="#">Monara Villa</FooterLink>
-                <FooterLink href="#">Lucky Palace</FooterLink>
-              </ul>
-            </div>
+              <div className="bg-gray-100" />
+              <h4 className="text-lg font-semibold mb-8">Collection</h4>
+                  {villas.length > 0 ? (
+                    villas.map((villa) => {
+                      const villaHref = `/villas/${villa.slug}`;
+                      const active = pathname === villaHref;
+
+                      return (
+                        <Link
+                          key={villa.slug}
+                          href={villaHref}
+                          className={`block pb-4 font-[helvetica] text-[14px] md:text-[16px] transition text-gray-300 hover:text-white ${active ? "font-bold" : ""}`}
+                        >
+                          {villa.title}
+                        </Link>
+                      );
+                    })
+                  ) : (
+                    <div className="px-4 py-3 text-sm text-gray-500">
+                      No villas found
+                    </div>
+                  )}
+                </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+              <h4 className="text-lg font-semibold mb-8">Quick Links</h4>
               <ul className="space-y-4 text-gray-300">
                 <FooterLink href="/">Home</FooterLink>
                 <FooterLink href="/experiences">Experiences</FooterLink>
                 <FooterLink href="/gallery">Gallery</FooterLink>
-                <FooterLink href="/blog">Blog</FooterLink>
+                <FooterLink href="/blogs">Blog</FooterLink>
                 <FooterLink href="/contact">Contact</FooterLink>
               </ul>
             </div>

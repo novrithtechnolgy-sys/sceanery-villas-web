@@ -19,6 +19,7 @@ export default defineType({
     defineField({ name: "sleeps", title: "Sleeps", type: "number" }),
     defineField({ name: "feature", title: "Feature", type: "string" }),
     defineField({ name: "cta", title: "CTA", type: "string", initialValue: "Explore Villa" }),
+    defineField({ name: "slug", title: "Slug", type: "slug", options: { source: "title" } }),
     defineField({ name: "order", title: "Order", type: "number", initialValue: 1 }),
   ],
 });
