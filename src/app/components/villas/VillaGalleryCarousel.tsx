@@ -87,8 +87,8 @@ export default function VillaGalleryCarousel({
       </div>
 
       <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 md:gap-6">
-        <ArrowButton direction="left" onClick={() => scrollByCard("left")} />
-        <ArrowButton direction="right" onClick={() => scrollByCard("right")} />
+        <ArrowButton direction="left" onClick={() => scrollByCard("left")} disabled={false} />
+        <ArrowButton direction="right" onClick={() => scrollByCard("right")} disabled={false} />
       </div>
 
       <style jsx>{`
