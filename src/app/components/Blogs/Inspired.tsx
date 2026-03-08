@@ -13,7 +13,7 @@ export default function Inspired() {
           {/* Background Image */}
           <div className="relative h-[320px] md:h-[420px]">
             <Image
-              src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896001/a79a72dc92065a82e3dcbaa5d44bc0b50a2e118a_bdo1wc.webp"
               alt="Experience the difference"
               fill
               className="object-cover"

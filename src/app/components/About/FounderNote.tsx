@@ -32,7 +32,7 @@ export default function FounderNote() {
           <div className="">
             <div className="relative md:absolute md:w-[340px] h-[320px] md:h-[480px] rounded-[20px] overflow-hidden shadow-lg">
               <Image
-                src="/208bb3164c040ef306a0874503fa5da68c734180.jpg"
+                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772960206/DSC02788_clnnyq.webp"
                 alt="Founder"
                 fill
                 className="object-cover"

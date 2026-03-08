@@ -23,7 +23,7 @@ export default function VillaGalleryCarousel({
     autoScrollRef.current = setInterval(() => {
       if (!el) return;
 
-      el.scrollLeft += 0.1; // speed
+      el.scrollLeft += 0.5; // speed
 
       // when reaching half width reset
       if (el.scrollLeft >= el.scrollWidth / 2) {

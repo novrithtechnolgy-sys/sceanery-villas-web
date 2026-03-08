@@ -50,7 +50,7 @@ export default function WhyDifferent() {
         description:
           "We believe your holiday belongs to you. Our villas are designed to be private sanctuaries where you can be yourself, away from the eyes of strangers.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
       },
       {
         id: "2",
@@ -58,7 +58,7 @@ export default function WhyDifferent() {
         description:
           "We are proudly Sri Lankan. Our staff are from the local villages, our food is sourced from local markets, and our experiences connect you with the local culture.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772960568/152aaaa6601c81b5d07fc36dda998d95d8137683_aetolo.webp",
       },
       {
         id: "3",
@@ -66,7 +66,7 @@ export default function WhyDifferent() {
         description:
           "While our vibe is relaxed, our standards are rigorous. We combine the warmth of a family run business with professional housekeeping, maintenance, and guest service protocols.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772270834/1e181f0c3c69552c4e7f2f7118ed0dcc1676a870_itqq6t.webp",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
       },
     ],
     []

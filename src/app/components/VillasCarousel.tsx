@@ -68,7 +68,7 @@ function VillaCard({ villa }: { villa: Villa }) {
             <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{villa.title}</h3>
 
             {villa.description && (
-              <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">{villa.description}</p>
+              <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">{villa.description}</p>
             )}
 
             <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 xl:gap-14 text-[14px] md:text-[16px] text-gray-900">

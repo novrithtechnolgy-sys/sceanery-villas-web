@@ -111,7 +111,7 @@ export default function BlogPage() {
 
         {/* Grid */}
         {!loading && !err && (
-          <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10">
             {posts.map((p) => {
               const img = p.mainImage
                 ? urlFor(p.mainImage).width(1200).quality(80).url()
@@ -144,13 +144,13 @@ export default function BlogPage() {
                       {p.title}
                     </h3>
 
-                    <p className="mt-4 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
+                    <p className="mt-4 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 md:line-clamp-3 lg:line-clamp-2 2xl:line-clamp-3">
                       {p.excerpt || "—"}
                     </p>
 
                     <Link
                       href={`/blogs/${p.slug.current}`}
-                      className="mt-6 md:mt-8 inline-flex w-[200px] font-[helvetica] md:w-full justify-center rounded-full bg-gray-900 text-white px-8 rounded-full py-2 md:py-3 text-[14px]  font-semibold"
+                      className="mt-6 md:mt-8 inline-flex font-[helvetica] w-[250px] lg:w-[340px] justify-center rounded-full bg-gray-900 text-white px-8 rounded-full py-2 md:py-3 text-[14px]  font-semibold"
                     >
                       Read More
                     </Link>

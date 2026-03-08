@@ -9,7 +9,7 @@ export default function BlogsHero() {
 
         {/* Background Image */}
         <Image
-          src="/208bb3164c040ef306a0874503fa5da68c734180.jpg"
+          src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg"
           alt="Luxury Villa"
           fill
           priority

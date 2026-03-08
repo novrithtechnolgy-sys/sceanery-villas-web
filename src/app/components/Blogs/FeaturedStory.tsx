@@ -9,7 +9,7 @@ import Container from "../Container";
 export default function FeaturedStory() {
     
   return (
-      <main className="bg-white py-10 md:py-20">
+      <main className="bg-white py-10 md:py-20 md:pt-40">
         <Container>
 
           {/* Featured Story */}
@@ -18,7 +18,7 @@ export default function FeaturedStory() {
             {/* Background Image */}
             <div className="relative py-8 md:py-20">
               <Image
-                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896001/a79a72dc92065a82e3dcbaa5d44bc0b50a2e118a_bdo1wc.webp"
                 alt="Featured Story"
                 fill
                 className="object-cover"

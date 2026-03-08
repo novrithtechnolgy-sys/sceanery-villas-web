@@ -9,7 +9,7 @@ export default function AboutHero() {
 
         {/* Background Image */}
         <Image
-          src="/208bb3164c040ef306a0874503fa5da68c734180.jpg"
+          src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg"
           alt="Luxury Villa"
           fill
           priority

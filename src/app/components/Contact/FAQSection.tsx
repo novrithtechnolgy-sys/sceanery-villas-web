@@ -38,7 +38,7 @@ export default function FAQSection() {
         </h2>
 
         {/* Items */}
-        <div className="mx-auto mt-4 md:mt-8 max-w-4xl">
+        <div className="mx-auto mt-4 md:mt-8">
           {faqs.map((item, idx) => {
             const isOpen = idx === openIndex;
 
