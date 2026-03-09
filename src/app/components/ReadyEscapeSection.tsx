@@ -6,6 +6,13 @@ import Button from "./Button";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function ReadyEscapeSection() {
+
+  const whatsappNumber = "94765840515";
+  const message = "Hello, I would like to know more about your services.";
+
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+
   return (
     <section className="py-10 pb-20 md:pb-40 md:py-20 bg-white">
       <Container>
@@ -43,7 +50,10 @@ export default function ReadyEscapeSection() {
               </Button>
 
               {/* Outline */}
-              <Button variant="light">               
+              <Button
+                variant="light"
+                onClick={() => window.open(whatsappLink, "_blank")}
+              >
                 <FaWhatsapp className="h-5 w-5" />
                 Whatsapp Us
               </Button>

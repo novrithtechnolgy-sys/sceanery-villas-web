@@ -3,9 +3,13 @@
 import Image from "next/image";
 import Button from "../Button";
 import Container from "../Container";
+import { useRouter } from "next/navigation";
 
 
 export default function Inspired() {
+
+const router = useRouter();
+
   return (
     <section className="bg-white py-10 pb-20 md:py-20 ">
       <Container >
@@ -33,7 +37,10 @@ export default function Inspired() {
                 Let's turn these stories into reality
             </p>
 
-            <Button variant="primary" className="mt-8">
+            
+            <Button
+             onClick={() => router.push("/villas/tara-garden")}
+             variant="primary" className="mt-8">
               Explore Our Villas
             </Button>
           </div>

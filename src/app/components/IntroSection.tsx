@@ -52,7 +52,7 @@ export default function IntroSection() {
           {/* Right Image */}
           <div className="relative w-[100px] h-[180px] md:w-[300px] md:h-[380px] rounded-[24px] overflow-hidden shadow-md">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773036070/IMG-20250927-WA0054_1_pracd4.webp"
               alt="Sea turtle"
               fill
               className="object-cover"

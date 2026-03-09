@@ -100,7 +100,7 @@ export default function GuestStories() {
         <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
           {/* Left quote card */}
           <div className="lg:col-span-6">
-            <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.08)] p-4 md:px-12  md:py-12">
+            <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.08)] p-8 md:px-12  md:py-12">
               <div className="mb-4 md:mb-10">
                 <QuoteMark  />
               </div>

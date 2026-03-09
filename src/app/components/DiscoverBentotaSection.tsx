@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Container from "./Container";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 type ExperienceCard = {
   id: string;
@@ -83,6 +84,9 @@ function Card({ item }: { item: ExperienceCard }) {
 }
 
 export default function DiscoverBentotaSection() {
+
+  const router = useRouter();
+
   const data: ExperienceCard[] = [
     {
       id: "river",
@@ -160,7 +164,9 @@ export default function DiscoverBentotaSection() {
 
         {/* CTA */}
         <div className="mt-8 md:mt-14 flex justify-center">
-          <Button variant="primary">
+          <Button
+           onClick={() => router.push("/experiences")}
+           variant="primary">
             View Experiences
           </Button>
         </div>

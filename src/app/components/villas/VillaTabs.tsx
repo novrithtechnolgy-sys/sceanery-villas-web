@@ -11,6 +11,7 @@ import MapTab from "./MapTab";
 import Navbar from "../Navbar";
 import FeatureTab from "./FeatureTab";
 import VillaGalleryCarousel from "./VillaGalleryCarousel";
+import MobileBookingBar from "../MobileBookingBar";
 
 
 export default function VillaTabs({ villa }: { villa: any }) {
@@ -27,8 +28,11 @@ export default function VillaTabs({ villa }: { villa: any }) {
       <VillaGalleryCarousel items={villa.carouselImages || []} />
       <TourTab villa={villa} />
       <MapTab villa={villa} />
-
     </main>
+      <MobileBookingBar
+        price={20200}
+        title={villa.title}
+      />
     </>
   );
 }

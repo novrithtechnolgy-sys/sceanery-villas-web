@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 
 
@@ -46,6 +47,7 @@ export default function RootLayout({
       >
         {children}
         <Footer />
+        {/* <WhatsAppButton /> */}
       </body>
     </html>
   );
