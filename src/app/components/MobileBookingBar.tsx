@@ -14,8 +14,8 @@ export default function MobileBookingBar({
   const router = useRouter();
 
   return (
-    <div className="fixed bottom-1 left-0 right-0 z-50 md:hidden">
-      <div className="bg-white rounded-[20px] shadow-xl border border-gray-200 p-4 py-8 flex items-center justify-between">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+      <div className="bg-white rounded-t-[20px] shadow-xl border border-gray-200 p-4 py-8 flex items-center justify-between">
         
         {/* Price */}
         <div>
