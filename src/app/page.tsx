@@ -6,21 +6,23 @@ import IntroSection from "./components/IntroSection";
 import Navbar from "./components/Navbar";
 import ReadyEscapeSection from "./components/ReadyEscapeSection";
 import VillasCarousel from "./components/VillasCarousel";
+import WhatsAppButton from "./components/WhatsAppButton";
 import WhyChooseSection from "./components/WhyChooseSection";
 
 
 export default function HomePage() {
   return (
-    <main className="bg-white min-h-screen">
+    <><main className="bg-white min-h-screen">
       <Navbar />
       <Hero />
       <IntroSection />
-      <VillasCarousel/>
+      <VillasCarousel />
       <WhyChooseSection />
       <DiscoverBentotaSection />
       <GuestStories />
       <ReadyEscapeSection />
-  
+
     </main>
+    <WhatsAppButton /></>
   );
 }

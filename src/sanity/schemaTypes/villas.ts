@@ -36,36 +36,42 @@ export default defineType({
 
     /* ---------------- QUICK STATS ---------------- */
 
-    defineField({
-      name: "stats",
-      title: "Quick Stats",
-      type: "object",
-      fields: [
-        defineField({
-          name: "bedrooms",
-          title: "Bedrooms",
-          type: "number",
-        }),
-
-        defineField({
-          name: "sleeps",
-          title: "Sleeps",
-          type: "number",
-        }),
-
-        defineField({
-          name: "pool",
-          title: "Pool",
-          type: "string",
-        }),
-
-        defineField({
-          name: "views",
-          title: "Views",
-          type: "string",
-        }),
-      ],
-    }),
+      defineField({
+        name: "stats",
+        title: "Quick Stats",
+        type: "array",
+        of: [
+          {
+            type: "object",
+            fields: [
+              defineField({
+                name: "label",
+                title: "Label",
+                type: "string",
+                description: "Example: Bedrooms, Sleeps, Pool",
+              }),
+              defineField({
+                name: "value",
+                title: "Value",
+                type: "string",
+                description: "Example: 4, 8 Guests, Infinity Pool",
+              }),
+            ],
+            preview: {
+              select: {
+                label: "label",
+                value: "value",
+              },
+              prepare({ label, value }) {
+                return {
+                  title: `${value}`,
+                  subtitle: label,
+                };
+              },
+            },
+          },
+        ],
+      }),
 
     /* ---------------- INTRO SECTION ---------------- */
 
