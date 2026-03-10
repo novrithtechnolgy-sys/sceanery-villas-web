@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
 import Container from "../Container";
+import ArrowButton from "../ArrowButton";
 
 /* ---------------- TYPES ---------------- */
 type ExperienceCard = {
@@ -135,22 +136,22 @@ function MobileCardCarousel({ cards }: { cards: ExperienceCard[] }) {
 
       {/* Arrows (like screenshot) */}
       {cards.length > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-10">
-          <button
-            aria-label="Previous"
+        <div className="mt-3 flex items-center justify-center gap-4">
+          <ArrowButton
+            direction="left"
+            disabled={active === 0}
             onClick={prev}
-            className="text-gray-600 active:scale-[0.98]"
-          >
-            <span className="text-[22px] leading-none">‹</span>
-          </button>
+          />
 
-          <button
-            aria-label="Next"
+          <div className="text-center text-[12px] text-black tabular-nums">
+            {active + 1}/{cards.length}
+          </div>
+
+          <ArrowButton
+            direction="right"
+            disabled={active === cards.length - 1}
             onClick={next}
-            className="text-gray-600 active:scale-[0.98]"
-          >
-            <span className="text-[22px] leading-none">›</span>
-          </button>
+          />
         </div>
       )}
     </div>

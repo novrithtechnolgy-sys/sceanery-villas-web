@@ -328,7 +328,7 @@ export default function VillasCarousel() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center px-4 gap-6">
+        <div className="flex items-center justify-center px-4 gap-4">
           <ArrowButton
             direction="left"
             disabled={!mCanPrev}
