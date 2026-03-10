@@ -31,29 +31,30 @@ const gallerySections: GallerySectionData[] = [
     },
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772962601/IMG-20250927-WA0016_1_qqtfnd.jpg",
-        alt: "Architecture image 1",
-      },
-      {
         src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772883965/IMG-20250927-WA0049_1_ggytqt.jpg",
         alt: "Architecture image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772944549/DJI_20260302180714_0212_D_exndrg.webp",
-        alt: "Architecture image 3",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772962601/IMG-20250927-WA0016_1_qqtfnd.jpg",
+        alt: "Architecture image 1",
       },
       {
         src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg",
         alt: "Architecture image 4",
       },
+            {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772944549/DJI_20260302180714_0212_D_exndrg.webp",
+        alt: "Architecture image 3",
+      },
       {
         src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963539/IMG-20250927-WA0040_dsqccu.jpg",
         alt: "Architecture image 5",
       },
-      // {
-      //   src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772960568/152aaaa6601c81b5d07fc36dda998d95d8137683_aetolo.webp",
-      //   alt: "Architecture image 6",
-      // },
+      
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772962380/IMG-20250927-WA0045_1_qewmks.jpg",
+        alt: "Architecture image 6",
+      },
       // {
       //   src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772941365/upftzhasthk4h7vhswa9_qlbgjx.webp",
       //   alt: "Architecture image 7",
@@ -64,43 +65,47 @@ const gallerySections: GallerySectionData[] = [
       // },
     ],
   },
-  // {
-  //   title: {
-  //     italic: "The ",
-  //     bold: "Interiors",
-  //   },
-  //   items: [
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939699/dji_mimo_20260302_175014_0_1772510343858_photo_admkvk.webp",
-  //       alt: "Culinary image 1",
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
-  //       alt: "Culinary image 2",
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg",
-  //       alt: "Culinary image 3",
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg",
-  //       alt: "Culinary image 4",
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
-  //       alt: "Culinary image 5",
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
-  //       alt: "Culinary image 6",
-  //     },
-  //     {
-  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
-  //       alt: "Culinary image 7",
-  //     },
+  {
+    title: {
+      italic: "The ",
+      bold: "Interiors",
+    },
+    items: [
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939699/dji_mimo_20260302_175014_0_1772510343858_photo_admkvk.webp",
+        alt: "Culinary image 1",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
+        alt: "Culinary image 2",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg",
+        alt: "Culinary image 3",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg",
+        alt: "Culinary image 4",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
+        alt: "Culinary image 5",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+        alt: "Culinary image 6",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        alt: "Culinary image 7",
+      },
+            {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        alt: "Culinary image 8",
+      },
 
-  //   ],
-  // },
+    ],
+  },
     // {
     // title: {
     //   italic: "The ",
@@ -145,26 +150,27 @@ const gallerySections: GallerySectionData[] = [
 ];
 
 const layoutPattern = [
-  "col-span-12 h-[140px] md:h-[345px] md:-mt-[18px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[370px] md:-mt-[18px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[370px] md:-mt-[18px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
-  "col-span-8 h-[120px] md:h-[300px]",
-  "col-span-4 h-[280px] md:h-[565px]",
-  "col-span-4 h-[145px] md:h-[245px] -mt-[160px] md:-mt-[264px]",
-  "col-span-4 h-[145px] md:h-[245px] -mt-[160px] md:-mt-[264px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[300px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[565px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[245px]  md:-mt-[264px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[245px]  md:-mt-[264px]",
 
 ];
 
 const layoutPatternFlipped = [
-  "col-span-12 md:col-span-4 h-[525px]",
-  "col-span-12 md:col-span-8 h-[260px]",
-  "col-span-12 md:col-span-4 h-[245px]",
-  "col-span-12 md:col-span-4 h-[245px] md:-mt-[264px]",
-  "col-span-12 md:col-span-4 h-[510px] md:-mt-[264px]",
-  "col-span-6 md:col-span-8 h-[245px] md:-mt-[264px] ml-[440px]",
-  "col-span-6 md:col-span-12 h-[345px] md:-mt-[18px]",
-
+  "col-span-6 md:col-span-4 h-[140px] md:h-[525px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[260px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[245px]",
+  "col-span-6 md:col-span-4  h-[140px] md:h-[245px] md:-mt-[264px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[510px] md:-mt-[264px]",
+  "relative col-span-12 md:col-span-4 h-[140px] md:h-[245px] ",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[510px] md:-mt-[264px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[245px] md:-mt-[px]"
 ];  
 
 export default function LuxuryGalleryPage() {
