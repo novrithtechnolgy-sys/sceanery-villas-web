@@ -21,21 +21,35 @@ export default function Newsletter() {
                     </p>
 
                     {/* Form */}
-                    <form className="mt-14 flex flex-col md:flex-row items-center justify-center gap-6">
+                    <form
+                    action="https://digitalescapeslk.us9.list-manage.com/subscribe/post?u=5670b29db76c562f712305898&id=d37ac9142b&f_id=001b50e1f0"
+                    method="post"
+                    target="_blank"
+                    className="mt-14 flex flex-col md:flex-row items-center justify-center gap-6"
+                    >
+                    {/* Email Input */}
+                    <input
+                        type="email"
+                        name="EMAIL"
+                        placeholder="Your Email Address"
+                        required
+                        className="w-full md:w-[420px] px-5 py-4 rounded-full border border-gray-300 outline-none text-[14px] font-[helvetica]"
+                    />
 
-                        {/* Email Input */}
+                    {/* Bot protection field (Mailchimp requirement) */}
+                    <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
                         <input
-                            type="email"
-                            placeholder="Your Email Address"
-                            className="w-full md:w-[420px] px-5 py-4 rounded-full border border-gray-300 outline-none text-[14px] font-[helvetica]"
+                        type="text"
+                        name="b_5670b29db76c562f712305898_d37ac9142b"
+                        tabIndex={-1}
+                        defaultValue=""
                         />
+                    </div>
 
-                        {/* Button */}
-                        <Button
-                            type="submit"                        >
-                            Subscribe
-                        </Button>
-
+                    {/* Submit Button */}
+                    <Button type="submit">
+                        Subscribe
+                    </Button>
                     </form>
                 </div>
             </Container>

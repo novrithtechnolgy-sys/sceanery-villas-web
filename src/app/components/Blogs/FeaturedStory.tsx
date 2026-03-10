@@ -4,9 +4,12 @@
 import Image from "next/image";
 import Button from "../Button";
 import Container from "../Container";
+import { useRouter } from "next/navigation";
 
 
 export default function FeaturedStory() {
+
+  const router = useRouter();
     
   return (
       <main className="bg-white py-10 md:py-20 md:pt-40">
@@ -50,7 +53,9 @@ export default function FeaturedStory() {
                 </p>
 
                 {/* Button */}
-                <Button variant="white" className="mt-8">
+                <Button
+                 onClick={() => router.push("/blogs/work-from-paradise-digital-nomad-guide-to-dharga")}
+                 variant="white" className="mt-8">
                   Read Article
                 </Button>
 

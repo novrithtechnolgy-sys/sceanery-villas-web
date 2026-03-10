@@ -65,11 +65,11 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-4 mt-8">
-              <SocialIcon><FaFacebookF /></SocialIcon>
-              <SocialIcon><FaInstagram /></SocialIcon>
-              <SocialIcon><FaLinkedinIn /></SocialIcon>
-              <SocialIcon><FaYoutube /></SocialIcon>
-              <SocialIcon><FaTiktok /></SocialIcon>
+              <SocialIcon href="https://www.facebook.com/p/Scenery-Villas-Sri-Lanka-61560604556336/"><FaFacebookF /></SocialIcon>
+              <SocialIcon href="https://www.instagram.com/sceneryvillas.srilanka"><FaInstagram /></SocialIcon>
+              <SocialIcon href="https://www.linkedin.com/company/scenery-villas-sri-lanka/"><FaLinkedinIn /></SocialIcon>
+              <SocialIcon href="https://www.youtube.com/@SceneryvillasSrilanka"><FaYoutube /></SocialIcon>
+              <SocialIcon href=""><FaTiktok /></SocialIcon>
             </div>
           </div>
 
@@ -156,10 +156,18 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
-function SocialIcon({ children }: { children: React.ReactNode }) {
+function SocialIcon({ 
+  children,
+  href,
+ }: { 
+  children: React.ReactNode;
+  href: string;
+}) {
   return (
-    <div className="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer text-white">
+    <a 
+    href={href}
+    className="h-10 w-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer text-white">
       {children}
-    </div>
+    </a>
   );
 }

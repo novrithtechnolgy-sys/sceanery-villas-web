@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "../Button";
+import { navigate } from "next/dist/client/components/segment-cache/navigation";
+import { useRouter } from "next/navigation";
 
 type FormState = {
   fullName: string;
@@ -15,71 +17,180 @@ type FormState = {
   message: string;
 };
 
+type VillaOption = {
+  title: string;
+  slug: string;
+};
+
+const initialForm: FormState = {
+  fullName: "",
+  email: "",
+  whatsapp: "",
+  villa: "",
+  checkIn: "",
+  checkOut: "",
+  guests: "",
+  message: "",
+};
+
 export default function InquirySection() {
-  const [form, setForm] = useState<FormState>({
-    fullName: "",
-    email: "",
-    whatsapp: "",
-    villa: "",
-    checkIn: "",
-    checkOut: "",
-    guests: "",
+  const [form, setForm] = useState<FormState>(initialForm);
+  const [villas, setVillas] = useState<VillaOption[]>([]);
+  const [loadingVillas, setLoadingVillas] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | "";
+    message: string;
+  }>({
+    type: "",
     message: "",
   });
 
+  const router = useRouter();
+
   function onChange<K extends keyof FormState>(key: K, val: FormState[K]) {
-    setForm((p) => ({ ...p, [key]: val }));
+    setForm((prev) => ({ ...prev, [key]: val }));
   }
 
-  function onSubmit(e: React.FormEvent) {
+  function validateForm() {
+    if (
+      !form.fullName.trim() ||
+      !form.email.trim() ||
+      !form.whatsapp.trim() ||
+      !form.villa.trim() ||
+      !form.checkIn.trim() ||
+      !form.checkOut.trim() ||
+      !form.guests.trim() ||
+      !form.message.trim()
+    ) {
+      return "Please fill in all required fields.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(form.email)) {
+      return "Please enter a valid email address.";
+    }
+
+    if (new Date(form.checkOut) <= new Date(form.checkIn)) {
+      return "Check-out date must be after check-in date.";
+    }
+
+    return "";
+  }
+
+    useEffect(() => {
+    const fetchVillas = async () => {
+      try {
+        setLoadingVillas(true);
+        const res = await fetch("/api/villas", { cache: "no-store" });
+
+        if (!res.ok) {
+          throw new Error("Failed to load villas");
+        }
+
+        const data = await res.json();
+        setVillas(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Failed to fetch villas:", error);
+        setVillas([]);
+      } finally {
+        setLoadingVillas(false);
+      }
+    };
+
+    fetchVillas();
+  }, []);
+
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: connect to your API
-    console.log(form);
+    setStatus({ type: "", message: "" });
+
+    const validationError = validateForm();
+    if (validationError) {
+      setStatus({ type: "error", message: validationError });
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.message || "Something went wrong.");
+      }
+
+      router.push("/thankyou");
+      
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Failed to send inquiry. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
     <section className="relative w-full bg-white py-10 md:py-60">
-      {/* Background image with side-crop look */}
       <div className="hidden md:block relative h-[880px] md:h-[760px] lg:h-[720px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80" // ✅ change to your image path
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80"
           alt="Background"
           fill
           priority
           className="object-cover object-center"
         />
-        {/* subtle white overlay to match screenshot brightness */}
         <div className="absolute inset-0 bg-white/35" />
       </div>
 
-      {/* Center Card */}
       <div className="relative md:absolute inset-0 flex items-center justify-center md:pl-84 md:py-10">
         <div className="w-full max-w-[820px] rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-200 overflow-hidden">
           <form onSubmit={onSubmit} className="px-8 md:px-14 py-8 md:py-14">
-            {/* Title */}
             <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
               <span className="italic font-medium">Send an</span>{" "}
               <span className="font-semibold">Inquiry</span>
             </h2>
 
-            {/* Sub */}
-            <p className="mt-4 md:mt-8  font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-7 text-gray-700">
-              Please fill out the details below, and our reservations team will get
-              back to you within 24 hours with availability and a custom quote.
+            <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-7 text-gray-700">
+              Please fill out the details below, and our reservations team will
+              get back to you within 24 hours with availability and a custom
+              quote.
             </p>
 
+            {status.message ? (
+              <div
+                className={`mt-6 rounded-xl px-4 py-3 text-sm md:text-base ${
+                  status.type === "success"
+                    ? "bg-green-50 text-green-700 border border-green-200"
+                    : "bg-red-50 text-red-700 border border-red-200"
+                }`}
+              >
+                {status.message}
+              </div>
+            ) : null}
+
             <div className="mt-4 md:mt-8 space-y-4 md:space-y-8">
-              {/* Full name */}
               <Field label="Full Name*" htmlFor="fullName">
                 <UnderlineInput
                   id="fullName"
                   value={form.fullName}
                   onChange={(e) => onChange("fullName", e.target.value)}
-                  placeholder=""
                 />
               </Field>
 
-              {/* Email + WhatsApp */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <Field label="Email Address*" htmlFor="email">
                   <UnderlineInput
@@ -99,24 +210,26 @@ export default function InquirySection() {
                 </Field>
               </div>
 
-              {/* Select villa */}
               <Field label="Select a Villa*" htmlFor="villa">
                 <div className="relative">
                   <select
                     id="villa"
                     value={form.villa}
                     onChange={(e) => onChange("villa", e.target.value)}
-                    className="w-full bg-transparent text-[16px] text-gray-900 outline-none appearance-none pb-3"
+                    disabled={loadingVillas}
+                    className="w-full bg-transparent text-[16px] text-gray-900 outline-none appearance-none pb-3 disabled:opacity-60"
                   >
                     <option value="" disabled>
-                      Select
+                      {loadingVillas ? "Loading villas..." : "Select"}
                     </option>
-                    <option value="ocean-villa">Ocean Villa</option>
-                    <option value="garden-villa">Garden Villa</option>
-                    <option value="family-villa">Family Villa</option>
+
+                    {villas.map((villa) => (
+                      <option key={villa.slug} value={villa.title}>
+                        {villa.title}
+                      </option>
+                    ))}
                   </select>
 
-                  {/* chevron */}
                   <svg
                     className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-700"
                     viewBox="0 0 20 20"
@@ -134,7 +247,6 @@ export default function InquirySection() {
                 </div>
               </Field>
 
-              {/* Dates */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <Field label="Check in Date*" htmlFor="checkIn">
                   <UnderlineInput
@@ -155,7 +267,6 @@ export default function InquirySection() {
                 </Field>
               </div>
 
-              {/* Guests */}
               <Field
                 label="Number of Guests* (Adults and Children)"
                 htmlFor="guests"
@@ -167,7 +278,6 @@ export default function InquirySection() {
                 />
               </Field>
 
-              {/* Message */}
               <Field label="Message or Special Requests*" htmlFor="message">
                 <div className="relative">
                   <textarea
@@ -181,12 +291,9 @@ export default function InquirySection() {
                 </div>
               </Field>
 
-              {/* Button */}
               <div className="pt-4">
-                <Button
-                  type="submit"
-                >
-                  Send Message
+                <Button type="submit" disabled={loading}>
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
               </div>
             </div>
@@ -196,8 +303,6 @@ export default function InquirySection() {
     </section>
   );
 }
-
-/* ---------- Small UI helpers ---------- */
 
 function Field({
   label,

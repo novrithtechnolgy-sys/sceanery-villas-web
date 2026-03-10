@@ -51,7 +51,7 @@ const getStatIcon = (text?: string): IconType => {
 
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div className="text-white max-w-2xl">
-            <h1 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
+            <h1 className="font-[timesTen] text-[20px] uppercase md:text-[36px] xl:text-[46px] tracking-wide text-white">
               {villa.title}
             </h1>
 

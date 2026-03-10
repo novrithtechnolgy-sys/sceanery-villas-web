@@ -3,9 +3,13 @@
 import Image from "next/image";
 import Button from "../Button";
 import Container from "../Container";
+import { useRouter } from "next/navigation";
 
 
 export default function ExperienceDifference() {
+
+  const router = useRouter();
+
   return (
     <section className="bg-white py-10 pb-20 md:py-20 ">
       <Container >
@@ -29,7 +33,9 @@ export default function ExperienceDifference() {
               EXPERIENCE THE DIFFERENCE
             </h2>
 
-            <Button variant="primary" className="mt-10">
+            <Button
+            onClick={() => router.push("/villas/tara-garden")}
+             variant="primary" className="mt-10">
               Explore Our Villas
             </Button>
           </div>

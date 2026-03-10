@@ -85,13 +85,13 @@ export default function JoinOurJourney() {
       </div>
         {/* Social Bar */}
           <div className="md:w-full mt-8 md:-mt-42 rounded-[18px] bg-gray-100 py-8 md:py-10 px-6 md:pl-150 flex items-center justify-center gap-8 z-[-1]">
-            <SocialButton href="#" label="Facebook">
+            <SocialButton href="https://www.facebook.com/p/Scenery-Villas-Sri-Lanka-61560604556336/" label="Facebook">
               <IconFacebook className="h-6 w-6 text-gray-800" />
             </SocialButton>
-            <SocialButton href="#" label="Instagram">
+            <SocialButton href="https://www.instagram.com/sceneryvillas.srilanka" label="Instagram">
               <IconInstagram className="h-6 w-6 text-gray-800" />
             </SocialButton>
-            <SocialButton href="#" label="LinkedIn">
+            <SocialButton href="https://www.linkedin.com/company/scenery-villas/" label="LinkedIn">
               <IconLinkedIn className="h-6 w-6 text-gray-800" />
             </SocialButton>
           </div>

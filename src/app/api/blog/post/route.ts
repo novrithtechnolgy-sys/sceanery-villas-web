@@ -16,8 +16,9 @@ export async function GET(req: Request) {
         title,
         excerpt,
         mainImage,
+        publishedAt,
         "categoryTitle": category->title,
-        "content": coalesce(pt::text(body), "")
+        content
       }`,
       { slug }
     );
