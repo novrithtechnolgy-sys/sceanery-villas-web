@@ -106,59 +106,51 @@ const gallerySections: GallerySectionData[] = [
 
     ],
   },
-    // {
-    // title: {
-    //   italic: "The ",
-    //   bold: "Vibe",
-    // },
-    // items: [
-    //   {
-    //     src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
-    //     alt: "Culinary image 1",
-    //   },
-    //   {
-    //     src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772960568/152aaaa6601c81b5d07fc36dda998d95d8137683_aetolo.webp",
-    //     alt: "Culinary image 2",
-    //   },
-    //   {
-    //     src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg",
-    //     alt: "Culinary image 3",
-    //   },
-    //   {
-    //     src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
-    //     alt: "Culinary image 4",
-    //   },
-    //   {
-    //     src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
-    //     alt: "Culinary image 5",
-    //   },
-      // {
-      //   src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
-      //   alt: "Culinary image 6",
-      // },
-      // {
-      //   src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
-      //   alt: "Culinary image 7",
-      // },
-      // {
-      //   src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
-      //   alt: "Culinary image 7",
-      // },
+    {
+    title: {
+      italic: "The ",
+      bold: "Vibe",
+    },
+    items: [
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        alt: "Culinary image 1",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772960568/152aaaa6601c81b5d07fc36dda998d95d8137683_aetolo.webp",
+        alt: "Culinary image 2",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        alt: "Culinary image 4",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg",
+        alt: "Culinary image 3",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        alt: "Culinary image 5",
+      },
+      {
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        alt: "Culinary image 6",
+      },
 
-    // ],
-  // },
+    ],
+  },
 ];
 
 const layoutPattern = [
-  "col-span-12 md:col-span-4 h-[140px] md:h-[370px] md:-mt-[18px]",
-  "col-span-6 md:col-span-8 h-[140px] md:h-[370px] md:-mt-[18px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[320px] md:-mt-[18px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[320px] md:-mt-[18px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
-  "col-span-6 md:col-span-8 h-[140px] md:h-[300px]",
-  "col-span-12 md:col-span-4 h-[140px] md:h-[565px]",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[245px]  md:-mt-[264px]",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[245px]  md:-mt-[264px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[320px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[660px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[320px]  md:-mt-[340px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[320px]  md:-mt-[340px]",
 
 ];
 
@@ -175,7 +167,7 @@ const layoutPatternFlipped = [
 
 export default function LuxuryGalleryPage() {
   return (
-    <main className="bg-[#f7f7f5] py-10 md:py-16">
+    <main className="bg-white py-10 md:py-16">
       <Container>
         {gallerySections.map((section, index) => (
           <GallerySection
