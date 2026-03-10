@@ -64,43 +64,43 @@ const gallerySections: GallerySectionData[] = [
       // },
     ],
   },
-  {
-    title: {
-      italic: "The ",
-      bold: "Interiors",
-    },
-    items: [
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939699/dji_mimo_20260302_175014_0_1772510343858_photo_admkvk.webp",
-        alt: "Culinary image 1",
-      },
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
-        alt: "Culinary image 2",
-      },
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg",
-        alt: "Culinary image 3",
-      },
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg",
-        alt: "Culinary image 4",
-      },
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
-        alt: "Culinary image 5",
-      },
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
-        alt: "Culinary image 6",
-      },
-      {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
-        alt: "Culinary image 7",
-      },
+  // {
+  //   title: {
+  //     italic: "The ",
+  //     bold: "Interiors",
+  //   },
+  //   items: [
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939699/dji_mimo_20260302_175014_0_1772510343858_photo_admkvk.webp",
+  //       alt: "Culinary image 1",
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
+  //       alt: "Culinary image 2",
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg",
+  //       alt: "Culinary image 3",
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg",
+  //       alt: "Culinary image 4",
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
+  //       alt: "Culinary image 5",
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+  //       alt: "Culinary image 6",
+  //     },
+  //     {
+  //       src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+  //       alt: "Culinary image 7",
+  //     },
 
-    ],
-  },
+  //   ],
+  // },
     // {
     // title: {
     //   italic: "The ",
@@ -145,14 +145,14 @@ const gallerySections: GallerySectionData[] = [
 ];
 
 const layoutPattern = [
-  "col-span-6 md:col-span-12 h-[345px] md:-mt-[18px]",
+  "col-span-12 h-[140px] md:h-[345px] md:-mt-[18px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
-  "col-span-12 md:col-span-8 h-[300px]",
-  "col-span-12 md:col-span-4 h-[565px]",
-  "col-span-12 md:col-span-4 h-[245px] md:-mt-[264px]",
-  "col-span-6 md:col-span-4 h-[245px] md:-mt-[264px]",
+  "col-span-8 h-[120px] md:h-[300px]",
+  "col-span-4 h-[280px] md:h-[565px]",
+  "col-span-4 h-[145px] md:h-[245px] -mt-[160px] md:-mt-[264px]",
+  "col-span-4 h-[145px] md:h-[245px] -mt-[160px] md:-mt-[264px]",
 
 ];
 
@@ -165,7 +165,7 @@ const layoutPatternFlipped = [
   "col-span-6 md:col-span-8 h-[245px] md:-mt-[264px] ml-[440px]",
   "col-span-6 md:col-span-12 h-[345px] md:-mt-[18px]",
 
-];
+];  
 
 export default function LuxuryGalleryPage() {
   return (
@@ -194,7 +194,7 @@ function GallerySection({ title, items, index }: GallerySectionProps) {
         <span className="font-semibold">{title.bold}</span>
       </h2>
 
-      <div className="grid grid-cols-12 gap-4 md:gap-5">
+      <div className="grid grid-cols-12 gap-2 md:gap-5">
         {items.map((item, itemIndex) => {
           const layout =
             item.className || activePattern[itemIndex % activePattern.length];
@@ -202,7 +202,7 @@ function GallerySection({ title, items, index }: GallerySectionProps) {
           return (
             <div
               key={itemIndex}
-              className={`relative overflow-hidden rounded-[18px] ${layout}`}
+              className={`relative overflow-hidden rounded-[20px] ${layout}`}
             >
               <Image
                 src={item.src}
