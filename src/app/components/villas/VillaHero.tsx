@@ -43,6 +43,7 @@ const getStatIcon = (text?: string): IconType => {
             alt={villa.title}
             fill
             priority
+            quality={75}
             className="object-cover"
           />
         )}
