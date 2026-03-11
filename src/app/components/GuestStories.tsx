@@ -105,7 +105,7 @@ export default function GuestStories() {
                 <QuoteMark  />
               </div>
 
-              <p className="font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] leading-[30px] md:leading-10 text-gray-800 max-w-[530px]">
+              <p className="font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] leading-[30px] md:leading-10 text-gray-800 max-w-[530px] lg:line-clamp-3">
                 {active.quote}
               </p>
 

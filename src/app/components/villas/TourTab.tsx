@@ -5,18 +5,6 @@ import Container from "../Container";
 export default function TourTab({ villa }: { villa: any }) {
   const tour = villa?.virtualTour;
 
-  if (!tour?.tourUrl) {
-    return (
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-sm text-gray-600">
-            No 360° tour link added yet.
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-10 md:py-20">
       <Container>
@@ -36,7 +24,8 @@ export default function TourTab({ villa }: { villa: any }) {
 
         {/* RIGHT 360 VIEW */}
         <div className="w-full h-[420px] md:h-[500px] rounded-[20px]">
-          <iframe
+          {tour?.tourUrl ? (
+            <iframe
             src={tour.tourUrl}
             width="100%"
             height="100%"
@@ -46,6 +35,12 @@ export default function TourTab({ villa }: { villa: any }) {
             referrerPolicy="no-referrer-when-downgrade"
             className="rounded-[20px]"
           />
+          ):(
+            <div className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-600 flex items-center justify-center h-full bg-gray-100 rounded-[20px]">
+              360° tour coming soon
+            </div>
+          )}
+
         </div>
 
       </div>

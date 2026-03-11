@@ -57,12 +57,12 @@ function Card({ item }: { item: ExperienceCard }) {
     item.variant === "wide"
       ? "h-[200px] md:h-[300px]"
       : item.variant === "tall"
-      ? "h-[200px] md:h-[670px]"
+      ? "h-[200px] md:h-[340px] lg:h-[670px]"
       : "h-[200px] md:h-[340px]";
 
   return (
     <div className={`${base} ${size}`}>
-      <Image src={item.image} alt={item.title} fill className="object-cover" />
+      <Image src={item.image} alt={item.title} fill className={`object-cover ${item.variant === "tall" ? "object-right" : ""}`} />
 
       {/* overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -157,7 +157,7 @@ export default function DiscoverBentotaSection() {
           </div>
 
           {/* Right tall card */}
-          <div className="lg:col-span-4 -mt-3">
+          <div className="lg:col-span-4 -mt-3 md:mt-2 lg:mt-0">
             <Card item={data[1]} />
           </div>
         </div>

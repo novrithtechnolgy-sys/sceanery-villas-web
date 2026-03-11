@@ -55,8 +55,8 @@ export default function GalleryTab({ villa }: { villa: any }) {
                     allowFullScreen
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-sm text-gray-500 px-4 text-center">
-                    Invalid YouTube link
+                  <div className="w-full h-full flex font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] items-center justify-center text-gray-500 px-4 text-center">
+                    Video Coming Soon
                   </div>
                 )
               ) : img ? (
