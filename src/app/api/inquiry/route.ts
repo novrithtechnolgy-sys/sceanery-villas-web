@@ -132,7 +132,7 @@ export async function POST(req: Request) {
 
             <div style="background-color: #f0f0f0; padding: 20px; text-align: center; font-size: 12px; color: #777;">
               <p style="margin: 0;">This inquiry was sent from your website inquiry form.</p>
-              <p style="margin: 5px 0;">© ${new Date().getFullYear()} Villa Sathkara. All rights reserved.</p>
+              <p style="margin: 5px 0;">© ${new Date().getFullYear()} Scenery Villas. All rights reserved.</p>
               <div style="margin-top: 10px;">
                 <a href="https://www.sceneryvillas.com" style="color: #0047AB; text-decoration: none; margin: 0 5px;">Website</a> |
                 <a href="mailto:sceneryvillas @gmail.com" style="color: #0047AB; text-decoration: none; margin: 0 5px;">Email Us</a>

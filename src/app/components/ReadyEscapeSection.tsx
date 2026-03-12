@@ -9,7 +9,6 @@ export default function ReadyEscapeSection() {
 
   const whatsappNumber = "94765840515";
   const message = "Hello, I would like to know more about your services.";
-
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 

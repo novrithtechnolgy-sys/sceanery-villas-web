@@ -107,6 +107,7 @@ export default function Footer() {
               <h4 className="text-lg font-semibold mb-8">Quick Links</h4>
               <ul className="space-y-4 text-gray-300">
                 <FooterLink href="/">Home</FooterLink>
+                <FooterLink href="/about">About</FooterLink>
                 <FooterLink href="/experiences">Experiences</FooterLink>
                 <FooterLink href="/gallery">Gallery</FooterLink>
                 <FooterLink href="/blogs">Blog</FooterLink>
@@ -121,18 +122,10 @@ export default function Footer() {
         <div className="border-t border-gray-700 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-gray-400 text-sm">
 
           <p>
-            © 2026 Scenery Villas. Designed by Digital Escapes. Developed by Novrith Technologies
+            © 2026 Scenery Villas. All rights reserved.  
           </p>
 
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition">
-              Privacy Policy
-            </Link>
-            <span>|</span>
-            <Link href="#" className="hover:text-white transition">
-              Terms & Conditions
-            </Link>
-          </div>
+          <p>Consepted by <a href="https://www.thedigitalescapes.com/" className="hover:underline text-gray-200"> Digital Escapes</a>. Developed by <a href="https://www.novrithtechnology.com/" className="hover:underline text-gray-200">Novrith Technologies</a>. </p>
 
         </div>
       </Container>

@@ -80,7 +80,7 @@ const gallerySections: GallerySectionData[] = [
         alt: "Culinary image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896613/IMG-20250927-WA0032_n8gzge.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291649/0000009575_hzo6ny.webp",
         alt: "Culinary image 3",
       },
       {
@@ -88,19 +88,19 @@ const gallerySections: GallerySectionData[] = [
         alt: "Culinary image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291305/DSC02596_iotcth.webp",
         alt: "Culinary image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291388/0000000617_tbcl6v.webp",
         alt: "Culinary image 6",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291397/0000000581_yx1ttf.webp",
         alt: "Culinary image 7",
       },
             {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291401/dji_mimo_20260302_173902_0_1772510307346_photo_bozpzu.webp",
         alt: "Culinary image 8",
       },
 
@@ -113,15 +113,15 @@ const gallerySections: GallerySectionData[] = [
     },
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
         alt: "Culinary image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772960568/152aaaa6601c81b5d07fc36dda998d95d8137683_aetolo.webp",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
         alt: "Culinary image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773292009/WhatsApp_Image_2024-05-07_at_13.13.09_npcyfu.jpg",
         alt: "Culinary image 4",
       },
       {
@@ -129,11 +129,11 @@ const gallerySections: GallerySectionData[] = [
         alt: "Culinary image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
         alt: "Culinary image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
         alt: "Culinary image 6",
       },
 
@@ -167,7 +167,7 @@ const layoutPatternFlipped = [
 
 export default function LuxuryGalleryPage() {
   return (
-    <main className="bg-white py-10 md:py-16">
+    <main className="bg-white mt-10 md:mt-20">
       <Container>
         {gallerySections.map((section, index) => (
           <GallerySection

@@ -6,6 +6,12 @@ import Container from "../Container";
 
 
 export default function QuickChat() {
+
+  const whatsappNumber = "94765840515";
+  const message = "Hello, I would like to know more about your services.";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+
   return (
     <section className="bg-white py-10 pb-20 md:py-20 ">
       <Container >
@@ -33,8 +39,11 @@ export default function QuickChat() {
                 Let's turn these stories into reality
             </p>
 
-            <Button variant="primary" className="mt-10">
-              Explore Our Villas
+            <Button
+             variant="primary"
+             onClick={() => window.open(whatsappLink, "_blank")}
+             className="mt-10">
+              WhatsApp Us Now
             </Button>
           </div>
         </div>
