@@ -6,6 +6,7 @@ import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import Button from "./Button";
 
 type VillaNavItem = {
   title: string;
@@ -278,9 +279,11 @@ export default function Navbar() {
             );
           })}
 
-          <button className="mt-4 w-full rounded-full bg-gray-900 text-white py-3 text-[14px] font-semibold">
+          <Button
+            onClick={handleBookStay}
+           >
             Book Now
-          </button>
+          </Button>
         </div>
       </div>
     </header>

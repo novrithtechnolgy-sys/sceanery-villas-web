@@ -1,9 +1,17 @@
 // components/Hero.tsx
+"use client";
+
 import Image from "next/image";
 import BookingBar from "./BookingBar";
-import Container from "./Container";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
+
+  const handleBookStay = () => {
+    router.push("/available-villas");
+  };
+
   return (
     <section className="pb-10 md:pb-20 pt-1 md:pt-2">
 
@@ -37,7 +45,9 @@ export default function Hero() {
               Book your perfect Sri Lankan escape.
             </p>
 
-            <button className="md:hidden font-[helvetica] font-semibold mt-8 md:mt-6 bg-white w-[200px] py-2 text-[14px] rounded-full text-black">
+            <button
+             onClick={handleBookStay}
+             className="md:hidden font-[helvetica] font-semibold mt-8 md:mt-6 bg-white w-[200px] py-2 text-[14px] rounded-full text-black">
                 Book Now
             </button>
           </div>

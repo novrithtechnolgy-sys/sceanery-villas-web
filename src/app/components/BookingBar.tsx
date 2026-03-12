@@ -1,30 +1,31 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Button from "./Button";
 
-type BookingBarProps = {
-  initialCheckIn?: string;
-  initialCheckOut?: string;
-  initialGuests?: string;
-};
-
-export default function BookingBar({
-  initialCheckIn,
-  initialCheckOut,
-  initialGuests,
-}: BookingBarProps) {
+export default function BookingBar() {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const today = new Date().toISOString().split("T")[0];
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split("T")[0];
 
-  const [checkIn, setCheckIn] = useState(initialCheckIn || today);
-  const [checkOut, setCheckOut] = useState(initialCheckOut || tomorrow);
-  const [guests, setGuests] = useState(initialGuests || "2");
+  const [checkIn, setCheckIn] = useState(today);
+  const [checkOut, setCheckOut] = useState(tomorrow);
+  const [guests, setGuests] = useState("2");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const qCheckIn = searchParams.get("checkIn");
+    const qCheckOut = searchParams.get("checkOut");
+    const qGuests = searchParams.get("guests");
+
+    if (qCheckIn) setCheckIn(qCheckIn);
+    if (qCheckOut) setCheckOut(qCheckOut);
+    if (qGuests) setGuests(qGuests);
+  }, [searchParams]);
 
   const handleSearch = () => {
     if (!checkIn || !checkOut) {
