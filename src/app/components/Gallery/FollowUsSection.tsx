@@ -22,7 +22,7 @@ export default function FollowUsSection() {
             <span className="italic font-serif font-normal">Follow Us On</span>
           </h3>
 
-          <h2 className="mt-4 md:mt-4 font-[helvetica] text-[32px] md:text-[46px] font-semibold leading-none tracking-[-0.02em] text-[#111111]">
+          <h2 className="mt-4 md:mt-4 font-[helvetica] text-[20px] md:text-[36px] xl:text-[46px] font-semibold leading-none tracking-[-0.02em] text-[#111111]">
             @SceneryVillas
           </h2>
 

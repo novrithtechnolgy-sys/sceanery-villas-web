@@ -13,6 +13,7 @@ export default function ContactHero() {
           alt="Luxury Villa"
           fill
           priority
+          quality={75}
           className="object-cover"
         />
 

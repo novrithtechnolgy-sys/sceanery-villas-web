@@ -13,6 +13,7 @@ export default function GalleryHero() {
           alt="Luxury Villa"
           fill
           priority
+          quality={75}
           className="object-cover"
         />
 
