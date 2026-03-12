@@ -39,6 +39,7 @@ const router = useRouter();
 
             
             <Button
+             onClick={() => router.push("/available-villas")}
              variant="primary" className="mt-8">
               Book Your Stay
             </Button>

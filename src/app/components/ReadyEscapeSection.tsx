@@ -4,12 +4,19 @@ import Image from "next/image";
 import Container from "./Container";
 import Button from "./Button";
 import { FaWhatsapp } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function ReadyEscapeSection() {
+
+  const router = useRouter();
 
   const whatsappNumber = "94765840515";
   const message = "Hello, I would like to know more about your services.";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    const handleBookStay = () => {
+    router.push("/available-villas");
+  };
 
 
   return (
@@ -44,7 +51,7 @@ export default function ReadyEscapeSection() {
             <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-6 items-center">
               
               {/* Primary */}
-              <Button>
+              <Button onClick={handleBookStay}>
                 Book Your Stay
               </Button>
 

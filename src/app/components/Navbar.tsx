@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Container from "./Container";
 import Image from "next/image";
@@ -18,6 +18,7 @@ export default function Navbar() {
   const [mobileVillaOpen, setMobileVillaOpen] = useState(false);
   const [villas, setVillas] = useState<VillaNavItem[]>([]);
   const pathname = usePathname();
+  const router = useRouter();
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -42,6 +43,10 @@ export default function Navbar() {
 
     loadVillas();
   }, []);
+
+  const handleBookStay = () => {
+    router.push("/available-villas");
+  };
 
   const isVillaPage =
     pathname === "/villas" || pathname.startsWith("/villas/");
@@ -158,7 +163,9 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block">
-            <button className="rounded-full font-[helvetica] bg-gray-900 text-white px-5 py-2 text-[13px] font-semibold hover:bg-black transition">
+            <button
+              onClick={handleBookStay}
+             className="rounded-full font-[helvetica] bg-gray-900 text-white px-5 py-2 text-[13px] font-semibold hover:bg-black transition">
               Book Now
             </button>
           </div>

@@ -119,7 +119,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-gray-400 text-sm">
+        <div className="border-t border-gray-700 mt-16 pt-8 flex flex-col md:flex-row items-center text-center justify-between gap-6 text-gray-400 text-sm">
 
           <p>
             © 2026 Scenery Villas. All rights reserved.  
