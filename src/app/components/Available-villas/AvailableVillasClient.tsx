@@ -110,7 +110,7 @@ export default function AvailableVillasClient() {
           )}
 
           {!loading && error && (
-            <div className="bg-white text-center flex flex-col items-center justify-center py-20 rounded-[22px]">
+            <div className="bg-white text-center flex flex-col items-center justify-center py-20 rounded-[22px] ">
               <p className="text-red-600 text-[16px]">{error}</p>
             </div>
           )}
