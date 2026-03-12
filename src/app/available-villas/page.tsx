@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import AvailableVillasClient from "../components/Available-villas/AvailableVillasClient";
 import AvailableVillasHero from "../components/Available-villas/Heropage";
 import Navbar from "../components/Navbar";
