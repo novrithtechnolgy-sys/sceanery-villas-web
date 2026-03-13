@@ -21,7 +21,7 @@ export default function FeaturedStory() {
             {/* Background Image */}
             <div className="relative py-8 md:py-20">
               <Image
-                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896001/a79a72dc92065a82e3dcbaa5d44bc0b50a2e118a_bdo1wc.webp"
+                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773327995/Sri_20Lanka_130525_GettyImages-519276262_zj2927.webp"
                 alt="Featured Story"
                 fill
                 className="object-cover"

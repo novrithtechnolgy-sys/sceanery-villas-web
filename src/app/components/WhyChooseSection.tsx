@@ -109,14 +109,14 @@ export default function WhyChooseSection() {
         title: "The Real Bentota",
         description:
           "We guide you beyond the tourist traps. River safaris, hidden temples, and the best local spots, curated by our team.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772941365/upftzhasthk4h7vhswa9_qlbgjx.webp",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773328273/Bentota-view-from-upper_bicb5p.jpg",
       },
       {
         id: "4",
         title: "Work and Play",
         description:
           "With high speed fiber internet and dedicated workspaces, our villas are perfect for digital nomads and workations.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773375823/DSC07235-Edit_myzadm.webp",
       },
     ],
     []

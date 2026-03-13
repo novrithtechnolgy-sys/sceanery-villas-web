@@ -38,22 +38,22 @@ const portableTextComponents: PortableTextComponents = {
   },
   block: {
     h1: ({ children }) => (
-      <h1 className="font-[poppins] text-[24px] md:text-[32px] font-bold text-black mt-10 mb-4">
+      <h1 className="font-[timesTen] text-[24px] md:text-[32px] font-bold text-black mt-10 mb-4">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="font-[poppins] text-[20px] md:text-[28px] font-semibold text-black mt-8 mb-3">
+      <h2 className="font-[helvetica] text-[20px] md:text-[28px] font-semibold text-black mt-8 mb-3">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="font-[poppins] text-[18px] md:text-[24px] font-semibold text-black mt-6 mb-2">
+      <h3 className="font-[helvetica] text-[18px] md:text-[24px] font-semibold text-black mt-6 mb-2">
         {children}
       </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="font-[poppins] text-[16px] md:text-[20px] font-semibold text-black mt-6 mb-2">
+      <h4 className="font-[helvetica] text-[16px] md:text-[20px] font-semibold text-black mt-6 mb-2">
         {children}
       </h4>
     ),
@@ -63,7 +63,7 @@ const portableTextComponents: PortableTextComponents = {
       </h5>
     ),
     normal: ({ children }) => (
-      <p className="font-[poppins] text-[12px] md:text-[16px] leading-relaxed text-justify text-gray-700 mb-5">
+      <p className="font-[helvetica] text-[12px] md:text-[16px] leading-relaxed text-justify text-gray-700 mb-5">
         {children}
       </p>
     ),
@@ -71,6 +71,23 @@ const portableTextComponents: PortableTextComponents = {
       <blockquote className="border-l-4 border-[#1B3A57] pl-4 italic text-gray-600 my-4">
         {children}
       </blockquote>
+    ),
+    bullet: ({ children }) => (
+      <li className="font-[helvetica] text-[12px] md:text-[16px] leading-relaxed text-justify text-gray-700 mb-5">
+        {children}
+      </li>
+    ),
+  },
+    list: {
+    bullet: ({ children }) => (
+      <ul className="list-disc pl-6 mb-6 space-y-2 text-[12px] md:text-[16px] text-gray-700">
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol className="list-decimal pl-6 mb-6 space-y-2  text-gray-700">
+        {children}
+      </ol>
     ),
   },
   marks: {
@@ -185,7 +202,7 @@ export default function BlogReadPage() {
                 )}
 
                 {img && (
-                  <div className="mt-10 relative h-[620px] w-full rounded-[28px] overflow-hidden">
+                  <div className="mt-10 relative aspect-[16/9] xl:aspect-[16/6] w-full rounded-[28px] overflow-hidden">
                     <Image
                       src={img}
                       alt={post.title}

@@ -102,7 +102,7 @@ function Stat({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border-2 border-gray-200 bg-white p-2 md:p-4 text-center flex flex-row justify-center items-center gap-3">
+    <div className="rounded-2xl border-2 border-gray-200 bg-white p-2 md:p-4  flex flex-row justify-center items-center gap-3">
       <div className="text-[16px] md:text-[20px] xl:text-[24px]">{icon}</div>
 
       <div className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">

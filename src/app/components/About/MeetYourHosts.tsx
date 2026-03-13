@@ -31,7 +31,7 @@ export default function MeetYourHosts() {
         <div className="mt-8 md:mt-0 md:col-span-5">
           <div className="relative w-full h-[280px] md:h-[360px] rounded-[26px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.10)]">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773253042/IMG-20240511-WA0024_k8rrq2.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773375384/589205959_1281275900707377_8437864311481068996_n_fekhzf.webp"
               alt="Meet your hosts"
               fill
               className="object-cover"

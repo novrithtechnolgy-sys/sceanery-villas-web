@@ -6,7 +6,10 @@ import QuickChat from "../components/Contact/quickchat";
 import WhereWeAreSection from "../components/Contact/WhereWeAreSection";
 import Navbar from "../components/Navbar";
 
-
+export const metadata = {
+    title: "Contact Scenery Villas | Inquiries and Reservations Bentota",
+    description: "Get in touch with Scenery Villas. Book your private villa in Bentota, inquire about group rates, or ask us about local experiences. We are here to help.",
+}
 
 export default function Contact() {
     return(

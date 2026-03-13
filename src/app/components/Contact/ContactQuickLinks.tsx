@@ -22,7 +22,7 @@ export default function ContactQuickLinks() {
       icon: <Phone className="h-6 w-6" />,
       title: "Talk to Us",
       subtitle: "Call or WhatsApp us for immediate assistance.",
-      value: "+94 00 000 0000 / +94 00 000 0000",
+      value: "+94 77 908 2515",
     },
     {
       icon: <MapPin className="h-6 w-6" />,

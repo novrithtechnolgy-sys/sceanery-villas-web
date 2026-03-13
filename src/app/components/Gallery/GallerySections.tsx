@@ -142,27 +142,27 @@ const gallerySections: GallerySectionData[] = [
 ];
 
 const layoutPattern = [
-  "col-span-12 md:col-span-4 h-[140px] md:h-[320px] md:-mt-[18px]",
-  "col-span-6 md:col-span-8 h-[140px] md:h-[320px] md:-mt-[18px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[240px] lg:h-[320px] md:-mt-[18px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[240px] lg:h-[320px] md:-mt-[18px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
   // "col-span-12 md:col-span-4 h-[245px]",
-  "col-span-6 md:col-span-8 h-[140px] md:h-[320px]",
-  "col-span-12 md:col-span-4 h-[140px] md:h-[660px]",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[320px]  md:-mt-[340px]",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[320px]  md:-mt-[340px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[240px] lg:h-[320px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[500px] lg:h-[660px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[240px] lg:h-[320px] md:-mt-[260px] lg:-mt-[340px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[240px] lg:h-[320px]  md:-mt-[260px] lg:-mt-[340px]",
 
 ];
 
 const layoutPatternFlipped = [
-  "col-span-6 md:col-span-4 h-[140px] md:h-[525px]",
-  "col-span-6 md:col-span-8 h-[140px] md:h-[260px]",
-  "col-span-12 md:col-span-4 h-[140px] md:h-[245px]",
-  "col-span-6 md:col-span-4  h-[140px] md:h-[245px] md:-mt-[264px]",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[510px] md:-mt-[264px]",
-  "relative col-span-12 md:col-span-4 h-[140px] md:h-[245px] ",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[510px] md:-mt-[264px]",
-  "col-span-6 md:col-span-4 h-[140px] md:h-[245px] md:-mt-[px]"
+  "col-span-6 md:col-span-4 h-[140px] md:h-[500px] lg:h-[585px]",
+  "col-span-6 md:col-span-8 h-[140px] md:h-[240px] lg:h-[320px]",
+  "col-span-12 md:col-span-4 h-[140px] md:h-[240px] lg:h-[320px]",
+  "col-span-6 md:col-span-4  h-[140px] md:h-[240px] lg:h-[320px] md:-mt-[260px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[500px] lg:h-[585px] md:-mt-[264px]",
+  "relative col-span-12 md:col-span-4 h-[140px] md:h-[240px] lg:h-[320px] ",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[500px] lg:h-[585px] md:-mt-[260px]",
+  "col-span-6 md:col-span-4 h-[140px] md:h-[240px] lg:h-[320px] md:-mt-[px]"
 ];  
 
 export default function LuxuryGalleryPage() {

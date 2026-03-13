@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { urlFor } from "@/sanity/lib/image";
-import { FaSwimmingPool } from "react-icons/fa";
+import { FaAccessibleIcon, FaHome, FaSwimmingPool } from "react-icons/fa";
 import Container from "../Container";
 import ArrowButton from "../ArrowButton";
 
@@ -113,10 +113,10 @@ export default function FeatureTab({ villa }: { villa: any }) {
                 <div className="p-8">
                   <div className="mb-8 flex items-center gap-8">
                     <div className="flex h-9 w-9 items-center justify-center rounded-md bg-black text-white">
-                      <FaSwimmingPool size={14} />
+                      <FaHome size={14} />
                     </div>
 
-                    <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-900">
+                    <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                       {feature.title}
                     </h3>
                   </div>

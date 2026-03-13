@@ -46,7 +46,7 @@ export default function WhereWeAreSection() {
             </p>
 
             <div className="mt-8 flex flex-col items-center md:flex-row gap-4 max-w-[620px]">
-              <div className="md:-mt-9 h-10 w-10  rounded-full border border-gray-200 flex items-center justify-center">
+              <div className="md:-mt-9 rounded-full flex items-center justify-center">
                 <MapPin className="h-5 w-5 text-gray-900" />
               </div>
 
