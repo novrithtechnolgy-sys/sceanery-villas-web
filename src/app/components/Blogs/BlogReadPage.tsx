@@ -10,6 +10,9 @@ import {
   PortableText,
   type PortableTextComponents,
 } from "@portabletext/react";
+import { FaFacebookF, FaLink, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import post from "@/sanity/schemaTypes/post";
+import { FaXTwitter } from "react-icons/fa6";
 
 type BlogPost = {
   _id: string;
@@ -109,6 +112,39 @@ const portableTextComponents: PortableTextComponents = {
     ),
   },
 };
+
+const shareUrl =
+  typeof window !== "undefined" ? window.location.href : "";
+
+const shareTitle = post?.title || "";
+
+const shareFacebook = () => {
+  window.open(
+    `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+    "_blank"
+  );
+};
+
+const shareLinkedin = () => {
+  window.open(
+    `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(shareUrl)}`,
+    "_blank"
+  );
+};
+
+const shareWhatsapp = () => {
+  window.open(
+    `https://wa.me/?text=${encodeURIComponent(
+      shareUrl
+    )}`,
+    "_blank"
+  );
+};
+
+const copyLink = async () => {
+  await navigator.clipboard.writeText(shareUrl);
+  alert("Link copied!");
+};;
 
 export default function BlogReadPage() {
   const params = useParams();
@@ -227,6 +263,36 @@ export default function BlogReadPage() {
               </>
             )}
           </div>
+          <div className="mt-6 flex items-center gap-4">
+  <span className="text-sm text-gray-500">Share:</span>
+
+          <button
+            onClick={shareFacebook}
+            className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90"
+          >
+            <FaFacebookF />
+          </button>
+          <button
+            onClick={shareLinkedin}
+            className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center hover:opacity-90"
+          >
+            <FaLinkedin />
+          </button>
+
+          <button
+            onClick={shareWhatsapp}
+            className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:opacity-90"
+          >
+            <FaWhatsapp />
+          </button>
+
+          <button
+            onClick={copyLink}
+            className="w-10 h-10 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center hover:bg-gray-300"
+          >
+            <FaLink />
+          </button>
+        </div>
         </Container>
       </main>
     </>

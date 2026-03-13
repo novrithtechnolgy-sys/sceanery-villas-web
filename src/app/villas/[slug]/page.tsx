@@ -57,8 +57,8 @@ export async function generateMetadata({
 
   const villa = await client.fetch(
     `*[_type=="villas" && slug.current==$slug][0]{
-      title,
-      tagline,
+      metatitle,
+      metadescription,
       heroImage,
       "slug": slug.current
     }`,
@@ -78,9 +78,9 @@ export async function generateMetadata({
   const url = `https://sceneryvillassrilanka.com/villas/${villa.slug}`;
 
   return {
-    title: villa.title,
+    title: villa.metatitle || villa.title,
     description:
-      villa.tagline ||
+      villa.metadescription ||
       "Luxury private villa in Bentota Sri Lanka with private pool and tropical surroundings.",
 
     alternates: {

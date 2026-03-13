@@ -7,7 +7,7 @@ import Container from "../Container";
 
 export default function QuickChat() {
 
-  const whatsappNumber = "94765840515";
+  const whatsappNumber = "+94779082515";
   const message = "Hello, I would like to know more about your services.";
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

@@ -14,6 +14,20 @@ export default defineType({
     }),
 
     defineField({
+      name: "metatitle",
+      title: "Meta Title",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
+      name: "metadescription",
+      title: "Meta Description",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
