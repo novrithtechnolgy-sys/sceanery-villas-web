@@ -4,8 +4,12 @@ import Image from "next/image";
 import React, { useMemo, useRef, useState } from "react";
 import Container from "./Container";
 import ArrowButton from "./ArrowButton";
+import { MdKitchen } from "react-icons/md";
+import { FaBowlFood, FaMapLocation } from "react-icons/fa6";
+import { FaLock, FaPlay, FaSort, FaSwimmingPool, FaTv } from "react-icons/fa";
 
 type Feature = {
+  icon: React.ReactNode;
   id: string;
   title: string;
   description: string;
@@ -33,12 +37,7 @@ function FeatureCardDesktop({ feature }: { feature: Feature }) {
       <div className="relative -mt-14 pl-14 xl:pl-24">
         <div className="bg-white rounded-[22px] shadow-[0_12px_30px_rgba(0,0,0,0.10)] border border-gray-100 p-8">
           <div className="flex items-center gap-4 mb-4">
-            <IconBox>
-              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="5" y="11" width="14" height="9" rx="2" />
-                <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-              </svg>
-            </IconBox>
+            {feature.icon}
 
             <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
           </div>
@@ -95,14 +94,16 @@ export default function WhyChooseSection() {
         title: "Private Dining",
         description:
           "From Sri Lankan rice and curry feasts to seafood BBQs, our private chefs craft meals around your cravings.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773938737/dji_mimo_20260302_174406_0_1772510317530_photo_1_j9nbtz.webp",
+        icon: <FaBowlFood size={30} className="p-2 rounded-md bg-black text-white"/>
       },
       {
         id: "2",
         title: "Exclusive Use",
         description:
           "No strangers at the pool. No crowded buffets. The entire property is yours, ensuring total privacy and safety.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940785/IMG-20250927-WA0021_xbraaf.jpg",
+        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773894024/DSC06765-Edit-2_ofm7pe.webp",
+        icon: <FaLock size={30} className="p-2 rounded-md bg-black text-white"/>
       },
       {
         id: "3",
@@ -110,6 +111,7 @@ export default function WhyChooseSection() {
         description:
           "We guide you beyond the tourist traps. River safaris, hidden temples, and the best local spots, curated by our team.",
         image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773328273/Bentota-view-from-upper_bicb5p.jpg",
+        icon: <FaMapLocation size={30} className="p-2 rounded-md bg-black text-white"/>
       },
       {
         id: "4",
@@ -117,6 +119,7 @@ export default function WhyChooseSection() {
         description:
           "With high speed fiber internet and dedicated workspaces, our villas are perfect for digital nomads and workations.",
         image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773375823/DSC07235-Edit_myzadm.webp",
+        icon: <FaTv size={30} className="p-2 rounded-md bg-black text-white"/>
       },
     ],
     []

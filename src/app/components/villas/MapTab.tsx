@@ -20,7 +20,7 @@ export default function MapTab({ villa }: { villa: any }) {
   }
 
   return (
-    <section className="py-10 mb-20 md:mb-40 md:py-20">
+    <section className="py-10 pb-20 md:pb-40 md:py-20">
       <Container>
 
         <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight mb-10 md:mb-14">

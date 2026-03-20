@@ -99,7 +99,7 @@ export default function FeatureTab({ villa }: { villa: any }) {
                 key={i}
                 className="overflow-hidden rounded-[20px] border border-gray-100 bg-white shadow"
               >
-                <div className="relative h-[220px] w-full">
+                <div className="relative h-[260px] w-full">
                   {img && (
                     <Image
                       src={img}

@@ -31,7 +31,7 @@ export default function GuestStories() {
           "We stayed at Villa Mandalay for a week and didn't want to leave. The view from the pool is magical. Staff was incredibly helpful.",
         author: "Louise, UK",
         image:
-          "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291305/DSC02596_iotcth.webp",
       },
       {
         id: "2",
@@ -39,7 +39,7 @@ export default function GuestStories() {
           "The villa felt like our own private world. Beautiful design, great food, and the team handled everything perfectly.",
         author: "Daniel, Germany",
         image:
-          "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773857675/dji_mimo_20260302_175024_0_1772510345370_photo_xbutjc.webp",
       },
       {
         id: "3",
@@ -47,7 +47,7 @@ export default function GuestStories() {
           "Amazing location and peaceful mornings. The experience was luxury without being over the top — just perfect.",
         author: "Sofia, Sweden",
         image:
-          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291649/0000009575_hzo6ny.webp",
       },
       {
         id: "4",
@@ -55,7 +55,7 @@ export default function GuestStories() {
           "Our family loved every moment. The pool, the staff, the privacy — everything exceeded expectations.",
         author: "Nina, Australia",
         image:
-          "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773375823/DSC07235-Edit_myzadm.webp",
       },
       {
         id: "5",
@@ -63,7 +63,7 @@ export default function GuestStories() {
           "Perfect for a workation. Fast internet, beautiful views, and a calm environment to reset your mind.",
         author: "Arjun, India",
         image:
-          "https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=1600&q=80",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg",
       },
       {
         id: "6",
@@ -71,7 +71,7 @@ export default function GuestStories() {
           "The best part was how personal it felt — they really cared about every detail of our stay.",
         author: "Maya, Singapore",
         image:
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773856767/DSC02091-Edit_ffrh2q.jpg",
       },
     ],
     []
@@ -81,7 +81,7 @@ export default function GuestStories() {
   const total = stories.length;
 
   const canPrev = index > 0;
-  const canNext = index < total - 1;
+  // const canNext = index < total - 1;
 
   const active = stories[index];
 
@@ -119,7 +119,7 @@ export default function GuestStories() {
               <ArrowButton
                 direction="left"
                 disabled={!canPrev}
-                onClick={() => canPrev && setIndex((v) => v - 1)}
+                  onClick={() => setIndex((v) => (v === 0 ? total - 1 : v - 1))}
               />
 
               <div className="text-[14px] text-gray-800 tabular-nums">
@@ -128,9 +128,7 @@ export default function GuestStories() {
 
               <ArrowButton
                 direction="right"
-                disabled={!canNext}
-                onClick={() => canNext && setIndex((v) => v + 1)}
-              />
+                onClick={() => setIndex((v) => (v === total - 1 ? 0 : v + 1))} disabled={false}              />
             </div>
           </div>
 
@@ -142,7 +140,7 @@ export default function GuestStories() {
               className="relative h-[540px] w-full max-w-[520px] rounded-[28px] overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.10)]"
             >
               <Image
-                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg"
+                src={active.image}
                 alt={active.author}
                 fill
                 className="object-cover"

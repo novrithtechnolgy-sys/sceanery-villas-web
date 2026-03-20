@@ -50,7 +50,7 @@ export default function WhyDifferent() {
         description:
           "We believe your holiday belongs to you. Our villas are designed to be private sanctuaries where you can be yourself, away from the eyes of strangers.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
+          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
       },
       {
         id: "2",

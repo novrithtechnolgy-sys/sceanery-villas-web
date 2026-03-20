@@ -1,6 +1,6 @@
 export default function ArrowButton({
   onClick,
-  disabled,
+  disabled = false,
   direction,
 }: {
   onClick: () => void;
@@ -9,8 +9,12 @@ export default function ArrowButton({
 }) {
   return (
     <button
-      onClick={onClick}
+            onClick={() => {
+        if (!disabled) onClick();
+      }}
+
       disabled={disabled}
+       aria-disabled={disabled}
       className={[
         "h-14 w-14 rounded-full bg-white sm:border sm:border-gray-200",
         "sm:shadow-[0_8px_20px_rgba(0,0,0,0.10)]",

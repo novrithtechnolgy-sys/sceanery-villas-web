@@ -17,7 +17,7 @@ export default function ExperienceDifference() {
           {/* Background Image */}
           <div className="relative h-[260px] md:h-[420px]">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773334829/Imagem-aerea-Por-do-sol-Floresta-de-Sinharaja-sri-lanka-jorge-duarte-estevao-1170-x768-2_agojee.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773939444/3_galle-benthota-full-day-tour-from-colombo_croyhk.jpg"
               alt="Experience the difference"
               fill
               className="object-cover"

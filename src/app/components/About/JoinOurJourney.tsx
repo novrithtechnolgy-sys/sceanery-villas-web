@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Container from "../Container";
+import { FaYoutube } from "react-icons/fa";
 
 function IconFacebook({ className = "" }: { className?: string }) {
   return (
@@ -26,6 +27,8 @@ function IconLinkedIn({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+
 
 function SocialButton({
   href,
@@ -93,6 +96,9 @@ export default function JoinOurJourney() {
             </SocialButton>
             <SocialButton href="https://www.linkedin.com/company/scenery-villas/" label="LinkedIn">
               <IconLinkedIn className="h-6 w-6 text-gray-800" />
+            </SocialButton>
+            <SocialButton href="https://youtube.com/SceneryVillas" label="YouTube">
+              <FaYoutube className="h-6 w-6 text-gray-800" />
             </SocialButton>
           </div>
       </Container>

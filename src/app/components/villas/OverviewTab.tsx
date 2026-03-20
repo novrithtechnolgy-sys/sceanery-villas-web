@@ -66,7 +66,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
 
             {/* Description */}
             {villa.highlights.description && (
-              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed text-center max-w-3xl mx-auto px-4">
+              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed text-center max-w-4xl mx-auto px-4">
                 {villa.highlights.description}
               </p>
             )}
@@ -119,7 +119,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
             </div>
 
             {/* Desktop Cards */}
-            <div className="mt-10 hidden md:grid md:grid-cols-3 gap-6">
+            <div className="mt-16 hidden md:grid md:grid-cols-3 gap-6">
               {highlightCards.map((h: any, idx: number) => {
                 const img = h.image
                   ? urlFor(h.image).width(900).quality(80).url()

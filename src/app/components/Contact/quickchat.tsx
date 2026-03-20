@@ -19,7 +19,7 @@ export default function QuickChat() {
           {/* Background Image */}
           <div className="relative h-[320px] md:h-[420px]">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773335606/Galle-Fort-in-Sri-Lanka-1_mxbjoj.jpg"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773976411/t73mjjo_bentota_625x300_14_February_25_jzmra0.webp"
               alt="Experience the difference"
               fill
               className="object-cover"

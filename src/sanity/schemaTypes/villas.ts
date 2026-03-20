@@ -13,6 +13,16 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
 
+    // ✅ NEW FIELD
+    defineField({
+      name: "priority",
+      title: "Priority Order",
+      type: "number",
+      description: "Lower number = higher priority (1 = top)",
+      initialValue: 10,
+      validation: (Rule) => Rule.required().min(1),
+    }),
+
     defineField({
       name: "metatitle",
       title: "Meta Title",
