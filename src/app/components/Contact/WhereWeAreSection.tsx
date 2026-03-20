@@ -46,11 +46,11 @@ export default function WhereWeAreSection() {
             </p>
 
             <div className="mt-8 flex flex-col items-center md:flex-row gap-4 max-w-[620px]">
-              <div className="md:-mt-9 rounded-full flex items-center justify-center">
+              <div className="md:-mt-15 rounded-full flex items-center justify-center">
                 <MapPin className="h-5 w-5 text-gray-900" />
               </div>
 
-              <p className="text-[14px] md:text-[16px] leading-8 text-gray-700">
+              <p className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-8 text-gray-700">
                 We are approximately 1.5 hours from Colombo via the Southern
                 Expressway (E01) and 2.5 hours from Bandaranaike International
                 Airport (CMB).

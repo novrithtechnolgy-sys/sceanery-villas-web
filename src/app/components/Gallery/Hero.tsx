@@ -27,10 +27,10 @@ export default function GalleryHero() {
             Gallery
           </h1>
 
-          <p className="mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          {/* <p className="mt-6 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
             Visual Stories from the Coast        
-          </p>
-          <p className="mt-12 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          </p> */}
+          <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
             Take a closer look at life in our sanctuaries. From golden hour sunsets at Villa Mandalay to the colonial details of Tara Garden, let the images speak for themselves.
           </p>
 
