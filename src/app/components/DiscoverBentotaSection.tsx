@@ -132,7 +132,7 @@ export default function DiscoverBentotaSection() {
       <Container>
         {/* Header */}
         <div className="text-center max-w-6xl mx-auto">
-          <h2 className="font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic font-serif text-gray-900">Discover</span>{" "}
             <span className="font-semibold text-gray-900">Bentota</span>
           </h2>

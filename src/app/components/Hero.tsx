@@ -31,7 +31,7 @@ export default function Hero() {
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col h-full items-center justify-center text-center">
             <h1 className="font-[timesTen] text-white font-semibold tracking-wide leading-tight
-                           text-[26px] md:text-[36px] xl:text-[46px] max-w-[300px] md:max-w-5xl">
+                           text-[20px] md:text-[36px] xl:text-[46px] max-w-[300px] md:max-w-5xl">
               LUXURY VILLAS AND HOMESTAYS IN
               <br />
               BENTOTA SRI LANKA

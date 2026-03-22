@@ -305,7 +305,7 @@ export default function VillasCarousel() {
     <>
       <section className="block sm:hidden bg-white py-10">
         <div className="px-4 text-center">
-          <div className="text-[26px]  text-black">
+          <div className="text-[20px] text-black">
             <span className="italic font-serif text-black/80">Explore</span>{" "}
             <span className="text-black font-semibold">Our Villas</span>
           </div>

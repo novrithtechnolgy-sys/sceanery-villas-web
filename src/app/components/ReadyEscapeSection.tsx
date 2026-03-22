@@ -39,7 +39,7 @@ export default function ReadyEscapeSection() {
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 py-20">
             
-            <h2 className="text-white font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px] font-bold tracking-wide uppercase">
+            <h2 className="text-white font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] font-bold tracking-wide uppercase">
               READY FOR YOUR ESCAPE?
             </h2>
 

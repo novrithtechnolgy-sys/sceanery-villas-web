@@ -90,7 +90,7 @@ export default function GuestStories() {
       <Container>
         {/* Heading */}
         <div className="text-center ">
-          <h2 className="font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic font-serif text-gray-900">Guest</span>{" "}
             <span className="font-semibold text-gray-900">Stories</span>
           </h2>
