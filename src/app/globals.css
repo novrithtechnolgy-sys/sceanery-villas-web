@@ -21,3 +21,15 @@ body {
 
 .font-times { font-family: var(--font-times), serif; font-weight: 400; }
 .font-helvetica { font-family: var(--font-helvetica), Arial, sans-serif; }
+
+/* Hide default calendar icon (Chrome, Safari, Edge) */
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
+}
+
+/* Optional: remove default appearance */
+/* input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+} */ 
