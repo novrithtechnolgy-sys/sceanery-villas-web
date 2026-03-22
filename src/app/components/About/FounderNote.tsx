@@ -76,7 +76,7 @@ export default function FounderNote() {
                   Shashindu de Silva,
                 </p>
                 <p className="italic font-[helvetica] text-[16px] md:text-[18px] text-gray-600">
-                  General Manager & Founder
+                  General Manager
                 </p>
               </div>
 

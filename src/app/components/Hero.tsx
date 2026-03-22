@@ -31,13 +31,13 @@ export default function Hero() {
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col h-full items-center justify-center text-center">
             <h1 className="font-[timesTen] text-white font-semibold tracking-wide leading-tight
-                           text-[20px] md:text-[36px] xl:text-[46px] ">
+                           text-[20px] md:text-[36px] xl:text-[46px] max-w-[300px] md:max-w-5xl">
               LUXURY VILLAS AND HOMESTAYS IN
               <br />
               BENTOTA SRI LANKA
             </h1>
 
-            <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+            <p className="mt-4 md:mt-8 font-[helvetica] max-w-[300px] md:max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
               Discover a curated collection of 6 private villas and residences in Bentota and Aluthgama.
               <br />
               From hilltop sanctuaries and group retreats to cozy homestays.
