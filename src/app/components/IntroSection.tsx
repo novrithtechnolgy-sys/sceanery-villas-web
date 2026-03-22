@@ -8,7 +8,7 @@ export default function IntroSection() {
       <Container>
         <div className="text-center max-w-6xl mx-auto">
           {/* Heading */}
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+          <h2 className="font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px]  leading-tight">
             <span className="italic text-gray-800">
               More Than A Stay.
             </span>{" "}

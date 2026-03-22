@@ -305,9 +305,9 @@ export default function VillasCarousel() {
     <>
       <section className="block sm:hidden bg-white py-10">
         <div className="px-4 text-center">
-          <div className="text-[18px] font-semibold text-black">
+          <div className="text-[26px]  text-black">
             <span className="italic font-serif text-black/80">Explore</span>{" "}
-            <span className="text-black">Our Villas</span>
+            <span className="text-black font-semibold">Our Villas</span>
           </div>
         </div>
 
@@ -349,7 +349,7 @@ export default function VillasCarousel() {
 
       <section className="hidden sm:block py-20 bg-white">
         <div className="flex items-center justify-between px-4 md:px-8 lg:px-12 xl:px-28">
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic font-serif text-gray-900">Explore</span>{" "}
             <span className="font-semibold text-gray-900">Our Villas</span>
           </h2>

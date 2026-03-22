@@ -168,8 +168,8 @@ export default function WhyChooseSection() {
       <Container>
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-            <span className="italic text-gray-900">Why Choose</span>{" "}
+          <h2 className="font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px] leading-tight ">
+            <span className="italic font-serif text-gray-900">Why Choose</span>{" "}
             <span className="font-semibold text-gray-900">Scenery Villas</span>
           </h2>
         </div>
