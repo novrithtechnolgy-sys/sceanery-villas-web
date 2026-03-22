@@ -83,6 +83,37 @@ export default function GuestStories() {
   const canPrev = index > 0;
   // const canNext = index < total - 1;
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+const minSwipeDistance = 50;
+
+const onTouchStart = (e: React.TouchEvent) => {
+  setTouchEnd(null);
+  setTouchStart(e.targetTouches[0].clientX);
+};
+
+const onTouchMove = (e: React.TouchEvent) => {
+  setTouchEnd(e.targetTouches[0].clientX);
+};
+
+const onTouchEnd = () => {
+  if (!touchStart || !touchEnd) return;
+
+  const distance = touchStart - touchEnd;
+
+  const isLeftSwipe = distance > minSwipeDistance;
+  const isRightSwipe = distance < -minSwipeDistance;
+
+  if (isLeftSwipe) {
+    setIndex((v) => (v === total - 1 ? 0 : v + 1));
+  }
+
+  if (isRightSwipe) {
+    setIndex((v) => (v === 0 ? total - 1 : v - 1));
+  }
+};
+
   const active = stories[index];
 
   return (
@@ -97,7 +128,10 @@ export default function GuestStories() {
         </div>
 
         {/* Content */}
-        <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+        <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}>
           {/* Left quote card */}
           <div className="lg:col-span-6">
             <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.08)] p-8 md:px-12  md:py-12">

@@ -190,8 +190,8 @@ function ExperienceGroupUI({ group }: { group: ExperienceGroup }) {
     <section className="py-10 md:py-20">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto">
-        <h3 className="font-[timesTen] text-[18px] md:text-[36px] xl:text-[46px] leading-tight">
-          <span className="italic">{group.eyebrowItalic}</span>{" "}
+        <h3 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <span className="italic">{group.eyebrowItalic}</span>{" "}<span className="font-serif">{" "}</span>
           <span className="font-semibold font-[helvetica]">{group.titleBold}</span>
         </h3>
 

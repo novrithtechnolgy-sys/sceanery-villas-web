@@ -263,7 +263,7 @@ export default function VillasCarousel() {
   }, [total]);
 
   const canPrev = index > 0;
-  const canNext = index < total - 1;
+
 
   const mCanPrev = mIndex > 0;
   const mCanNext = mIndex < total - 1;
@@ -288,8 +288,13 @@ export default function VillasCarousel() {
     lastX.current = null;
 
     const TH = 50;
-    if (dx > TH && mCanPrev) setMIndex((v) => Math.max(0, v - 1));
-    if (dx < -TH && mCanNext) setMIndex((v) => Math.min(total - 1, v + 1));
+if (dx > TH) {
+  setMIndex((v) => (v === 0 ? total - 1 : v - 1));
+}
+
+if (dx < -TH) {
+  setMIndex((v) => (v === total - 1 ? 0 : v + 1));
+}
   };
 
   const onPointerCancel = () => {
@@ -329,20 +334,23 @@ export default function VillasCarousel() {
         </div>
 
         <div className="flex items-center justify-center px-4 gap-4">
-          <ArrowButton
-            direction="left"
-            disabled={!mCanPrev}
-            onClick={() => setMIndex((v) => Math.max(0, v - 1))}
-          />
-
+        <ArrowButton
+          direction="left"
+          disabled={!mCanPrev}
+          onClick={() =>
+            setIndex((v) => (v === 0 ? total - 1 : v - 1))
+          }
+        />
           <div className="text-center text-[12px] text-black tabular-nums">
             {mIndex + 1}/{total}
           </div>
 
           <ArrowButton
             direction="right"
-            disabled={!mCanNext}
-            onClick={() => setMIndex((v) => Math.min(total - 1, v + 1))}
+            disabled={false}
+              onClick={() =>
+      setMIndex((v) => (v === total - 1 ? 0 : v + 1))
+  }
           />
         </div>
       </section>
@@ -367,8 +375,10 @@ export default function VillasCarousel() {
 
             <ArrowButton
               direction="right"
-              disabled={!canNext}
-              onClick={() => canNext && setIndex((v) => v + 1)}
+              disabled={false}
+              onClick={() =>
+    setIndex((v) => (v === total - 1 ? 0 : v + 1))
+}
             />
           </div>
         </div>
