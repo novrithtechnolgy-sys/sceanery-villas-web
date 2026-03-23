@@ -263,7 +263,7 @@ export default function VillasCarousel() {
   }, [total]);
 
   const canPrev = index > 0;
-
+  const canNext = index < total - 1;
 
   const mCanPrev = mIndex > 0;
   const mCanNext = mIndex < total - 1;
@@ -288,13 +288,13 @@ export default function VillasCarousel() {
     lastX.current = null;
 
     const TH = 50;
-if (dx > TH) {
-  setMIndex((v) => (v === 0 ? total - 1 : v - 1));
-}
+    if (dx > TH) {
+      setMIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+    }
 
-if (dx < -TH) {
-  setMIndex((v) => (v === total - 1 ? 0 : v + 1));
-}
+    if (dx < -TH) {
+      setMIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+    }
   };
 
   const onPointerCancel = () => {
@@ -310,7 +310,7 @@ if (dx < -TH) {
     <>
       <section className="block sm:hidden bg-white py-10">
         <div className="px-4 text-center">
-          <div className="text-[20px] text-black">
+          <div className="text-[20px]  text-black">
             <span className="italic font-serif text-black/80">Explore</span>{" "}
             <span className="text-black font-semibold">Our Villas</span>
           </div>
@@ -334,13 +334,12 @@ if (dx < -TH) {
         </div>
 
         <div className="flex items-center justify-center px-4 gap-4">
-        <ArrowButton
-          direction="left"
-          disabled={!mCanPrev}
-          onClick={() =>
-            setIndex((v) => (v === 0 ? total - 1 : v - 1))
-          }
-        />
+          <ArrowButton
+            direction="left"
+            disabled={!mCanPrev}
+            onClick={() => setMIndex((v) => Math.max(0, v - 1))}
+          />
+
           <div className="text-center text-[12px] text-black tabular-nums">
             {mIndex + 1}/{total}
           </div>
@@ -348,10 +347,9 @@ if (dx < -TH) {
           <ArrowButton
             direction="right"
             disabled={false}
-              onClick={() =>
-      setMIndex((v) => (v === total - 1 ? 0 : v + 1))
-  }
-          />
+            onClick={() =>
+              setMIndex((prev) => (prev === total - 1 ? 0 : prev + 1))
+            }          />
         </div>
       </section>
 
@@ -372,13 +370,15 @@ if (dx < -TH) {
             <div className="text-[14px] text-gray-800 tabular-nums">
               {index + 1} / {total}
             </div>
-
             <ArrowButton
               direction="right"
               disabled={false}
               onClick={() =>
-    setIndex((v) => (v === total - 1 ? 0 : v + 1))
-}
+                setIndex((prev) => {
+                  if (prev === total - 1) return 0; // go to first
+                  return prev + 1;
+                })
+              }
             />
           </div>
         </div>

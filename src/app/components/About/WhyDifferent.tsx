@@ -173,7 +173,7 @@ export default function WhyDifferent() {
 
             <ArrowButton
               direction="right"
-              disabled={active === items.length - 1}
+              disabled={false}
               onClick={() => scrollToIndex(Math.min(items.length - 1, active + 1))}
             />
 
