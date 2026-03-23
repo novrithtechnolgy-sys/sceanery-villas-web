@@ -33,7 +33,7 @@ export default function Newsletter() {
                         name="EMAIL"
                         placeholder="Your Email Address"
                         required
-                        className="w-full md:w-[420px] px-5 py-4 rounded-full border border-gray-300 outline-none text-[14px] font-[helvetica]"
+                        className="w-full md:w-[420px] px-5 py-3 rounded-full border border-gray-300 outline-none text-[14px] font-[helvetica]"
                     />
 
                     {/* Bot protection field (Mailchimp requirement) */}

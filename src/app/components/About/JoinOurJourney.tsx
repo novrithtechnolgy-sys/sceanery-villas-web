@@ -45,7 +45,7 @@ function SocialButton({
       aria-label={label}
       target="_blank"
       rel="noreferrer"
-      className="h-14 w-14 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition"
+      className="w-10 h-10 md:h-14 md:w-14 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition"
     >
       {children}
     </a>
