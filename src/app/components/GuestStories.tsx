@@ -121,9 +121,9 @@ const onTouchEnd = () => {
       <Container>
         {/* Heading */}
         <div className="text-center ">
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-            <span className="italic font-serif text-gray-900">Guest</span>{" "}
-            <span className="font-semibold text-gray-900">Stories</span>
+          <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+            <span className="italic text-gray-900">Guest</span>{" "}
+            <span className="font-semibold text-[#FF751F]">Stories</span>
           </h2>
         </div>
 
@@ -134,16 +134,16 @@ const onTouchEnd = () => {
           onTouchEnd={onTouchEnd}>
           {/* Left quote card */}
           <div className="lg:col-span-6">
-            <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.08)] p-8 md:px-12  md:py-12">
+            <div className="bg-white rounded-[20px] border-2 border-gray-300  p-8 md:px-12  md:py-12">
               <div className="mb-4 md:mb-10">
                 <QuoteMark  />
               </div>
 
-              <p className="font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] leading-[30px] md:leading-10 text-gray-800 max-w-[530px] lg:line-clamp-3">
+              <p className="font-body text-[14px] md:text-[20px]  leading-[30px] md:leading-10 text-gray-800 max-w-[530px] lg:line-clamp-3">
                 {active.quote}
               </p>
 
-              <div className="mt-4 md:mt-12 font-[helvetica] text-[14px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+              <div className="mt-4 md:mt-12 font-body text-[14px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                 {active.author}
               </div>
             </div>

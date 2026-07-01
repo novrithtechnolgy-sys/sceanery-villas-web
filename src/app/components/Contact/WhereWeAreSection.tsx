@@ -35,12 +35,12 @@ export default function WhereWeAreSection() {
 
           {/* Right: Content */}
           <div className="pt-2 text-center md:text-left order-first lg:order-last">
-            <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight text-gray-900">
+            <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight text-gray-900">
               <span className="italic font-medium">Where</span>{" "}
-              <span className="font-semibold">We Are</span>
+              <span className="font-semibold text-[#FF751F]">We Are</span>
             </h2>
 
-            <p className="mt-4 md:mt-8 max-w-[520px] font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-8 text-gray-700">
+            <p className="mt-4 md:mt-8 max-w-[520px] font-body text-[16px] md:text-[20px] leading-8 text-gray-700">
               Our collection is located along the southern coast of Sri Lanka,
               centered around the towns of Bentota, Aluthgama, and Dharga Town.
             </p>
@@ -50,7 +50,7 @@ export default function WhereWeAreSection() {
                 <MapPin className="h-5 w-5 text-gray-900" />
               </div>
 
-              <p className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-8 text-gray-700">
+              <p className="font-body text-[16px] md:text-[20px] leading-8 text-gray-700">
                 We are approximately 1.5 hours from Colombo via the Southern
                 Expressway (E01) and 2.5 hours from Bandaranaike International
                 Airport (CMB).
@@ -62,7 +62,7 @@ export default function WhereWeAreSection() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center w-[200px] lg:w-[340px] rounded-full bg-gray-900 text-white px-16 py-3  text-[14px] font-semibold shadow-sm hover:bg-black transition"
+                className="inline-flex items-center justify-center w-[200px] lg:w-[340px] rounded-full bg-[#FF751F] text-white px-16 py-3  text-[14px] font-semibold shadow-sm hover:bg-black transition"
               >
                 Get Directions
               </a>

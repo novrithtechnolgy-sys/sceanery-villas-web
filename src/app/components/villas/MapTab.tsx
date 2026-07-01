@@ -23,9 +23,9 @@ export default function MapTab({ villa }: { villa: any }) {
     <section className="py-10 pb-20 md:pb-40 md:py-20">
       <Container>
 
-        <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight mb-10 md:mb-14">
+        <h2 className="text-center font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight mb-10 md:mb-14">
           <span className="italic">Map By </span>
-          <span className="font-semibold">{villaName}</span>
+          <span className="font-semibold text-[#FF751F]">{villaName}</span>
         </h2>
 
         <div className="rounded-[20px] overflow-hidden bg-white shadow-sm">

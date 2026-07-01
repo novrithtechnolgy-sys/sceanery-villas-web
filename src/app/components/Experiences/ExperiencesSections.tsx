@@ -44,10 +44,10 @@ function ExperienceCardMobile({ item }: { item: ExperienceCard }) {
       {/* Bottom overlay content */}
       <div className="relative -mt-10 md:px-4 pb-3">
         <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.10)] p-4 md:p-8">
-          <h4 className="font-[helvetica] text-[16px] font-semibold text-gray-900">
+          <h4 className="font-body text-[16px] font-semibold text-gray-900">
             {item.title}
           </h4>
-          <p className="mt-4 md:mt-8 font-[helvetica] text-[14px] leading-6 text-gray-700">
+          <p className="mt-4 md:mt-8 font-body text-[14px] leading-6 text-gray-700">
             {item.desc}
           </p>
         </div>
@@ -163,20 +163,17 @@ function ExperienceCardDesktop({ item }: { item: ExperienceCard }) {
   const imgUrl = item.image ? urlFor(item.image).width(1400).quality(85).url() : "";
 
   return (
-    <div className="relative">
-      <div className="relative h-[240px] xl:h-[300px] rounded-[24px] overflow-hidden mr-8 xl:mr-14">
+    <div className="relative border-2 border-gray-300 rounded-[24px] ">
+      <div className="relative h-[240px] xl:h-[280px] rounded-t-[24px] overflow-hidden">
         <Image src={imgUrl} alt={item.title} fill className="object-cover" />
       </div>
-
-      <div className="relative -mt-14 pl-14 xl:pl-24">
-        <div className="bg-white rounded-[22px] shadow-[0_12px_30px_rgba(0,0,0,0.10)] border border-gray-100 p-8">
-          <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+        <div className="bg-white p-8 rounded-b-[24px]">
+          <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
             {item.title}
           </h3>
-          <p className="mt-3 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
+          <p className="mt-3 font-body text-[14px] md:text-[18px] leading-7 text-gray-700">
             {item.desc}
           </p>
-        </div>
       </div>
     </div>
   );
@@ -190,13 +187,13 @@ function ExperienceGroupUI({ group }: { group: ExperienceGroup }) {
     <section className="py-10 md:py-20">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto">
-        <h3 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-          <span className="italic">{group.eyebrowItalic}</span>{" "}<span className="font-serif">{" "}</span>
-          <span className="font-semibold font-[helvetica]">{group.titleBold}</span>
+        <h3 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <span className="italic">{group.eyebrowItalic}</span>{" "}<span >{" "}</span>
+          <span className="font-semibold font-body text-[#FF751F]">{group.titleBold}</span>
         </h3>
 
         {group.subtitle && (
-          <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-6 md:leading-relaxed">
+          <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-8 md:leading-relaxed">
             {group.subtitle}
           </p>
         )}

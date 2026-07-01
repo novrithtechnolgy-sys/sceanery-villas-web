@@ -13,12 +13,11 @@ type Feature = {
   id: string;
   title: string;
   description: string;
-  image: string;
 };
 
 function IconBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-10 w-10 rounded-lg bg-black text-white flex items-center justify-center">
+    <div className="h-10 w-10 rounded-lg bg-[#FF751F] text-white flex items-center justify-center">
       {children}
     </div>
   );
@@ -30,19 +29,15 @@ function IconBox({ children }: { children: React.ReactNode }) {
 function FeatureCardDesktop({ feature }: { feature: Feature }) {
   return (
     <div className="relative">
-      <div className="relative h-[240px] xl:h-[300px] rounded-[24px] overflow-hidden mr-8 xl:mr-14">
-        <Image src={feature.image} alt={feature.title} fill className="object-cover" />
-      </div>
-
-      <div className="relative -mt-14 pl-14 xl:pl-24">
-        <div className="bg-white rounded-[22px] shadow-[0_12px_30px_rgba(0,0,0,0.10)] border border-gray-100 p-8">
-          <div className="flex items-center gap-4 mb-4">
+      <div className="relative flex items-center justify-center gap-4 mb-4">
+        <div className="bg-white text-center rounded-[22px] border-2 border-gray-300 p-8">
+          <div className="flex flex-col items-center justify-center gap-4 mb-4">
             {feature.icon}
 
-            <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
+            <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
           </div>
 
-          <p className="font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">{feature.description}</p>
+          <p className="font-body text-[14px] md:text-[18px] leading-7 text-gray-700">{feature.description}</p>
         </div>
       </div>
     </div>
@@ -55,20 +50,9 @@ function FeatureCardMobile({ feature }: { feature: Feature }) {
     <div className="w-full shrink-0">
       {/* outer card */}
       <div className="rounded-[28px] bg-white overflow-hidden border border-gray-300">
-        {/* image */}
-        <div className="relative h-[220px]">
-          <Image
-            src={feature.image}
-            alt={feature.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 640px) 100vw, 640px"
-          />
-        </div>
-
         {/* content */}
-        <div className="p-4">
-          <div className="flex items-center gap-4 mb-4">
+        <div className="p-4 flex flex-col items-start justify-center gap-4">
+          <div className="flex flex-col items-center text-center gap-4 justify-center w-full">
             <IconBox>
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="5" y="11" width="14" height="9" rx="2" />
@@ -76,10 +60,10 @@ function FeatureCardMobile({ feature }: { feature: Feature }) {
               </svg>
             </IconBox>
 
-            <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
+            <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
           </div>
 
-          <p className="font-[helvetica] text-[14px] leading-6 text-gray-700">{feature.description}</p>
+          <p className="font-body text-[14px] leading-6 text-gray-700 text-center">{feature.description}</p>
         </div>
       </div>
     </div>
@@ -94,32 +78,28 @@ export default function WhyChooseSection() {
         title: "Private Dining",
         description:
           "From Sri Lankan rice and curry feasts to seafood BBQs, our private chefs craft meals around your cravings.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773938737/dji_mimo_20260302_174406_0_1772510317530_photo_1_j9nbtz.webp",
-        icon: <FaBowlFood size={30} className="p-2 rounded-md bg-black text-white"/>
+        icon: <FaBowlFood size={30} className="p-3 rounded-[25%] bg-[#FF751F] text-white h-12 w-12"/>
       },
       {
         id: "2",
         title: "Exclusive Use",
         description:
           "No strangers at the pool. No crowded buffets. The entire property is yours, ensuring total privacy and safety.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773894024/DSC06765-Edit-2_ofm7pe.webp",
-        icon: <FaLock size={30} className="p-2 rounded-md bg-black text-white"/>
+        icon: <FaLock size={30} className="p-3 rounded-[25%] bg-[#FF751F] text-white h-12 w-12"/>
       },
       {
         id: "3",
         title: "The Real Bentota",
         description:
           "We guide you beyond the tourist traps. River safaris, hidden temples, and the best local spots, curated by our team.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773328273/Bentota-view-from-upper_bicb5p.jpg",
-        icon: <FaMapLocation size={30} className="p-2 rounded-md bg-black text-white"/>
+        icon: <FaMapLocation size={30} className="p-3 rounded-[25%] bg-[#FF751F] text-white h-12 w-12"/>
       },
       {
         id: "4",
         title: "Work and Play",
         description:
           "With high speed fiber internet and dedicated workspaces, our villas are perfect for digital nomads and workations.",
-        image: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773375823/DSC07235-Edit_myzadm.webp",
-        icon: <FaTv size={30} className="p-2 rounded-md bg-black text-white"/>
+        icon: <FaTv size={30} className="p-3 rounded-[25%] bg-[#FF751F] text-white h-12 w-12"/>
       },
     ],
     []
@@ -168,9 +148,9 @@ export default function WhyChooseSection() {
       <Container>
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight ">
-            <span className="italic font-serif text-gray-900">Why Choose</span>{" "}
-            <span className="font-semibold text-gray-900">Scenery Villas</span>
+          <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight ">
+            <span className="italic  text-gray-900">Why Stay with</span>{" "}
+            <span className="font-semibold text-[#FF751F]">Scenery Villas?</span>
           </h2>
         </div>
 

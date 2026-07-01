@@ -70,7 +70,7 @@ export default function BlogPage() {
     <section className="py-10 md:py-20">
       <Container>
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[14px] md:text-[16px] font-[helvetica] text-gray-700">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[14px] md:text-[16px] font-body text-gray-700">
           <button
             onClick={() => setActive("all")}
             className={
@@ -133,24 +133,24 @@ export default function BlogPage() {
                     )}
 
                     <div className="absolute top-4 left-4">
-                      <span className="px-4 py-2 rounded-full bg-white/95 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 shadow">
+                      <span className="px-4 py-2 rounded-full bg-white/95 font-body text-[14px] md:text-[16px] leading-7 text-gray-700 shadow">
                         {p.categoryTitle}
                       </span>
                     </div>
                   </div>
 
                   <div className="p-4 md:p-8">
-                    <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+                    <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                       {p.title}
                     </h3>
 
-                    <p className="mt-4 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 md:line-clamp-3 lg:line-clamp-2 2xl:line-clamp-3">
+                    <p className="mt-4 font-body text-[14px] md:text-[18px] leading-7 text-gray-700 md:line-clamp-3 lg:line-clamp-2 2xl:line-clamp-3">
                       {p.excerpt || "—"}
                     </p>
 
                     <Link
                       href={`/blogs/${p.slug.current}`}
-                      className="mt-6 md:mt-8 inline-flex font-[helvetica] w-[250px] lg:w-[340px] justify-center rounded-full bg-gray-900 text-white px-8 rounded-full py-2 md:py-3 text-[14px]  font-semibold"
+                      className="mt-6 md:mt-8 inline-flex font-body w-[250px] lg:w-[340px] justify-center rounded-full bg-[#FF751F] text-white px-8 rounded-full py-2 md:py-3 text-[14px]  font-semibold"
                     >
                       Read More
                     </Link>

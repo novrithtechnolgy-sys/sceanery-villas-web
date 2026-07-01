@@ -45,7 +45,7 @@ function SocialButton({
       aria-label={label}
       target="_blank"
       rel="noreferrer"
-      className="w-10 h-10 md:h-14 md:w-14 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition"
+      className="w-10 h-10 md:h-14 md:w-14 rounded-full bg-[#FF751F] flex items-center justify-center hover:bg-gray-300 transition"
     >
       {children}
     </a>
@@ -71,36 +71,38 @@ export default function JoinOurJourney() {
         </div>
 
         {/* Right Content */}
-        <div className="md:col-span-7 md:-mt-42">
+        <div className="md:col-span-7">
           <div className="text-center lg:text-center">
-            <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
-              <span className="italic">Join</span>{" "}
-              <span className="font-semibold">Our Journey</span>
+            <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+              <span className="italic">Join Our</span>{" "}
+              <span className="font-semibold text-[#FF751F]"> Journey</span>
             </h2>
 
-            <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+            <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-[44px]">
               Follow us on social media for travel inspiration, villa updates,
               and a glimpse into daily life in beautiful Bentota.
             </p>
+          </div>
+          <div className="flex items-center justify-center gap-8 mt-4 md:mt-8">
+          <SocialButton href="https://www.facebook.com/p/Scenery-Villas-Sri-Lanka-61560604556336/" label="Facebook">
+              <IconFacebook className="h-7 w-7 text-gray-100" />
+            </SocialButton>
+            <SocialButton href="https://www.instagram.com/sceneryvillas.srilanka" label="Instagram">
+              <IconInstagram className="h-7 w-7 text-gray-100" />
+            </SocialButton>
+            <SocialButton href="https://www.linkedin.com/company/scenery-villas/" label="LinkedIn">
+              <IconLinkedIn className="h-7 w-7 text-gray-100" />
+            </SocialButton>
           </div>
         </div>
 
       </div>
         {/* Social Bar */}
-          <div className="md:w-full mt-8 md:-mt-42 rounded-[18px] bg-gray-100 py-8 md:py-10 px-6 md:pl-150 flex items-center justify-center gap-8 z-[-1]">
-            <SocialButton href="https://www.facebook.com/p/Scenery-Villas-Sri-Lanka-61560604556336/" label="Facebook">
-              <IconFacebook className="h-6 w-6 text-gray-800" />
-            </SocialButton>
-            <SocialButton href="https://www.instagram.com/sceneryvillas.srilanka" label="Instagram">
-              <IconInstagram className="h-6 w-6 text-gray-800" />
-            </SocialButton>
-            <SocialButton href="https://www.linkedin.com/company/scenery-villas/" label="LinkedIn">
-              <IconLinkedIn className="h-6 w-6 text-gray-800" />
-            </SocialButton>
-            <SocialButton href="https://youtube.com/SceneryVillas" label="YouTube">
+
+            {/* <SocialButton href="https://youtube.com/SceneryVillas" label="YouTube">
               <FaYoutube className="h-6 w-6 text-gray-800" />
-            </SocialButton>
-          </div>
+            </SocialButton> */}
+    
       </Container>
     </section>
   );

@@ -39,11 +39,11 @@ export default function ReadyEscapeSection() {
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 py-20">
             
-            <h2 className="text-white font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] font-bold tracking-wide uppercase">
+            <h2 className="text-white font-heading text-[20px] md:text-[36px] xl:text-[46px] font-bold tracking-wide uppercase">
               READY FOR YOUR ESCAPE?
             </h2>
 
-            <p className="mt-4 md:mt-6 text-white/90 text-[18px] leading-8 max-w-2xl">
+            <p className="mt-4 md:mt-6 text-white/90 text-[20px] leading-8 max-w-2xl">
               Book directly with us for the best rates and exclusive inclusions.
             </p>
 

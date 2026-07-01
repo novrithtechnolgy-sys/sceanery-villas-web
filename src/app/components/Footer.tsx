@@ -39,13 +39,13 @@ export default function Footer() {
     <footer className="bg-[#0F0F10] text-white py-10">
       <Container>
         {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-10 font-[helvetica] text-[14px] md:text-[16px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-10 font-body text-[14px] md:text-[16px]">
 
           {/* Left Column */}
           <div className="lg:col-span-6">
           <Link href="/">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772968765/c8f928687ebf28425689475c060719bf31a8df8f2_pzxi4y.png"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1782816848/ff39d169886e0675ffe3f235acfd60f0986faf78_lez9ym.png"
               alt="Scenery Villas Logo"
               width={140}
               height={40}
@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-10 font-[helvetica] text-[14px] md:text-[16px]" >
+          <div className="lg:col-span-6 grid grid-cols-2 gap-10 font-body text-[14px] md:text-[16px]" >
 
             {/* Collection */}
             <div>
@@ -89,7 +89,7 @@ export default function Footer() {
                         <Link
                           key={villa.slug}
                           href={villaHref}
-                          className={`block pb-4 font-[helvetica] text-[14px] md:text-[16px] transition text-gray-300 hover:text-white ${active ? "font-bold" : ""}`}
+                          className={`block pb-4 font-body text-[14px] md:text-[16px] transition text-gray-300 hover:text-white ${active ? "font-bold" : ""}`}
                         >
                           {villa.title}
                         </Link>

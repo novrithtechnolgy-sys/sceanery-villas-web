@@ -23,13 +23,13 @@ export default function ContactHero() {
         {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-20">
 
-          <h1 className="font-[timesTen] uppercase text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
+          <h1 className="font-heading text-[20px] md:text-[36px] xl:text-[76px] tracking-wide text-white">
             Let's Plan Your Escape
           </h1>
-          {/* <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          {/* <p className="mt-4 md:mt-8 font-body max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
            We are here to help you find the perfect villa.    
            </p> */}
-          <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          <p className="mt-4 md:mt-8 font-body max-w-5xl text-white text-[14px] md:text-[20px] leading-relaxed">
             Whether you have a specific property in mind or need a recommendation for your group size, our team is ready to assist. Reach out to us via phone, email, or the form below.
           </p>
 

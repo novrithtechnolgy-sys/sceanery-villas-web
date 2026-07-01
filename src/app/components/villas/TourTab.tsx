@@ -6,18 +6,18 @@ export default function TourTab({ villa }: { villa: any }) {
   const tour = villa?.virtualTour;
 
   return (
-    <section className="py-10 md:py-20">
+    <section className="pt-10 pb-10 md:pt-16 md:pb-20">
       <Container>
       <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
         
         {/* LEFT TEXT */}
         <div className="">
-          <h2 className="font-[timesTen] text-center md:text-left text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-heading text-center md:text-left text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic">{tour.headingItalic}</span>{" "}
-            <span className="font-semibold">{tour.headingBold}</span>
+            <span className="font-semibold text-[#FF751F]">{tour.headingBold}</span>
           </h2>
 
-          <p className="mt-4 md:mt-8 text-center md:text-left font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+          <p className="mt-4 md:mt-8 text-center md:text-left font-body text-[16px] md:text-[20px] text-gray-700 leading-[44px]">
             {tour.description}
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function TourTab({ villa }: { villa: any }) {
             className="rounded-[20px]"
           />
           ):(
-            <div className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-600 flex items-center justify-center h-full bg-gray-100 rounded-[20px]">
+            <div className="font-body text-[16px] md:text-[20px] xl:text-[24px] text-gray-600 flex items-center justify-center h-full bg-gray-100 rounded-[20px]">
               360° tour coming soon
             </div>
           )}

@@ -59,16 +59,16 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/">
             <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772272865/Scenery_Villas_Logo__Black_1_1_xbvmbj.webp"
+              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1780120424/b8013f5882ce7783425e6b1f830b4c004ece59cb_kqzizo.png"
               alt="Scenery Villas Logo"
               width={140}
               height={40}
-              className="object-contain"
+              className="object-contain "
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex font-[helvetica] items-center gap-8 text-[16px] text-gray-700">
+          <nav className="hidden lg:flex font-body items-center gap-8 text-[16px] text-gray-700">
             {navLinks.slice(0, 2).map((link) => {
               const active = pathname === link.href;
 
@@ -166,7 +166,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <button
               onClick={handleBookStay}
-             className="rounded-full font-[helvetica] bg-gray-900 text-white px-5 py-2 text-[13px] font-semibold hover:bg-black transition">
+             className="rounded-full font-body bg-[#FF751F] text-white px-5 py-2 text-[13px] font-semibold hover:bg-orange-400 transition">
               Book Now
             </button>
           </div>
@@ -202,7 +202,7 @@ export default function Navbar() {
           open ? "max-h-[900px] opacity-100  z-50" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-6 pt-4 bg-white font-[helvetica] border-t border-gray-100 space-y-4 text-[14px] text-gray-800">
+        <div className="px-6 pb-6 pt-4 bg-white font-body border-t border-gray-100 space-y-4 text-[14px] text-gray-800">
           <Link
             href="/"
             className={`block ${pathname === "/" ? "text-black font-semibold" : ""}`}
@@ -249,7 +249,7 @@ export default function Navbar() {
                       key={villa.slug}
                       href={villaHref}
                       className={`block ${
-                        active ? "text-black font-semibold </div>" : "text-gray-700"
+                        active ? "text-black font-semibold" : "text-gray-700"
                       }`}
                       onClick={() => {
                         setOpen(false);

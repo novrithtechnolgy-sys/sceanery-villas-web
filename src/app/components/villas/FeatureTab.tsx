@@ -32,9 +32,9 @@ export default function FeatureTab({ villa }: { villa: any }) {
     <section className="py-10 md:py-20">
       <Container>
         {/* Section Title */}
-        <h2 className="mb-8 md:mb-16 text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+        <h2 className="mb-8 md:mb-16 text-center font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
           <span className="italic">Key</span>{" "}
-          <span className="font-semibold">Features</span>
+          <span className="font-semibold text-[#FF751F]">Features</span>
         </h2>
 
         {/* Mobile Slider */}
@@ -53,16 +53,16 @@ export default function FeatureTab({ villa }: { villa: any }) {
 
             <div className="p-4">
               <div className="mb-4 md:mb-8 flex items-center gap-4 md:gap-8">
-                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-black text-white">
+                <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#FF751F] text-white">
                   <FaSwimmingPool size={13} />
                 </div>
 
-                <h3 className="font-[helvetica] text-[16px] font-semibold text-gray-900">
+                <h3 className="font-body text-[16px] font-semibold text-gray-900">
                   {activeFeature?.title}
                 </h3>
               </div>
 
-              <p className="font-[helvetica] text-[14px] leading-8 text-gray-700">
+              <p className="font-body text-[14px] leading-8 text-gray-700">
                 {activeFeature?.desc}
               </p>
             </div>
@@ -75,7 +75,7 @@ export default function FeatureTab({ villa }: { villa: any }) {
               disabled={activeIndex === 0}
             />
 
-            <span className="font-[helvetica] text-[18px] text-gray-900">
+            <span className="font-body text-[18px] text-gray-900">
               {activeIndex + 1}/{features.length}
             </span>
 
@@ -111,17 +111,17 @@ export default function FeatureTab({ villa }: { villa: any }) {
                 </div>
 
                 <div className="p-8">
-                  <div className="mb-8 flex items-center gap-8">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-md bg-black text-white">
+                  <div className="mb-4 flex items-center gap-8">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-md bg-[#FF751F] text-white">
                       <FaHome size={14} />
                     </div>
 
-                    <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+                    <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                       {feature.title}
                     </h3>
                   </div>
 
-                  <p className="font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-600">
+                  <p className="font-body text-[14px] md:text-[18px] leading-7 text-gray-600">
                     {feature.desc}
                   </p>
                 </div>

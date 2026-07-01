@@ -159,12 +159,12 @@ export default function InquirySection() {
       <div className="relative md:absolute inset-0 flex items-center justify-center md:pl-84 md:py-10">
         <div className="w-full max-w-[820px] rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-200 overflow-hidden">
           <form onSubmit={onSubmit} className="px-8 md:px-14 py-8 md:py-14">
-            <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
+            <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
               <span className="italic font-medium">Send an</span>{" "}
-              <span className="font-semibold">Inquiry</span>
+              <span className="font-semibold text-[#FF751F]">Inquiry</span>
             </h2>
 
-            <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] leading-7 text-gray-700">
+            <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] leading-8 text-gray-700">
               Please fill out the details below, and our reservations team will
               get back to you within 24 hours with availability and a custom
               quote.
@@ -317,7 +317,7 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="block font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-medium text-gray-900"
+        className="block font-body text-[16px] md:text-[20px] font-medium text-gray-900"
       >
         {label}
       </label>

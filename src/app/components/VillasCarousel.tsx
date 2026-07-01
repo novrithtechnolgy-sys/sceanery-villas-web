@@ -54,12 +54,12 @@ function VillaCard({ villa }: { villa: Villa }) {
 
   return (
     <div className="shrink-0 w-[300px] md:w-[430px] xl:w-[560px]">
-      <div className="relative rounded-[28px] overflow-hidden bg-white border border-gray-300">
+      <div className="relative rounded-[28px] overflow-hidden bg-white border-2 border-gray-300">
         <div className="relative h-[250px]">
           {imgUrl && <Image src={imgUrl} alt={villa.title} fill className="object-cover" />}
           {!!villa.badge && (
             <div className="absolute top-5 left-5">
-              <span className="inline-flex font-[helvetica] items-center px-4 py-2 rounded-full bg-white/95 text-gray-900 text-[14px] md:text-[16px] font-medium shadow">
+              <span className="inline-flex font-body items-center px-4 py-2 rounded-full bg-white/95 text-gray-900 text-[14px] md:text-[16px] font-medium shadow">
                 {villa.badge}
               </span>
             </div>
@@ -68,17 +68,17 @@ function VillaCard({ villa }: { villa: Villa }) {
 
         <div className="relative -mt-10">
           <div className="rounded-t-[26px] bg-white px-4 lg:px-8 pt-8 pb-8">
-            <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+            <h3 className="font-heading text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
               {villa.title}
             </h3>
 
             {villa.description && (
-              <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">
+              <p className="mt-2 font-body text-[14px] md:text-[18px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">
                 {villa.description}
               </p>
             )}
 
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 xl:gap-14 text-[14px] md:text-[16px] text-gray-900">
+            <div className="mt-4 flex justidfy-between gap-4 md:gap-8 xl:gap-14 text-[14px] md:text-[16px] text-gray-900">
               <div className="flex items-center gap-2">
                 <IconBed className="h-5 w-5" />
                 <span>{villa.bedrooms ?? 0} Bedrooms</span>
@@ -87,7 +87,7 @@ function VillaCard({ villa }: { villa: Villa }) {
                 <IconUsers className="h-5 w-5" />
                 <span>Sleeps {villa.sleeps ?? 0}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-end gap-2">
                 <IconLeaf className="h-5 w-5" />
                 <span>{villa.feature ?? ""}</span>
               </div>
@@ -179,12 +179,12 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
 
         <div className="relative -mt-10 pb-4">
           <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border border-gray-300">
-            <h3 className="font-[helvetica] text-[16px] font-semibold text-gray-900">
+            <h3 className="font-heading text-[16px] font-semibold text-gray-900">
               {villa.title}
             </h3>
 
             {villa.description && (
-              <p className="font-[helvetica] mt-2 text-[14px] text-gray-700 leading-relaxed">
+              <p className="font-body mt-2 text-[14px] text-gray-700 leading-relaxed">
                 {villa.description}
               </p>
             )}
@@ -310,9 +310,9 @@ export default function VillasCarousel() {
     <>
       <section className="block sm:hidden bg-white py-10">
         <div className="px-4 text-center">
-          <div className="text-[20px]  text-black">
-            <span className="italic font-serif text-black/80">Explore</span>{" "}
-            <span className="text-black font-semibold">Our Villas</span>
+          <div className="text-[20px] md:text-[36px] xl:text-[46px] text-black">
+            <span className="italic font-heading text-black/80">Explore</span>{" "}
+            <span className="text-[#FF751F] font-heading font-semibold">Our Villas</span>
           </div>
         </div>
 
@@ -355,12 +355,12 @@ export default function VillasCarousel() {
 
       <section className="hidden sm:block py-20 bg-white">
         <div className="flex items-center justify-between px-4 md:px-8 lg:px-12 xl:px-28">
-          <h2 className="font-[timesTen] text-[26px] md:text-[36px] xl:text-[46px] leading-tight">
-            <span className="italic font-serif text-gray-900">Explore</span>{" "}
-            <span className="font-semibold text-gray-900">Our Villas</span>
+          <h2 className="font-heading text-[26px] md:text-[36px] xl:text-[46px] leading-tight">
+            <span className="italic text-gray-900">Explore</span>{" "}
+            <span className="font-semibold text-[#FF751F]">Our Villas</span>
           </h2>
 
-          <div className="flex items-center gap-8 text-gray-900">
+          <div className="flex font-body items-center gap-8 text-gray-900">
             <ArrowButton
               direction="left"
               disabled={!canPrev}

@@ -31,11 +31,11 @@ export default function QuickChat() {
 
           {/* Center Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-            <h2 className="font-[timesTen] uppercase text-[20px] md:text-[36px] xl:text-[46px] text-white tracking-[0.08em]">
+            <h2 className="font-heading  text-[20px] md:text-[36px] xl:text-[64px] text-white tracking-[0.08em]">
               Inspired?
             </h2>
 
-            <p className="mt-4 text-white font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+            <p className="mt-4 text-white font-body text-[16px] md:text-[20px]  text-gray-700 leading-relaxed">
                 Let's turn these stories into reality
             </p>
 

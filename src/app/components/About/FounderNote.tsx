@@ -21,16 +21,16 @@ export default function FounderNote() {
       <Container>
 
         {/* Heading */}
-        <h2 className="text-center mb-8 md:mb-0 md:text-right font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
-          <span className="italic font-serif">A Note From</span>{" "}
-          <span className="font-semibold">Our Founder</span>
+        <h2 className="text-center mb-8 md:mb-0 font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+          <span className="italic ">A Note From</span>{" "}
+          <span className="font-semibold text-[#FF751F]">Our Founder</span>
         </h2>
 
-        <div className="flex flex-col md:flex-row ">
+        <div className="flex flex-col md:flex-row gap-8 mt-4 md:mt-16">
 
           {/* Founder Image */}
-          <div className="">
-            <div className="relative md:absolute md:w-[340px] h-[320px] md:h-[480px] rounded-[20px] overflow-hidden shadow-lg">
+          <div className="relative w-full ">
+            <div className="relative  h-full w-full rounded-[20px] overflow-hidden shadow-lg">
               <Image
                 src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772960206/DSC02788_clnnyq.webp"
                 alt="Founder"
@@ -41,12 +41,12 @@ export default function FounderNote() {
           </div>
 
           {/* Quote Card */}
-          <div className="md:ml-30 -mt-10 md:mt-20 z-10 md:z-[-1]">
-            <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-gray-200 p-4 md:p-14">
-            <div className="flex flex-col md:ml-60">
+          <div className="relative w-[150%]">
+            <div className="bg-white rounded-[20px] border-2 border-gray-300 p-4 md:p-8 w-full">
+            <div className="flex flex-col">
               <QuoteIcon  />
 
-              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
                 Welcome to Scenery Villas. My journey in hospitality has always
                 been driven by a passion for showcasing the best of Sri Lanka
                 to the world. As the General Manager of Scenery Villas and the
@@ -56,7 +56,7 @@ export default function FounderNote() {
               </p>
                       </div>
 
-              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed lg:ml-60">
+              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
                 We have built this collection to offer you the privacy of a
                 villa with the reliability of professional management. Whether
                 you are here for a family reunion, a creative retreat, or a
@@ -65,17 +65,17 @@ export default function FounderNote() {
               </p>
     
 
-              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px]  text-gray-700 leading-relaxed">
                 We don't just hand you a key; we open the door to the real
                 Bentota.
               </p>
 
               {/* Signature */}
               <div className="mt-8 md:mt-10">
-                <p className="md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed font-semibold text-gray-900">
+                <p className="md:mt-8 font-body text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed font-semibold text-gray-900">
                   Shashindu de Silva,
                 </p>
-                <p className="italic font-[helvetica] text-[16px] md:text-[18px] text-gray-600">
+                <p className="italic font-body text-[16px] md:text-[18px] text-gray-600">
                   General Manager
                 </p>
               </div>

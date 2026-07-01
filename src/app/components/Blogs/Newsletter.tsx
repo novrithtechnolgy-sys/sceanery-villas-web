@@ -9,15 +9,17 @@ export default function Newsletter() {
             <Container>
                 <div className="text-center max-w-6xl mx-auto">
                   {/* Title */}
-                    <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px]  leading-tight italic">
+                    <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight italic">
                         Get A Slice Of Paradise
-                        <span className="not-italic font-semibold"> In Your Inbox</span>
+                        <span className="not-italic font-semibold text-[#FF751F]"> In Your Inbox</span>
                     </h2>
 
                     {/* Description */}
-                    <p className="mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+                    <p className="mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
                     Sign up for our newsletter to receive exclusive offers, seasonal updates,
-                    and travel inspiration. We promise not to spam.
+                    and travel inspiration. 
+                    <br />
+                    We promise not to spam.
                     </p>
 
                     {/* Form */}
@@ -33,7 +35,7 @@ export default function Newsletter() {
                         name="EMAIL"
                         placeholder="Your Email Address"
                         required
-                        className="w-full md:w-[420px] px-5 py-3 rounded-full border border-gray-300 outline-none text-[14px] font-[helvetica]"
+                        className="w-full md:w-[420px] px-5 py-3 rounded-full border border-gray-300 outline-none text-[14px] font-body"
                     />
 
                     {/* Bot protection field (Mailchimp requirement) */}

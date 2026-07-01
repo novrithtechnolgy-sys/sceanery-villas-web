@@ -97,7 +97,7 @@ export default function AutoScrollCarousel({
         ))}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 md:gap-6">
+      <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 mb-4 md:gap-6 z-40">
         <ArrowButton
           direction="left"
           onClick={() => scrollByCard("left")}

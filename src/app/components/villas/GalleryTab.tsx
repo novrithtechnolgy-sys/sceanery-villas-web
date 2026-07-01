@@ -55,7 +55,7 @@ export default function GalleryTab({ villa }: { villa: any }) {
                     allowFullScreen
                   />
                 ) : (
-                  <div className="w-full h-full flex font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] items-center justify-center text-gray-500 px-4 text-center">
+                  <div className="w-full h-full flex font-body text-[16px] md:text-[20px] xl:text-[24px] items-center justify-center text-gray-500 px-4 text-center">
                     Video Coming Soon
                   </div>
                 )

@@ -187,9 +187,9 @@ function GallerySection({ title, items, index }: GallerySectionProps) {
 
   return (
     <section className="py-10 md:py-20">
-      <h2 className="font-[timesTen] text-center text-[20px] md:text-[36px] xl:text-[46px] leading-tight mb-8 md:mb-16">
+      <h2 className="font-heading text-center text-[20px] md:text-[36px] xl:text-[46px] leading-tight mb-8 md:mb-16">
         <span className="italic font-normal">{title.italic}</span>
-        <span className="font-semibold">{title.bold}</span>
+        <span className="font-semibold text-[#FF751F]">{title.bold}</span>
       </h2>
 
       <div className="grid grid-cols-12 gap-2 md:gap-5">

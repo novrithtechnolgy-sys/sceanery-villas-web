@@ -30,25 +30,25 @@ export default function OverviewTab({ villa }: { villa: any }) {
     <section className="py-10 md:py-20">
       <Container>
         {/* Intro */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-10 items-center pb-10 md:pb-20">
+        <div className="flex flex-col items-center pb-10 md:pb-20">
           <div>
-            <h2 className="text-center md:text-left font-[timesTen] md:flex md:flex-col text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-              <span className="italic font-serif text-gray-800">
-                {villa.intro?.headingItalic}
+            <h2 className="text-center font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+              <span className="italic text-gray-800">
+                {villa.intro?.headingItalic}{"  "}
               </span>
-              <span className="font-semibold md:mt-2">
+              <span className="font-semibold md:mt-2 text-[#FF751F]">
                 {villa.intro?.headingBold}
               </span>
             </h2>
 
             {villa.intro?.description && (
-              <p className="mt-4 md:mt-8 text-center md:text-left font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed whitespace-pre-line">
+              <p className="mt-4 md:mt-8 text-center font-body text-[16px] md:text-[20px] text-gray-700 leading-[44px] whitespace-pre-line">
                 {villa.intro.description}
               </p>
             )}
           </div>
 
-          <div className="relative h-[240px] md:h-[320px] md:h-full rounded-[20px] overflow-hidden bg-gray-100">
+          <div className="relative h-[240px] md:h-[460px] w-full rounded-[20px] overflow-hidden bg-gray-100 mt-8 md:mt-16">
             {introImg && (
               <Image src={introImg} alt="Intro" fill className="object-cover" />
             )}
@@ -59,14 +59,14 @@ export default function OverviewTab({ villa }: { villa: any }) {
         {!!highlightCards.length && (
           <div>
             {/* Section Title */}
-            <h3 className="mt-10 md:mt-20 text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+            <h3 className="mt-10 md:mt-20 text-center font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
               <span className="italic">{villa.highlights.headingItalic}</span>{" "}
-              <span className="font-semibold">{villa.highlights.headingBold}</span>
+              <span className="font-semibold text-[#FF751F]">{villa.highlights.headingBold}</span>
             </h3>
 
             {/* Description */}
             {villa.highlights.description && (
-              <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed text-center max-w-4xl mx-auto px-4">
+              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed text-center max-w-4xl mx-auto px-4">
                 {villa.highlights.description}
               </p>
             )}
@@ -89,11 +89,11 @@ export default function OverviewTab({ villa }: { villa: any }) {
                 </div>
 
                 <div className="p-4 md:p-8">
-                  <div className="font-[helvetica] text-[16px] font-semibold text-gray-900">
+                  <div className="font-body text-[16px] font-semibold text-gray-900">
                     {highlightCards[activeIndex]?.title}
                   </div>
 
-                  <p className="mt-4 font-[helvetica] text-[14px] leading-8 text-gray-700">
+                  <p className="mt-4 font-body text-[14px] leading-8 text-gray-700">
                     {highlightCards[activeIndex]?.desc}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
                   direction="left"
                   disabled={activeIndex === 0}
                 />
-                <span className="font-[helvetica] text-[18px] text-gray-900">
+                <span className="font-body text-[18px] text-gray-900">
                   {activeIndex + 1}/{highlightCards.length}
                 </span>
 
@@ -142,11 +142,11 @@ export default function OverviewTab({ villa }: { villa: any }) {
                     </div>
 
                     <div className="p-8">
-                      <div className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+                      <div className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                         {h.title}
                       </div>
 
-                      <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
+                      <p className="mt-2 font-body text-[14px] md:text-[18px] leading-7 text-gray-700">
                         {h.desc}
                       </p>
                     </div>

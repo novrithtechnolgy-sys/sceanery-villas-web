@@ -1,38 +1,45 @@
 "use client";
 
 import Container from "../Container";
+import Image from "next/image";
 
 export default function SceneryStory() {
   return (
     <section className="py-10 pt-20 md:py-20">
      <Container>
-      <div className="max-w-[1000px] mx-auto text-center">
+      <div className="mx-auto text-center">
 
         {/* Heading */}
-        <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-          <span className="italic font-serif">The</span>{" "}
-          <span className="font-semibold">Scenery Story</span>
+        <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <span className="italic ">The</span>{" "}
+          <span className="font-semibold text-[#FF751F]">Scenery Story</span>
         </h2>
 
+        <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 mt-4 md:mt-8">
         {/* First Paragraph */}
-        <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-800">
-          Scenery Villas began with a simple idea: that the best travel
-          experiences happen in private. We wanted to move away from the
-          crowded lobbies and standardized rooms of large hotels to create
-          something more personal. Starting with a single property in
-          Bentota, we have grown into a diverse collection of six unique
-          villas and residences.
+        <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-left text-gray-800 leading-[44px]">
+            Scenery Villas began with a simple belief that the most meaningful travel experiences are personal, private, and deeply connected to place.
+          <br/>
+            Our journey is shaped by decades of experience in Sri Lanka’s tourism industry. Our director, Shiral De Silva, began his career over 30 years ago as a driver and tour guide, sharing the beauty of the island with travelers from around the world. Along the way, he built lasting relationships, one of which would shape the future of Scenery Villas.
+          <br/> 
+            A European family he guided fell in love with Sri Lanka and chose to build a villa here. That first project became Villa Mandalay, a peaceful hilltop retreat that marked the beginning of something greater.
         </p>
+          <div className="relative w-full md:w-7/3 h-[300px] md:h-[480px] rounded-[20px]">
+          <Image
+            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg"
+            alt="Scenery Story"
+            fill
+            className="mt-4 md:mt-8 object-cover rounded-[20px] border border-gray-200"
+          />
+          </div>
+        </div>
 
         {/* Second Paragraph */}
-        <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-800">
-          From the hilltop silence of Villa Mandalay to the gathering spaces
-          of Treetop Resort, each property in our portfolio has been chosen
-          for its character, its location, and its ability to make you feel
-          at home. Today, we are proud to host travelers from across the
-          globe, offering them a sanctuary on the southern coast where they
-          can slow down, reconnect, and experience the true warmth of our
-          island.
+        <p className="relative mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-left text-gray-800 leading-[44px]">
+          Soon after, another group of travelers experienced Sri Lanka in the same way and decided to create their own space, leading to the growth of the collection. Over time, this organic journey expanded to include Villa Desire, Tara Garden, and Monara Villa, each shaped by its own story, character, and setting.
+          <br/>
+Treetop Resort followed a different path. Once a well-known banquet and wedding venue in the area, it was reimagined into a spacious private retreat, now welcoming large groups and gatherings in a setting designed for connection.
+Today, Scenery Villas is a curated collection of unique homes, each chosen not just for its location, but for the feeling it offers. Together, they create a space where guests can slow down, reconnect, and experience the true warmth of Sri Lanka.
         </p>
 
       </div>

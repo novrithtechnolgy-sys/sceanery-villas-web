@@ -73,9 +73,9 @@ function Card({ item }: { item: ExperienceCard }) {
           <div className="text-white/90">
             <Icon type={item.icon} />
           </div>
-          <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold leading-none">{item.title}</h3>
+          <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold leading-none">{item.title}</h3>
         </div>
-        <p className="font-[helvetica] mt-2 text-[14px] md:text-[16px] text-white/85 leading-6 max-w-[420px]">
+        <p className="font-body mt-2 text-[14px] md:text-[18px] text-white/85 leading-6 max-w-[420px]">
           {item.subtitle}
         </p>
       </div>
@@ -132,12 +132,12 @@ export default function DiscoverBentotaSection() {
       <Container>
         {/* Header */}
         <div className="text-center max-w-6xl mx-auto">
-          <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-            <span className="italic font-serif text-gray-900">Discover</span>{" "}
-            <span className="font-semibold text-gray-900">Bentota</span>
+          <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+            <span className="italic text-gray-900">Discover</span>{" "}
+            <span className="font-semibold text-[#FF751F]">Bentota</span>
           </h2>
 
-          <p className="mt-4 md:mt-8 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed">
+          <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
             Located on the Gold Coast of Sri Lanka, Bentota is the island’s premier beach destination.
             <br />
             But there is more to this town than just the ocean.

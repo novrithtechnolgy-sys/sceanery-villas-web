@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// @ts-ignore: side-effect import of global CSS without type declarations
 import "./globals.css";
 import Footer from "./components/Footer";
+import { Alan_Sans, Amaranth, Inter, Playfair_Display } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sceneryvillassrilanka.com"),
@@ -60,28 +61,20 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 };
-const timesTen = localFont({
-  src: [
-    {
-      path: "../../public/fonts/TimesTen.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-times-ten",
+
+
+const amaranth = Amaranth({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-heading",
 });
 
-const helvetica = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Helvetica.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-helvetica",
-  display: "swap",
+const alanSans = Alan_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-body",
 });
+
 
 export default function RootLayout({
   children,
@@ -91,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${timesTen.variable} ${helvetica.variable} antialiased`}
+        className={`${amaranth.variable} ${alanSans.variable} antialiased`}
       >
         {children}
         <Footer />
@@ -100,3 +93,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

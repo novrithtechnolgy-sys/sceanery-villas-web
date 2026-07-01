@@ -61,40 +61,10 @@ export default defineType({
     /* ---------------- QUICK STATS ---------------- */
 
       defineField({
-        name: "stats",
-        title: "Quick Stats",
-        type: "array",
-        of: [
-          {
-            type: "object",
-            fields: [
-              defineField({
-                name: "label",
-                title: "Label",
-                type: "string",
-                description: "Example: Bedrooms, Sleeps, Pool",
-              }),
-              defineField({
-                name: "value",
-                title: "Value",
-                type: "string",
-                description: "Example: 4, 8 Guests, Infinity Pool",
-              }),
-            ],
-            preview: {
-              select: {
-                label: "label",
-                value: "value",
-              },
-              prepare({ label, value }) {
-                return {
-                  title: `${value}`,
-                  subtitle: label,
-                };
-              },
-            },
-          },
-        ],
+        name: "logo",
+        title: "Logo",
+        type: "image",
+        options: { hotspot: true },
       }),
 
     /* ---------------- INTRO SECTION ---------------- */

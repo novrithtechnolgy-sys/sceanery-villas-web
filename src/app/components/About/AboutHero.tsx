@@ -23,11 +23,11 @@ export default function AboutHero() {
         {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-20">
 
-          <h1 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
-            HOSPITALITY WITH HEART
+          <h1 className="font-heading text-[20px] md:text-[36px] xl:text-[74px] tracking-wide text-white">
+            Hospitality, Rooted in Care
           </h1>
 
-          <p className="mt-4 md:mt-8 font-[helvetica] max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed">
+          <p className="mt-4 md:mt-8 font-body max-w-5xl text-white text-[14px] md:text-[20px] leading-relaxed">
             We are not a hotel chain. We are a collection of private homes,
             curated for travelers who seek privacy, authenticity, and a deeper
             connection to Sri Lanka.

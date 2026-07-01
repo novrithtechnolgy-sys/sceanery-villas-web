@@ -44,17 +44,17 @@ export default function ContactQuickLinks() {
                 idx !== 0 ? "md:border-l md:border-gray-200" : "",
               ].join(" ")}
             >
-              <div className="text-gray-900">{it.icon}</div>
+              <div className="text-gray-100 bg-[#FF751F] w-12 h-12 rounded-[30%] flex items-center justify-center">{it.icon}</div>
 
-              <h3 className="mt-4 font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px]  font-semibold text-gray-900">
+              <h3 className="mt-4 font-body text-[16px] md:text-[20px] xl:text-[24px]  font-semibold text-gray-900">
                 {it.title}
               </h3>
 
-              <p className="mt-2 font-[helvetica] text-[14px] md:text-[16px] leading-6 text-gray-500 max-w-[280px]">
+              <p className="mt-2 font-body text-[14px] md:text-[16px] leading-6 text-gray-500 max-w-[280px]">
                 {it.subtitle}
               </p>
 
-              <div className="mt-4 font-[helvetica] text-[14px] md:text-[16px] font-semibold text-gray-900">
+              <div className="mt-4 font-body text-[14px] md:text-[16px] font-semibold text-gray-900">
                 {it.value}
               </div>
             </div>

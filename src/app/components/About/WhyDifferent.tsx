@@ -29,11 +29,11 @@ function FeatureCard({ item }: { item: Feature }) {
 
       {/* Content */}
       <div className="p-4 md:p-8">
-        <h3 className="font-[helvetica] text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+        <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
           {item.title}
         </h3>
 
-        <p className="mt-4 md:mt-4 font-[helvetica] text-[14px] md:text-[16px] leading-7 text-gray-700">
+        <p className="mt-4 md:mt-4 font-body text-[14px] md:text-[18px] leading-7 text-gray-700">
           {item.description}
         </p>
       </div>
@@ -130,9 +130,9 @@ export default function WhyDifferent() {
     <section className="py-10 md:py-20 ">
       <Container>
         {/* Heading */}
-        <h2 className="text-center font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
-          <span className="italic">Why We Are</span>{" "}
-          <span className="font-semibold">Different</span>
+        <h2 className="text-center font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <span className="italic">What We </span>{" "}
+          <span className="font-semibold text-[#FF751F]">Stand For</span>
         </h2>
 
         {/* ✅ MOBILE: swipe carousel like your screenshot */}
@@ -167,7 +167,7 @@ export default function WhyDifferent() {
              disabled={active === 0}
             onClick={() => scrollToIndex(Math.max(0, active - 1))}
             />
-            <div className="text-[12px] font-[helvetica] text-gray-600">
+            <div className="text-[12px] font-body text-gray-600">
               {active + 1}/{items.length}
             </div>
 

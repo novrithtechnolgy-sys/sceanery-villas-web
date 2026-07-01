@@ -11,7 +11,7 @@ const VILLA_BY_SLUG = `*[_type=="villas" && slug.current==$slug][0]{
   title,
   tagline,
   heroImage,
-  stats,
+  logo,
   intro,
   highlights{
     headingItalic,

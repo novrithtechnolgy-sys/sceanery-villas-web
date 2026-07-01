@@ -29,8 +29,8 @@ export default function ExperienceDifference() {
 
           {/* Center Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-            <h2 className="font-[timesTen] text-[20px] md:text-[36px] xl:text-[46px] text-white tracking-[0.08em]">
-              EXPERIENCE THE DIFFERENCE
+            <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[64px] text-white tracking-[0.08em]">
+              Experience the difference
             </h2>
 
             <Button
