@@ -41,7 +41,7 @@ export default function FounderNote() {
           </div>
 
           {/* Quote Card */}
-          <div className="relative w-[150%]">
+          <div className="relative md:w-[150%]">
             <div className="bg-white rounded-[20px] border-2 border-gray-300 p-4 md:p-8 w-full">
             <div className="flex flex-col">
               <QuoteIcon  />
