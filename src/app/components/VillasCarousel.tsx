@@ -177,7 +177,7 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
           )}
         </div>
 
-        <div className="relative -mt-10 pb-4">
+        <div className="relative pb-4">
           <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border border-gray-300">
             <h3 className="font-heading text-[18px] font-semibold text-gray-900">
               {villa.title}
@@ -310,7 +310,7 @@ export default function VillasCarousel() {
     <>
       <section className="block sm:hidden bg-white py-10">
         <div className="px-4 text-center">
-          <div className="text-[20px] md:text-[36px] xl:text-[46px] text-black">
+          <div className="text-[24px] md:text-[36px] xl:text-[46px] text-black">
             <span className="italic font-heading text-black/80">Explore</span>{" "}
             <span className="text-[#FF751F] font-heading font-semibold">Our Villas</span>
           </div>
