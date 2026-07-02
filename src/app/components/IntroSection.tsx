@@ -18,13 +18,13 @@ export default function IntroSection() {
           </h2>
 
           {/* Paragraph */}
-          <p className="mt-4 md:mt-8 font-body text-[14px] md:text-[20px] xl:text-[20px] text-gray-700 leading-[35px] md:leading-[44px]">
+          <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] xl:text-[20px] text-gray-700 leading-[35px] md:leading-[44px]">
             Welcome to the Scenery Villas Collection.
             <br/>
 Here, luxury is not defined by excess, but by space, privacy, and the freedom to experience your stay your way.
 Whether you’re waking up to quiet paddy field views, gathering your loved ones in a spacious private villa, enjoying a chef-prepared meal together, or simply slowing down in a peaceful homestay, every stay is designed to feel personal. Because the best holidays aren’t just about where you go,  they’re about the moments you create together.
           </p>
-          <p className="mt-4 md:mt-8 font-body text-[14px] md:text-[20px] xl:text-[20px] text-gray-700 leading-[35px] md:leading-[44px]">
+          <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] xl:text-[20px] text-gray-700 leading-[35px] md:leading-[44px]">
             - Managed by Scenery Villas
             <br/>A Digital Escapes Venture
           </p>
