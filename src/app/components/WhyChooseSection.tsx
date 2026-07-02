@@ -49,7 +49,7 @@ function FeatureCardMobile({ feature }: { feature: Feature }) {
   return (
     <div className="w-full shrink-0">
       {/* outer card */}
-      <div className="rounded-[28px] bg-white overflow-hidden border border-gray-300">
+      <div className="rounded-[28px] overflow-hidden border border-gray-300 ">
         {/* content */}
         <div className="p-4 flex flex-col items-start justify-center gap-4">
           <div className="flex flex-col items-center text-center gap-4 justify-center w-full">
@@ -60,10 +60,10 @@ function FeatureCardMobile({ feature }: { feature: Feature }) {
               </svg>
             </IconBox>
 
-            <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
+            <h3 className="font-body text-[18px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">{feature.title}</h3>
           </div>
 
-          <p className="font-body text-[14px] leading-6 text-gray-700 text-center">{feature.description}</p>
+          <p className="font-body text-[15px] leading-6 text-gray-700 text-center">{feature.description}</p>
         </div>
       </div>
     </div>
@@ -148,7 +148,7 @@ export default function WhyChooseSection() {
       <Container>
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight ">
+          <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight ">
             <span className="italic  text-gray-900">Why Stay with</span>{" "}
             <span className="font-semibold text-[#FF751F]">Scenery Villas?</span>
           </h2>
@@ -156,7 +156,7 @@ export default function WhyChooseSection() {
 
         {/* ---------------- MOBILE (sm and below): carousel like screenshot ---------------- */}
         <div className="block sm:hidden">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden relative h-[210px]">
             <div
               className="flex transition-transform duration-500 ease-out will-change-transform touch-pan-y"
               style={{ transform: `translateX(-${mIndex * 100}%)`, touchAction: "pan-y" }}

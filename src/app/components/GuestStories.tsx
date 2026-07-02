@@ -121,7 +121,7 @@ const onTouchEnd = () => {
       <Container>
         {/* Heading */}
         <div className="text-center ">
-          <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic text-gray-900">Guest</span>{" "}
             <span className="font-semibold text-[#FF751F]">Stories</span>
           </h2>
@@ -139,11 +139,11 @@ const onTouchEnd = () => {
                 <QuoteMark  />
               </div>
 
-              <p className="font-body text-[14px] md:text-[20px]  leading-[30px] md:leading-10 text-gray-800 max-w-[530px] lg:line-clamp-3">
+              <p className="font-body text-[15px] md:text-[20px] leading-[32px] md:leading-10 text-gray-800 max-w-[530px] lg:line-clamp-3">
                 {active.quote}
               </p>
 
-              <div className="mt-4 md:mt-12 font-body text-[14px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+              <div className="mt-4 md:mt-12 font-body text-[15px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                 {active.author}
               </div>
             </div>

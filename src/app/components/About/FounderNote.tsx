@@ -29,8 +29,8 @@ export default function FounderNote() {
         <div className="flex flex-col md:flex-row gap-8 mt-4 md:mt-16">
 
           {/* Founder Image */}
-          <div className="relative w-full ">
-            <div className="relative  h-full w-full rounded-[20px] overflow-hidden shadow-lg">
+          <div className="relative w-full order-2 md:order-1">
+            <div className="relative h-[300px]  md:h-full w-full rounded-[20px] overflow-hidden shadow-lg">
               <Image
                 src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772960206/DSC02788_clnnyq.webp"
                 alt="Founder"
@@ -41,7 +41,7 @@ export default function FounderNote() {
           </div>
 
           {/* Quote Card */}
-          <div className="relative md:w-[150%]">
+          <div className="relative md:w-[150%] order-1 md:order-2">
             <div className="bg-white rounded-[20px] border-2 border-gray-300 p-4 md:p-8 w-full">
             <div className="flex flex-col">
               <QuoteIcon  />

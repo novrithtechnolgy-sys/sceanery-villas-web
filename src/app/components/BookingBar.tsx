@@ -63,13 +63,13 @@ export default function BookingBar({
   return (
     <div className="relative md:-mt-18 w-full mx-auto md:px-8 lg:px-12 xl:px-28">
       <div className="bg-white font-body rounded-[22px] shadow-lg border border-gray-100 p-5 md:p-6">
-        <div className="text-[16px] md:text-[18px] font-regular text-gray-900">
+        <div className="text-[15px] md:text-[18px] font-regular text-gray-900">
           Find Your Perfect Stay
         </div>
 
         <div className="mt-4 grid grid-cols-1 md:grid-cols-16 gap-4 items-end">
           <div className="md:col-span-4 w-full">
-            <label className="block text-[16px] text-gray-600 mb-4">
+            <label className="block text-[15px] text-gray-600 mb-4">
               Check in Date
             </label>
             <input
@@ -82,7 +82,7 @@ export default function BookingBar({
           </div>
 
           <div className="md:col-span-4 w-full">
-            <label className="block text-[16px] text-gray-600 mb-4">
+            <label className="block text-[15px] text-gray-600 mb-4">
               Check out Date
             </label>
             <input
@@ -97,7 +97,7 @@ export default function BookingBar({
           <div className="grid grid-cols-2 md:grid-cols-4 md:col-span-4 w-full gap-4" >
 
           <div className="col-span-1 md:col-span-2 w-full">
-            <label className="block text-[16px] text-gray-600 mb-4">
+            <label className="block text-[15px] text-gray-600 mb-4">
               Adults
             </label>
             <input
@@ -110,7 +110,7 @@ export default function BookingBar({
           </div>
 
             <div className="col-span-1 md:col-span-2 w-full">
-            <label className="block text-[16px] text-gray-600 mb-4">
+            <label className="block text-[15px] text-gray-600 mb-4">
               Children
             </label>
             <input

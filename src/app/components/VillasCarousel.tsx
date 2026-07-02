@@ -178,18 +178,18 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
         </div>
 
         <div className="relative pb-4">
-          <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border border-gray-300">
+          <div className="rounded-b-[26px] bg-white px-4 pt-6 pb-5 border border-gray-300">
             <h3 className="font-heading text-[18px] font-semibold text-gray-900">
               {villa.title}
             </h3>
 
             {villa.description && (
-              <p className="font-body mt-2 text-[16px] text-gray-700 leading-relaxed">
+              <p className="font-body mt-2 text-[15px] text-gray-700 leading-relaxed">
                 {villa.description}
               </p>
             )}
 
-            <div className="mt-4 grid grid-cols-3 gap-3 text-[16px] text-gray-900">
+            <div className="mt-4 grid grid-cols-3 gap-3 text-[15px] text-gray-900">
               <div className="flex items-center gap-2">
                 <IconBed className="h-5 w-5" />
                 <span className="truncate">{villa.bedrooms ?? 0} Bedrooms</span>
@@ -355,7 +355,7 @@ export default function VillasCarousel() {
 
       <section className="hidden sm:block py-20 bg-white">
         <div className="flex items-center justify-between px-4 md:px-8 lg:px-12 xl:px-28">
-          <h2 className="font-heading text-[26px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic text-gray-900">Explore</span>{" "}
             <span className="font-semibold text-[#FF751F]">Our Villas</span>
           </h2>

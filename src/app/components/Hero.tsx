@@ -37,7 +37,7 @@ export default function Hero() {
               and Stay Together            
               </h1>
 
-            <p className="mt-4 md:mt-8 font-body max-w-[300px] md:max-w-5xl text-white text-[16px] md:text-[18px] xl:text-[20px] leading-relaxed">
+            <p className="mt-4 md:mt-8 font-body max-w-[300px] md:max-w-5xl text-white text-[15px] md:text-[18px] xl:text-[20px] leading-relaxed">
               Discover a curated collection of 6 private villas and residences in Bentota and Aluthgama.
 
               From hilltop sanctuaries and group retreats to cozy homestays.
