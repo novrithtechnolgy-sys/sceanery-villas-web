@@ -31,7 +31,7 @@ export default function Hero() {
           {/* Hero Content */}
           <div className="relative z-10 flex flex-col h-full items-center justify-center text-center">
             <h1 className="font-heading text-white font-semibold tracking-wide leading-tight
-                           text-[20px] md:text-[36px] xl:text-[74px] max-w-[300px] md:max-w-[1600px]">
+             text-[26px] md:text-[36px] xl:text-[74px] max-w-[300px] md:max-w-[1600px]">
               Your Private Space to Slow Down 
               <br />
               and Stay Together            
@@ -39,9 +39,9 @@ export default function Hero() {
 
             <p className="mt-4 md:mt-8 font-body max-w-[300px] md:max-w-5xl text-white text-[14px] md:text-[18px] xl:text-[20px] leading-relaxed">
               Discover a curated collection of 6 private villas and residences in Bentota and Aluthgama.
-              <br />
+
               From hilltop sanctuaries and group retreats to cozy homestays.
-              <br />
+         
               Book your perfect Sri Lankan escape.
             </p>
 
