@@ -68,17 +68,17 @@ function VillaCard({ villa }: { villa: Villa }) {
 
         <div className="relative ">
           <div className="rounded-t-[26px] bg-white px-4 lg:px-8 pt-8 pb-8">
-            <h3 className="font-heading text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+            <h3 className="font-heading text-[18px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
               {villa.title}
             </h3>
 
             {villa.description && (
-              <p className="mt-2 font-body text-[14px] md:text-[18px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">
+              <p className="mt-2 font-body text-[16px] md:text-[18px] leading-7 text-gray-700 line-clamp-4 md:line-clamp-3">
                 {villa.description}
               </p>
             )}
 
-            <div className="mt-4 flex justidfy-between gap-4 md:gap-8 xl:gap-14 text-[14px] md:text-[16px] text-gray-900">
+            <div className="mt-4 flex justidfy-between gap-4 md:gap-8 xl:gap-14 text-[16px] md:text-[16px] text-gray-900">
               <div className="flex items-center gap-2">
                 <IconBed className="h-5 w-5" />
                 <span>{villa.bedrooms ?? 0} Bedrooms</span>
@@ -179,17 +179,17 @@ function VillaCardMobile({ villa }: { villa: Villa }) {
 
         <div className="relative -mt-10 pb-4">
           <div className="rounded-[26px] bg-white px-4 pt-6 pb-5 border border-gray-300">
-            <h3 className="font-heading text-[16px] font-semibold text-gray-900">
+            <h3 className="font-heading text-[18px] font-semibold text-gray-900">
               {villa.title}
             </h3>
 
             {villa.description && (
-              <p className="font-body mt-2 text-[14px] text-gray-700 leading-relaxed">
+              <p className="font-body mt-2 text-[16px] text-gray-700 leading-relaxed">
                 {villa.description}
               </p>
             )}
 
-            <div className="mt-4 grid grid-cols-3 gap-3 text-[14px] text-gray-900">
+            <div className="mt-4 grid grid-cols-3 gap-3 text-[16px] text-gray-900">
               <div className="flex items-center gap-2">
                 <IconBed className="h-5 w-5" />
                 <span className="truncate">{villa.bedrooms ?? 0} Bedrooms</span>
