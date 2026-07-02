@@ -35,7 +35,7 @@ Whether you’re waking up to quiet paddy field views, gathering your loved ones
           
 
           {/* Center Image (Larger) */}
-          <div className="relative w-full h-[220px]  md:h-[480px] rounded-[28px] overflow-hidden shadow-lg">
+          <div className="relative w-full h-[300px]  md:h-[480px] rounded-[28px] overflow-hidden shadow-lg">
             <Image
               src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp"
               alt="Sunset palm beach"
