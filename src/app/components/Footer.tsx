@@ -39,7 +39,7 @@ export default function Footer() {
     <footer className="bg-[#0F0F10] text-white py-10">
       <Container>
         {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-10 font-body text-[14px] md:text-[16px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-10 font-body text-[15px] md:text-[16px]">
 
           {/* Left Column */}
           <div className="lg:col-span-6">
@@ -53,7 +53,7 @@ export default function Footer() {
             />
           </Link>
 
-            <p className="mt-8 text-gray-300  leading-8 max-w-[420px]">
+            <p className="mt-8 text-gray-300 leading-8 max-w-[420px]">
               Curating exceptional stays on the southern coast of Sri Lanka.
             </p>
 
@@ -74,7 +74,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns */}
-          <div className="lg:col-span-6 grid grid-cols-2 gap-10 font-body text-[14px] md:text-[16px]" >
+          <div className="lg:col-span-6 grid grid-cols-2 gap-10 font-body text-[15px] md:text-[16px]" >
 
             {/* Collection */}
             <div>
@@ -89,7 +89,7 @@ export default function Footer() {
                         <Link
                           key={villa.slug}
                           href={villaHref}
-                          className={`block pb-4 font-body text-[14px] md:text-[16px] transition text-gray-300 hover:text-white ${active ? "font-bold" : ""}`}
+                          className={`block pb-4 font-body text-[15px] md:text-[16px] transition text-gray-300 hover:text-white ${active ? "font-bold" : ""}`}
                         >
                           {villa.title}
                         </Link>
