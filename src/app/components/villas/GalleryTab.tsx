@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
 
 function getYoutubeEmbedUrl(url?: string) {

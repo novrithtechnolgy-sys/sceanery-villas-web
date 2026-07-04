@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
 
 export default function AmenitiesTab({ villa }: { villa: any }) {
@@ -21,7 +21,7 @@ export default function AmenitiesTab({ villa }: { villa: any }) {
   return (
     <section className="py-10 md:py-20">
       <Container>
-        <h2 className="font-heading text-center text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+        <h2 className="font-heading text-center text-[24px] md:text-[36px] xl:text-[46px]  leading-tight">
             <span className="italic text-gray-700">Featured</span>{" "}
             <span className="font-semibold text-[#FF751F]">Amenities</span>
         </h2>
@@ -49,7 +49,7 @@ export default function AmenitiesTab({ villa }: { villa: any }) {
           {/* Card */}
           <div className="">
 
-            <ul className="space-y-2 md:space-y-4 font-body text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 font-regular  border-gray-300">
+            <ul className="space-y-2 md:space-y-4 font-body text-[15px] md:text-[20px] xl:text-[24px] text-gray-700 font-regular  border-gray-300">
               {amenities.map((a, i) => (
                 <li key={i} className="flex gap-4 md:gap-8">
                   <span className="mt-[9px] md:mt-[12px] h-2 md:h-2 w-2 md:w-2 rounded-full bg-gray-900"></span>

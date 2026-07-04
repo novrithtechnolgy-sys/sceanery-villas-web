@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
 import ArrowButton from "../ArrowButton";
 
@@ -29,9 +29,9 @@ function ExperienceCardMobile({ item }: { item: ExperienceCard }) {
     : "";
 
   return (
-    <div className="relative">
+    <div className="relative rounded-[28px] overflow-hidden border border-gray-300 bg-white shadow-sm">
       {/* Image */}
-      <div className="relative h-[200px] md:h-[220px] rounded-[20px] overflow-hidden">
+      <div className="relative h-[200px] md:h-[220px]  overflow-hidden">
         <Image
           src={imgUrl}
           alt={item.title}
@@ -42,12 +42,12 @@ function ExperienceCardMobile({ item }: { item: ExperienceCard }) {
       </div>
 
       {/* Bottom overlay content */}
-      <div className="relative -mt-10 md:px-4 pb-3">
-        <div className="bg-white rounded-[20px] border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.10)] p-4 md:p-8">
-          <h4 className="font-body text-[16px] font-semibold text-gray-900">
+      <div className="relative md:px-4">
+        <div className=" border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.10)] p-4 md:p-8">
+          <h4 className="font-body text-[18px] font-semibold text-gray-900">
             {item.title}
           </h4>
-          <p className="mt-4 md:mt-8 font-body text-[14px] leading-6 text-gray-700">
+          <p className="mt-4 md:mt-8 font-body text-[15px] leading-6 text-gray-700">
             {item.desc}
           </p>
         </div>
@@ -143,7 +143,7 @@ function MobileCardCarousel({ cards }: { cards: ExperienceCard[] }) {
             onClick={prev}
           />
 
-          <div className="text-center text-[12px] text-black tabular-nums">
+          <div className="text-center text-[15px] text-black tabular-nums">
             {active + 1}/{cards.length}
           </div>
 
@@ -187,13 +187,13 @@ function ExperienceGroupUI({ group }: { group: ExperienceGroup }) {
     <section className="py-10 md:py-20">
       {/* Heading */}
       <div className="text-center max-w-3xl mx-auto">
-        <h3 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+        <h3 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
           <span className="italic">{group.eyebrowItalic}</span>{" "}<span >{" "}</span>
           <span className="font-semibold font-body text-[#FF751F]">{group.titleBold}</span>
         </h3>
 
         {group.subtitle && (
-          <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-8 md:leading-relaxed">
+          <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] text-gray-700 leading-relaxed md:leading-relaxed">
             {group.subtitle}
           </p>
         )}

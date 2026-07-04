@@ -12,12 +12,12 @@ export default function TourTab({ villa }: { villa: any }) {
         
         {/* LEFT TEXT */}
         <div className="">
-          <h2 className="font-heading text-center md:text-left text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+          <h2 className="font-heading text-center md:text-left text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
             <span className="italic">{tour.headingItalic}</span>{" "}
             <span className="font-semibold text-[#FF751F]">{tour.headingBold}</span>
           </h2>
 
-          <p className="mt-4 md:mt-8 text-center md:text-left font-body text-[16px] md:text-[20px] text-gray-700 leading-[44px]">
+          <p className="mt-4 md:mt-8 text-center md:text-left font-body text-[15px] md:text-[20px] text-gray-700 leading-[32px] md:leading-[44px]">
             {tour.description}
           </p>
         </div>

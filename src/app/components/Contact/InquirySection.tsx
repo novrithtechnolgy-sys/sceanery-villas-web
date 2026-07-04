@@ -159,12 +159,12 @@ export default function InquirySection() {
       <div className="relative md:absolute inset-0 flex items-center justify-center md:pl-84 md:py-10">
         <div className="w-full max-w-[820px] rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-200 overflow-hidden">
           <form onSubmit={onSubmit} className="px-8 md:px-14 py-8 md:py-14">
-            <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
+            <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
               <span className="italic font-medium">Send an</span>{" "}
               <span className="font-semibold text-[#FF751F]">Inquiry</span>
             </h2>
 
-            <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] leading-8 text-gray-700">
+            <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] leading-8 text-gray-700">
               Please fill out the details below, and our reservations team will
               get back to you within 24 hours with availability and a custom
               quote.
@@ -247,7 +247,7 @@ export default function InquirySection() {
                 </div>
               </Field>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                 <Field label="Check in Date*" htmlFor="checkIn">
                   <UnderlineInput
                     id="checkIn"
@@ -285,7 +285,7 @@ export default function InquirySection() {
                     value={form.message}
                     onChange={(e) => onChange("message", e.target.value)}
                     rows={3}
-                    className="w-full resize-none bg-transparent text-[16px] text-gray-900 outline-none pb-3"
+                    className="w-full resize-none bg-transparent text-[15px] text-gray-900 outline-none pb-3"
                   />
                   <div className="h-px w-full bg-gray-600/70" />
                 </div>
@@ -334,7 +334,7 @@ function UnderlineInput(
       <input
         {...props}
         className={[
-          "w-full bg-transparent text-[16px] text-gray-900 outline-none",
+          "w-full bg-transparent text-[15px] text-gray-900 outline-none",
           "mb-1 md:pb-3",
         ].join(" ")}
       />

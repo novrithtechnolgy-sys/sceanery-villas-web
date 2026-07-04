@@ -36,17 +36,17 @@ export default function FeaturedStory() {
               <div className="max-w-[650px] px-8 md:px-16 text-white">
 
                 {/* Eyebrow */}
-                <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
+                <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
                   Featured Story
                 </h2>
 
                 {/* Title */}
-                <h3 className="mt-4 font-body max-w-5xl text-white text-[14px] md:text-[20px] xl:text-[24px] leading-relaxed font-semibold">
+                <h3 className="mt-4 font-body max-w-5xl text-white text-[15px] md:text-[20px] xl:text-[24px] leading-relaxed font-semibold">
                   Why Bentota is the Perfect Alternative to Galle for Families
                 </h3>
 
                 {/* Description */}
-                <p className="mt-4 md:mt-8 font-body text-[14px] md:text-[18px] text-gray-700 md:leading-8 text-white/90">
+                <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[18px] text-gray-700 md:leading-8 text-white/90">
                   Galle Fort is famous, but Bentota offers the space, the river,
                   and the golden beaches that families truly need to unwind.
                   Discover why the "Gold Coast" should be your next family base.

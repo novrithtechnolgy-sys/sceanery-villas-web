@@ -73,25 +73,25 @@ export default function JoinOurJourney() {
         {/* Right Content */}
         <div className="md:col-span-7">
           <div className="text-center lg:text-center">
-            <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+            <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px]  leading-tight">
               <span className="italic">Join Our</span>{" "}
               <span className="font-semibold text-[#FF751F]"> Journey</span>
             </h2>
 
-            <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-[44px]">
+            <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] text-gray-700 leading-[32px] md:leading-[44px]">
               Follow us on social media for travel inspiration, villa updates,
               and a glimpse into daily life in beautiful Bentota.
             </p>
           </div>
           <div className="flex items-center justify-center gap-8 mt-4 md:mt-8">
           <SocialButton href="https://www.facebook.com/p/Scenery-Villas-Sri-Lanka-61560604556336/" label="Facebook">
-              <IconFacebook className="h-7 w-7 text-gray-100" />
+              <IconFacebook className="h-6 w-6 md:h-7 md:w-7 text-gray-100" />
             </SocialButton>
             <SocialButton href="https://www.instagram.com/sceneryvillas.srilanka" label="Instagram">
-              <IconInstagram className="h-7 w-7 text-gray-100" />
+              <IconInstagram className="h-6 w-6 md:h-7 md:w-7 text-gray-100" />
             </SocialButton>
             <SocialButton href="https://www.linkedin.com/company/scenery-villas/" label="LinkedIn">
-              <IconLinkedIn className="h-7 w-7 text-gray-100" />
+              <IconLinkedIn className="h-6 w-6 md:h-7 md:w-7 text-gray-100" />
             </SocialButton>
           </div>
         </div>

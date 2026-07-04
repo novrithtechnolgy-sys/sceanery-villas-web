@@ -9,13 +9,13 @@ export default function Newsletter() {
             <Container>
                 <div className="text-center max-w-6xl mx-auto">
                   {/* Title */}
-                    <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight italic">
+                    <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px]  leading-tight italic">
                         Get A Slice Of Paradise
                         <span className="not-italic font-semibold text-[#FF751F]"> In Your Inbox</span>
                     </h2>
 
                     {/* Description */}
-                    <p className="mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
+                    <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] text-gray-700 leading-relaxed">
                     Sign up for our newsletter to receive exclusive offers, seasonal updates,
                     and travel inspiration. 
                     <br />
@@ -27,7 +27,7 @@ export default function Newsletter() {
                     action="https://digitalescapeslk.us9.list-manage.com/subscribe/post?u=5670b29db76c562f712305898&id=d37ac9142b&f_id=001b50e1f0"
                     method="post"
                     target="_blank"
-                    className="mt-14 flex flex-col md:flex-row items-center justify-center gap-6"
+                    className="mt-4 md:mt-14 flex flex-col md:flex-row items-center justify-center gap-6"
                     >
                     {/* Email Input */}
                     <input

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
 import ArrowButton from "../ArrowButton";
 
@@ -32,7 +32,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
         {/* Intro */}
         <div className="flex flex-col items-center pb-10 md:pb-20">
           <div>
-            <h2 className="text-center font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+            <h2 className="text-center font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
               <span className="italic text-gray-800">
                 {villa.intro?.headingItalic}{"  "}
               </span>
@@ -42,7 +42,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
             </h2>
 
             {villa.intro?.description && (
-              <p className="mt-4 md:mt-8 text-center font-body text-[16px] md:text-[20px] text-gray-700 leading-[44px] whitespace-pre-line">
+              <p className="mt-4 md:mt-8 text-center font-body text-[15px] md:text-[20px] text-gray-700 leading-[32px] md:leading-[44px] whitespace-pre-line">
                 {villa.intro.description}
               </p>
             )}
@@ -59,14 +59,14 @@ export default function OverviewTab({ villa }: { villa: any }) {
         {!!highlightCards.length && (
           <div>
             {/* Section Title */}
-            <h3 className="mt-10 md:mt-20 text-center font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+            <h3 className="mt-10 md:mt-20 text-center font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
               <span className="italic">{villa.highlights.headingItalic}</span>{" "}
               <span className="font-semibold text-[#FF751F]">{villa.highlights.headingBold}</span>
             </h3>
 
             {/* Description */}
             {villa.highlights.description && (
-              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed text-center max-w-4xl mx-auto px-4">
+              <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] text-gray-700 leading-relaxed text-center max-w-4xl mx-auto px-4">
                 {villa.highlights.description}
               </p>
             )}
@@ -89,11 +89,11 @@ export default function OverviewTab({ villa }: { villa: any }) {
                 </div>
 
                 <div className="p-4 md:p-8">
-                  <div className="font-body text-[16px] font-semibold text-gray-900">
+                  <div className="font-body text-[18px] font-semibold text-gray-900">
                     {highlightCards[activeIndex]?.title}
                   </div>
 
-                  <p className="mt-4 font-body text-[14px] leading-8 text-gray-700">
+                  <p className="mt-4 md:mt-4 font-body text-[15px] md:leading-8 text-gray-700">
                     {highlightCards[activeIndex]?.desc}
                   </p>
                 </div>
@@ -105,7 +105,7 @@ export default function OverviewTab({ villa }: { villa: any }) {
                   direction="left"
                   disabled={activeIndex === 0}
                 />
-                <span className="font-body text-[18px] text-gray-900">
+                <span className="font-body text-[15px] md:text-[18px] text-gray-900">
                   {activeIndex + 1}/{highlightCards.length}
                 </span>
 

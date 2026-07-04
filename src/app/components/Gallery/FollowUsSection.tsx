@@ -18,15 +18,15 @@ export default function FollowUsSection() {
 
         {/* TEXT */}
         <div className="text-center">
-          <h3 className="font-heading text-[16px] md:text-[20px]  leading-none">
+          <h3 className="font-heading text-[15px] md:text-[20px]  leading-none">
             <span className="italic font-normal">Follow Us On</span>
           </h3>
 
-          <h2 className="mt-4 md:mt-4 font-body text-[20px] md:text-[36px] xl:text-[46px] font-semibold leading-none tracking-[-0.02em] text-[#FF751F]">
+          <h2 className="mt-4 md:mt-4 font-body text-[24px] md:text-[36px] xl:text-[46px] font-semibold leading-none tracking-[-0.02em] text-[#FF751F]">
             @SceneryVillas
           </h2>
 
-          <p className="mt-4 md:mt-8 max-w-[980px] mx-auto font-body text-[16px] md:text-[20px] leading-[1.5] text-[#222222]">
+          <p className="mt-4 md:mt-8 max-w-[980px] mx-auto font-body text-[15px] md:text-[20px] leading-[1.5] text-[#222222] px-4 md:px-0">
             See what our guests are posting and get daily travel inspiration
             from the southern coast.
           </p>

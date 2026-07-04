@@ -21,7 +21,7 @@ export default function FounderNote() {
       <Container>
 
         {/* Heading */}
-        <h2 className="text-center mb-8 md:mb-0 font-heading text-[20px] md:text-[36px] xl:text-[46px]  leading-tight">
+        <h2 className="text-center mb-8 md:mb-0 font-heading text-[24px] md:text-[36px] xl:text-[46px]  leading-tight">
           <span className="italic ">A Note From</span>{" "}
           <span className="font-semibold text-[#FF751F]">Our Founder</span>
         </h2>

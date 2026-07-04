@@ -11,12 +11,12 @@ export default function MeetYourHosts() {
         
         {/* Left Content */}
         <div className="md:col-span-7">
-          <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] text-center md:text-left leading-tight">
+          <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] text-center md:text-left leading-tight">
             <span className="italic">Meet Your</span>{" "}
             <span className="font-semibold text-[#FF751F]">Team</span>
           </h2>
 
-          <p className="mt-4 md:mt-8 font-body text-center md:text-left text-[16px] md:text-[20px] text-gray-700 leading-[44px]">
+          <p className="mt-4 md:mt-8 font-body text-center md:text-left text-[15px] md:text-[20px] text-gray-700 leading-[32px] md:leading-[44px]">
             Behind every memorable stay is a team that cares.
 From the moment you arrive, you are welcomed by people who take pride in what they do, from villa managers who ensure everything runs smoothly to chefs who remember how you like your meals.
 At Scenery Villas, our team is more than staff; they are the heart of the experience. We invest in their growth because we believe that genuine hospitality begins with empowered people.

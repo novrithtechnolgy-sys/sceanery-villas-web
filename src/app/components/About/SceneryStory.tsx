@@ -10,14 +10,14 @@ export default function SceneryStory() {
       <div className="mx-auto text-center">
 
         {/* Heading */}
-        <h2 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] leading-tight">
+        <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
           <span className="italic ">The</span>{" "}
           <span className="font-semibold text-[#FF751F]">Scenery Story</span>
         </h2>
 
         <div className="flex flex-col md:flex-row items-center justify-center md:gap-4 mt-4 md:mt-8">
         {/* First Paragraph */}
-        <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-left text-gray-800 leading-[44px]">
+        <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] md:text-left text-gray-800 leading-[32px] md:leading-[44px]">
             Scenery Villas began with a simple belief that the most meaningful travel experiences are personal, private, and deeply connected to place.
           <br/>
             Our journey is shaped by decades of experience in Sri Lanka’s tourism industry. Our director, Shiral De Silva, began his career over 30 years ago as a driver and tour guide, sharing the beauty of the island with travelers from around the world. Along the way, he built lasting relationships, one of which would shape the future of Scenery Villas.
@@ -35,7 +35,7 @@ export default function SceneryStory() {
         </div>
 
         {/* Second Paragraph */}
-        <p className="relative mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-left text-gray-800 leading-[44px]">
+        <p className="relative mt-4 md:mt-8 font-body text-[15px] md:text-[20px] md:text-left text-gray-800 leading-[32px] md:leading-[44px]">
           Soon after, another group of travelers experienced Sri Lanka in the same way and decided to create their own space, leading to the growth of the collection. Over time, this organic journey expanded to include Villa Desire, Tara Garden, and Monara Villa, each shaped by its own story, character, and setting.
           <br/>
 Treetop Resort followed a different path. Once a well-known banquet and wedding venue in the area, it was reimagined into a spacious private retreat, now welcoming large groups and gatherings in a setting designed for connection.

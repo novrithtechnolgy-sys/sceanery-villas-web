@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
+import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
 
 
@@ -32,12 +32,12 @@ export default function VillaHero({ villa }: { villa: any }) {
 
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div className="text-white max-w-2xl">
-            <h1 className="font-heading text-[20px]  md:text-[36px] xl:text-[76px] tracking-wide text-white">
+            <h1 className="font-heading text-[24px]  md:text-[36px] xl:text-[76px] tracking-wide text-white">
               {villa.title}
             </h1>
 
             {villa.tagline && (
-              <p className="mt-4 md:mt-8 font-body max-w-5xl text-white text-[14px] md:text-[20px] leading-relaxed">
+              <p className="mt-4 md:mt-8 font-body max-w-5xl text-white text-[15px] md:text-[20px] leading-relaxed">
                 {villa.tagline}
               </p>
             )}

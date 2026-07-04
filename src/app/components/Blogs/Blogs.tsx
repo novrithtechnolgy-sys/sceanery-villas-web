@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { urlFor } from "@/sanity/lib/image";
-import Container from "@/app/components/Container";
+import { urlFor } from "../../../sanity/lib/image";
+import Container from "../Container";
 
 type Category = { _id: string; title: string; slug: { current: string } };
 
@@ -70,7 +70,7 @@ export default function BlogPage() {
     <section className="py-10 md:py-20">
       <Container>
         {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[14px] md:text-[16px] font-body text-gray-700">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[15px] md:text-[16px] font-body text-gray-700">
           <button
             onClick={() => setActive("all")}
             className={
@@ -133,18 +133,18 @@ export default function BlogPage() {
                     )}
 
                     <div className="absolute top-4 left-4">
-                      <span className="px-4 py-2 rounded-full bg-white/95 font-body text-[14px] md:text-[16px] leading-7 text-gray-700 shadow">
+                      <span className="px-4 py-2 rounded-full bg-white/95 font-body text-[15px] md:text-[16px] leading-7 text-gray-700 shadow">
                         {p.categoryTitle}
                       </span>
                     </div>
                   </div>
 
                   <div className="p-4 md:p-8">
-                    <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+                    <h3 className="font-body text-[18px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
                       {p.title}
                     </h3>
 
-                    <p className="mt-4 font-body text-[14px] md:text-[18px] leading-7 text-gray-700 md:line-clamp-3 lg:line-clamp-2 2xl:line-clamp-3">
+                    <p className="mt-4 font-body text-[15px] md:text-[18px]  md:leading-7 text-gray-700 md:line-clamp-3 lg:line-clamp-2 2xl:line-clamp-3">
                       {p.excerpt || "—"}
                     </p>
 
