@@ -4,6 +4,7 @@ import BlogsHero from "../components/Blogs/hero";
 import Inspired from "../components/Blogs/Inspired";
 import Newsletter from "../components/Blogs/Newsletter";
 import Navbar from "../components/Navbar";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
     title: "The Journal | Travel Tips, Guides and Stories from Bentota Sri Lanka",
@@ -19,6 +20,7 @@ export default function BlogsPage() {
             <BlogPage />
             <Newsletter />
             <Inspired />
+            <WhatsAppButton />
         </>
     )
 }

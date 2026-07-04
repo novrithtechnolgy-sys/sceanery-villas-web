@@ -5,6 +5,7 @@ import InquirySection from "../components/Contact/InquirySection";
 import QuickChat from "../components/Contact/quickchat";
 import WhereWeAreSection from "../components/Contact/WhereWeAreSection";
 import Navbar from "../components/Navbar";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
     title: "Contact Scenery Villas | Inquiries and Reservations Bentota",
@@ -21,6 +22,7 @@ export default function Contact() {
         <FAQSection />
         <WhereWeAreSection />
         <QuickChat />
+        <WhatsAppButton />
         </>
     )
 }

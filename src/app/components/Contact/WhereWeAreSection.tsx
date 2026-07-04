@@ -73,7 +73,7 @@ export default function WhereWeAreSection() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="md:hidden inline-flex w-[250px] lg:w-[340px] items-center justify-center rounded-full bg-gray-900 text-white py-2 text-[14px] font-semibold shadow-sm hover:bg-black transition"
+                className="md:hidden inline-flex w-[250px] lg:w-[340px] items-center justify-center rounded-full bg-[#FF751F] text-white py-2 text-[14px] font-semibold shadow-sm hover:bg-black transition"
               >
                 Get Directions
               </a>

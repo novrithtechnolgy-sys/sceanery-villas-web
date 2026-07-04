@@ -157,7 +157,7 @@ export default function InquirySection() {
       </div>
 
       <div className="relative md:absolute inset-0 flex items-center justify-center md:pl-84 md:py-10">
-        <div className="w-full max-w-[820px] rounded-[28px] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-gray-200 overflow-hidden">
+        <div className="w-full max-w-[820px] rounded-[28px] bg-white  border border-gray-300 overflow-hidden">
           <form onSubmit={onSubmit} className="px-8 md:px-14 py-8 md:py-14">
             <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
               <span className="italic font-medium">Send an</span>{" "}

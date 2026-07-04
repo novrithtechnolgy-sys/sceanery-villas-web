@@ -3,6 +3,7 @@ import GallerySections from "../components/Gallery/GallerySections";
 import GalleryHero from "../components/Gallery/Hero";
 import Seenenough from "../components/Gallery/Seenenough";
 import Navbar from "../components/Navbar";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
     title: "Photo Gallery | Scenery Villas Collection Bentota",
@@ -17,7 +18,7 @@ export default function Gallery() {
       <GallerySections />     
       <FollowUsSection/>
       <Seenenough />
- 
+      <WhatsAppButton />
     </>
     )
 

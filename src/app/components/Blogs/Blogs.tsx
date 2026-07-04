@@ -120,7 +120,7 @@ export default function BlogPage() {
               return (
                 <article
                   key={p._id}
-                  className="rounded-[24px] border border-gray-200 overflow-hidden shadow"
+                  className="rounded-[24px] border border-gray-300 overflow-hidden shadow"
                 >
                   <div className="relative h-[220px]">
                     {img && (

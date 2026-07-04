@@ -14,7 +14,7 @@ type Feature = {
 
 function FeatureCard({ item }: { item: Feature }) {
   return (
-    <div className="rounded-[20px] w-full overflow-hidden bg-white border border-gray-200 md:shadow-[0_14px_34px_rgba(0,0,0,0.10)]">
+    <div className="rounded-[20px] w-full overflow-hidden bg-white border-2 border-gray-300 ">
       {/* Image */}
       <div className="relative h-[200px] sm:h-[200px]">
         <Image

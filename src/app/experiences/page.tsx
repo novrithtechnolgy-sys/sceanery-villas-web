@@ -2,6 +2,7 @@ import { title } from "process";
 import ExperiencesSections from "../components/Experiences/ExperiencesSections";
 import ExperiencesHero from "../components/Experiences/Hero";
 import Navbar from "../components/Navbar";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
     title: "Experiences in Bentota | Dining, Wellness and Adventure by Scenery Villas ",
@@ -13,6 +14,7 @@ export default function ExperiencesPage() {
             <Navbar />
             <ExperiencesHero />
             <ExperiencesSections />
+            <WhatsAppButton />
         </>
     );
 }

@@ -6,6 +6,7 @@ import MeetYourHosts from "../components/About/MeetYourHosts";
 import SceneryStory from "../components/About/SceneryStory";
 import WhyDifferent from "../components/About/WhyDifferent";
 import Navbar from "../components/Navbar";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
   title: "About Scenery Villas Collection | Our Story & Vision",
@@ -23,6 +24,7 @@ export default function AboutPage() {
             <MeetYourHosts />
             <JoinOurJourney />
             <ExperienceDifference />
+            <WhatsAppButton />
         </>
     );
 }
