@@ -1,12 +1,23 @@
+// components/ExperiencesSectionsSanity.tsx
+
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import ArrowButton from "../ArrowButton";
 
-/* ---------------- TYPES ---------------- */
+/* =========================================================
+   TYPES
+========================================================= */
+
 type ExperienceCard = {
   _key: string;
   title: string;
@@ -22,238 +33,661 @@ type ExperienceGroup = {
   cards: ExperienceCard[];
 };
 
-/* ---------------- UI: CARD (matches screenshot style) ---------------- */
-function ExperienceCardMobile({ item }: { item: ExperienceCard }) {
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+function ExperienceCard({
+  item,
+}: {
+  item: ExperienceCard;
+}) {
   const imgUrl = item.image
-    ? urlFor(item.image).width(1400).quality(85).url()
+    ? urlFor(item.image)
+        .width(1400)
+        .quality(85)
+        .url()
     : "";
 
   return (
-    <div className="relative rounded-[28px] overflow-hidden border border-gray-300 bg-white shadow-sm">
-      {/* Image */}
-      <div className="relative h-[200px] md:h-[220px]  overflow-hidden">
-        <Image
-          src={imgUrl}
-          alt={item.title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 90vw, 33vw"
-        />
-      </div>
+    <article className="w-full">
 
-      {/* Bottom overlay content */}
-      <div className="relative md:px-4">
-        <div className=" border border-gray-200 shadow-[0_10px_26px_rgba(0,0,0,0.10)] p-4 md:p-8">
-          <h4 className="font-body text-[18px] font-semibold text-gray-900">
-            {item.title}
-          </h4>
-          <p className="mt-4 md:mt-8 font-body text-[15px] leading-6 text-gray-700">
-            {item.desc}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+      {/* =================================================
+          IMAGE
+      ================================================= */}
 
-/* ---------------- UI: MOBILE CAROUSEL PER GROUP ---------------- */
-function MobileCardCarousel({ cards }: { cards: ExperienceCard[] }) {
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const children = Array.from(el.children) as HTMLElement[];
-        if (!children.length) return;
-
-        const r = el.getBoundingClientRect();
-        const centerX = r.left + r.width / 2;
-
-        let bestIdx = 0;
-        let bestDist = Number.POSITIVE_INFINITY;
-
-        children.forEach((child, idx) => {
-          const cr = child.getBoundingClientRect();
-          const childCenter = cr.left + cr.width / 2;
-          const dist = Math.abs(childCenter - centerX);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
-
-        setActive(bestIdx);
-      });
-    };
-
-    el.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    return () => {
-      el.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  const scrollToIndex = (idx: number) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const child = el.children.item(idx) as HTMLElement | null;
-    if (!child) return;
-    child.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-  };
-
-  const prev = () => scrollToIndex(Math.max(0, active - 1));
-  const next = () => scrollToIndex(Math.min(cards.length - 1, active + 1));
-
-  return (
-    <div className="mt-8">
-      {/* Slider */}
       <div
-        ref={scrollerRef}
         className="
-          flex gap-4 overflow-x-auto scroll-smooth
-          snap-x snap-mandatory    
-          [-ms-overflow-style:none] [scrollbar-width:none]
-          [&::-webkit-scrollbar]:hidden
+          relative
+          h-[270px]
+          w-full
+          overflow-hidden
+          rounded-[24px]
+
+          sm:h-[280px]
+
+          md:h-[260px]
+
+          lg:h-[280px]
+
+          xl:h-[320px]
         "
       >
-        {cards.map((c) => (
-          <div
-            key={c._key}
-            className="snap-center min-w-[100%]"
-          >
-            <ExperienceCardMobile item={c} />
-          </div>
-        ))}
-      </div>
-
-      {/* Arrows (like screenshot) */}
-      {cards.length > 1 && (
-        <div className="mt-3 flex items-center justify-center gap-4">
-          <ArrowButton
-            direction="left"
-            disabled={active === 0}
-            onClick={prev}
+        {imgUrl && (
+          <Image
+            src={imgUrl}
+            alt={item.title}
+            fill
+            sizes="
+              (max-width: 767px) calc(100vw - 70px),
+              (max-width: 1024px) 33vw,
+              33vw
+            "
+            className="
+              object-cover
+              transition-transform
+              duration-500
+              hover:scale-[1.03]
+            "
+            draggable={false}
           />
-
-          <div className="text-center text-[15px] text-black tabular-nums">
-            {active + 1}/{cards.length}
-          </div>
-
-          <ArrowButton
-            direction="right"
-            disabled={active === cards.length - 1}
-            onClick={next}
-          />
-        </div>
-      )}
-    </div>
-  );
-}
-
-/* ---------------- UI: DESKTOP CARD (keep your existing overlap style) ---------------- */
-function ExperienceCardDesktop({ item }: { item: ExperienceCard }) {
-  const imgUrl = item.image ? urlFor(item.image).width(1400).quality(85).url() : "";
-
-  return (
-    <div className="relative border-2 border-gray-300 rounded-[24px] ">
-      <div className="relative h-[240px] xl:h-[280px] rounded-t-[24px] overflow-hidden">
-        <Image src={imgUrl} alt={item.title} fill className="object-cover" />
-      </div>
-        <div className="bg-white p-8 rounded-b-[24px]">
-          <h3 className="font-body text-[16px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
-            {item.title}
-          </h3>
-          <p className="mt-3 font-body text-[14px] md:text-[18px] leading-7 text-gray-700">
-            {item.desc}
-          </p>
-      </div>
-    </div>
-  );
-}
-
-/* ---------------- GROUP ---------------- */
-function ExperienceGroupUI({ group }: { group: ExperienceGroup }) {
-  const cards = useMemo(() => group.cards ?? [], [group.cards]);
-
-  return (
-    <section className="py-10 md:py-20">
-      {/* Heading */}
-      <div className="text-center max-w-3xl mx-auto">
-        <h3 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
-          <span className="italic">{group.eyebrowItalic}</span>{" "}<span >{" "}</span>
-          <span className="font-semibold font-body text-[#FF751F]">{group.titleBold}</span>
-        </h3>
-
-        {group.subtitle && (
-          <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] text-gray-700 leading-relaxed md:leading-relaxed">
-            {group.subtitle}
-          </p>
         )}
       </div>
 
-      {/* ✅ MOBILE: one card slider */}
-      <div className="md:hidden mt-8">
-        <MobileCardCarousel cards={cards} />
+      {/* =================================================
+          CONTENT
+      ================================================= */}
+
+      <div className="px-1 pt-7">
+
+        <h3
+          className="
+            font-body
+            text-[18px]
+            font-semibold
+            leading-tight
+            text-gray-900
+
+            md:text-[20px]
+
+            xl:text-[22px]
+          "
+        >
+          {item.title}
+        </h3>
+
+        <p
+          className="
+            mt-5
+            max-w-[390px]
+            font-body
+            text-[14px]
+            leading-[1.9]
+            text-gray-800
+
+            md:text-[15px]
+
+            xl:text-[16px]
+          "
+        >
+          {item.desc}
+        </p>
+
       </div>
 
-      {/* ✅ DESKTOP: grid */}
-      <div className="hidden md:grid mt-16 grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto">
-        {cards.map((c) => (
-          <ExperienceCardDesktop key={c._key} item={c} />
-        ))}
+    </article>
+  );
+}
+
+/* =========================================================
+   MOBILE CAROUSEL
+   Native touch + translateX
+========================================================= */
+
+function MobileCardCarousel({
+  cards,
+}: {
+  cards: ExperienceCard[];
+}) {
+  const [mobileIndex, setMobileIndex] =
+    useState(0);
+
+  const [touchStart, setTouchStart] =
+    useState<number | null>(null);
+
+  const [touchEnd, setTouchEnd] =
+    useState<number | null>(null);
+
+  const total = cards.length;
+
+  /* =======================================================
+     NEXT
+  ======================================================= */
+
+  const nextMobile = () => {
+    setMobileIndex((prev) =>
+      prev >= total - 1
+        ? 0
+        : prev + 1
+    );
+  };
+
+  /* =======================================================
+     PREVIOUS
+  ======================================================= */
+
+  const prevMobile = () => {
+    setMobileIndex((prev) =>
+      prev <= 0
+        ? total - 1
+        : prev - 1
+    );
+  };
+
+  /* =======================================================
+     TOUCH START
+  ======================================================= */
+
+  const handleTouchStart = (
+    e: React.TouchEvent<HTMLDivElement>
+  ) => {
+    setTouchEnd(null);
+
+    setTouchStart(
+      e.targetTouches[0].clientX
+    );
+  };
+
+  /* =======================================================
+     TOUCH MOVE
+  ======================================================= */
+
+  const handleTouchMove = (
+    e: React.TouchEvent<HTMLDivElement>
+  ) => {
+    setTouchEnd(
+      e.targetTouches[0].clientX
+    );
+  };
+
+  /* =======================================================
+     TOUCH END
+  ======================================================= */
+
+  const handleTouchEnd = () => {
+    if (
+      touchStart === null ||
+      touchEnd === null
+    ) {
+      return;
+    }
+
+    const distance =
+      touchStart - touchEnd;
+
+    const minSwipeDistance = 50;
+
+    /* Swipe LEFT */
+    if (
+      distance > minSwipeDistance
+    ) {
+      nextMobile();
+    }
+
+    /* Swipe RIGHT */
+    if (
+      distance < -minSwipeDistance
+    ) {
+      prevMobile();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  if (!total) {
+    return null;
+  }
+
+  return (
+    <div className="w-full">
+
+      {/* =================================================
+          MOBILE SLIDER
+      ================================================= */}
+
+      <div
+        className="
+          relative
+          w-full
+          overflow-hidden
+          pl-4
+          touch-pan-y
+        "
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+
+        <div
+          className="
+            flex
+            gap-4
+            transition-transform
+            duration-500
+            ease-out
+            will-change-transform
+          "
+          style={{
+            transform: `
+              translateX(
+                calc(
+                  -${mobileIndex} *
+                  (100vw - 73px)
+                )
+              )
+            `,
+          }}
+        >
+
+          {cards.map((card) => (
+            <div
+              key={card._key}
+              className="
+                w-[calc(100vw-70px)]
+                shrink-0
+              "
+            >
+              <ExperienceCard
+                item={card}
+              />
+            </div>
+          ))}
+
+        </div>
+
       </div>
+
+      {/* =================================================
+          MOBILE DOTS
+      ================================================= */}
+
+      {total > 1 && (
+        <div
+          className="
+            mt-7
+            flex
+            items-center
+            justify-center
+            gap-[5px]
+          "
+        >
+        </div>
+      )}
+
+      {/* =================================================
+          MOBILE ARROWS
+      ================================================= */}
+
+      {total > 1 && (
+        <div
+          className="
+                    
+                      flex
+                      items-center
+                      justify-center
+                      gap-5
+                    "
+                  >
+          
+                    {/* LEFT */}
+          
+                    <ArrowButton
+                      direction="left"
+                      disabled={false}
+                      onClick={prevMobile}
+                    />
+          
+                    {/* COUNTER */}
+          
+                    <div
+                      className="
+                        min-w-[40px]
+                        text-center
+                        font-body
+                        text-[14px]
+                        tabular-nums
+                        text-gray-900
+                      "
+                    >
+                      {mobileIndex + 1}/{total}
+                    </div>
+          
+                    {/* RIGHT */}
+          
+                    <ArrowButton
+                      direction="right"
+                      disabled={false}
+                      onClick={nextMobile}
+                    />
+          
+                  </div>
+                )}
+          
+              </div>
+  );
+}
+
+/* =========================================================
+   EXPERIENCE GROUP
+========================================================= */
+
+function ExperienceGroupUI({
+  group,
+}: {
+  group: ExperienceGroup;
+}) {
+  const cards = useMemo(
+    () => group.cards ?? [],
+    [group.cards]
+  );
+
+  return (
+    <section
+      className="
+        py-[32px]
+        md:py-[64px]
+      "
+    >
+
+      {/* =================================================
+          HEADING
+      ================================================= */}
+
+      <div
+        className="
+          mx-auto
+          max-w-[1050px]
+          px-4
+          text-center
+          md:px-0
+        "
+      >
+
+        <h2
+          className="
+            font-heading
+            text-[22px]
+            font-bold
+            leading-[1.45]
+            tracking-[-0.5px]
+            text-gray-900
+
+            md:text-[32px]
+            md:leading-[42px]
+
+            xl:text-[38px]
+            xl:leading-[48px]
+          "
+        >
+
+          <span className="text-black">
+            {group.eyebrowItalic}
+          </span>
+
+          {" "}
+
+          <span className="text-[#FF751F]">
+            {group.titleBold}
+          </span>
+
+        </h2>
+
+        {/* =================================================
+            SUBTITLE
+        ================================================= */}
+
+        {group.subtitle && (
+          <p
+            className="
+              mx-auto
+              mt-4
+              max-w-[900px]
+              font-body
+              text-[14px]
+              leading-[26px]
+              text-gray-700
+
+              md:mt-8
+              md:text-[16px]
+              md:leading-[30px]
+            "
+          >
+            {group.subtitle}
+          </p>
+        )}
+
+      </div>
+
+      {/* =================================================
+          MOBILE
+          NO CONTAINER
+      ================================================= */}
+
+      <div
+        className="
+          mt-8
+          block
+          md:hidden
+        "
+      >
+        <MobileCardCarousel
+          cards={cards}
+        />
+      </div>
+
+      {/* =================================================
+          DESKTOP
+      ================================================= */}
+
+      <div
+        className="
+          mt-10
+          hidden
+          md:grid
+          md:grid-cols-3
+          md:gap-6
+          lg:mt-14
+        "
+      >
+
+        {cards.map((card) => (
+          <ExperienceCard
+            key={card._key}
+            item={card}
+          />
+        ))}
+
+      </div>
+
     </section>
   );
 }
 
-/* ---------------- PAGE SECTION ---------------- */
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function ExperiencesSectionsSanity() {
-  const [groups, setGroups] = useState<ExperienceGroup[]>([]);
-  const [loading, setLoading] = useState(true);
+
+  const [groups, setGroups] =
+    useState<ExperienceGroup[]>([]);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  /* =======================================================
+     LOAD SANITY DATA
+  ======================================================= */
 
   useEffect(() => {
+
     let mounted = true;
 
     async function load() {
+
       try {
-        const res = await fetch("/api/experience-groups", { cache: "no-store" });
-        const data = await res.json();
-        if (!mounted) return;
-        setGroups(Array.isArray(data) ? data : []);
+
+        const res = await fetch(
+          "/api/experience-groups",
+          {
+            cache: "no-store",
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error(
+            "Failed to fetch experience groups"
+          );
+        }
+
+        const data =
+          await res.json();
+
+        if (!mounted) {
+          return;
+        }
+
+        setGroups(
+          Array.isArray(data)
+            ? data
+            : []
+        );
+
+      } catch (error) {
+
+        console.error(
+          "Failed to load experiences:",
+          error
+        );
+
+        if (mounted) {
+          setGroups([]);
+        }
+
       } finally {
-        if (mounted) setLoading(false);
+
+        if (mounted) {
+          setLoading(false);
+        }
+
       }
     }
 
     load();
+
     return () => {
       mounted = false;
     };
+
   }, []);
 
+  /* =======================================================
+     LOADING
+  ======================================================= */
+
   if (loading) {
-    return <div className="py-20 text-center text-gray-500">Loading experiences...</div>;
+
+    return (
+      <section
+        className="
+          bg-white
+          py-20
+        "
+      >
+        <div
+          className="
+            text-center
+            font-body
+            text-gray-500
+          "
+        >
+          Loading experiences...
+        </div>
+      </section>
+    );
   }
+
+  /* =======================================================
+     EMPTY
+  ======================================================= */
 
   if (!groups.length) {
-    return <div className="py-20 text-center text-gray-500">No Experience Groups found in Sanity.</div>;
+
+    return (
+      <section
+        className="
+          bg-white
+          py-20
+        "
+      >
+        <div
+          className="
+            text-center
+            font-body
+            text-gray-500
+          "
+        >
+          No Experience Groups found
+          in Sanity.
+        </div>
+      </section>
+    );
   }
 
+  /* =======================================================
+     PAGE
+  ======================================================= */
+
   return (
-    <section className="bg-white py-10 md:py-20">
-      <Container>
-        {groups.map((g) => (
-          <ExperienceGroupUI key={g._id} group={g} />
+    <section className="bg-white">
+
+      {/* =================================================
+          DESKTOP
+          CONTAINER ONLY
+      ================================================= */}
+
+      <div className="hidden md:block">
+
+        <Container>
+
+          {groups.map((group) => (
+            <ExperienceGroupUI
+              key={group._id}
+              group={group}
+            />
+          ))}
+
+        </Container>
+
+      </div>
+
+      {/* =================================================
+          MOBILE
+          NO CONTAINER
+      ================================================= */}
+
+      <div className="block md:hidden">
+
+        {groups.map((group) => (
+          <ExperienceGroupUI
+            key={group._id}
+            group={group}
+          />
         ))}
-      </Container>
+
+      </div>
+
     </section>
   );
 }

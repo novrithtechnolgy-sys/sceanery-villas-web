@@ -1,3 +1,4 @@
+// components/MeetYourHosts.tsx
 "use client";
 
 import Image from "next/image";
@@ -5,38 +6,101 @@ import Container from "../Container";
 
 export default function MeetYourHosts() {
   return (
-    <section className="py-10 md:py-20">
-    <Container >
-      <div className="grid grid-cols-1 md:grid-cols-13 md:gap-14 items-center">
-        
-        {/* Left Content */}
-        <div className="md:col-span-7">
-          <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] text-center md:text-left leading-tight">
-            <span className="italic">Meet Your</span>{" "}
-            <span className="font-semibold text-[#FF751F]">Team</span>
-          </h2>
+    <section className="bg-white py-[32px] md:py-[64px]">
+      <Container>
+        <div
+          className="
+            grid
+            grid-cols-1
+            items-center
+            gap-10
+            md:grid-cols-15
+            md:gap-12
+            lg:gap-16
+            xl:gap-20
+          "
+        >
+          {/* ================= LEFT IMAGE ================= */}
+          <div className="order-2 md:order-1 md:col-span-7">
+            <div
+              className="
+                relative
+                h-[360px]
+                w-full
+                overflow-hidden
+                rounded-[24px]
+                md:h-[420px]
+                lg:h-[460px]
+                xl:h-[500px]
+                
+              "
+            >
+              <Image
+                src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789113390/39c624fe371ec92974bec3f32184e299f0bde2d0.jpg"
+                alt="Meet the Scenery Villas team"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
 
-          <p className="mt-4 md:mt-8 font-body text-center md:text-left text-[15px] md:text-[20px] text-gray-700 leading-[32px] md:leading-[44px]">
-            Behind every memorable stay is a team that cares.
-From the moment you arrive, you are welcomed by people who take pride in what they do, from villa managers who ensure everything runs smoothly to chefs who remember how you like your meals.
-At Scenery Villas, our team is more than staff; they are the heart of the experience. We invest in their growth because we believe that genuine hospitality begins with empowered people.
-          </p>
-        </div>
+          {/* ================= RIGHT CONTENT ================= */}
+          <div className="order-1 md:order-2 md:col-span-8 max-w-[620px]">
+            {/* Heading */}
+            <h2
+              className="
+                font-heading
+                text-[22px]
+                md:text-[32px]
+                xl:text-[38px]
+                font-bold
+                md:leading-[42px]
+                xl:leading-[48px]
+                tracking-[-0.5px]
+                text-gray-900
+                text-center
+                md:text-left
+              "
+            >
+              <span className="text-gray-900">
+                Meet{" "}
+              </span>
 
-        {/* Right Image */}
-        <div className="mt-8 md:mt-0 md:col-span-6">
-          <div className="relative w-full h-[280px] md:h-[420px] rounded-[26px] overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.10)]">
-            <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773375384/589205959_1281275900707377_8437864311481068996_n_fekhzf.webp"
-              alt="Meet your hosts"
-              fill
-              className="object-cover"
-            />
+              <span className="text-[#FF751F]">
+                Our Team
+              </span>
+            </h2>
+
+            {/* Description */}
+            <p
+              className="
+                mt-4
+                font-body
+                font-regular
+                text-[14px]
+                leading-[26px]
+                text-gray-700
+                md:mt-8
+                md:text-[16px]
+                lg:leading-[30px]
+                text-center
+                md:text-left
+              "
+            >
+              Behind every memorable stay is a team that cares. From
+              the moment you arrive, you are welcomed by people who
+              take pride in what they do, from villa managers who
+              ensure everything runs smoothly to chefs who remember
+              how you like your meals. At Scenery Villas, our team is
+              more than staff; they are the heart of the experience.
+              We invest in their growth because we believe that
+              genuine hospitality begins with empowered people.
+            </p>
           </div>
         </div>
-
-      </div>
-    </Container>
+      </Container>
     </section>
   );
 }

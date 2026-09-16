@@ -5,6 +5,7 @@ import Container from "../Container";
 import {
   FaFacebookF,
   FaInstagram,
+  FaWhatsapp,
   FaYoutube,
 } from "react-icons/fa";
 
@@ -88,7 +89,7 @@ function SocialCard({
   );
 }
 
-export default function JoinOurJourney() {
+export default function VillaContact() {
   return (
     <section className="bg-white py-[32px] md:py-[64px]">
       <Container>
@@ -213,19 +214,19 @@ export default function JoinOurJourney() {
           {/* ================= YOUTUBE ================= */}
 
           <SocialCard
-            href="https://www.youtube.com/"
-            title="YouTube"
+            href="https://wa.me/+94779082515"
+            title="WhatsApp"
             description="
               Watch us on YouTube for immersive virtual
               tours, travel inspiration, and beautiful
               moments from Sri Lanka.
             "
             icon={
-              <FaYoutube
+              <FaWhatsapp
                 className="
                   h-[60px]
                   w-[60px]
-                  text-[#FF0000]
+                  text-green-500
                 "
               />
             }

@@ -58,6 +58,44 @@ export default defineType({
       options: { hotspot: true },
     }),
 
+defineField({
+  name: "heroStats",
+  title: "Hero Quick Stats",
+  type: "array",
+  description:
+    "Quick villa information displayed below the hero title.",
+  of: [
+    defineField({
+      name: "heroStat",
+      title: "Hero Stat",
+      type: "object",
+      fields: [
+        defineField({
+          name: "label",
+          title: "Label",
+          type: "string",
+          description:
+            "Example: Bedrooms, Sleeps, Private Pool",
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+
+      preview: {
+        select: {
+          label: "label",
+        },
+
+        prepare({ label }) {
+          return {
+            title: label || "Hero Stat",
+          };
+        },
+      },
+    }),
+  ],
+
+  validation: (Rule) => Rule.max(4),
+}),
     /* ---------------- QUICK STATS ---------------- */
 
       defineField({
@@ -336,17 +374,10 @@ export default defineType({
         }),
 
         defineField({
-          name: "previewImage",
-          title: "Preview Image",
+          name: "tourImage",
+          title: "360° Tour Image",
           type: "image",
           options: { hotspot: true },
-        }),
-
-        defineField({
-          name: "tourUrl",
-          title: "360 Tour Embed URL",
-          type: "url",
-          description: "Example: Kuula, Matterport, or iframe link",
         }),
       ],
     }),

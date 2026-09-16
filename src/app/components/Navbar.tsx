@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import Container from "./Container";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
-import Button from "./Button";
 
 type VillaNavItem = {
   title: string;
@@ -18,6 +16,8 @@ export default function Navbar() {
   const [villaOpen, setVillaOpen] = useState(false);
   const [mobileVillaOpen, setMobileVillaOpen] = useState(false);
   const [villas, setVillas] = useState<VillaNavItem[]>([]);
+  const [scrolled, setScrolled] = useState(false);
+
   const pathname = usePathname();
   const router = useRouter();
 
@@ -33,8 +33,12 @@ export default function Navbar() {
   useEffect(() => {
     const loadVillas = async () => {
       try {
-        const res = await fetch("/api/villas", { cache: "no-store" });
+        const res = await fetch("/api/villas", {
+          cache: "no-store",
+        });
+
         if (!res.ok) return;
+
         const data = await res.json();
         setVillas(data || []);
       } catch (error) {
@@ -52,23 +56,60 @@ export default function Navbar() {
   const isVillaPage =
     pathname === "/villas" || pathname.startsWith("/villas/");
 
+    useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 10);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
-      <Container>
-        <div className="md:h-16 h-14 flex items-center justify-between">
+    <header className={`absolute sticky left-0 z-50 w-full mx-auto px-4 md:px-8 lg:px-12 xl:mx-auto xl:px-12 max-w-[1430px] transition-all
+    duration-300 ${scrolled ? "top-[10px] " : "top-10 xl:top-12 px-8 md:px-0"}`}>
+      {/* Desktop / Main Navbar */}
+      <div className="mx-auto mt-[5px] ">
+        <div
+          className="
+            relative
+            flex
+            h-[58px]
+            md:h-[68px]
+            items-center
+            justify-between
+            rounded-full
+            border
+            border-white/40
+            bg-white/80
+            px-5
+            shadow-sm
+            backdrop-blur-md
+            md:px-6
+            lg:px-5
+          "
+        >
           {/* Logo */}
-          <Link href="/">
+          <Link
+            href="/"
+            className="relative z-10 flex shrink-0 items-center"
+          >
             <Image
               src="https://res.cloudinary.com/dpjmcup95/image/upload/v1780120424/b8013f5882ce7783425e6b1f830b4c004ece59cb_kqzizo.png"
               alt="Scenery Villas Logo"
-              width={140}
-              height={40}
-              className="object-contain "
+              width={895}
+              height={855}
+              priority
+              className="h-auto w-[120px] object-contain md:w-[170px] xl:w-[190px]"
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex font-body items-center gap-8 text-[16px] text-gray-700">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-[26px] font-body text-[14px] xl:text-[16px] text-gray-800 xl:gap-[28px]">
+            {/* Home + About */}
             {navLinks.slice(0, 2).map((link) => {
               const active = pathname === link.href;
 
@@ -76,45 +117,77 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`pb-1 transition ${
-                    active
-                      ? "border-b-2 border-gray-900 text-black"
-                      : "hover:text-black"
-                  }`}
+                  className={`
+                    whitespace-nowrap
+                    transition-colors
+                    duration-200
+                    hover:text-black
+                    ${
+                      active
+                        ? "font-medium text-black"
+                        : "text-gray-800"
+                    }
+                  `}
                 >
                   {link.name}
                 </Link>
               );
             })}
 
-            {/* Our Villas Dropdown */}
+            {/* Our Villas */}
             <div
               className="relative"
               onMouseEnter={() => setVillaOpen(true)}
               onMouseLeave={() => setVillaOpen(false)}
             >
               <button
-                className={`pb-1 transition flex items-center gap-1 ${
-                  isVillaPage
-                    ? "border-b-2 border-gray-900 text-black"
-                    : "hover:text-black"
-                }`}
+                type="button"
+                className={`
+                  flex
+                  items-center
+                  gap-1
+                  whitespace-nowrap
+                  transition-colors
+                  duration-200
+                  hover:text-black
+                  ${
+                    isVillaPage
+                      ? "font-medium text-black"
+                      : "text-gray-800"
+                  }
+                `}
               >
                 <span>Our Villas</span>
-                <ChevronDown size={16} className={`transition ${villaOpen ? "rotate-180" : ""}`} />
+
+                <ChevronDown
+                  size={15}
+                  strokeWidth={1.8}
+                  className={`
+                    transition-transform
+                    duration-200
+                    ${villaOpen ? "rotate-180" : ""}
+                  `}
+                />
               </button>
 
+              {/* Dropdown */}
               <div
-                className={`absolute left-0 top-full pt-4 transition-all duration-200 ${
-                  villaOpen
-                    ? "opacity-100 visible translate-y-0"
-                    : "opacity-0 invisible -translate-y-1"
-                }`}
+                className={`
+                  absolute
+                  left-1/2
+                  top-full
+                  -translate-x-1/2
+                  pt-4
+                  transition-all
+                  duration-200
+                  ${
+                    villaOpen
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-2 opacity-0"
+                  }
+                `}
               >
-                <div className="w-64 rounded-2xl border border-gray-100 bg-white shadow-xl p-3">
-
-                  <div className="my-2 h-px bg-gray-100" />
-
+                <div className="w-64 rounded-2xl border border-gray-100 bg-white p-3 shadow-xl">
                   {villas.length > 0 ? (
                     villas.map((villa) => {
                       const villaHref = `/villas/${villa.slug}`;
@@ -124,11 +197,19 @@ export default function Navbar() {
                         <Link
                           key={villa.slug}
                           href={villaHref}
-                          className={`block rounded-xl px-4 py-3 text-sm transition ${
-                            active
-                              ? "bg-gray-100 text-black font-medium"
-                              : "hover:bg-gray-50 text-gray-700"
-                          }`}
+                          className={`
+                            block
+                            rounded-xl
+                            px-4
+                            py-3
+                            text-sm
+                            transition-colors
+                            ${
+                              active
+                                ? "bg-gray-100 font-medium text-black"
+                                : "text-gray-700 hover:bg-gray-50 hover:text-black"
+                            }
+                          `}
                         >
                           {villa.title}
                         </Link>
@@ -143,6 +224,7 @@ export default function Navbar() {
               </div>
             </div>
 
+            {/* Remaining Links */}
             {navLinks.slice(2).map((link) => {
               const active = pathname === link.href;
 
@@ -150,11 +232,17 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`pb-1 transition ${
-                    active
-                      ? "border-b-2 border-gray-900 text-black"
-                      : "hover:text-black"
-                  }`}
+                  className={`
+                    whitespace-nowrap
+                    transition-colors
+                    duration-200
+                    hover:text-black
+                    ${
+                      active
+                        ? "font-medium text-black"
+                        : "text-gray-800"
+                    }
+                  `}
                 >
                   {link.name}
                 </Link>
@@ -162,128 +250,249 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:block">
-            <button
-              onClick={handleBookStay}
-             className="rounded-full font-body bg-[#FF751F] text-white px-5 py-2 text-[13px] font-semibold hover:bg-orange-400 transition">
-              Book Now
-            </button>
-          </div>
+          {/* Book Now */}
+          <button
+            onClick={handleBookStay}
+            className="
+              hidden
+              py-[10px]
+              px-[22px]
+              items-center
+              justify-center
+              rounded-full
+              bg-[#FF641F]
+              px-6
+              font-body
+              text-[14px] xl:text-[16px]
+              font-medium
+              text-white
+              transition-all
+              duration-200
+              hover:bg-[#f4510c]
+              hover:shadow-md
+              lg:flex
+            "
+          >
+            Book Now
+          </button>
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden flex flex-col gap-1"
+            type="button"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] lg:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
             <span
-              className={`h-0.5 w-6 bg-black transition ${
-                open ? "rotate-45 translate-y-1.5" : ""
-              }`}
+              className={`
+                h-[2px]
+                w-6
+                bg-gray-800
+                transition-all
+                duration-300
+                ${
+                  open
+                    ? "translate-y-[7px] rotate-45"
+                    : ""
+                }
+              `}
             />
+
             <span
-              className={`h-0.5 w-6 bg-black transition ${
-                open ? "opacity-0" : ""
-              }`}
+              className={`
+                h-[2px]
+                w-6
+                bg-gray-800
+                transition-all
+                duration-300
+                ${open ? "opacity-0" : ""}
+              `}
             />
+
             <span
-              className={`h-0.5 w-6 bg-black transition ${
-                open ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
+              className={`
+                h-[2px]
+                w-6
+                bg-gray-800
+                transition-all
+                duration-300
+                ${
+                  open
+                    ? "-translate-y-[7px] -rotate-45"
+                    : ""
+                }
+              `}
             />
           </button>
         </div>
-      </Container>
 
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          open ? "max-h-[900px] opacity-100  z-50" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="px-6 pb-6 pt-4 bg-white font-body border-t border-gray-100 space-y-4 text-[14px] text-gray-800">
-          <Link
-            href="/"
-            className={`block ${pathname === "/" ? "text-black font-semibold" : ""}`}
-            onClick={() => setOpen(false)}
-          >
-            Home
-          </Link>
+        {/* Mobile Menu */}
+        <div
+          className={`
+            absolute
+            top-full
+            ${scrolled ? "left-4 right-4 " : "left-8 right-8"}
+            overflow-hidden
+            transition-all
+            duration-300
+            lg:hidden
+            ${
+              open
+                ? "mt-2 max-h-[800px] opacity-100"
+                : "max-h-0 opacity-0"
+            }
+          `}
+        >
+          <div className="rounded-3xl border border-white/50 bg-white/95 px-6 py-6 shadow-lg backdrop-blur-md">
+            <div className="space-y-5 font-body text-[15px] text-gray-800">
+              {/* Home */}
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className={`block ${
+                  pathname === "/"
+                    ? "font-semibold text-black"
+                    : ""
+                }`}
+              >
+                Home
+              </Link>
 
-          <Link
-            href="/about"
-            className={`block ${pathname === "/about" ? "text-black font-semibold" : ""}`}
-            onClick={() => setOpen(false)}
-          >
-            About Us
-          </Link>
+              {/* About */}
+              <Link
+                href="/about"
+                onClick={() => setOpen(false)}
+                className={`block ${
+                  pathname === "/about"
+                    ? "font-semibold text-black"
+                    : ""
+                }`}
+              >
+                About Us
+              </Link>
 
-          {/* Mobile Villas */}
-          <div>
-            <button
-              onClick={() => setMobileVillaOpen(!mobileVillaOpen)}
-              className={`w-full flex items-center justify-between ${
-                isVillaPage ? "text-black font-semibold" : ""
-              }`}
-            >
-              <span>Our Villas</span>
-              <ChevronDown
-                size={18}
-                className={`transition ${mobileVillaOpen ? "rotate-180" : ""}`}
-              />
-            </button>
+              {/* Mobile Villas */}
+              <div>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setMobileVillaOpen(!mobileVillaOpen)
+                  }
+                  className={`
+                    flex
+                    w-full
+                    items-center
+                    justify-between
+                    ${
+                      isVillaPage
+                        ? "font-semibold text-black"
+                        : ""
+                    }
+                  `}
+                >
+                  <span>Our Villas</span>
 
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                mobileVillaOpen ? "max-h-[500px] mt-3" : "max-h-0"
-              }`}
-            >
-              <div className="ml-4 space-y-2 border-l border-gray-200 pl-4">
-                {villas.map((villa) => {
-                  const villaHref = `/villas/${villa.slug}`;
-                  const active = pathname === villaHref;
+                  <ChevronDown
+                    size={17}
+                    className={`
+                      transition-transform
+                      duration-200
+                      ${
+                        mobileVillaOpen
+                          ? "rotate-180"
+                          : ""
+                      }
+                    `}
+                  />
+                </button>
 
-                  return (
-                    <Link
-                      key={villa.slug}
-                      href={villaHref}
-                      className={`block ${
-                        active ? "text-black font-semibold" : "text-gray-700"
-                      }`}
-                      onClick={() => {
-                        setOpen(false);
-                        setMobileVillaOpen(false);
-                      }}
-                    >
-                      {villa.title}
-                    </Link>
-                  );
-                })}
+                <div
+                  className={`
+                    overflow-hidden
+                    transition-all
+                    duration-300
+                    ${
+                      mobileVillaOpen
+                        ? "mt-3 max-h-[500px]"
+                        : "max-h-0"
+                    }
+                  `}
+                >
+                  <div className="ml-2 space-y-3 border-l border-gray-200 pl-4">
+                    {villas.map((villa) => {
+                      const villaHref = `/villas/${villa.slug}`;
+                      const active = pathname === villaHref;
+
+                      return (
+                        <Link
+                          key={villa.slug}
+                          href={villaHref}
+                          onClick={() => {
+                            setOpen(false);
+                            setMobileVillaOpen(false);
+                          }}
+                          className={`
+                            block
+                            ${
+                              active
+                                ? "font-semibold text-black"
+                                : "text-gray-600"
+                            }
+                          `}
+                        >
+                          {villa.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
+
+              {/* Remaining Links */}
+              {navLinks.slice(2).map((link) => {
+                const active = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`
+                      block
+                      ${
+                        active
+                          ? "font-semibold text-black"
+                          : ""
+                      }
+                    `}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+
+              {/* Mobile CTA */}
+              <button
+                onClick={handleBookStay}
+                className="
+                  mt-2
+                  w-full
+                  rounded-full
+                  bg-[#FF641F]
+                  px-6
+                  py-2
+                  font-body
+                  text-[14px]
+                  font-medium
+                  text-white
+                  transition
+                  hover:bg-[#f4510c]
+                "
+              >
+                Book Now
+              </button>
             </div>
           </div>
-
-          {navLinks.slice(2).map((link) => {
-            const active = pathname === link.href;
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block ${active ? "text-black font-semibold" : ""}`}
-                onClick={() => setOpen(false)}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-
-          <Button
-            onClick={handleBookStay}
-           >
-            Book Now
-          </Button>
         </div>
       </div>
     </header>

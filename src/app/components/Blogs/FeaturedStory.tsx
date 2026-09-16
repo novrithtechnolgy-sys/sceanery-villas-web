@@ -1,71 +1,166 @@
 // components/Blog/FeaturedStory.tsx
+
 "use client";
 
 import Image from "next/image";
 import Button from "../Button";
 import Container from "../Container";
 import { useRouter } from "next/navigation";
-
+import { Clock3 } from "lucide-react";
 
 export default function FeaturedStory() {
-
   const router = useRouter();
-    
+
   return (
-      <main className="bg-white py-10 md:py-20 md:pt-40">
-        <Container>
+    <main className="bg-white py-[32px] md:py-[64px]">
+      <Container>
+        <section>
+          {/* =====================================================
+              FEATURED STORY
+          ===================================================== */}
 
-          {/* Featured Story */}
-          <div className="relative overflow-hidden rounded-[28px] border border-gray-200">
+          <div
+            className="grid grid-cols-1
+              items-center
+              gap-8
 
-            {/* Background Image */}
-            <div className="relative py-8 md:py-20">
-              <Image
-                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773327995/Sri_20Lanka_130525_GettyImages-519276262_zj2927.webp"
-                alt="Featured Story"
-                fill
-                className="object-cover"
-              />
+              md:grid-cols-12
+              md:gap-12
+              lg:gap-16
+            "
+          >
+            {/* =================================================
+                IMAGE
+            ================================================= */}
 
-              {/* Dark gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
-         
+            <div className="md:col-span-5 order-2 md:order-1">
+              <div
+                className="
+                  relative
+                  h-[330px]
+                  w-full
+                  overflow-hidden
+                  rounded-[24px]
 
-            {/* Content */}
-            <div className="relative flex items-start">
-              <div className="max-w-[650px] px-8 md:px-16 text-white">
+                  sm:h-[380px]
 
-                {/* Eyebrow */}
-                <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] tracking-wide text-white">
-                  Featured Story
-                </h2>
+                  md:h-[420px]
+
+                  lg:h-[460px]
+                "
+              >
+                <Image
+                  src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789189212/cb56c508205319764905ac5c64656f960a29b322.jpg"
+                  alt="Why Bentota is the Perfect Alternative to Galle for Families"
+                  fill
+                  priority
+                  sizes="
+                    (max-width: 767px) 100vw,
+                    (max-width: 1024px) 42vw,
+                    520px
+                  "
+                  className="
+                    object-cover
+                    transition-transform
+                    duration-500
+                    hover:scale-[1.02]
+                  "
+                />
+              </div>
+            </div>
+
+            {/* =================================================
+                CONTENT
+            ================================================= */}
+
+            <div className="md:col-span-7 order-1 md:order-2">
+              <div className="max-w-[650px]">
+                {/* Date */}
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                    font-body
+                    text-[14px]
+                    text-gray-500
+
+                    md:text-[15px]
+                  "
+                >
+                  <Clock3
+                    className="h-[18px] w-[18px]"
+                    strokeWidth={1.8}
+                  />
+
+                  <span>21 Aug 2026</span>
+                </div>
 
                 {/* Title */}
-                <h3 className="mt-4 font-body max-w-5xl text-white text-[15px] md:text-[20px] xl:text-[24px] leading-relaxed font-semibold">
-                  Why Bentota is the Perfect Alternative to Galle for Families
-                </h3>
+                <h2
+                  className="
+                mt-4
+                md:mt-8
+                font-heading
+                text-[22px]
+                md:text-[32px]
+                xl:text-[38px]
+                font-bold
+                md:leading-[42px]
+                xl:leading-[48px]
+                tracking-[-0.5px]
+                text-gray-900
+                text-left
+                  "
+                >
+                  Why Bentota is the Perfect
+                  Alternative to Galle for Families
+                </h2>
 
                 {/* Description */}
-                <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[18px] text-gray-700 md:leading-8 text-white/90">
-                  Galle Fort is famous, but Bentota offers the space, the river,
-                  and the golden beaches that families truly need to unwind.
-                  Discover why the "Gold Coast" should be your next family base.
+                <p
+                  className="
+                    mt-4
+                    font-body
+                    font-regular
+                    text-[14px]
+                    leading-[26px]
+                    text-gray-700
+                    md:mt-8
+                    md:text-[16px]
+                    lg:leading-[30px]
+                    text-left
+                  "
+                >
+                  Galle Fort is famous, but Bentota offers
+                  the space, the river, and the golden
+                  beaches that families truly need to
+                  unwind. Discover why the "Gold Coast"
+                  should be your next family base.
                 </p>
 
                 {/* Button */}
                 <Button
-                 onClick={() => router.push("/blogs/work-from-paradise-digital-nomad-guide-to-dharga")}
-                 variant="white" className="mt-8">
+                  onClick={() =>
+                    router.push(
+                      "/blogs/work-from-paradise-digital-nomad-guide-to-dharga"
+                    )
+                  }
+                  className="
+                    mt-4
+                    md:mt-8 
+                    bg-[#FF751F]
+                    text-white
+                    hover:bg-[#e96512]
+                  "
+                >
                   Read Article
                 </Button>
-
               </div>
             </div>
-
           </div>
-          </div>
-
-        </Container>
-      </main>
+        </section>
+      </Container>
+    </main>
   );
 }

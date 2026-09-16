@@ -20,15 +20,15 @@ export default function MapTab({ villa }: { villa: any }) {
   }
 
   return (
-    <section className="py-10 pb-20 md:pb-40 md:py-20">
+    <section className="py-[32px] md:py-[64px]">
       <Container>
 
-        <h2 className="text-center font-heading text-[24px] md:text-[36px] xl:text-[46px]  leading-tight mb-10 md:mb-14">
-          <span className="italic">Map By </span>
-          <span className="font-semibold text-[#FF751F]">{villaName}</span>
+        <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center">
+          <span className="">Map By </span>
+          <span className="text-[#FF751F]">{villaName}</span>
         </h2>
 
-        <div className="rounded-[20px] overflow-hidden bg-white shadow-sm">
+        <div className="rounded-[20px] overflow-hidden bg-white shadow-sm mt-8 md:mt-12">
           <iframe
             title={`${villaName} map`}
             src={src}

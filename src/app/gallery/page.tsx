@@ -3,6 +3,7 @@ import GallerySections from "../components/Gallery/GallerySections";
 import GalleryHero from "../components/Gallery/Hero";
 import Seenenough from "../components/Gallery/Seenenough";
 import Navbar from "../components/Navbar";
+import PageHero from "../components/PageHero";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
@@ -14,10 +15,12 @@ export default function Gallery() {
     return(
             <>
       <Navbar />
-      <GalleryHero />
+      <PageHero 
+        title="Gallery"
+        paragraph="Take a closer look at life in our sanctuaries. From golden hour sunsets at Villa Mandalay to the colonial details of Tara Garden, let the images speak for themselves." 
+        image="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789196611/b8bbd0802d62e98de65bc7558c36d4a991926b65.jpg" />
       <GallerySections />     
       <FollowUsSection/>
-      <Seenenough />
       <WhatsAppButton />
     </>
     )

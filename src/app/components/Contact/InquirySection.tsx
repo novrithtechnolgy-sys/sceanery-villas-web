@@ -1,10 +1,20 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Button from "../Button";
-import { navigate } from "next/dist/client/components/segment-cache/navigation";
 import { useRouter } from "next/navigation";
+import {
+  Phone,
+  MapPin,
+  Mail,
+  CalendarDays,
+  ChevronDown,
+} from "lucide-react";
+
+import Button from "../Button";
+
+/* =========================================================
+   TYPES
+========================================================= */
 
 type FormState = {
   fullName: string;
@@ -22,6 +32,10 @@ type VillaOption = {
   slug: string;
 };
 
+/* =========================================================
+   INITIAL FORM
+========================================================= */
+
 const initialForm: FormState = {
   fullName: "",
   email: "",
@@ -33,11 +47,23 @@ const initialForm: FormState = {
   message: "",
 };
 
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function InquirySection() {
-  const [form, setForm] = useState<FormState>(initialForm);
-  const [villas, setVillas] = useState<VillaOption[]>([]);
-  const [loadingVillas, setLoadingVillas] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [form, setForm] =
+    useState<FormState>(initialForm);
+
+  const [villas, setVillas] =
+    useState<VillaOption[]>([]);
+
+  const [loadingVillas, setLoadingVillas] =
+    useState(true);
+
+  const [loading, setLoading] =
+    useState(false);
+
   const [status, setStatus] = useState<{
     type: "success" | "error" | "";
     message: string;
@@ -48,9 +74,23 @@ export default function InquirySection() {
 
   const router = useRouter();
 
-  function onChange<K extends keyof FormState>(key: K, val: FormState[K]) {
-    setForm((prev) => ({ ...prev, [key]: val }));
+  /* =======================================================
+     CHANGE
+  ======================================================= */
+
+  function onChange<K extends keyof FormState>(
+    key: K,
+    value: FormState[K]
+  ) {
+    setForm((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
   }
+
+  /* =======================================================
+     VALIDATION
+  ======================================================= */
 
   function validateForm() {
     if (
@@ -66,32 +106,58 @@ export default function InquirySection() {
       return "Please fill in all required fields.";
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!emailRegex.test(form.email)) {
       return "Please enter a valid email address.";
     }
 
-    if (new Date(form.checkOut) <= new Date(form.checkIn)) {
+    if (
+      new Date(form.checkOut) <=
+      new Date(form.checkIn)
+    ) {
       return "Check-out date must be after check-in date.";
     }
 
     return "";
   }
 
-    useEffect(() => {
+  /* =======================================================
+     FETCH VILLAS
+  ======================================================= */
+
+  useEffect(() => {
     const fetchVillas = async () => {
       try {
         setLoadingVillas(true);
-        const res = await fetch("/api/villas", { cache: "no-store" });
+
+        const res = await fetch(
+          "/api/villas",
+          {
+            cache: "no-store",
+          }
+        );
 
         if (!res.ok) {
-          throw new Error("Failed to load villas");
+          throw new Error(
+            "Failed to load villas"
+          );
         }
 
         const data = await res.json();
-        setVillas(Array.isArray(data) ? data : []);
+
+        setVillas(
+          Array.isArray(data)
+            ? data
+            : []
+        );
       } catch (error) {
-        console.error("Failed to fetch villas:", error);
+        console.error(
+          "Failed to fetch villas:",
+          error
+        );
+
         setVillas([]);
       } finally {
         setLoadingVillas(false);
@@ -101,35 +167,57 @@ export default function InquirySection() {
     fetchVillas();
   }, []);
 
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus({ type: "", message: "" });
+  /* =======================================================
+     SUBMIT
+  ======================================================= */
 
-    const validationError = validateForm();
+  async function onSubmit(
+    e: React.FormEvent
+  ) {
+    e.preventDefault();
+
+    setStatus({
+      type: "",
+      message: "",
+    });
+
+    const validationError =
+      validateForm();
+
     if (validationError) {
-      setStatus({ type: "error", message: validationError });
+      setStatus({
+        type: "error",
+        message: validationError,
+      });
+
       return;
     }
 
     try {
       setLoading(true);
 
-      const res = await fetch("/api/inquiry", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch(
+        "/api/inquiry",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data?.message || "Something went wrong.");
+        throw new Error(
+          data?.message ||
+            "Something went wrong."
+        );
       }
 
       router.push("/thankyou");
-      
     } catch (error) {
       setStatus({
         type: "error",
@@ -143,166 +231,496 @@ export default function InquirySection() {
     }
   }
 
+
   return (
-    <section className="relative w-full bg-white py-10 md:py-60">
-      <div className="hidden md:block relative h-[880px] md:h-[760px] lg:h-[720px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80"
-          alt="Background"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-white/35" />
-      </div>
+    <section className="bg-white py-[32px] md:py-[64px]">
+      <div className="mx-auto w-full max-w-[1240px] px-5 md:px-8 xl:px-0">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-20 items-center">
 
-      <div className="relative md:absolute inset-0 flex items-center justify-center md:pl-84 md:py-10">
-        <div className="w-full max-w-[820px] rounded-[28px] bg-white  border border-gray-300 overflow-hidden">
-          <form onSubmit={onSubmit} className="px-8 md:px-14 py-8 md:py-14">
-            <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-[1.05] text-gray-900">
-              <span className="italic font-medium">Send an</span>{" "}
-              <span className="font-semibold text-[#FF751F]">Inquiry</span>
+          {/* LEFT TEXT */}
+
+          <div className="lg:col-span-5 xl:col-span-5">
+            <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left" >
+              Here to Help,
+              <br />
+              Whenever You Need Us
             </h2>
-
-            <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] leading-8 text-gray-700">
-              Please fill out the details below, and our reservations team will
-              get back to you within 24 hours with availability and a custom
-              quote.
+            <p className="mt-4 font-body font-regular text-[14px] leading-[26px] text-gray-700 md:mt-8 md:text-[16px] lg:leading-[30px] text-center md:text-left">
+              Contact our team for villa recommendations, booking support, or any questions about your stay.
             </p>
 
-            {status.message ? (
-              <div
-                className={`mt-6 rounded-xl px-4 py-3 text-sm md:text-base ${
-                  status.type === "success"
-                    ? "bg-green-50 text-green-700 border border-green-200"
-                    : "bg-red-50 text-red-700 border border-red-200"
-                }`}
-              >
-                {status.message}
-              </div>
-            ) : null}
-
-            <div className="mt-4 md:mt-8 space-y-4 md:space-y-8">
-              <Field label="Full Name*" htmlFor="fullName">
-                <UnderlineInput
-                  id="fullName"
-                  value={form.fullName}
-                  onChange={(e) => onChange("fullName", e.target.value)}
+            <div className="mt-12 space-y-10 md:mt-16 md:space-y-12 justify-center md:justify-start flex flex-col items-center md:items-start">
+              <div className="flex flex-col items-center md:items-start">
+                <Phone
+                  className="h-8 w-8 text-[#FF751F] md:h-9 md:w-9"
+                  strokeWidth={1.8}
                 />
-              </Field>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <Field label="Email Address*" htmlFor="email">
-                  <UnderlineInput
-                    id="email"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => onChange("email", e.target.value)}
-                  />
-                </Field>
+                <h3 className="mt-4 font-body md:text-[20px] font-semibold text-gray-900">
+                  Talk to Us
+                </h3>
 
-                <Field label="WhatsApp Number*" htmlFor="whatsapp">
-                  <UnderlineInput
-                    id="whatsapp"
-                    value={form.whatsapp}
-                    onChange={(e) => onChange("whatsapp", e.target.value)}
-                  />
-                </Field>
+                <p
+                  className="mt-4 font-body text-[14px] text-gray-800">
+                  +94 77 123 4567
+                  <span className="mx-2">
+                    /
+                  </span>
+                  +94 77 123 4567
+                </p>
               </div>
 
-              <Field label="Select a Villa*" htmlFor="villa">
-                <div className="relative">
-                  <select
-                    id="villa"
-                    value={form.villa}
-                    onChange={(e) => onChange("villa", e.target.value)}
-                    disabled={loadingVillas}
-                    className="w-full bg-transparent text-[16px] text-gray-900 outline-none appearance-none pb-3 disabled:opacity-60"
-                  >
-                    <option value="" disabled>
-                      {loadingVillas ? "Loading villas..." : "Select"}
-                    </option>
+              {/* Visit Us */}
 
-                    {villas.map((villa) => (
-                      <option key={villa.slug} value={villa.title}>
-                        {villa.title}
-                      </option>
-                    ))}
-                  </select>
+              <div className="flex flex-col items-center md:items-start">
+                <MapPin strokeWidth={1.8} className="h-8 w-8 text-[#FF751F] md:h-9 md:w-9"/>
 
-                  <svg
-                    className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-700"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.24 4.5a.75.75 0 0 1-1.08 0l-4.24-4.5a.75.75 0 0 1 .02-1.06Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                <h3 className="mt-4 font-body text-[18px] md:text-[20px] font-semibold text-gray-900">
+                  Visit Us
+                </h3>
 
-                  <div className="h-px w-full bg-gray-600/70" />
-                </div>
-              </Field>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                <Field label="Check in Date*" htmlFor="checkIn">
-                  <UnderlineInput
-                    id="checkIn"
-                    type="date"
-                    value={form.checkIn}
-                    onChange={(e) => onChange("checkIn", e.target.value)}
-                  />
-                </Field>
-
-                <Field label="Check out Date*" htmlFor="checkOut">
-                  <UnderlineInput
-                    id="checkOut"
-                    type="date"
-                    value={form.checkOut}
-                    onChange={(e) => onChange("checkOut", e.target.value)}
-                  />
-                </Field>
+                <p
+                  className="
+                    mt-4
+                    font-body
+                    text-[14px]
+                    text-gray-800
+                  "
+                >
+                  122/2, Bentota,
+                  Sri Lanka
+                </p>
               </div>
 
-              <Field
-                label="Number of Guests* (Adults and Children)"
-                htmlFor="guests"
-              >
-                <UnderlineInput
-                  id="guests"
-                  value={form.guests}
-                  onChange={(e) => onChange("guests", e.target.value)}
+              {/* Email Us */}
+
+              <div className="flex flex-col items-center md:items-start">
+                <Mail
+                  className="
+                    h-8
+                    w-8
+                    text-[#FF751F]
+                    md:h-9
+                    md:w-9
+                  "
+                  strokeWidth={1.8}
                 />
-              </Field>
 
-              <Field label="Message or Special Requests*" htmlFor="message">
-                <div className="relative">
-                  <textarea
-                    id="message"
-                    value={form.message}
-                    onChange={(e) => onChange("message", e.target.value)}
-                    rows={3}
-                    className="w-full resize-none bg-transparent text-[15px] text-gray-900 outline-none pb-3"
-                  />
-                  <div className="h-px w-full bg-gray-600/70" />
-                </div>
-              </Field>
+                <h3
+                  className="
+                    mt-4
+                    font-body
+                    text-[18px]
+                    md:text-[20px]
+                    font-semibold
+                    text-gray-900
+                  "
+                >
+                  Email Us
+                </h3>
 
-              <div className="pt-4">
-                <Button type="submit" disabled={loading}>
-                  {loading ? "Sending..." : "Send Message"}
-                </Button>
+                <p
+                  className="
+                    mt-4
+                    font-body
+                    text-[14px]
+                    text-gray-800
+                  "
+                >
+                  info@sceneryvillassrilanka.com
+                </p>
               </div>
+
             </div>
-          </form>
+          </div>
+
+          {/* =================================================
+              RIGHT FORM
+          ================================================= */}
+
+          <div
+            className="
+              lg:col-span-7
+              xl:col-span-7
+            "
+          >
+            <div
+              className="
+                rounded-[26px]
+                bg-[#F5F5F5]
+                px-6
+                py-8
+
+                md:px-10
+                md:py-10
+
+                xl:px-12
+                xl:py-12
+              "
+            >
+
+              <form
+                onSubmit={onSubmit}
+              >
+
+                {/* Form Heading */}
+
+                <h2
+                  className="font-heading font-medium text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left"
+                >
+                  <span className="">
+                    Send an{" "}
+                  </span>
+
+                  <span className="font-semibold text-[#FF751F]">
+                    Inquiry
+                  </span>
+                </h2>
+
+                {/* Form Description */}
+
+                <p
+                  className="mt-4 font-body font-regular text-[14px] leading-[26px] text-gray-700 md:mt-8 md:text-[16px] lg:leading-[30px] text-center md:text-left "
+                >
+                  Please fill out the details
+                  below, and our reservations
+                  team will get back to you
+                  within 24 hours with
+                  availability and a custom
+                  quote.
+                </p>
+
+                {/* Status */}
+
+                {status.message && (
+                  <div
+                    className={`
+                      mt-6
+                      rounded-xl
+                      border
+                      px-4
+                      py-3
+                      font-body
+                      text-[14px]
+
+                      ${
+                        status.type ===
+                        "success"
+                          ? "border-green-200 bg-green-50 text-green-700"
+                          : "border-red-200 bg-red-50 text-red-700"
+                      }
+                    `}
+                  >
+                    {status.message}
+                  </div>
+                )}
+
+                {/* Fields */}
+
+                <div
+                  className="
+                    mt-8
+                    space-y-7
+                    md:mt-10
+                    md:space-y-8
+                  "
+                >
+
+                  {/* Full Name */}
+
+                  <Field
+                    label="Full Name*"
+                    htmlFor="fullName"
+                  >
+                    <UnderlineInput
+                      id="fullName"
+                      value={
+                        form.fullName
+                      }
+                      onChange={(e) =>
+                        onChange(
+                          "fullName",
+                          e.target.value
+                        )
+                      }
+                    />
+                  </Field>
+
+                  {/* Email + WhatsApp */}
+
+                  <div
+                    className="
+                      grid
+                      grid-cols-1
+                      gap-7
+
+                      md:grid-cols-2
+                      md:gap-6
+                    "
+                  >
+                    <Field
+                      label="Email Address*"
+                      htmlFor="email"
+                    >
+                      <UnderlineInput
+                        id="email"
+                        type="email"
+                        value={
+                          form.email
+                        }
+                        onChange={(e) =>
+                          onChange(
+                            "email",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </Field>
+
+                    <Field
+                      label="WhatsApp Number*"
+                      htmlFor="whatsapp"
+                    >
+                      <UnderlineInput
+                        id="whatsapp"
+                        value={
+                          form.whatsapp
+                        }
+                        onChange={(e) =>
+                          onChange(
+                            "whatsapp",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </Field>
+                  </div>
+
+                  {/* Villa */}
+
+                  <Field
+                    label="Select a Villa*"
+                    htmlFor="villa"
+                  >
+                    <div className="relative">
+                      <select
+                        id="villa"
+                        value={
+                          form.villa
+                        }
+                        onChange={(e) =>
+                          onChange(
+                            "villa",
+                            e.target.value
+                          )
+                        }
+                        disabled={
+                          loadingVillas
+                        }
+                        className="
+                          w-full
+                          appearance-none
+                          bg-transparent
+                          pb-3
+                          pr-8
+                          font-body
+                          text-[14px]
+                          text-gray-700
+                          outline-none
+                          disabled:opacity-60
+                        "
+                      >
+                        <option
+                          value=""
+                          disabled
+                        >
+                          {loadingVillas
+                            ? "Loading villas..."
+                            : ""}
+                        </option>
+
+                        {villas.map(
+                          (villa) => (
+                            <option
+                              key={
+                                villa.slug
+                              }
+                              value={
+                                villa.title
+                              }
+                            >
+                              {
+                                villa.title
+                              }
+                            </option>
+                          )
+                        )}
+                      </select>
+
+                      <ChevronDown
+                        className="
+                          pointer-events-none
+                          absolute
+                          right-0
+                          top-1/2
+                          h-5
+                          w-5
+                          -translate-y-1/2
+                          text-gray-600
+                        "
+                      />
+
+                      <div
+                        className="
+                          h-px
+                          w-full
+                          bg-gray-400/50
+                        "
+                      />
+                    </div>
+                  </Field>
+
+                  {/* Dates */}
+
+                  <div
+                    className="
+                      grid
+                      grid-cols-1
+                      gap-7
+
+                      md:grid-cols-2
+                      md:gap-6
+                    "
+                  >
+
+                    <Field
+                      label="Check in Date*"
+                      htmlFor="checkIn"
+                    >
+                      <DateInput
+                        id="checkIn"
+                        value={
+                          form.checkIn
+                        }
+                        onChange={(e) =>
+                          onChange(
+                            "checkIn",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </Field>
+
+                    <Field
+                      label="Check out Date*"
+                      htmlFor="checkOut"
+                    >
+                      <DateInput
+                        id="checkOut"
+                        value={
+                          form.checkOut
+                        }
+                        onChange={(e) =>
+                          onChange(
+                            "checkOut",
+                            e.target.value
+                          )
+                        }
+                      />
+                    </Field>
+
+                  </div>
+
+                  {/* Guests */}
+
+                  <Field
+                    label="Number of Guests* (Adults and Children)"
+                    htmlFor="guests"
+                  >
+                    <UnderlineInput
+                      id="guests"
+                      type="number"
+                      min="1"
+                      value={
+                        form.guests
+                      }
+                      onChange={(e) =>
+                        onChange(
+                          "guests",
+                          e.target.value
+                        )
+                      }
+                    />
+                  </Field>
+
+                  {/* Message */}
+
+                  <Field
+                    label="Message or Special Requests*"
+                    htmlFor="message"
+                  >
+                    <div>
+                      <textarea
+                        id="message"
+                        value={
+                          form.message
+                        }
+                        onChange={(e) =>
+                          onChange(
+                            "message",
+                            e.target.value
+                          )
+                        }
+                        rows={3}
+                        className="
+                          w-full
+                          resize-none
+                          bg-transparent
+                          pb-3
+                          font-body
+                          text-[14px]
+                          text-gray-900
+                          outline-none
+                        "
+                      />
+
+                      <div
+                        className="
+                          h-px
+                          w-full
+                          bg-gray-500/70
+                        "
+                      />
+                    </div>
+                  </Field>
+
+                  {/* Submit */}
+
+                  <div className="pt-1">
+                    <Button
+                      type="submit"
+                      disabled={loading}
+                    >
+                      {loading
+                        ? "Sending..."
+                        : "Send a Message"}
+                    </Button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   );
 }
+
+/* =========================================================
+   FIELD
+========================================================= */
 
 function Field({
   label,
@@ -317,14 +735,28 @@ function Field({
     <div>
       <label
         htmlFor={htmlFor}
-        className="block font-body text-[16px] md:text-[20px] font-medium text-gray-900"
+        className="
+          block
+          font-body
+          text-[14px]
+          font-regular
+          text-black
+          
+        "
       >
         {label}
       </label>
-      <div className="mt-2 md:mt-4">{children}</div>
+
+      <div className="mt-3">
+        {children}
+      </div>
     </div>
   );
 }
+
+/* =========================================================
+   UNDERLINE INPUT
+========================================================= */
 
 function UnderlineInput(
   props: React.InputHTMLAttributes<HTMLInputElement>
@@ -333,12 +765,60 @@ function UnderlineInput(
     <div>
       <input
         {...props}
-        className={[
-          "w-full bg-transparent text-[15px] text-gray-900 outline-none",
-          "mb-1 md:pb-3",
-        ].join(" ")}
+        className="
+          w-full
+          bg-transparent
+          pb-3
+          font-body
+          text-[14px]
+          text-gray-700
+          outline-none
+        "
       />
-      <div className="h-px w-full bg-gray-600/70" />
+
+      <div
+        className="
+          h-px
+          w-full
+          bg-gray-500/70
+        "
+      />
+    </div>
+  );
+}
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+function DateInput(
+  props: React.InputHTMLAttributes<HTMLInputElement>
+) {
+  return (
+    <div className="relative">
+      <input
+        {...props}
+        type="date"
+        className="
+          w-full
+          appearance-none
+          bg-transparent
+          pb-3
+          pr-8
+          font-body
+          text-[14px]
+          text-gray-700
+          outline-none
+        "
+      />
+
+      <div
+        className="
+          h-px
+          w-full
+          bg-gray-500/70
+        "
+      />
     </div>
   );
 }

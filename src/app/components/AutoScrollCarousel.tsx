@@ -84,7 +84,7 @@ export default function AutoScrollCarousel({
     <>
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto md:gap-10"
+        className="flex gap-4 overflow-x-auto md:gap-6"
         style={{
           scrollbarWidth: "none",
           msOverflowStyle: "none",
@@ -97,7 +97,7 @@ export default function AutoScrollCarousel({
         ))}
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 mb-4 md:gap-6 z-40">
+      {/* <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 mb-4 md:gap-6 z-40">
         <ArrowButton
           direction="left"
           onClick={() => scrollByCard("left")}
@@ -108,7 +108,7 @@ export default function AutoScrollCarousel({
           onClick={() => scrollByCard("right")}
           disabled={false}
         />
-      </div>
+      </div> */}
 
       <style jsx>{`
         div::-webkit-scrollbar {

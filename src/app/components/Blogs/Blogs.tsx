@@ -1,18 +1,29 @@
+// components/Blog/BlogPage.tsx
+
 "use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
 
-type Category = { _id: string; title: string; slug: { current: string } };
+type Category = {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+};
 
 type PostCard = {
   _id: string;
   title: string;
-  slug: { current: string };
+  slug: {
+    current: string;
+  };
   excerpt?: string;
   mainImage?: any;
   categoryTitle: string;
@@ -23,26 +34,55 @@ export default function BlogPage() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [posts, setPosts] = useState<PostCard[]>([]);
   const [active, setActive] = useState<string>("all");
+
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string>("");
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setErr("");
-        const res = await fetch("/api/blog/categories", { cache: "no-store" });
-        if (!res.ok) throw new Error(`Categories API failed: ${res.status}`);
-        const data = await res.json();
-        setCategories(Array.isArray(data) ? data : []);
-      } catch (e: any) {
-        setErr(e?.message || "Failed to load categories");
-        setCategories([]);
-      }
-    })();
-  }, []);
+  /* =========================================================
+     LOAD CATEGORIES
+  ========================================================= */
 
   useEffect(() => {
-    (async () => {
+    async function loadCategories() {
+      try {
+        setErr("");
+
+        const res = await fetch("/api/blog/categories", {
+          cache: "no-store",
+        });
+
+        if (!res.ok) {
+          throw new Error(
+            `Categories API failed: ${res.status}`
+          );
+        }
+
+        const data = await res.json();
+
+        setCategories(
+          Array.isArray(data) ? data : []
+        );
+      } catch (error: any) {
+        console.error(error);
+
+        setErr(
+          error?.message ||
+            "Failed to load categories"
+        );
+
+        setCategories([]);
+      }
+    }
+
+    loadCategories();
+  }, []);
+
+  /* =========================================================
+     LOAD POSTS
+  ========================================================= */
+
+  useEffect(() => {
+    async function loadPosts() {
       try {
         setLoading(true);
         setErr("");
@@ -50,109 +90,306 @@ export default function BlogPage() {
         const url =
           active === "all"
             ? "/api/blog/posts"
-            : `/api/blog/posts?cat=${encodeURIComponent(active)}`;
+            : `/api/blog/posts?cat=${encodeURIComponent(
+                active
+              )}`;
 
-        const res = await fetch(url, { cache: "no-store" });
-        if (!res.ok) throw new Error(`Posts API failed: ${res.status}`);
+        const res = await fetch(url, {
+          cache: "no-store",
+        });
+
+        if (!res.ok) {
+          throw new Error(
+            `Posts API failed: ${res.status}`
+          );
+        }
 
         const data = await res.json();
-        setPosts(Array.isArray(data) ? data : []);
-      } catch (e: any) {
-        setErr(e?.message || "Failed to load posts");
+
+        setPosts(
+          Array.isArray(data) ? data : []
+        );
+      } catch (error: any) {
+        console.error(error);
+
+        setErr(
+          error?.message ||
+            "Failed to load posts"
+        );
+
         setPosts([]);
       } finally {
         setLoading(false);
       }
-    })();
+    }
+
+    loadPosts();
   }, [active]);
 
-  return (
-    <section className="py-10 md:py-20">
-      <Container>
-        {/* Filters */}
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[15px] md:text-[16px] font-body text-gray-700">
-          <button
-            onClick={() => setActive("all")}
-            className={
-              active === "all"
-                ? "font-semibold text-gray-900 underline"
-                : "hover:text-gray-900"
-            }
-          >
-            All Stories
-          </button>
+  /* =========================================================
+     ACTIVE CATEGORY NAME
+  ========================================================= */
 
-          {categories.map((c) => (
-            <button
-              key={c._id}
-              onClick={() => setActive(c.slug.current)}
-              className={
-                active === c.slug.current
-                  ? "font-semibold text-gray-900 underline"
-                  : "hover:text-gray-900"
+  const activeCategory =
+    active === "all"
+      ? "All Stories"
+      : categories.find(
+          (category) =>
+            category.slug.current === active
+        )?.title || "All Stories";
+
+  return (
+    <section className="bg-white py-[32px] md:py-[64px]">
+      <Container>
+        {/* =====================================================
+            TOP FILTER
+        ===================================================== */}
+
+        <div className="flex md:justify-end">
+          <div className="relative w-[240px]">
+            <select
+              value={active}
+              onChange={(e) =>
+                setActive(e.target.value)
               }
+              className="
+                w-full
+                appearance-none
+                rounded-full
+                border-0
+                bg-[#F4F4F4]
+                px-7
+                py-3.5
+                pr-12
+                font-body
+                text-[14px]
+                text-gray-800
+                outline-none
+                cursor-pointer
+              "
+              aria-label="Filter stories"
             >
-              {c.title}
-            </button>
-          ))}
+              <option value="all">
+                All Stories
+              </option>
+
+              {categories.map((category) => (
+                <option
+                  key={category._id}
+                  value={category.slug.current}
+                >
+                  {category.title}
+                </option>
+              ))}
+            </select>
+
+            <ChevronDown
+              className="
+                pointer-events-none
+                absolute
+                right-5
+                top-1/2
+                h-4
+                w-4
+                -translate-y-1/2
+                text-gray-900
+              "
+              strokeWidth={2}
+            />
+          </div>
         </div>
 
-        {/* Error */}
+        {/* =====================================================
+            ERROR
+        ===================================================== */}
+
         {err && (
-          <div className="mt-10 text-center text-red-600 text-sm">{err}</div>
+          <div className="mt-10 text-center text-sm text-red-600">
+            {err}
+          </div>
         )}
 
-        {/* Loading */}
+        {/* =====================================================
+            LOADING
+        ===================================================== */}
+
         {loading && !err && (
-          <div className="mt-10 text-center text-gray-600 text-sm">
+          <div className="mt-16 text-center font-body text-sm text-gray-500">
             Loading...
           </div>
         )}
 
-        {/* Grid */}
-        {!loading && !err && (
-          <div className="mt-8 md:mt-16 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-10">
-            {posts.map((p) => {
-              const img = p.mainImage
-                ? urlFor(p.mainImage).width(1200).quality(80).url()
+        {/* =====================================================
+            BLOG GRID
+        ===================================================== */}
+
+        {!loading && !err && posts.length > 0 && (
+          <div
+            className="
+              mt-10
+              grid
+              grid-cols-1
+              gap-x-8
+              gap-y-14
+
+              sm:grid-cols-2
+
+              md:mt-12
+
+              lg:grid-cols-3
+              lg:gap-x-7
+              lg:gap-y-14
+            "
+          >
+            {posts.map((post) => {
+              const imageUrl = post.mainImage
+                ? urlFor(post.mainImage)
+                    .width(1400)
+                    .quality(85)
+                    .url()
                 : "";
 
               return (
                 <article
-                  key={p._id}
-                  className="rounded-[24px] border border-gray-300 overflow-hidden shadow"
+                  key={post._id}
+                  className="w-full"
                 >
-                  <div className="relative h-[220px]">
-                    {img && (
-                      <Image
-                        src={img}
-                        alt={p.title}
-                        fill
-                        className="object-cover"
-                      />
-                    )}
+                  {/* =================================================
+                      IMAGE
+                  ================================================= */}
 
-                    <div className="absolute top-4 left-4">
-                      <span className="px-4 py-2 rounded-full bg-white/95 font-body text-[15px] md:text-[16px] leading-7 text-gray-700 shadow">
-                        {p.categoryTitle}
-                      </span>
+                  <Link
+                    href={`/blogs/${post.slug.current}`}
+                    className="block"
+                  >
+                    <div
+                      className="
+                        relative
+                        h-[250px]
+                        w-full
+                        overflow-hidden
+                        rounded-[22px]
+
+                        sm:h-[260px]
+
+                        lg:h-[285px]
+                      "
+                    >
+                      {imageUrl && (
+                        <Image
+                          src={imageUrl}
+                          alt={post.title}
+                          fill
+                          sizes="
+                            (max-width: 640px) 100vw,
+                            (max-width: 1024px) 50vw,
+                            33vw
+                          "
+                          className="
+                            object-cover
+                            transition-transform
+                            duration-500
+                            hover:scale-[1.03]
+                          "
+                        />
+                      )}
+
+                      {/* Category */}
+                      <div
+                        className="
+                          absolute
+                          left-5
+                          top-5
+                        "
+                      >
+                        <span
+                          className="
+                          font-heading
+                          font-semibold
+                          bg-white/80
+                          px-3
+                          py-1
+                          rounded-full
+                          leading-tight
+                          text-gray-900
+                          transition-colors
+                          hover:text-[#FF751F]
+                          text-[14px]
+                          "
+                        >
+                          {post.categoryTitle}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
 
-                  <div className="p-4 md:p-8">
-                    <h3 className="font-body text-[18px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
-                      {p.title}
-                    </h3>
+                  {/* =================================================
+                      CONTENT
+                  ================================================= */}
 
-                    <p className="mt-4 font-body text-[15px] md:text-[18px]  md:leading-7 text-gray-700 md:line-clamp-3 lg:line-clamp-2 2xl:line-clamp-3">
-                      {p.excerpt || "—"}
+                  <div className="px-1 pt-7">
+                    {/* Title */}
+                    <Link
+                      href={`/blogs/${post.slug.current}`}
+                      className="block"
+                    >
+                      <h2
+                        className="
+                          font-heading
+                          text-[18px]
+                          font-semibold
+                          leading-tight
+                          text-gray-900
+                          transition-colors
+                          hover:text-[#FF751F]
+                          md:text-[20px]
+                        "
+                      >
+                        {post.title}
+                      </h2>
+                    </Link>
+
+                    {/* Excerpt */}
+                    <p
+                      className="
+                        mt-4
+                        max-w-[390px]
+                        font-body
+                        text-[14px]
+                        leading-[2]
+                        text-gray-800
+                        md:text-[14px]
+                        lg:text-[14px]
+                      "
+                    >
+                      {post.excerpt || "—"}
                     </p>
 
+                    {/* Read More */}
                     <Link
-                      href={`/blogs/${p.slug.current}`}
-                      className="mt-6 md:mt-8 inline-flex font-body w-[250px] lg:w-[340px] justify-center rounded-full bg-[#FF751F] text-white px-8 rounded-full py-2 md:py-3 text-[14px]  font-semibold"
+                      href={`/blogs/${post.slug.current}`}
+                      className="
+                        mt-4
+                        inline-flex
+                        items-center
+                        gap-2
+                        font-body
+                        text-[14px]
+                        font-semibold
+                        italic
+                        text-gray-900
+                        transition-colors
+                        hover:text-[#FF751F]
+                      "
                     >
-                      Read More
+                      <span>
+                        Read More
+                      </span>
+
+                      <ArrowRight
+                        className="h-5 w-5"
+                        strokeWidth={1.8}
+                      />
                     </Link>
                   </div>
                 </article>
@@ -161,11 +398,17 @@ export default function BlogPage() {
           </div>
         )}
 
-        {!loading && !err && posts.length === 0 && (
-          <div className="mt-10 text-center text-gray-600 text-sm">
-            No posts found.
-          </div>
-        )}
+        {/* =====================================================
+            EMPTY
+        ===================================================== */}
+
+        {!loading &&
+          !err &&
+          posts.length === 0 && (
+            <div className="mt-16 text-center font-body text-sm text-gray-600">
+              No posts found.
+            </div>
+          )}
       </Container>
     </section>
   );

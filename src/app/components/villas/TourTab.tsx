@@ -1,49 +1,92 @@
 "use client";
 
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 import Container from "../Container";
 
 export default function TourTab({ villa }: { villa: any }) {
   const tour = villa?.virtualTour;
 
+  if (!tour) {
+    return null;
+  }
+
+  const tourImageUrl = tour.tourImage
+    ? urlFor(tour.tourImage)
+        .width(1200)
+        .quality(85)
+        .url()
+    : "";
+
   return (
     <section className="pt-10 pb-10 md:pt-16 md:pb-20">
       <Container>
-      <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-        
-        {/* LEFT TEXT */}
-        <div className="">
-          <h2 className="font-heading text-center md:text-left text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
-            <span className="italic">{tour.headingItalic}</span>{" "}
-            <span className="font-semibold text-[#FF751F]">{tour.headingBold}</span>
-          </h2>
+        <div className="grid items-center gap-8 md:gap-16 lg:grid-cols-2">
 
-          <p className="mt-4 md:mt-8 text-center md:text-left font-body text-[15px] md:text-[20px] text-gray-700 leading-[32px] md:leading-[44px]">
-            {tour.description}
-          </p>
+          {/* =====================================================
+              LEFT TEXT
+          ===================================================== */}
+          <div>
+            <h2
+              className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left">
+              {tour.headingItalic && (
+                <span className="">
+                  {tour.headingItalic}
+                </span>
+              )}
+
+              {tour.headingBold && (
+                <>
+                  {" "}
+                  <span className="text-[#FF751F]">
+                    {tour.headingBold}
+                  </span>
+                </>
+              )}
+            </h2>
+
+            {tour.description && (
+              <p className="mt-4 font-body font-regular text-[14px] leading-[26px] text-gray-700 md:mt-8 md:text-[16px] lg:leading-[30px] text-center md:text-left">
+                {tour.description}
+              </p>
+            )}
+          </div>
+
+          {/* =====================================================
+              RIGHT TOUR IMAGE
+          ===================================================== */}
+          <div
+            className="
+              relative
+              h-[300px]
+              w-full
+              overflow-hidden
+              rounded-[20px]
+              bg-gray-100
+              md:h-[440px]
+            "
+          >
+            {tourImageUrl ? (
+              <Image
+                src={tourImageUrl}
+                alt={`${villa?.title || "Villa"} virtual tour`}
+                fill
+                priority={false}
+                quality={85}
+                sizes="
+                  (max-width: 1024px) 100vw,
+                  50vw
+                "
+                className="object-cover"
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center text-sm text-gray-500">
+                Tour image not available
+              </div>
+            )}
+          </div>
+
         </div>
-
-        {/* RIGHT 360 VIEW */}
-        <div className="w-full h-[420px] md:h-[500px] rounded-[20px]">
-          {tour?.tourUrl ? (
-            <iframe
-            src={tour.tourUrl}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="rounded-[20px]"
-          />
-          ):(
-            <div className="font-body text-[16px] md:text-[20px] xl:text-[24px] text-gray-600 flex items-center justify-center h-full bg-gray-100 rounded-[20px]">
-              360° tour coming soon
-            </div>
-          )}
-
-        </div>
-
-      </div>
       </Container>
     </section>
   );

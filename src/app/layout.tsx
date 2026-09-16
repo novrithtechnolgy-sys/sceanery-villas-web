@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 // @ts-ignore: side-effect import of global CSS without type declarations
 import "./globals.css";
 import Footer from "./components/Footer";
-import { Alan_Sans, Amaranth, Inter, Playfair_Display } from "next/font/google";
+import { Alan_Sans, Amaranth, Inter, Playfair_Display, Poppins } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sceneryvillassrilanka.com"),
@@ -63,17 +63,12 @@ export const metadata: Metadata = {
 };
 
 
-const amaranth = Amaranth({
+const poppins = Poppins ({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-heading",
 });
 
-const alanSans = Alan_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-body",
-});
 
 
 export default function RootLayout({
@@ -84,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${amaranth.variable} ${alanSans.variable} antialiased`}
+        className={`${poppins.variable} antialiased`}
       >
         {children}
         <Footer />

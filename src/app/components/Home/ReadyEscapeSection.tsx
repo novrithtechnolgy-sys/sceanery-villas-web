@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Container from "./Container";
-import Button from "./Button";
+import Container from "../Container";
+import Button from "../Button";
 import { FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
@@ -20,13 +20,13 @@ export default function ReadyEscapeSection() {
 
 
   return (
-    <section className="py-10 pb-20 md:pb-40 md:py-20 bg-white">
+    <section className="py-10 pb-20 md:pb-30 md:py-[64px] bg-white">
       <Container>
         <div className="relative overflow-hidden rounded-[30px] min-h-[420px]">
 
           {/* Background Image */}
           <Image
-            src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772896001/a79a72dc92065a82e3dcbaa5d44bc0b50a2e118a_bdo1wc.webp"
+            src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789036506/ce5cdd230b934d58679ec530acfbe639b5360bab.jpg"
             alt="Mountain Escape"
             fill
             className="object-cover"
@@ -39,11 +39,11 @@ export default function ReadyEscapeSection() {
           {/* Content */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 py-20">
             
-            <h2 className="text-white font-heading text-[24px] md:text-[36px] xl:text-[46px] font-bold tracking-wide uppercase">
-              READY FOR YOUR ESCAPE?
+            <h2 className="text-white font-heading text-[26px] md:text-[36px] xl:text-[38px] font-bold tracking-wide">
+               Ready for Your Escape?
             </h2>
 
-            <p className="mt-4 md:mt-6 text-white/90 font-body text-[15px] md:text-[20px] leading-8 max-w-2xl">
+            <p className="mt-4 md:mt-6 text-white/90 font-body text-[14px] md:text-[16px] leading-8 max-w-2xl">
               Book directly with us for the best rates and exclusive inclusions.
             </p>
 

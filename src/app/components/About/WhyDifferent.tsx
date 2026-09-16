@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import Container from "../Container";
 import ArrowButton from "../ArrowButton";
 
@@ -14,30 +14,70 @@ type Feature = {
 
 function FeatureCard({ item }: { item: Feature }) {
   return (
-    <div className="rounded-[20px] w-full overflow-hidden bg-white border-2 border-gray-300 ">
+    <article className="w-full">
       {/* Image */}
-      <div className="relative h-[200px] sm:h-[200px]">
+      <div
+        className="
+          relative
+          h-[270px]
+          w-full
+          overflow-hidden
+          rounded-[24px]
+          md:h-[300px]
+          lg:h-[320px]
+        "
+      >
         <Image
           src={item.image}
           alt={item.title}
           fill
-          className="object-cover"
-          sizes="(max-width: 768px) 90vw, 33vw"
-          priority={false}
+          sizes="
+            (max-width: 767px) calc(100vw - 70px),
+            (max-width: 1023px) 50vw,
+            33vw
+          "
+          className="
+            object-cover
+            transition-transform
+            duration-500
+            hover:scale-[1.02]
+          "
         />
       </div>
 
       {/* Content */}
-      <div className="p-4 md:p-8">
-        <h3 className="font-body text-[18px] md:text-[20px] xl:text-[24px] font-semibold text-gray-900">
+      <div className="px-1 pt-6 md:pt-8">
+        <h3
+          className="
+            font-body
+            text-[17px]
+            font-semibold
+            leading-[1.4]
+            text-gray-900
+            md:text-[20px]
+            lg:text-[21px]
+          "
+        >
           {item.title}
         </h3>
 
-        <p className="mt-4 md:mt-4 font-body text-[15px] md:text-[18px] leading-7 text-gray-700">
+        <p
+          className="
+            mt-4
+            max-w-[390px]
+            font-body
+            text-[14px]
+            leading-[1.9]
+            md:leading-[30px]
+            text-gray-800
+            md:text-[15px]
+            lg:text-[16px]
+          "
+        >
           {item.description}
         </p>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -46,148 +86,264 @@ export default function WhyDifferent() {
     () => [
       {
         id: "1",
-        title: "Privacy First",
+        title: "Privacy, Always",
         description:
-          "We believe your holiday belongs to you. Our villas are designed to be private sanctuaries where you can be yourself, away from the eyes of strangers.",
+          "Your holiday is your own. Our villas are designed as private spaces where you can relax, connect, and enjoy your time without interruption.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
+          "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789119874/138c278d2d319b33cc63b5f5e2b90fd655d90e70.webp",
       },
       {
         id: "2",
-        title: "Local Roots",
+        title: "Rooted in Sri Lanka",
         description:
-          "We are proudly Sri Lankan. Our staff are from the local villages, our food is sourced from local markets, and our experiences connect you with the local culture.",
+          "From our team to our ingredients, everything is locally rooted, bringing you closer to Sri Lankan culture through food and experiences.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772960568/152aaaa6601c81b5d07fc36dda998d95d8137683_aetolo.webp",
+          "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789119855/65791334d1fe0645d19bd52e81c6115dc336fb1e.webp",
       },
       {
         id: "3",
-        title: "Professional Standards",
+        title: "Thoughtful Standards",
         description:
-          "While our vibe is relaxed, our standards are rigorous. We combine the warmth of a family run business with professional housekeeping, maintenance, and guest service protocols.",
+          "Behind the relaxed atmosphere is professional service, with housekeeping and guest support managed with care and consistency.",
         image:
-          "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp",
+          "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789119876/03256eb7f88630b6952398d346a36ff1a1a1ab2d.webp",
       },
     ],
     []
   );
 
-  // Mobile slider state
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [active, setActive] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
 
-  // Update active index while scrolling (mobile only)
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
+  const total = items.length;
 
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        // Each slide has: min-w + gap. We infer "page" by closest snap point.
-        const children = Array.from(el.children) as HTMLElement[];
-        if (!children.length) return;
+  /* =========================================================
+     MOBILE NAVIGATION
+  ========================================================= */
 
-        const elRect = el.getBoundingClientRect();
-        const centerX = elRect.left + elRect.width / 2;
+  const nextMobile = () => {
+    setMobileIndex((prev) =>
+      prev >= total - 1 ? 0 : prev + 1
+    );
+  };
 
-        let bestIdx = 0;
-        let bestDist = Number.POSITIVE_INFINITY;
+  const prevMobile = () => {
+    setMobileIndex((prev) =>
+      prev <= 0 ? total - 1 : prev - 1
+    );
+  };
 
-        children.forEach((child, idx) => {
-          const r = child.getBoundingClientRect();
-          const childCenter = r.left + r.width / 2;
-          const dist = Math.abs(childCenter - centerX);
-          if (dist < bestDist) {
-            bestDist = dist;
-            bestIdx = idx;
-          }
-        });
+  /* =========================================================
+     MOBILE SWIPE
+  ========================================================= */
 
-        setActive(bestIdx);
-      });
-    };
+  const [touchStart, setTouchStart] =
+    useState<number | null>(null);
 
-    el.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+  const [touchEnd, setTouchEnd] =
+    useState<number | null>(null);
 
-    return () => {
-      el.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
+  const minSwipeDistance = 50;
 
-  const scrollToIndex = (idx: number) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const child = el.children.item(idx) as HTMLElement | null;
-    if (!child) return;
-    child.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  const handleTouchStart = (
+    e: React.TouchEvent<HTMLDivElement>
+  ) => {
+    setTouchEnd(null);
+
+    setTouchStart(
+      e.targetTouches[0].clientX
+    );
+  };
+
+  const handleTouchMove = (
+    e: React.TouchEvent<HTMLDivElement>
+  ) => {
+    setTouchEnd(
+      e.targetTouches[0].clientX
+    );
+  };
+
+  const handleTouchEnd = () => {
+    if (
+      touchStart === null ||
+      touchEnd === null
+    ) {
+      return;
+    }
+
+    const distance =
+      touchStart - touchEnd;
+
+    if (distance > minSwipeDistance) {
+      nextMobile();
+    }
+
+    if (distance < -minSwipeDistance) {
+      prevMobile();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   return (
-    <section className="py-10 md:py-20 ">
-      <Container>
-        {/* Heading */}
-        <h2 className="text-center font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight">
-          <span className="italic">What We </span>{" "}
-          <span className="font-semibold text-[#FF751F]">Stand For</span>
-        </h2>
+    <section className="bg-white py-10 md:py-20">
 
-        {/* ✅ MOBILE: swipe carousel like your screenshot */}
-        <div className="mt-8 md:mt-16 md:hidden">
+      {/* =====================================================
+          DESKTOP
+          Container is ONLY used from md and above
+      ===================================================== */}
+
+      <div className="hidden md:block">
+        <Container>
+
+          {/* Heading */}
+          <div className="text-center">
+            <h2
+              className="
+                font-heading
+                text-[22px]
+                font-bold
+                tracking-[-0.5px]
+                text-gray-900
+                md:text-[32px]
+                md:leading-[42px]
+                xl:text-[38px]
+                xl:leading-[48px]
+              "
+            >
+              <span className="text-gray-900">
+                The Values{" "}
+              </span>
+
+              <span className="text-[#FF751F]">
+                Behind Every Stay
+              </span>
+            </h2>
+          </div>
+
+          {/* Desktop Grid */}
           <div
-            ref={scrollerRef}
             className="
-              flex gap-6 overflow-x-auto scroll-smooth
-              snap-x snap-mandatory
-              [-ms-overflow-style:none] [scrollbar-width:none]
-              [&::-webkit-scrollbar]:hidden
+              mt-12
+              grid
+              grid-cols-3
+              gap-6
+              lg:mt-14
+              lg:gap-6
             "
           >
             {items.map((item) => (
-              <div
+              <FeatureCard
                 key={item.id}
-                className="
-                  snap-center
-                  min-w-[100%]
-                  sm:min-w-[100%]
-                "
-              >
-                <FeatureCard item={item} />
-              </div>
+                item={item}
+              />
             ))}
           </div>
 
-          {/* 1/3 indicator */}
-          <div className="mt-4 flex items-center justify-center gap-3">
-            <ArrowButton
-             direction="left"
-             disabled={active === 0}
-            onClick={() => scrollToIndex(Math.max(0, active - 1))}
-            />
-            <div className="text-[12px] font-body text-gray-600">
-              {active + 1}/{items.length}
+        </Container>
+      </div>
+
+      {/* =====================================================
+          MOBILE
+          NO CONTAINER HERE
+      ===================================================== */}
+
+      <div className="block md:hidden">
+
+        {/* Mobile Heading */}
+        <div className="px-4 text-center">
+          <h2
+            className="
+              mx-auto
+              max-w-[320px]
+              font-heading
+              text-[22px]
+              font-bold
+              leading-[1.45]
+              tracking-[-0.5px]
+              text-gray-900
+            "
+          >
+            <span className="text-gray-900">
+              The Values
+            </span>
+
+            <br />
+
+            <span className="text-[#FF751F]">
+              Behind Every Stay
+            </span>
+          </h2>
+        </div>
+
+        {/* Mobile Carousel */}
+        <div className="mt-8 w-full overflow-hidden">
+
+          <div
+            className="w-full overflow-hidden px-4 touch-pan-y"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className="
+                flex
+                gap-4
+                transition-transform
+                duration-500
+                ease-out
+                will-change-transform
+              "
+              style={{
+                transform: `
+                  translateX(
+                    calc(
+                      -${mobileIndex} * (100vw - 73px)
+                    )
+                  )
+                `,
+              }}
+            >
+              {items.map((item) => (
+                <div
+                  key={item.id}
+                  className="
+                    w-[calc(100vw-70px)]
+                    shrink-0
+                  "
+                >
+                  <FeatureCard item={item} />
+                </div>
+              ))}
             </div>
+          </div>
+
+          {/* Mobile Controls */}
+          <div
+            className="
+              mt-8
+              flex
+              items-center
+              justify-center
+              gap-8
+            "
+          >
+            <ArrowButton
+              direction="left"
+              disabled={false}
+              onClick={prevMobile}
+            />
 
             <ArrowButton
               direction="right"
               disabled={false}
-              onClick={() => scrollToIndex(Math.min(items.length - 1, active + 1))}
+              onClick={nextMobile}
             />
-
-  
           </div>
-        </div>
 
-        {/* ✅ TABLET/DESKTOP: normal grid */}
-        <div className="mt-14 hidden md:grid grid-cols-2 md:grid-cols-3 md:gap-10">
-          {items.map((item) => (
-            <FeatureCard key={item.id} item={item} />
-          ))}
         </div>
-      </Container>
+      </div>
+
     </section>
   );
 }

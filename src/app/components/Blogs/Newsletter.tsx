@@ -5,17 +5,38 @@ import Container from "../Container";
 
 export default function Newsletter() {
     return (
-        <section className="py-20">
+        <section className="bg-white py-[32px] md:py-[64px]">
             <Container>
                 <div className="text-center max-w-6xl mx-auto">
                   {/* Title */}
-                    <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px]  leading-tight italic">
+                    <h2 className="                
+                    font-heading
+                    text-[22px]
+                    md:text-[32px]
+                    xl:text-[38px]
+                    font-bold
+                    md:leading-[42px]
+                    xl:leading-[48px]
+                    tracking-[-0.5px]
+                    text-gray-900
+                    text-center
+                ">
                         Get A Slice Of Paradise
-                        <span className="not-italic font-semibold text-[#FF751F]"> In Your Inbox</span>
+                        <span className="text-[#FF751F]"> In Your Inbox</span>
                     </h2>
 
                     {/* Description */}
-                    <p className="mt-4 md:mt-8 font-body text-[15px] md:text-[20px] text-gray-700 leading-relaxed">
+                    <p className="                mt-4
+                font-body
+                font-regular
+                text-[14px]
+                leading-[26px]
+                text-gray-700
+                md:mt-8
+                md:text-[16px]
+                lg:leading-[30px]
+                text-center
+        ">
                     Sign up for our newsletter to receive exclusive offers, seasonal updates,
                     and travel inspiration. 
                     <br />

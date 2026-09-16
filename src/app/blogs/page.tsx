@@ -19,8 +19,7 @@ export default function BlogsPage() {
             <FeaturedStory />
             <BlogPage />
             <Newsletter />
-            <Inspired />
-            <WhatsAppButton />
+            {/* <WhatsAppButton /> */}
         </>
     )
 }

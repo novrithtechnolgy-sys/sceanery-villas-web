@@ -1,10 +1,8 @@
-import ContactQuickLinks from "../components/Contact/ContactQuickLinks";
 import FAQSection from "../components/Contact/FAQSection";
-import ContactHero from "../components/Contact/hero";
 import InquirySection from "../components/Contact/InquirySection";
-import QuickChat from "../components/Contact/quickchat";
 import WhereWeAreSection from "../components/Contact/WhereWeAreSection";
 import Navbar from "../components/Navbar";
+import PageHero from "../components/PageHero";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata = {
@@ -16,12 +14,14 @@ export default function Contact() {
     return(
         <>
         <Navbar />
-        <ContactHero />
-        <ContactQuickLinks />
+        <PageHero
+            title="Let's Plan Your Escape"
+            paragraph="Have a villa in mind or need guidance? Our team can help you by phone, email, or form."
+            image="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789197003/e6edd39f87350afd433a4f94d74631795fbd21be.webp"
+         />
         <InquirySection />
         <FAQSection />
         <WhereWeAreSection />
-        <QuickChat />
         <WhatsAppButton />
         </>
     )

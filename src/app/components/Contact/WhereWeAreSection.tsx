@@ -22,7 +22,7 @@ export default function WhereWeAreSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Left: Map */}
           <div className="rounded-[28px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
-            <div className="relative w-full h-[460px] md:h-[520px]">
+            <div className="relative w-full h-[460px] md:h-[500px]">
               <iframe
                 title={`${placeName} map`}
                 src={embedSrc}
@@ -35,22 +35,22 @@ export default function WhereWeAreSection() {
 
           {/* Right: Content */}
           <div className="pt-2 text-center md:text-left order-first lg:order-last">
-            <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[46px] leading-tight text-gray-900">
-              <span className="italic font-medium">Where</span>{" "}
-              <span className="font-semibold text-[#FF751F]">We Are</span>
+            <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left">
+              <span className="">Where</span>{" "}
+              <span className="text-[#FF751F]">We Are</span>
             </h2>
 
-            <p className="mt-4 md:mt-8 max-w-[520px] font-body text-[15px] md:text-[20px] leading-8 text-gray-700">
+            <p className="mt-4 font-body font-regular text-[14px] leading-[26px] text-gray-700 md:mt-8 md:text-[16px] lg:leading-[30px] text-center md:text-left">
               Our collection is located along the southern coast of Sri Lanka,
               centered around the towns of Bentota, Aluthgama, and Dharga Town.
             </p>
 
-            <div className="mt-8 flex flex-col items-center md:flex-row gap-4 max-w-[620px]">
-              <div className="md:-mt-15 rounded-full flex items-center justify-center">
+            <div className=" flex flex-col items-center md:flex-row gap-4 max-w-[620px]">
+              <div className="md:-mt-7 rounded-full flex items-center justify-center">
                 <MapPin className="h-5 w-5 text-gray-900" />
               </div>
 
-              <p className="font-body text-[15px] md:text-[20px] leading-8 text-gray-700">
+              <p className="mt-4 font-body font-regular text-[14px] leading-[26px] text-gray-700 md:mt-8 md:text-[16px] lg:leading-[30px] text-center md:text-left">
                 We are approximately 1.5 hours from Colombo via the Southern
                 Expressway (E01) and 2.5 hours from Bandaranaike International
                 Airport (CMB).
@@ -62,7 +62,7 @@ export default function WhereWeAreSection() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center w-[250px] lg:w-[340px] rounded-full bg-[#FF751F] text-white px-16 py-3  text-[14px] font-semibold shadow-sm hover:bg-black transition"
+                className="inline-flex items-center justify-center rounded-full bg-[#FF751F] text-white py-2 md:py-3 px-8 text-[14px] md:text-[16px] font-semibold shadow-sm hover:bg-orange-400 transition"
               >
                 Get Directions
               </a>
@@ -73,7 +73,7 @@ export default function WhereWeAreSection() {
                 href={directionsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="md:hidden inline-flex w-[250px] lg:w-[340px] items-center justify-center rounded-full bg-[#FF751F] text-white py-2 text-[14px] font-semibold shadow-sm hover:bg-black transition"
+                className="md:hidden inline-flex items-center justify-center rounded-full bg-[#FF751F] text-white py-2 md:py-3 px-8 text-[14px] md:text-[16px] font-semibold shadow-sm hover:bg-orange-400 transition"
               >
                 Get Directions
               </a>

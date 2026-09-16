@@ -1,89 +1,172 @@
-"use client";
+// components/FounderSection.tsx
 
 import Image from "next/image";
 import Container from "../Container";
 
-function QuoteIcon() {
-  return (
-    <svg
-      viewBox="0 0 64 48"
-      className="h-8 w-8 md:h-12 md:w-12 text-gray-900"
-      fill="currentColor"
-    >
-      <path d="M18 0C8 0 0 8 0 18v12c0 10 8 18 18 18h6V28H16V18h14V0H18Zm40 0C48 0 40 8 40 18v12c0 10 8 18 18 18h6V28H56V18h14V0H58Z" />
-    </svg>
-  );
-}
 
-export default function FounderNote() {
+export default function FounderSection() {
   return (
-    <section className="py-10 md:py-20">
+    <section className="bg-white py-[32px] md:py-[64px]">
       <Container>
+        <div className="grid items-center md:gap-10 md:grid-cols-2 lg:gap-16 xl:gap-20">
 
-        {/* Heading */}
-        <h2 className="text-center mb-8 md:mb-0 font-heading text-[24px] md:text-[36px] xl:text-[46px]  leading-tight">
-          <span className="italic ">A Note From</span>{" "}
-          <span className="font-semibold text-[#FF751F]">Our Founder</span>
-        </h2>
+            <h2
+              className="
+                md:hidden
+                font-heading
+                text-[22px]
+                md:text-[32px]
+                xl:text-[38px]
+                font-bold
+                md:leading-[42px]
+                xl:leading-[48px]
+                tracking-[-0.5px]
+                text-gray-900
+                text-center
+                md:text-left
+                mb-8
+              "
+            >
+              <span className="text-gray-900">
+                A Note
+              </span>{" "}
+              <span className="text-[#FF751F]">
+                from Our Founder
+              </span>
+            </h2>
+          {/* ================= LEFT CONTENT ================= */}
+          <div className="max-w-[650px] order-2 md:order-1">
 
-        <div className="flex flex-col md:flex-row gap-8 mt-4 md:mt-16">
+            {/* Heading */}
+            <h2
+              className="
+                md:block
+                hidden
+                font-heading
+                text-[22px]
+                md:text-[32px]
+                xl:text-[38px]
+                font-bold
+                md:leading-[42px]
+                xl:leading-[48px]
+                tracking-[-0.5px]
+                text-gray-900
+                text-center
+                md:text-left
+              "
+            >
+              <span className="text-gray-900">
+                A Note
+              </span>{" "}
+              <span className="text-[#FF751F]">
+                from Our Founder
+              </span>
+            </h2>
 
-          {/* Founder Image */}
-          <div className="relative w-full order-2 md:order-1">
-            <div className="relative h-[300px]  md:h-full w-full rounded-[20px] overflow-hidden shadow-lg">
+            {/* Founder Message */}
+            <div
+              className="
+                mt-4
+                font-body
+                font-regular
+                text-[14px]
+                leading-[26px]
+                text-black
+                md:mt-8
+                md:text-[16px]
+                lg:leading-[30px]
+                text-center
+                md:text-left
+              "
+            >
+              <p>
+                Welcome to the Scenery Villas Collection.
+              </p>
+
+              <p className="md:mt-1">
+                For over 30 years, I have shared Sri Lanka with
+                travellers from around the world. Some fell so deeply
+                in love with the island that they created their own
+                dream homes here. Scenery Villas brings these special
+                homes together and warmly opens their doors to you.
+              </p>
+
+              <p className="md:mt-1">
+                Each villa has been shaped by its surroundings and
+                lovingly cared for by our team. The entire home becomes
+                yours, with meals, housekeeping, transport, and
+                experiences personalised around you.
+              </p>
+
+              <p className="md:mt-1">
+                I hope you discover more than a beautiful stay — the
+                warmth, care, and sense of belonging that make Sri Lanka
+                feel like home.
+              </p>
+            </div>
+
+            {/* Founder Details */}
+            <div className="mt-4 md:mt-6">
+              <p
+                className="
+                  font-body
+                  text-[16px]
+                  font-bold
+                  text-gray-900
+                  md:text-[20px]
+                  text-center
+                  md:text-left
+                "
+              >
+                Shiral De Silva
+              </p>
+
+              <p
+                className="
+                  mt-1
+                  font-body
+                  text-[14px]
+                  text-gray-800
+                  md:text-[16px]
+                  text-center
+                  md:text-left
+                "
+              >
+                Founder, Scenery Villas Collection
+              </p>
+            </div>
+          </div>
+
+          {/* ================= RIGHT IMAGE ================= */}
+          <div className="relative w-full justify-end md:flex order-1">
+            <div
+              className="
+                relative
+                h-[320px]
+                w-full
+                overflow-hidden
+                rounded-[24px]
+                md:h-[500px]
+                md:rounded-[26px]
+                lg:h-[560px]
+                xl:h-[600px]
+                xl:max-w-[575px]
+              "
+            >
               <Image
-                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772960206/DSC02788_clnnyq.webp"
-                alt="Founder"
+                src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789108622/a7b3941974772c54e36710beeb0328286a241339.jpg"
+                alt="Shiral De Silva, Founder of Scenery Villas Collection"
                 fill
-                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="
+                  object-cover
+                "
               />
             </div>
           </div>
 
-          {/* Quote Card */}
-          <div className="relative md:w-[150%] order-1 md:order-2">
-            <div className="bg-white rounded-[20px] border-2 border-gray-300 p-4 md:p-8 w-full">
-            <div className="flex flex-col">
-              <QuoteIcon  />
-
-              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
-                Welcome to Scenery Villas. My journey in hospitality has always
-                been driven by a passion for showcasing the best of Sri Lanka
-                to the world. As the General Manager of Scenery Villas and the
-                founder of Digital Escapes, I believe that modern travel
-                requires a blend of seamless service and genuine human
-                connection.
-              </p>
-                      </div>
-
-              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px] text-gray-700 leading-relaxed">
-                We have built this collection to offer you the privacy of a
-                villa with the reliability of professional management. Whether
-                you are here for a family reunion, a creative retreat, or a
-                quiet escape, my team and I are dedicated to ensuring your stay
-                is nothing short of exceptional.
-              </p>
-    
-
-              <p className="mt-4 md:mt-8 font-body text-[16px] md:text-[20px]  text-gray-700 leading-relaxed">
-                We don't just hand you a key; we open the door to the real
-                Bentota.
-              </p>
-
-              {/* Signature */}
-              <div className="mt-8 md:mt-10">
-                <p className="md:mt-8 font-body text-[16px] md:text-[20px] xl:text-[24px] text-gray-700 leading-relaxed font-semibold text-gray-900">
-                  Shashindu de Silva,
-                </p>
-                <p className="italic font-body text-[16px] md:text-[18px] text-gray-600">
-                  General Manager
-                </p>
-              </div>
-
-            </div>
-          </div>
         </div>
-
       </Container>
     </section>
   );

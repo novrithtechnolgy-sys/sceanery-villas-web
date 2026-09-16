@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function ContactHero() {
   return (
-    <section>
-      <div className="relative overflow-hidden rounded-t-[28px] md:rounded-b-[28px] h-[420px] md:h-[520px] lg:h-[600px]">
+    <section className="relative -mt-18 p-[20px]">
+      <div className="relative overflow-hidden rounded-[20px] md:rounded-b-[20px] h-[60vh] md:h-[90vh]">
 
         {/* Background Image */}
         <Image

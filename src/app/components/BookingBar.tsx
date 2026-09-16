@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import Button from "./Button";
 
 type BookingBarProps = {
   initialCheckIn?: string;
@@ -18,17 +17,65 @@ export default function BookingBar({
   const router = useRouter();
   const pathname = usePathname();
 
-  const today = new Date().toISOString().split("T")[0];
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().split("T")[0];
+  const checkInRef = useRef<HTMLInputElement>(null);
+  const checkOutRef = useRef<HTMLInputElement>(null);
 
-  const [checkIn, setCheckIn] = useState(initialCheckIn || today);
-  const [checkOut, setCheckOut] = useState(initialCheckOut || tomorrow);
-  const [adalts, setAdalts] = useState(initialGuests || "2");
-  const [children, setChildren] = useState(initialGuests || "0");
+  const today = new Date().toISOString().split("T")[0];
+
+  const tomorrow = new Date(
+    Date.now() + 86400000
+  )
+    .toISOString()
+    .split("T")[0];
+
+  const initialTotalGuests = parseInt(initialGuests || "2");
+
+  const [checkIn, setCheckIn] = useState(
+    initialCheckIn || today
+  );
+
+  const [checkOut, setCheckOut] = useState(
+    initialCheckOut || tomorrow
+  );
+
+  const [adults, setAdults] = useState(
+    initialTotalGuests > 0 ? initialTotalGuests : 2
+  );
+
+  const [children, setChildren] = useState(0);
+
+  const [guestOpen, setGuestOpen] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
-  const guest = parseInt(adalts) + parseInt(children);
-  const guests = guest.toString();
+  const guests = adults + children;
+
+  const formatDate = (date: string) => {
+    if (!date) return "";
+
+    const [year, month, day] = date.split("-");
+
+    return new Date(
+      Number(year),
+      Number(month) - 1,
+      Number(day)
+    ).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
+  };
+
+  const openDatePicker = (
+    input: HTMLInputElement | null
+  ) => {
+    if (!input) return;
+
+    try {
+      input.showPicker();
+    } catch {
+      input.focus();
+    }
+  };
 
   const handleSearch = () => {
     if (!checkIn || !checkOut) {
@@ -46,7 +93,7 @@ export default function BookingBar({
     const params = new URLSearchParams({
       checkIn,
       checkOut,
-      guests,
+      guests: guests.toString(),
     });
 
     const url = `/available-villas?${params.toString()}`;
@@ -61,75 +108,354 @@ export default function BookingBar({
   };
 
   return (
-    <div className="relative md:-mt-18 w-full mx-auto md:px-8 lg:px-12 xl:px-28">
-      <div className="bg-white font-body rounded-[22px] shadow-lg border border-gray-100 p-5 md:p-6">
-        <div className="text-[15px] md:text-[18px] font-regular text-gray-900">
-          Find Your Perfect Stay
+    <div className="relative z-30 flex w-full justify-center">
+      <div
+        className="
+          flex
+          py-3
+          w-full
+          max-w-[490px]
+          items-center
+          rounded-full
+          bg-white
+          px-3
+          shadow-lg
+        "
+      >
+        {/* ================= CHECK IN ================= */}
+
+        <button
+          type="button"
+          onClick={() =>
+            openDatePicker(checkInRef.current)
+          }
+          className="
+            relative
+            flex
+            h-full
+            flex-1
+            justify-center
+            cursor-pointer
+            items-center
+            px-4
+            text-left
+          "
+        >
+          <span className="whitespace-nowrap text-[14px] text-gray-500">
+            {checkIn
+              ? formatDate(checkIn)
+              : "Check-in"}
+          </span>
+
+          <input
+            ref={checkInRef}
+            type="date"
+            value={checkIn}
+            min={today}
+            onChange={(e) => {
+              setCheckIn(e.target.value);
+
+              // Automatically make checkout at least next day
+              if (e.target.value >= checkOut) {
+                const nextDay = new Date(
+                  `${e.target.value}T00:00:00`
+                );
+
+                nextDay.setDate(
+                  nextDay.getDate() + 1
+                );
+
+                setCheckOut(
+                  nextDay.toISOString().split("T")[0]
+                );
+              }
+            }}
+            className="
+              pointer-events-none
+              absolute
+              inset-0
+              h-full
+              w-full
+              opacity-0
+            "
+          />
+        </button>
+
+        {/* Divider */}
+        <div className="h-6 w-px shrink-0 bg-gray-400/70" />
+
+        {/* ================= CHECK OUT ================= */}
+
+        <button
+          type="button"
+          onClick={() =>
+            openDatePicker(checkOutRef.current)
+          }
+          className="
+            relative
+            flex
+            h-full
+            flex-1
+            justify-center
+            cursor-pointer
+            items-center
+            px-4
+            text-left
+          "
+        >
+          <span className="whitespace-nowrap text-[14px] text-gray-500">
+            {checkOut
+              ? formatDate(checkOut)
+              : "Check-out"}
+          </span>
+
+          <input
+            ref={checkOutRef}
+            type="date"
+            value={checkOut}
+            min={checkIn || today}
+            onChange={(e) =>
+              setCheckOut(e.target.value)
+            }
+            className="
+              pointer-events-none
+              absolute
+              inset-0
+              h-full
+              w-full
+              opacity-0
+            "
+          />
+        </button>
+
+        {/* Divider */}
+        <div className="h-6 w-px shrink-0 bg-gray-400/70" />
+
+        {/* ================= GUESTS ================= */}
+
+        <div className="relative flex h-full flex-1 items-center px-4">
+          <button
+            type="button"
+            onClick={() =>
+              setGuestOpen((prev) => !prev)
+            }
+            className="
+              flex
+              w-full
+              cursor-pointer
+              items-center
+              whitespace-nowrap
+              justify-center
+              text-left
+              text-[14px]
+              text-gray-500
+            "
+          >
+            {guests}{" "}
+            {guests === 1 ? "Guest" : "Guests"}
+          </button>
+
+          {/* Guest Dropdown */}
+          {guestOpen && (
+            <div
+              className="
+                absolute
+                left-1/2
+                bottom-[65px]
+                z-50
+                w-[220px]
+                -translate-x-1/2
+                rounded-2xl
+                border
+                border-gray-100
+                bg-white
+                p-4
+              "
+            >
+              {/* Adults */}
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-800">
+                    Adults
+                  </p>
+
+                  <p className="text-xs text-gray-400">
+                    Age 13+
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setAdults(
+                        Math.max(1, adults - 1)
+                      )
+                    }
+                    className="
+                      flex
+                      h-8
+                      w-8
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-gray-300
+                      text-lg
+                      text-gray-700
+                      transition
+                      hover:bg-gray-100
+                    "
+                  >
+                    −
+                  </button>
+
+                  <span className="w-5 text-center text-sm">
+                    {adults}
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setAdults(adults + 1)
+                    }
+                    className="
+                      flex
+                      h-8
+                      w-8
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-gray-300
+                      text-lg
+                      text-gray-700
+                      transition
+                      hover:bg-gray-100
+                    "
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {/* Children */}
+              <div className="mt-5 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-800">
+                    Children
+                  </p>
+
+                  <p className="text-xs text-gray-400">
+                    Age 0–12
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setChildren(
+                        Math.max(0, children - 1)
+                      )
+                    }
+                    className="
+                      flex
+                      h-8
+                      w-8
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-gray-300
+                      text-lg
+                      text-gray-700
+                      transition
+                      hover:bg-gray-100
+                    "
+                  >
+                    −
+                  </button>
+
+                  <span className="w-5 text-center text-sm">
+                    {children}
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setChildren(children + 1)
+                    }
+                    className="
+                      flex
+                      h-8
+                      w-8
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-gray-300
+                      text-lg
+                      text-gray-700
+                      transition
+                      hover:bg-gray-100
+                    "
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              {/* Done */}
+              <button
+                type="button"
+                onClick={() => setGuestOpen(false)}
+                className="
+                  mt-5
+                  w-full
+                  rounded-full
+                  bg-gray-900
+                  py-2
+                  text-sm
+                  font-medium
+                  text-white
+                  transition
+                  hover:bg-gray-800
+                "
+              >
+                Done
+              </button>
+            </div>
+          )}
         </div>
 
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-16 gap-4 items-end">
-          <div className="md:col-span-4 w-full">
-            <label className="block text-[15px] text-gray-600 mb-4">
-              Check in Date
-            </label>
-            <input
-              type="date"
-              value={checkIn}
-              min={today}
-              onChange={(e) => setCheckIn(e.target.value)}
-              className="w-full rounded-full bg-gray-100 text-gray-600 border border-gray-200 px-4 py-2 md:py-3 text-[14px] outline-none focus:ring-2 focus:ring-gray-900/10"
-            />
-          </div>
+        {/* ================= SEARCH ================= */}
 
-          <div className="md:col-span-4 w-full">
-            <label className="block text-[15px] text-gray-600 mb-4">
-              Check out Date
-            </label>
-            <input
-              type="date"
-              value={checkOut}
-              min={checkIn || today}
-              onChange={(e) => setCheckOut(e.target.value)}
-              className="w-full rounded-full bg-gray-100 border border-gray-200 text-gray-600 px-4 py-2 md:py-3 text-[14px] outline-none focus:ring-2 focus:ring-gray-900/10"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 md:col-span-4 w-full gap-4" >
-
-          <div className="col-span-1 md:col-span-2 w-full">
-            <label className="block text-[15px] text-gray-600 mb-4">
-              Adults
-            </label>
-            <input
-              type="number"
-              value={adalts}
-              min="1"
-              onChange={(e) => setAdalts(e.target.value)}
-              className="w-full rounded-full bg-gray-100 border border-gray-200 text-gray-600 px-4 py-2 md:py-3 text-[14px] outline-none focus:ring-2 focus:ring-gray-900/10"
-            />
-          </div>
-
-            <div className="col-span-1 md:col-span-2 w-full">
-            <label className="block text-[15px] text-gray-600 mb-4">
-              Children
-            </label>
-            <input
-              type="number"
-              value={children}
-              min="1"
-              onChange={(e) => setChildren(e.target.value)}
-              className="w-full rounded-full bg-gray-100 border border-gray-200 text-gray-600 px-4 py-2 md:py-3 text-[14px] outline-none focus:ring-2 focus:ring-gray-900/10"
-            />
-          </div>
-          </div>
-
-
-          <div className="md:col-span-4 flex justify-center md:justify-end mt-4">
-            <Button variant="primary" onClick={handleSearch} disabled={loading}>
-              {loading ? "Checking..." : "Check Availability"}
-            </Button>
-          </div>
-        </div>
+        <button
+          type="button"
+          onClick={handleSearch}
+          disabled={loading}
+          className="
+            flex
+            py-2
+            px-4
+            shrink-0
+            rounded-full
+            bg-[#FF641F]
+            px-6
+            font-body
+            text-[14px]
+            font-medium
+            text-white
+            transition-all
+            duration-200
+            hover:bg-[#f4510c]
+            disabled:cursor-not-allowed
+            disabled:opacity-70
+          "
+        >
+          {loading ? "..." : "Search"}
+        </button>
       </div>
     </div>
   );

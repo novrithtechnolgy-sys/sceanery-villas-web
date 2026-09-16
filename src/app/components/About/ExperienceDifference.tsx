@@ -1,43 +1,69 @@
 "use client";
 
 import Image from "next/image";
-import Button from "../Button";
 import Container from "../Container";
+import Button from "../Button";
+import { FaWhatsapp } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
 
 export default function ExperienceDifference() {
 
   const router = useRouter();
 
-  return (
-    <section className="bg-white py-10 pb-20 md:py-20 ">
-      <Container >
-        <div className="relative rounded-[26px] overflow-hidden">
-          {/* Background Image */}
-          <div className="relative h-[260px] md:h-[420px]">
-            <Image
-              src="https://res.cloudinary.com/dpjmcup95/image/upload/v1773939444/3_galle-benthota-full-day-tour-from-colombo_croyhk.jpg"
-              alt="Experience the difference"
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Optional soft dark overlay (helps text readability) */}
-            <div className="absolute inset-0 bg-black/20" />
-          </div>
+  const whatsappNumber = "+94779082515";
+  const message = "Hello, I would like to know more about your services.";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-          {/* Center Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-            <h2 className="font-heading text-[24px] md:text-[36px] xl:text-[64px] text-white tracking-[0.08em]">
-              Experience the difference
+    const handleBookStay = () => {
+    router.push("/available-villas");
+  };
+
+
+  return (
+    <section className="py-10 pb-20 md:pb-30 md:py-[64px] bg-white">
+      <Container>
+        <div className="relative overflow-hidden rounded-[30px] min-h-[420px]">
+
+          {/* Background Image */}
+          <Image
+            src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789120155/1fc912ecc054a1e5330e7e9e05dce66307c88f6d.jpg"
+            alt="Mountain Escape"
+            fill
+            className="object-cover"
+            priority
+          />
+
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/50" />
+
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6 py-20">
+            
+            <h2 className="text-white font-heading text-[26px] md:text-[36px] xl:text-[38px] font-bold tracking-wide">
+               Experience the Difference
             </h2>
 
-            <Button
-            onClick={() => router.push("/villas/tara-garden")}
-             variant="primary" className="mt-10">
-              Explore Our Villas
-            </Button>
+            <p className="mt-4 md:mt-6 text-white/90 font-body text-[14px] md:text-[16px] leading-8 max-w-2xl">
+              Private stays and personalised Sri Lankan hospitality, designed around you.
+            </p>
+
+            {/* Buttons */}
+            <div className="mt-8 md:mt-12 flex flex-col sm:flex-row gap-6 items-center">
+              
+              {/* Primary */}
+              <Button onClick={handleBookStay}>
+                Explore Our Villas
+              </Button>
+
+              {/* Outline */}
+              <Button
+                variant="light"
+                onClick={() => window.open(whatsappLink, "_blank")}
+              >
+                <FaWhatsapp className="h-5 w-5" />
+                Whatsapp Us
+              </Button>
+            </div>
           </div>
         </div>
       </Container>

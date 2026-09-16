@@ -11,6 +11,10 @@ const VILLA_BY_SLUG = `*[_type=="villas" && slug.current==$slug][0]{
   title,
   tagline,
   heroImage,
+    heroStats[]{
+    _key,
+    label
+  },
   logo,
   intro,
   highlights{
@@ -41,8 +45,7 @@ const VILLA_BY_SLUG = `*[_type=="villas" && slug.current==$slug][0]{
     headingItalic,
     headingBold,
     description,
-    previewImage,
-    tourUrl
+    tourImage
   },
   mapEmbedUrl
 }`;

@@ -1,13 +1,14 @@
-import DiscoverBentotaSection from "./components/DiscoverBentotaSection";
+import DiscoverBentotaSection from "./components/Home/DiscoverBentotaSection";
 import Footer from "./components/Footer";
-import GuestStories from "./components/GuestStories";
-import Hero from "./components/Hero";
-import IntroSection from "./components/IntroSection";
+import GuestStories from "./components/Home/GuestStories";
+import Hero from "./components/Home/Hero";
+import IntroSection from "./components/Home/IntroSection";
+import JourneySection from "./components/Home/JourneySection";
 import Navbar from "./components/Navbar";
-import ReadyEscapeSection from "./components/ReadyEscapeSection";
-import VillasCarousel from "./components/VillasCarousel";
+import ReadyEscapeSection from "./components/Home/ReadyEscapeSection";
+import VillasCarousel from "./components/Home/VillasCarousel";
 import WhatsAppButton from "./components/WhatsAppButton";
-import WhyChooseSection from "./components/WhyChooseSection";
+import WhyChooseSection from "./components/Home/WhyChooseSection";
 
 export const metadata = {
   title: "Scenery Villas Collection | Luxury Villas and Homestays in Bentota Sri Lanka",
@@ -24,6 +25,7 @@ export default function HomePage() {
       <WhyChooseSection />
       <DiscoverBentotaSection />
       <GuestStories />
+      <JourneySection />
       <ReadyEscapeSection />
 
     </main>
