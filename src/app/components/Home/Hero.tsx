@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative -mt-18 p-[20px]">
+    <section className="relative -mt-16  md:-mt-18 p-[16px] md:p-[20px]">
       <div className="py-[32px] relative overflow-hidden rounded-t-[20px] rounded-b-[20px] h-[60vh] md:h-[90vh]" >
         <video
           className="absolute inset-0 h-full w-full object-cover"

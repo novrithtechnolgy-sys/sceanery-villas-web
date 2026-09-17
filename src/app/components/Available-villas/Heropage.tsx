@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import BookingBar from "../BookingBar";
 
 export default function AvailableVillasHero() {
   return (
-    <section>
-      <div className="relative overflow-hidden rounded-t-[28px] md:rounded-b-[28px] h-[420px] md:h-[520px] lg:h-[600px]">
+    <section className="relative -mt-18 p-[20px]">
+      <div className="py-[32px] relative overflow-hidden rounded-t-[20px] rounded-b-[20px] h-[60vh] md:h-[90vh]">
 
         {/* Background Image */}
         <Image
@@ -21,11 +22,13 @@ export default function AvailableVillasHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
 
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 md:px-20">
+        <div className="relative z-10 flex h-full flex-col items-center justify-end pb-8 text-center md:pb-10">
 
-          <h1 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white uppercase">
+          <h1 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white uppercase mb-8">
             Available Villas
           </h1>
+
+          <BookingBar />
 
         </div>
 

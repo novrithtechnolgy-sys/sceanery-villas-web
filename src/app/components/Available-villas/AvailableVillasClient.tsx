@@ -97,10 +97,6 @@ export default function AvailableVillasClient() {
 
   return (
     <section className="min-h-screen pb-20">
-      <div className="relative -mt-14 z-10">
-        <BookingBar />
-      </div>
-
       <Container>
         <div className="mt-12 space-y-10">
           {loading && (
