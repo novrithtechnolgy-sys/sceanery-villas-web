@@ -39,24 +39,36 @@ const gallerySections: GallerySectionData[] = [
         alt: "Architecture image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772962601/IMG-20250927-WA0016_1_qqtfnd.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616569/DSC00336-HDR.jpg",
         alt: "Architecture image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772884984/IMG-20250927-WA0043_x4850s.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616567/DSC00207-HDR-Edit-Edit.jpg",
         alt: "Architecture image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772944549/DJI_20260302180714_0212_D_exndrg.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616551/DSC00238-HDR-Edit.jpg",
         alt: "Architecture image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963539/IMG-20250927-WA0040_dsqccu.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616552/IMG-20240830-WA0024.jpg",
         alt: "Architecture image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772962380/IMG-20250927-WA0045_1_qewmks.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616532/DSC00156-HDR-Edit.jpg",
         alt: "Architecture image 6",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616524/DSC00333-HDR.jpg",
+        alt: "Architecture image 7",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616507/DSC00114-HDR-Edit.jpg",
+        alt: "Architecture image 8",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789616525/DSC00015-HDR-Edit-2.jpg",
+        alt: "Architecture image 9",
       },
     ],
   },
@@ -66,27 +78,27 @@ const gallerySections: GallerySectionData[] = [
 
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939699/dji_mimo_20260302_175014_0_1772510343858_photo_admkvk.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617178/DSC09699-HDR-Edit.jpg",
         alt: "Interior image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772940663/dji_mimo_20260302_174346_0_1772510316232_photo_qehx5t.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617158/DJI_20240828155306_0125_D-Edit-2.jpg",
         alt: "Interior image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291649/0000009575_hzo6ny.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617177/DSC09898-HDR-Edit.jpg",
         alt: "Interior image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896466/IMG-20250927-WA0061_wslrzu.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617158/DSC09800-HDR-Edit.jpg",
         alt: "Interior image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773291305/DSC02596_iotcth.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617133/DSC09850-HDR-Edit.jpg",
         alt: "Interior image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773292009/WhatsApp_Image_2024-05-07_at_13.13.09_npcyfu.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617062/DJI_20240828155015_0115_D-Edit-2.jpg",
         alt: "Interior image 6",
       },
       {
@@ -97,6 +109,10 @@ const gallerySections: GallerySectionData[] = [
         src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
         alt: "Interior image 8",
       },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789617039/DSC09907-HDR-Edit.jpg",
+        alt: "Interior image 9",
+      },
     ],
   },
 
@@ -105,29 +121,42 @@ const gallerySections: GallerySectionData[] = [
 
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789627802/DSC01249-HDR.webp",
         alt: "Vibe image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789627831/DSC07599.webp",
         alt: "Vibe image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773978356/DSC02767HDR-3-2_1_ksyd3g.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789627810/DSC01234-HDR.webp",
         alt: "Vibe image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789625112/DSC07266.webp",
         alt: "Vibe image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789625067/DSC01259-HDR.webp",
         alt: "Vibe image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629052/DSC01244-HDR.webp",
         alt: "Vibe image 6",
       },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789627822/Untitled_design.webp",
+        alt: "Vibe image 7",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629060/DSC07378.webp",
+        alt: "Vibe image 8",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629052/DSC07492_1.webp",
+        alt: "Vibe image 9",
+      },
+
     ],
   },
 
@@ -136,27 +165,27 @@ const gallerySections: GallerySectionData[] = [
 
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630287/6f33740cdb7748b014a9dacf62a297161d574833.jpg",
         alt: "Vibe image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630286/f682588ea24fd03462b5d64f238dc9301f24c941.jpg",
         alt: "Vibe image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773978356/DSC02767HDR-3-2_1_ksyd3g.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630283/9eab05ec3482515bee0bc58438b37edf1097bb8b.jpg",
         alt: "Vibe image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630274/1ecef73096c5baa02cdf86e00103a5e3c6c3400c.jpg",
         alt: "Vibe image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630266/ca04bdc7704c2c24c67c3fbbf0f03d8e7ca08a59.jpg",
         alt: "Vibe image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630272/67b024cb194bd532284ae8bdd2ea438c1ea24dc4.jpg",
         alt: "Vibe image 6",
       },
     ],
@@ -167,29 +196,41 @@ const gallerySections: GallerySectionData[] = [
 
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629708/DSC01032-HDR-Edit.jpg",
         alt: "Vibe image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629724/DSC01118-HDR-Edit.jpg",
         alt: "Vibe image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773978356/DSC02767HDR-3-2_1_ksyd3g.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629718/DSC01044-HDR-Edit.jpg",
         alt: "Vibe image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629700/DSC01081-HDR-2-Edit.webp",
         alt: "Vibe image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629701/DSC00987-HDR.webp",
         alt: "Vibe image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789629687/DSC01091-HDR-2-Edit.webp",
         alt: "Vibe image 6",
       },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630037/DSC01184-HDR.webp",
+        alt: "Vibe image 7",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630048/DSC01159-HDR.webp",
+        alt: "Vibe image 8",
+      },
+      {
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630049/DSC01174-HDR.webp",
+        alt: "Vibe image 9",
+      }
     ],
   },
 
@@ -198,27 +239,27 @@ const gallerySections: GallerySectionData[] = [
 
     items: [
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896456/IMG-20250927-WA0037_1_p0gqeo.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630227/cf783c3e1ae34d7fbe77bb2111f1d5bc67482b53.webp",
         alt: "Vibe image 1",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772939946/dji_mimo_20260302_175042_0_1772510346779_photo_q4dogy.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630226/ed42b7f7408c234fbb8ae02612e98e3026347d02.webp",
         alt: "Vibe image 2",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773978356/DSC02767HDR-3-2_1_ksyd3g.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630221/6c90fcd650a749fcad07498b727f3fd005fbdc3a.webp",
         alt: "Vibe image 3",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772896463/IMG-20250927-WA0050_1_gl041w.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630216/52f03e77f51ad297f8b9560a1fd6100abc461a39.webp",
         alt: "Vibe image 4",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1773247585/DSC02330HDR-2-Edit_eatoc4.webp",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630213/a73b2b915da3243c6e83494b996f52bf478f3c15.webp",
         alt: "Vibe image 5",
       },
       {
-        src: "https://res.cloudinary.com/dpjmcup95/image/upload/v1772963284/IMG-20250927-WA0034_plev6i.jpg",
+        src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789630211/f025ffb5e50465acc6588e219025b3a454294c05.webp",
         alt: "Vibe image 6",
       },
     ],

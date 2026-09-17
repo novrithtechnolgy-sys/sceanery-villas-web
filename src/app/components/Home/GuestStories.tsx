@@ -104,16 +104,16 @@ export default function GuestStories() {
       {
         id: "1",
         quote:
-          "We stayed at Villa Mandalay for a week and didn’t want to leave. The view from the pool felt unreal, and the team made everything effortless for us.",
-        author: "Lorenso de Almeda",
-        country: "United Kingdom",
+          "The villa was extremely awesome place for a group of people to hang around.  They have swimming pool access as well. Full villa can accommodate upto 20 to 25 people. We had lots of fun over there. They have a chef in place, so that it you want anything, he can make it for you, but you have to communicate to them prior about your requirements.  And we need to get the things or else they also get it for us. Had a plesant time over there.",
+        author: "Suthar Shan",
+        country: "Local Guide",
       },
       {
         id: "2",
         quote:
-          "The villa felt like our own private world. Beautiful design, great food, and the team handled everything perfectly.",
-        author: "Daniel",
-        country: "Germany",
+          "Had a wonderful time at Tara garden, the area is beautiful surrounded by greenery and animal noises. Beds are comfy, toilets are clean. But most important the service here is outstanding. The chef cooks wonderful food, and the manager went to get me medicine because i was sick. They also arranged a birthday party for us. Really can’t recommend this place enough. Thank you",
+        author: "Krishtan Kane",
+        country: "Local Guide",
       },
       {
         id: "3",
