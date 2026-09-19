@@ -263,11 +263,11 @@ export default function InquirySection() {
 
                 <p
                   className="mt-4 font-body text-[14px] text-gray-800">
-                  +94 77 123 4567
-                  <span className="mx-2">
+                  +94 77 908 2515
+                  {/* <span className="mx-2">
                     /
                   </span>
-                  +94 77 123 4567
+                  +94 77 123 4567 */}
                 </p>
               </div>
 
@@ -305,7 +305,7 @@ export default function InquirySection() {
                 <p
                   className="mt-4 font-body text-[14px] text-gray-800"
                 >
-                  info@sceneryvillassrilanka.com
+                  hello@sceneryvillassrilanka.com
                 </p>
               </div>
 
@@ -478,16 +478,7 @@ export default function InquirySection() {
 
                   {/* Dates */}
 
-                  <div
-                    className="
-                      grid
-                      grid-cols-1
-                      gap-7
-
-                      md:grid-cols-2
-                      md:gap-6
-                    "
-                  >
+                  <div className="grid grid-cols-1 gap-7 md:grid-cols-2 md:gap-6">
 
                     <Field
                       label="Check in Date*"

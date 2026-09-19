@@ -11,16 +11,36 @@ export default function FAQSection() {
   const faqs: FAQItem[] = useMemo(
     () => [
       {
-        q: "What time is Check in and Check out?",
-        a: "Standard Check in is at 2:00 PM and Check out is at 11:00 AM. Early check in or late check out can be arranged subject to availability.",
+        q: "What are the check-in and check-out times?",
+        a: "Check-in begins at 2:00 PM, and check-out is at 12:00 PM. A standard one-night booking includes a 22-hour stay.",
       },
       {
-        q: "Do you provide airport transfers?",
-        a: "Yes. Private airport transfers can be arranged on request. Please share your flight details and arrival time, and we’ll confirm availability and rates.",
+        q: "Can we request an extended stay or arrive late at night?",
+        a: "Additional hours can be requested and granted based on availability for a fee of LKR 2,000 per hour. However, please note that for security and comfort, arrivals and departures are not permitted after 10:00 PM.",
       },
       {
-        q: "Is breakfast included?",
-        a: "Breakfast inclusion depends on your package. If it’s not included, you can add breakfast (and other meal plans) during booking or via our team.",
+        q: "Are chef services available for meals?",
+        a: "Yes, a chef can prepare dinner on your check-in day and breakfast on your check-out day. Any extra meals requested will be charged an additional Rs5000.",
+      },
+      {
+        q:"Are there any restrictions on noise or music?",
+        a:"To ensure a peaceful environment for all guests, loud music or noise is strictly not permitted after 11:00 PM."
+      },
+      {
+        q:"What is the cancellation and rescheduling policy?",
+        a:"Advance payments are non-refundable. Guests are allowed to reschedule their stay within 30 days of the original booking, provided they give at least 14 days' notice. The number of rooms or villas booked is fixed and cannot be reduced, though you can increase them based on availability."
+      },
+      {
+        q:"Can we bring extra guests beyond the booking capacity?",
+        a:"The villa strictly allows no more than the mentioned guest count. Additional guests will only be accommodated with prior approval and if feasible."
+      },
+      {
+        q:"Is smoking allowed on the property?",
+        a:"Smoking is prohibited inside the villa. It is only allowed in designated outdoor areas."
+      },
+      {
+        q:"How are property damages handled?",
+        a:"Guests are fully responsible for any damages incurred during their stay, and these will be charged separately."
       },
     ],
     []
