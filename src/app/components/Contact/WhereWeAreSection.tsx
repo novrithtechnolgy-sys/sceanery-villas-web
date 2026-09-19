@@ -17,7 +17,7 @@ export default function WhereWeAreSection() {
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
   return (
-    <section className="py-20">
+    <section className="py-[32px] md:py-[64px] pb-[64px] md:pb-[128px]">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           {/* Left: Map */}

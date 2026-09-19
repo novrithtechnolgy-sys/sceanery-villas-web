@@ -14,7 +14,7 @@ export default function AutoScrollCarousel({
   children,
   cardWidth = 440,
   gap = 40,
-  autoSpeed = 0.5,
+  autoSpeed = 0.4,
 }: Props) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);

@@ -30,7 +30,7 @@ export default function FAQSection() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-10 md:py-20">
+      <div className="mx-auto max-w-6xl px-6 py-[32px] md:py-[64px]">
         {/* Title */}
         <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center">
           <span className="">Frequently Asked</span>{" "}

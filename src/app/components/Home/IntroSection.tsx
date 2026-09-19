@@ -16,7 +16,27 @@ const images = [
     alt: "Scenery Villas experience",
   },
   {
-    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789033929/fff66d200014e784835fa8b0ab02d813857088c3.jpg",
+    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789718280/IMG-20240511-WA0042.jpg",
+    alt: "Sri Lanka villa experience",
+  },
+  {
+    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789718279/IMG-20240511-WA0030.jpg",
+    alt: "Scenery Villas experience",
+  },
+  {
+    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789718279/IMG-20240511-WA0117.jpg",
+    alt: "Sri Lanka villa experience",
+  },
+  {
+    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789718279/IMG-20240511-WA0060.jpg",
+    alt: "Sri Lanka villa experience",
+  },
+  {
+    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789718278/IMG-20240511-WA0040.jpg",
+    alt: "Sri Lanka villa experience",
+  },
+  {
+    src: "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789718271/IMG-20240511-WA0096.jpg",
     alt: "Sri Lanka villa experience",
   },
 ];

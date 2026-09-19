@@ -22,7 +22,7 @@ export default function AboutPage() {
                 title="Hospitality"
                 highlightTitle="Built from a Love for Sri Lanka"
                 paragraph="We are not a hotel chain. We are a collection of private homes, curated for travelers who seek privacy, authenticity, and a deeper connection to Sri Lanka."
-                image="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789096735/c28c691848d9f0cf08e054d3032a4a2ed0ad9301.jpg"
+                image="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789790151/c28c691848d9f0cf08e054d3032a4a2ed0ad9302.jpg"
              />
             <SceneryStory />
             <FounderNote />

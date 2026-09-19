@@ -221,7 +221,7 @@ export default function DiscoverBentotaSection() {
   ];
 
   return (
-    <section className="py-10 md:py-[64px] bg-white">
+    <section className="py-[32px] md:py-[64px] bg-white">
       <Container>
         {/* Header */}
         <div className="text-center max-w-6xl mx-auto">

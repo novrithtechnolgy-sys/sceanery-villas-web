@@ -13,7 +13,7 @@ export default function VillaGalleryCarousel({
   }
 
   return (
-    <section className="w-full overflow-hidden py-10 md:py-20">
+    <section className="w-full overflow-hidden py-[32px] md:py-[64px]">
       <div className="mt-6 overflow-hidden md:mt-12  md:px-0">
         <AutoScrollCarousel>
           {items.map((imgObj, i) => (

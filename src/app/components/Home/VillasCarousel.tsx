@@ -315,35 +315,8 @@ export default function VillasCarousel() {
 
   const total = villas.length;
 
-  /* =========================================================
-     LOADING
-  ========================================================= */
 
-  if (loading) {
-    return (
-      <section className="bg-white py-20">
-        <div className="text-center font-body text-gray-500">
-          Loading villas...
-        </div>
-      </section>
-    );
-  }
-
-  /* =========================================================
-     EMPTY
-  ========================================================= */
-
-  if (!total) {
-    return (
-      <section className="bg-white py-20">
-        <div className="text-center font-body text-gray-500">
-          No villas found.
-        </div>
-      </section>
-    );
-  }
-
-  /* =========================================================
+ /* =========================================================
      DESKTOP SETTINGS
   ========================================================= */
 
@@ -369,6 +342,26 @@ export default function VillasCarousel() {
         : prev - 1
     );
   };
+
+    /* =========================================================
+     DESKTOP AUTO SCROLL
+  ========================================================= */
+
+  useEffect(() => {
+    if (total <= visibleCards) return;
+
+    const interval = setInterval(() => {
+      setIndex((prev) =>
+        prev >= maxDesktopIndex
+          ? 0
+          : prev + 1
+      );
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [total, maxDesktopIndex]);
 
   /* =========================================================
      MOBILE SETTINGS
@@ -439,6 +432,38 @@ export default function VillasCarousel() {
     setTouchEnd(null);
   };
 
+
+  /* =========================================================
+     LOADING
+  ========================================================= */
+
+  if (loading) {
+    return (
+      <section className="bg-white py-20">
+        <div className="text-center font-body text-gray-500">
+          Loading villas...
+        </div>
+      </section>
+    );
+  }
+
+  /* =========================================================
+     EMPTY
+  ========================================================= */
+
+  if (!total) {
+    return (
+      <section className="bg-white py-20">
+        <div className="text-center font-body text-gray-500">
+          No villas found.
+        </div>
+      </section>
+    );
+  }
+
+  
+
+ 
   return (
     <>
       {/* =====================================================

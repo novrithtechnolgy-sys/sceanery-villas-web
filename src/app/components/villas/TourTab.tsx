@@ -19,7 +19,7 @@ export default function TourTab({ villa }: { villa: any }) {
     : "";
 
   return (
-    <section className="pt-10 pb-10 md:pt-16 md:pb-20">
+    <section className="py-[32px] md:py-[64px]">
       <Container>
         <div className="grid items-center gap-8 md:gap-16 lg:grid-cols-2">
 

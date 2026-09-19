@@ -186,7 +186,7 @@ export default function WhyDifferent() {
   };
 
   return (
-    <section className="bg-white py-10 md:py-20">
+    <section className="bg-white py-[32px] md:py-[64px]">
 
       {/* =====================================================
           DESKTOP

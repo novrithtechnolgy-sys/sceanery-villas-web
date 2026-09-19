@@ -32,7 +32,7 @@ export default function GalleryTab({ villa }: { villa: any }) {
   }
 
   return (
-    <div className="py-10 md:py-20">
+    <div className="py-[32px] md:py-[64px]">
       <Container>
       {villa.gallery.map((item: any, i: number) => {
         const isYoutube = item.type === "youtube";

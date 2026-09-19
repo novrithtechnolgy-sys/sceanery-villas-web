@@ -20,7 +20,7 @@ export default function ReadyEscapeSection() {
 
 
   return (
-    <section className="py-10 pb-20 md:pb-30 md:py-[64px] bg-white">
+    <section className="py-[32px] pb-[64px] md:pb-[128px] md:py-[64px] bg-white">
       <Container>
         <div className="relative overflow-hidden rounded-[30px] min-h-[420px]">
 
