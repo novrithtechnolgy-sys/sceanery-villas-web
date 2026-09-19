@@ -14,7 +14,7 @@ export default function WhereWeAreSection() {
   const embedSrc = `https://www.google.com/maps?q=${lat},${lng}&z=10&output=embed`;
 
   // ✅ Directions button link
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+  const directionsUrl = `https://www.google.com/maps/dir/Colombo+Bandaranaike+International+Airport,+Airport+and+Aviation+Services+(Sri+Lanka)+(Private)+Limited,+Canada+Friendship+Rd,+Katunayake+11450/6.41891,80.00597/@6.799697,79.6258073,10z/data=!3m1!4b1!4m14!4m13!1m10!1m1!1s0x3ae2efb735f22d5d:0x6ebd702103828b37!2m2!1d79.8842495!2d7.1801543!3m4!1m2!1d80.0231296!2d6.5545394!3s0x3ae233f1c9ab2039:0x61edfc55775a3d58!1m0!3e0?entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D`;
 
   return (
     <section className="py-[32px] md:py-[64px] pb-[64px] md:pb-[128px]">

@@ -91,7 +91,7 @@ function SocialCard({
 
 export default function VillaContact() {
   return (
-    <section className="bg-white py-[32px] md:py-[64px]">
+    <section className="bg-white py-[32px] md:py-[64px] pb-[64px] md:pb-[128px]">
       <Container>
 
         {/* =====================================================

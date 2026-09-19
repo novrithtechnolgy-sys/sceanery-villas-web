@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Phone,
@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import Button from "../Button";
+import DateInput from "../dateInput";
 
 /* =========================================================
    TYPES
@@ -213,7 +214,7 @@ export default function InquirySection() {
       if (!res.ok) {
         throw new Error(
           data?.message ||
-            "Something went wrong."
+          "Something went wrong."
         );
       }
 
@@ -273,19 +274,14 @@ export default function InquirySection() {
               {/* Visit Us */}
 
               <div className="flex flex-col items-center md:items-start">
-                <MapPin strokeWidth={1.8} className="h-8 w-8 text-[#FF751F] md:h-9 md:w-9"/>
+                <MapPin strokeWidth={1.8} className="h-8 w-8 text-[#FF751F] md:h-9 md:w-9" />
 
                 <h3 className="mt-4 font-body text-[18px] md:text-[20px] font-semibold text-gray-900">
                   Visit Us
                 </h3>
 
                 <p
-                  className="
-                    mt-4
-                    font-body
-                    text-[14px]
-                    text-gray-800
-                  "
+                  className="mt-4 font-body text-[14px] text-gray-800"
                 >
                   122/2, Bentota,
                   Sri Lanka
@@ -296,36 +292,18 @@ export default function InquirySection() {
 
               <div className="flex flex-col items-center md:items-start">
                 <Mail
-                  className="
-                    h-8
-                    w-8
-                    text-[#FF751F]
-                    md:h-9
-                    md:w-9
-                  "
+                  className="h-8 w-8 text-[#FF751F] md:h-9 md:w-9"
                   strokeWidth={1.8}
                 />
 
                 <h3
-                  className="
-                    mt-4
-                    font-body
-                    text-[18px]
-                    md:text-[20px]
-                    font-semibold
-                    text-gray-900
-                  "
+                  className="mt-4 font-body text-[18px] md:text-[20px] font-semibold text-gray-900"
                 >
                   Email Us
                 </h3>
 
                 <p
-                  className="
-                    mt-4
-                    font-body
-                    text-[14px]
-                    text-gray-800
-                  "
+                  className="mt-4 font-body text-[14px] text-gray-800"
                 >
                   info@sceneryvillassrilanka.com
                 </p>
@@ -339,24 +317,10 @@ export default function InquirySection() {
           ================================================= */}
 
           <div
-            className="
-              lg:col-span-7
-              xl:col-span-7
-            "
+            className="lg:col-span-7 xl:col-span-7"
           >
             <div
-              className="
-                rounded-[26px]
-                bg-[#F5F5F5]
-                px-6
-                py-8
-
-                md:px-10
-                md:py-10
-
-                xl:px-12
-                xl:py-12
-              "
+              className="rounded-[26px] bg-[#F5F5F5] px-6 py-8 md:px-10 md:py-10 xl:px-12 xl:py-12"
             >
 
               <form
@@ -403,11 +367,10 @@ export default function InquirySection() {
                       font-body
                       text-[14px]
 
-                      ${
-                        status.type ===
+                      ${status.type ===
                         "success"
-                          ? "border-green-200 bg-green-50 text-green-700"
-                          : "border-red-200 bg-red-50 text-red-700"
+                        ? "border-green-200 bg-green-50 text-green-700"
+                        : "border-red-200 bg-red-50 text-red-700"
                       }
                     `}
                   >
@@ -502,82 +465,15 @@ export default function InquirySection() {
                     label="Select a Villa*"
                     htmlFor="villa"
                   >
-                    <div className="relative">
-                      <select
-                        id="villa"
-                        value={
-                          form.villa
-                        }
-                        onChange={(e) =>
-                          onChange(
-                            "villa",
-                            e.target.value
-                          )
-                        }
-                        disabled={
-                          loadingVillas
-                        }
-                        className="
-                          w-full
-                          appearance-none
-                          bg-transparent
-                          pb-3
-                          pr-8
-                          font-body
-                          text-[14px]
-                          text-gray-700
-                          outline-none
-                          disabled:opacity-60
-                        "
-                      >
-                        <option
-                          value=""
-                          disabled
-                        >
-                          {loadingVillas
-                            ? "Loading villas..."
-                            : ""}
-                        </option>
-
-                        {villas.map(
-                          (villa) => (
-                            <option
-                              key={
-                                villa.slug
-                              }
-                              value={
-                                villa.title
-                              }
-                            >
-                              {
-                                villa.title
-                              }
-                            </option>
-                          )
-                        )}
-                      </select>
-
-                      <ChevronDown
-                        className="
-                          pointer-events-none
-                          absolute
-                          right-0
-                          top-1/2
-                          h-5
-                          w-5
-                          -translate-y-1/2
-                          text-gray-600
-                        "
-                      />
-
-                      <div
-                        className="
-                          h-px
-                          w-full
-                          bg-gray-400/50
-                        "
-                      />
-                    </div>
+                    <VillaSelect
+                      id="villa"
+                      villas={villas}
+                      value={form.villa}
+                      loading={loadingVillas}
+                      onChange={(value) =>
+                        onChange("villa", value)
+                      }
+                    />
                   </Field>
 
                   {/* Dates */}
@@ -597,36 +493,28 @@ export default function InquirySection() {
                       label="Check in Date*"
                       htmlFor="checkIn"
                     >
-                      <DateInput
-                        id="checkIn"
-                        value={
-                          form.checkIn
-                        }
-                        onChange={(e) =>
-                          onChange(
-                            "checkIn",
-                            e.target.value
-                          )
-                        }
-                      />
+                        <DateInput
+                          id="checkIn"
+                          value={form.checkIn}
+                          onChange={(value) =>
+                            onChange("checkIn", value)
+                          }
+                          minDate={new Date()}
+                        />
                     </Field>
 
                     <Field
                       label="Check out Date*"
                       htmlFor="checkOut"
                     >
-                      <DateInput
-                        id="checkOut"
-                        value={
-                          form.checkOut
-                        }
-                        onChange={(e) =>
-                          onChange(
-                            "checkOut",
-                            e.target.value
-                          )
-                        }
-                      />
+                        <DateInput
+                          id="checkOut"
+                          value={form.checkIn}
+                          onChange={(value) =>
+                            onChange("checkOut", value)
+                          }
+                          minDate={new Date()}
+                        />
                     </Field>
 
                   </div>
@@ -659,39 +547,20 @@ export default function InquirySection() {
                     label="Message or Special Requests*"
                     htmlFor="message"
                   >
-                    <div>
-                      <textarea
-                        id="message"
-                        value={
-                          form.message
-                        }
-                        onChange={(e) =>
-                          onChange(
-                            "message",
-                            e.target.value
-                          )
-                        }
-                        rows={3}
-                        className="
-                          w-full
-                          resize-none
-                          bg-transparent
-                          pb-3
-                          font-body
-                          text-[14px]
-                          text-gray-900
-                          outline-none
-                        "
-                      />
-
-                      <div
-                        className="
-                          h-px
-                          w-full
-                          bg-gray-500/70
-                        "
-                      />
-                    </div>
+                    <textarea
+                      id="message"
+                      value={
+                        form.message
+                      }
+                      onChange={(e) =>
+                        onChange(
+                          "message",
+                          e.target.value
+                        )
+                      }
+                      rows={3}
+                      className={`${fieldControlClass} resize-none`}
+                    />
                   </Field>
 
                   {/* Submit */}
@@ -721,6 +590,96 @@ export default function InquirySection() {
 /* =========================================================
    FIELD
 ========================================================= */
+
+const fieldLineClass = "border-gray-400";
+const fieldTextClass = "font-body text-[14px] text-gray-900";
+const fieldControlClass = `w-full appearance-none bg-transparent border-0 border-b ${fieldLineClass} pb-3 ${fieldTextClass} outline-none`;
+
+function VillaSelect({
+  id,
+  villas,
+  value,
+  loading,
+  onChange,
+}: {
+  id: string;
+  villas: VillaOption[];
+  value: string;
+  loading: boolean;
+  onChange: (value: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onPointerDown(event: MouseEvent) {
+      if (!wrapRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
+  return (
+    <div ref={wrapRef} className="relative">
+      <button
+        id={id}
+        type="button"
+        disabled={loading}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        onClick={() => setOpen((prev) => !prev)}
+        className={`flex w-full items-center justify-between bg-transparent border-0 border-b ${fieldLineClass} pb-3 ${fieldTextClass} outline-none disabled:opacity-60`}
+      >
+        <span>{loading ? "Loading villas..." : value || "\u00A0"}</span>
+        <ChevronDown
+          className={`h-5 w-5 shrink-0 text-gray-900 transition-transform ${open ? "rotate-180" : ""
+            }`}
+        />
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute left-0 right-0 top-full z-20 mt-2 max-h-72 overflow-auto rounded-xl border border-gray-400 bg-white px-1 py-2 shadow-lg"
+        >
+          {villas.map((villa) => {
+            const selected = villa.title === value;
+
+            return (
+              <li key={villa.slug} role="option" aria-selected={selected}>
+                <button
+                  type="button"
+                  className={`w-full rounded-lg px-3 py-2 text-left ${fieldTextClass} hover:bg-black/5 ${selected ? "font-semibold" : ""
+                    }`}
+                  onClick={() => {
+                    onChange(villa.title);
+                    setOpen(false);
+                  }}
+                >
+                  {villa.title}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 function Field({
   label,
@@ -762,28 +721,10 @@ function UnderlineInput(
   props: React.InputHTMLAttributes<HTMLInputElement>
 ) {
   return (
-    <div>
-      <input
-        {...props}
-        className="
-          w-full
-          bg-transparent
-          pb-3
-          font-body
-          text-[14px]
-          text-gray-700
-          outline-none
-        "
-      />
-
-      <div
-        className="
-          h-px
-          w-full
-          bg-gray-500/70
-        "
-      />
-    </div>
+    <input
+      {...props}
+      className={fieldControlClass}
+    />
   );
 }
 
@@ -791,34 +732,3 @@ function UnderlineInput(
    DATE INPUT
 ========================================================= */
 
-function DateInput(
-  props: React.InputHTMLAttributes<HTMLInputElement>
-) {
-  return (
-    <div className="relative">
-      <input
-        {...props}
-        type="date"
-        className="
-          w-full
-          appearance-none
-          bg-transparent
-          pb-3
-          pr-8
-          font-body
-          text-[14px]
-          text-gray-700
-          outline-none
-        "
-      />
-
-      <div
-        className="
-          h-px
-          w-full
-          bg-gray-500/70
-        "
-      />
-    </div>
-  );
-}

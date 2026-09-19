@@ -137,11 +137,14 @@ export default function Footer() {
 /* ---------- Small Components ---------- */
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
+  const active = href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <li>
       <Link
         href={href}
-        className="hover:text-white transition duration-300"
+        className={`hover:text-white transition duration-300 ${active ? "font-bold" : ""}`}
       >
         {children}
       </Link>

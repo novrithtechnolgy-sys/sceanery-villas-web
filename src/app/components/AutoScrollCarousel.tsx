@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import ArrowButton from "./ArrowButton";
 
 type Props = {
   children: React.ReactNode[];
@@ -17,7 +16,9 @@ export default function AutoScrollCarousel({
   autoSpeed = 0.4,
 }: Props) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
-  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+
+  const animationRef = useRef<number | null>(null);
+  const accumulatedRef = useRef(0);
 
   const items = useMemo(() => {
     return Array.isArray(children) ? children : [children];
@@ -29,43 +30,66 @@ export default function AutoScrollCarousel({
 
   useEffect(() => {
     const el = scrollRef.current;
+
     if (!el || items.length === 0) return;
 
-    const halfWidth = el.scrollWidth / 2;
+    accumulatedRef.current = 0;
 
-    el.scrollLeft = 0;
-
-    autoScrollRef.current = setInterval(() => {
-      if (!scrollRef.current) return;
-
+    const animate = () => {
       const node = scrollRef.current;
-      node.scrollLeft += autoSpeed;
 
+      if (!node) return;
+
+      const halfWidth = node.scrollWidth / 2;
+
+      // Accumulate fractional movement
+      accumulatedRef.current += autoSpeed;
+
+      // Only move when we have at least 1px
+      const pixelsToMove = Math.floor(accumulatedRef.current);
+
+      if (pixelsToMove > 0) {
+        node.scrollLeft += pixelsToMove;
+
+        accumulatedRef.current -= pixelsToMove;
+      }
+
+      // Infinite loop
       if (node.scrollLeft >= halfWidth) {
         node.scrollLeft -= halfWidth;
       }
-    }, 16);
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (autoScrollRef.current) clearInterval(autoScrollRef.current);
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
   }, [items.length, autoSpeed]);
 
   const normalizeScroll = () => {
     const el = scrollRef.current;
+
     if (!el) return;
 
     const halfWidth = el.scrollWidth / 2;
 
     if (el.scrollLeft >= halfWidth) {
       el.scrollLeft -= halfWidth;
-    } else if (el.scrollLeft < 0) {
+    }
+
+    if (el.scrollLeft < 0) {
       el.scrollLeft += halfWidth;
     }
   };
 
   const scrollByCard = (direction: "left" | "right") => {
     const el = scrollRef.current;
+
     if (!el) return;
 
     const amount = cardWidth + gap;
@@ -96,19 +120,6 @@ export default function AutoScrollCarousel({
           </div>
         ))}
       </div>
-
-      {/* <div className="mt-8 flex items-center justify-center gap-4 md:mt-16 mb-4 md:gap-6 z-40">
-        <ArrowButton
-          direction="left"
-          onClick={() => scrollByCard("left")}
-          disabled={false}
-        />
-        <ArrowButton
-          direction="right"
-          onClick={() => scrollByCard("right")}
-          disabled={false}
-        />
-      </div> */}
 
       <style jsx>{`
         div::-webkit-scrollbar {

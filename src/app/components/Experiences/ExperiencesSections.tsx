@@ -119,7 +119,6 @@ function ExperienceCard({
         <p
           className="
             mt-5
-            max-w-[390px]
             font-body
             text-[14px]
             leading-[1.9]
@@ -650,7 +649,7 @@ export default function ExperiencesSectionsSanity() {
   ======================================================= */
 
   return (
-    <section className="bg-white">
+    <section className="bg-white pb-[64px] md:pb-[128px]">
 
       {/* =================================================
           DESKTOP

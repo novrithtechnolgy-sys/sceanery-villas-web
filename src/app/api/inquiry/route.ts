@@ -69,6 +69,8 @@ export async function POST(req: Request) {
       },
     });
 
+    console.log(process.env.NEXT_PUBLIC_EMAIL_USER, process.env.NEXT_PUBLIC_EMAIL_PASS)
+
     const mailOptions = {
       from: `"${fullName}" <${email}>`,
       replyTo: email,
