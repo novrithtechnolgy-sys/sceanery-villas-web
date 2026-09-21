@@ -50,7 +50,7 @@ export default function FeaturedStory() {
                 "
               >
                 <Image
-                  src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789189212/cb56c508205319764905ac5c64656f960a29b322.jpg"
+                  src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789985914/4c5fac0180c828a73939354693005362402c4da5-1920x1280.webp"
                   alt="Why Bentota is the Perfect Alternative to Galle for Families"
                   fill
                   priority
@@ -113,8 +113,7 @@ export default function FeaturedStory() {
                 text-left
                   "
                 >
-                  Why Bentota is the Perfect
-                  Alternative to Galle for Families
+                  Discover Paradise: Your Ultimate Guide to Bentota's Sun, Sea & Adventure
                 </h2>
 
                 {/* Description */}
@@ -132,18 +131,14 @@ export default function FeaturedStory() {
                     text-left
                   "
                 >
-                  Galle Fort is famous, but Bentota offers
-                  the space, the river, and the golden
-                  beaches that families truly need to
-                  unwind. Discover why the "Gold Coast"
-                  should be your next family base.
+                  Galle Fort is famous, but Bentota offers the space, river, and golden beaches families truly need. Discover everything from thrilling water sports and river safaris to ancient temples and Ayurvedic spas—click to explore all our travel blogs and plan your getaway!
                 </p>
 
                 {/* Button */}
                 <Button
                   onClick={() =>
                     router.push(
-                      "/blogs/work-from-paradise-digital-nomad-guide-to-dharga"
+                      "https://www.bentotatravelblogs.com/"
                     )
                   }
                   className="

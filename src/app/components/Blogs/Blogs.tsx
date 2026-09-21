@@ -259,7 +259,7 @@ export default function BlogPage() {
                   ================================================= */}
 
                   <Link
-                    href={`/blogs/${post.slug.current}`}
+                    href={post.slug.current}
                     className="block"
                   >
                     <div
@@ -298,23 +298,21 @@ export default function BlogPage() {
                       <div
                         className="
                           absolute
-                          left-5
-                          top-5
+                          left-4
+                          top-4
                         "
                       >
                         <span
                           className="
-                          font-heading
-                          font-semibold
-                          bg-white/80
-                          px-3
-                          py-1
-                          rounded-full
-                          leading-tight
-                          text-gray-900
-                          transition-colors
-                          hover:text-[#FF751F]
-                          text-[14px]
+                  inline-flex
+                  rounded-full
+                  bg-white
+                  px-4
+                  py-2
+                  font-body
+                  text-[12px]
+                  text-gray-900
+                  shadow-sm
                           "
                         >
                           {post.categoryTitle}
@@ -330,7 +328,7 @@ export default function BlogPage() {
                   <div className="px-1 pt-7">
                     {/* Title */}
                     <Link
-                      href={`/blogs/${post.slug.current}`}
+                      href={post.slug.current}
                       className="block"
                     >
                       <h2
@@ -360,6 +358,7 @@ export default function BlogPage() {
                         text-gray-800
                         md:text-[14px]
                         lg:text-[14px]
+                        line-clamp-4
                       "
                     >
                       {post.excerpt || "—"}
@@ -367,7 +366,7 @@ export default function BlogPage() {
 
                     {/* Read More */}
                     <Link
-                      href={`/blogs/${post.slug.current}`}
+                      href={post.slug.current}
                       className="
                         mt-4
                         inline-flex
