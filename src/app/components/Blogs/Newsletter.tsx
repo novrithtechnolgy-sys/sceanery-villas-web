@@ -5,7 +5,7 @@ import Container from "../Container";
 
 export default function Newsletter() {
     return (
-        <section className="bg-white py-[32px] md:py-[64px]">
+        <section className="bg-white py-[32px] md:py-[64px] pb-[64px] md:pb-[128px]">
             <Container>
                 <div className="text-center max-w-6xl mx-auto">
                   {/* Title */}
