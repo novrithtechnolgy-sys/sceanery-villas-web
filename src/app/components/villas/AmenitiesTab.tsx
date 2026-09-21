@@ -21,7 +21,7 @@ export default function AmenitiesTab({ villa }: { villa: any }) {
   return (
     <section className="py-[32px] md:py-[64px]">
       <Container>
-      <div className="grid md:grid-cols-2 md:gap-16 items-center mt-8 md:mt-0 ">
+      <div className="grid md:grid-cols-2 md:gap-16 items-center">
 
         {/* LEFT IMAGE */}
         <div className="relative mt-8 md:mt-0 h-[300px] md:h-[460px] rounded-[20px] overflow-hidden bg-gray-100 order-last md:order-first">
@@ -39,18 +39,7 @@ export default function AmenitiesTab({ villa }: { villa: any }) {
         <div className="order-first md:order-last">
 
           {/* Title */}
-        <h2 className="                font-heading
-                text-[22px]
-                font-bold
-                tracking-[-0.5px]
-                text-gray-900
-                md:text-[32px]
-                md:leading-[42px]
-                xl:text-[38px]
-                xl:leading-[48px]
-                text-center
-                md:text-left
-                ">
+        <h2 className="font-heading text-[22px] font-bold tracking-[-0.5px] text-gray-900 md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px] text-center md:text-left">
             <span className="text-gray-700">Featured</span>{" "}
             <span className="font-semibold text-[#FF751F]">Amenities</span>
         </h2>

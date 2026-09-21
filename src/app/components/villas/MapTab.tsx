@@ -24,7 +24,7 @@ export default function MapTab({ villa }: { villa: any }) {
       <Container>
 
         <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center">
-          <span className="">Map By </span>
+          <span className="">Map by </span>
           <span className="text-[#FF751F]">{villaName}</span>
         </h2>
 

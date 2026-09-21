@@ -71,7 +71,6 @@ function FeatureCardDesktop({
           text-[14px]
           leading-[30px]
           text-gray-700
-
         "
       >
         {feature.description}
@@ -93,13 +92,13 @@ function FeatureCardMobile({
     <div className="w-full shrink-0">
       <div
         className="
+          flex
           min-h-[240px]
-          rounded-[24px]
-          border
+          flex-col
           items-center
           justify-start
-          flex
-          flex-col
+          rounded-[24px]
+          border
           border-gray-200
           bg-white
           p-6
@@ -114,13 +113,12 @@ function FeatureCardMobile({
         {/* Title */}
         <h3
           className="
+            text-center
             font-body
             text-[18px]
             font-semibold
             leading-[1.4]
             text-gray-900
-            text-center
-            md:text-left
           "
         >
           {feature.title}
@@ -130,12 +128,11 @@ function FeatureCardMobile({
         <p
           className="
             mt-4
+            text-center
             font-body
             text-[14px]
             leading-[1.9]
             text-gray-700
-            text-center
-            md:text-left
           "
         >
           {feature.description}
@@ -156,7 +153,7 @@ export default function WhyChooseSection() {
         id: "1",
         title: "Your Home in Sri Lanka",
         description:
-          "Enjoy an entire villa with a private pool, spacious living areas, and thoughtful amenities—all the comfort and freedom of a home away from home.",
+          "Enjoy an entire villa with a private pool, spacious living areas, and thoughtful amenities, all the comfort and freedom of a home away from home.",
         icon: (
           <LockKeyhole
             size={34}
@@ -216,16 +213,48 @@ export default function WhyChooseSection() {
   const lastX = useRef<number | null>(null);
   const dragging = useRef(false);
 
-  const mCanPrev = mIndex > 0;
-  const mCanNext = mIndex < total - 1;
+  /* =========================================================
+     MOBILE NAVIGATION
+     Circular / Infinite
+  ========================================================= */
+
+  const nextMobile = () => {
+    setMIndex((current) =>
+      current >= total - 1
+        ? 0
+        : current + 1
+    );
+  };
+
+  const prevMobile = () => {
+    setMIndex((current) =>
+      current <= 0
+        ? total - 1
+        : current - 1
+    );
+  };
+
+  /* =========================================================
+     POINTER DOWN
+  ========================================================= */
 
   const onPointerDown = (
     e: React.PointerEvent<HTMLDivElement>
   ) => {
     dragging.current = true;
+
     startX.current = e.clientX;
     lastX.current = e.clientX;
+
+    // Capture pointer so swipe doesn't get interrupted
+    e.currentTarget.setPointerCapture?.(
+      e.pointerId
+    );
   };
+
+  /* =========================================================
+     POINTER MOVE
+  ========================================================= */
 
   const onPointerMove = (
     e: React.PointerEvent<HTMLDivElement>
@@ -235,7 +264,13 @@ export default function WhyChooseSection() {
     lastX.current = e.clientX;
   };
 
-  const onPointerUp = () => {
+  /* =========================================================
+     POINTER UP
+  ========================================================= */
+
+  const onPointerUp = (
+    e: React.PointerEvent<HTMLDivElement>
+  ) => {
     if (
       !dragging.current ||
       startX.current === null ||
@@ -254,19 +289,28 @@ export default function WhyChooseSection() {
 
     const THRESHOLD = 50;
 
-    if (dx > THRESHOLD && mCanPrev) {
-      setMIndex((v) => Math.max(0, v - 1));
+    // Swipe RIGHT
+    if (dx > THRESHOLD) {
+      prevMobile();
     }
 
-    if (dx < -THRESHOLD && mCanNext) {
-      setMIndex((v) =>
-        Math.min(total - 1, v + 1)
-      );
+    // Swipe LEFT
+    if (dx < -THRESHOLD) {
+      nextMobile();
     }
+
+    e.currentTarget.releasePointerCapture?.(
+      e.pointerId
+    );
   };
+
+  /* =========================================================
+     POINTER CANCEL
+  ========================================================= */
 
   const onPointerCancel = () => {
     dragging.current = false;
+
     startX.current = null;
     lastX.current = null;
   };
@@ -282,17 +326,17 @@ export default function WhyChooseSection() {
         <div className="mb-8 md:mb-12">
           <h2
             className="
-                font-heading
-                text-[22px]
-                md:text-[32px]
-                xl:text-[38px]
-                font-semibold
-                md:leading-[42px]
-                xl:leading-[48px]
-                tracking-[-0.5px]
-                text-gray-900
-                text-center
-                md:text-left
+              text-center
+              font-heading
+              text-[22px]
+              font-semibold
+              tracking-[-0.5px]
+              text-gray-900
+              md:text-left
+              md:text-[32px]
+              md:leading-[42px]
+              xl:text-[38px]
+              xl:leading-[48px]
             "
           >
             <span className="text-gray-900">
@@ -311,10 +355,12 @@ export default function WhyChooseSection() {
 
         <div className="block sm:hidden">
 
+          {/* Mobile Slider */}
           <div className="overflow-hidden">
             <div
               className="
                 flex
+                touch-pan-y
                 transition-transform
                 duration-500
                 ease-out
@@ -324,7 +370,6 @@ export default function WhyChooseSection() {
                 transform: `translateX(-${
                   mIndex * 100
                 }%)`,
-                touchAction: "pan-y",
               }}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
@@ -342,31 +387,45 @@ export default function WhyChooseSection() {
             </div>
           </div>
 
-          {/* Mobile Controls */}
+          {/* =================================================
+              MOBILE CONTROLS
+          ================================================= */}
 
-          <div className="mt-8 flex items-center justify-center gap-4">
+          <div
+            className="
+              mt-8
+              flex
+              items-center
+              justify-center
+              gap-4
+            "
+          >
+            {/* Previous */}
             <ArrowButton
               direction="left"
-              disabled={!mCanPrev}
-              onClick={() =>
-                setMIndex((v) =>
-                  Math.max(0, v - 1)
-                )
-              }
+              disabled={false}
+              onClick={prevMobile}
             />
 
-            <div className="min-w-[40px] text-center font-body text-[14px] tabular-nums text-gray-800">
+            {/* Counter */}
+            <div
+              className="
+                min-w-[40px]
+                text-center
+                font-body
+                text-[14px]
+                tabular-nums
+                text-gray-800
+              "
+            >
               {mIndex + 1}/{total}
             </div>
 
+            {/* Next */}
             <ArrowButton
               direction="right"
-              disabled={!mCanNext}
-              onClick={() =>
-                setMIndex((v) =>
-                  Math.min(total - 1, v + 1)
-                )
-              }
+              disabled={false}
+              onClick={nextMobile}
             />
           </div>
         </div>
@@ -375,7 +434,16 @@ export default function WhyChooseSection() {
             DESKTOP
         ===================================================== */}
 
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div
+          className="
+            hidden
+            gap-5
+            sm:grid
+            sm:grid-cols-2
+            lg:grid-cols-4
+            lg:gap-6
+          "
+        >
           {features.map((feature) => (
             <FeatureCardDesktop
               key={feature.id}

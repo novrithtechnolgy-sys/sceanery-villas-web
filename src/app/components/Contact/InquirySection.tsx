@@ -500,7 +500,7 @@ export default function InquirySection() {
                     >
                         <DateInput
                           id="checkOut"
-                          value={form.checkIn}
+                          value={form.checkOut}
                           onChange={(value) =>
                             onChange("checkOut", value)
                           }

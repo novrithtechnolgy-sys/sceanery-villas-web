@@ -32,29 +32,19 @@ export default function FeatureTab({ villa }: { villa: any }) {
     <section className="py-[32px] md:py-[64px]">
 
         {/* Section Title */}
-        <h2 className="                font-heading
-                text-[22px]
-                font-bold
-                tracking-[-0.5px]
-                text-gray-900
-                md:text-[32px]
-                md:leading-[42px]
-                xl:text-[38px]
-                xl:leading-[48px]
-                text-center
-                md:mb-12">
+        <h2 className="font-heading text-[22px] font-bold tracking-[-0.5px] text-gray-900 md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px] text-center mb-8 md:mb-12">
           <span className="">Key</span>{" "}
           <span className="text-[#FF751F]">Features</span>
         </h2>
 
         {/* Mobile Slider */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <MobileFeatureCarousel cards={features}/>
 
-        </div>
+        </div> */}
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-8 mx-auto px-4 md:px-8 lg:px-12 xl:mx-auto xl:px-12 max-w-[1430px]">
+        <div className="grid md:grid-cols-2 gap-8 mx-auto px-4 md:px-8 lg:px-12 xl:mx-auto xl:px-12 max-w-[1430px]">
           {features.map((feature: any, i: number) => {
             const img = feature.image
               ? urlFor(feature.image).width(1400).quality(85).url()
@@ -65,7 +55,7 @@ export default function FeatureTab({ villa }: { villa: any }) {
                 key={i}
                 className="overflow-hidden bg-white"
               >
-                <div className="relative h-[340px] w-full rounded-[20px]">
+                <div className="relative h-[300px] md:h-[340px] w-full rounded-[20px]">
                   {img && (
                     <Image
                       src={img}
@@ -78,26 +68,12 @@ export default function FeatureTab({ villa }: { villa: any }) {
 
                 <div className="pt-8 px-1">
                   <div className="mb-4 flex items-center gap-8">
-                    <h3 className="              font-heading
-              text-[18px]
-              font-semibold
-              leading-tight
-              text-gray-900
-              transition-colors
-              hover:text-[#FF751F]
-              md:text-[20px]">
+                    <h3 className="font-heading text-[18px] font-semibold leading-tight text-gray-900 transition-colors hover:text-[#FF751F] md:text-[20px]">
                       {feature.title}
                     </h3>
                   </div>
 
-                  <p className="              mt-4
-    
-              font-body
-              text-[14px]
-              leading-[2]
-              text-gray-800
-              md:text-[14px]
-              lg:text-[14px]">
+                  <p className="mt-4 font-body text-[14px] leading-[2] text-gray-800 md:text-[14px] lg:text-[14px]">
                     {feature.desc}
                   </p>
                 </div>
@@ -124,10 +100,6 @@ function MobileFeatureCarousel({
 
   const total = cards.length;
 
-  /* =========================================================
-     NEXT
-  ========================================================= */
-
   const nextMobile = () => {
     setMobileIndex((prev) =>
       prev >= total - 1
@@ -136,10 +108,6 @@ function MobileFeatureCarousel({
     );
   };
 
-  /* =========================================================
-     PREVIOUS
-  ========================================================= */
-
   const prevMobile = () => {
     setMobileIndex((prev) =>
       prev <= 0
@@ -147,10 +115,6 @@ function MobileFeatureCarousel({
         : prev - 1
     );
   };
-
-  /* =========================================================
-     TOUCH START
-  ========================================================= */
 
   const handleTouchStart = (
     e: React.TouchEvent<HTMLDivElement>
@@ -162,10 +126,6 @@ function MobileFeatureCarousel({
     );
   };
 
-  /* =========================================================
-     TOUCH MOVE
-  ========================================================= */
-
   const handleTouchMove = (
     e: React.TouchEvent<HTMLDivElement>
   ) => {
@@ -174,9 +134,6 @@ function MobileFeatureCarousel({
     );
   };
 
-  /* =========================================================
-     TOUCH END
-  ========================================================= */
 
   const handleTouchEnd = () => {
     if (
@@ -205,9 +162,6 @@ function MobileFeatureCarousel({
     setTouchEnd(null);
   };
 
-  /* =========================================================
-     EMPTY
-  ========================================================= */
 
   if (!total) {
     return null;
@@ -216,31 +170,15 @@ function MobileFeatureCarousel({
   return (
     <div className="w-full overflow-hidden">
 
-      {/* =====================================================
-          MOBILE SLIDER
-      ===================================================== */}
-
       <div
-        className="
-          mt-8
-          overflow-hidden
-          pl-4
-          touch-pan-y
-        "
+        className="mt-8 overflow-hidden pl-4 touch-pan-y"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
 
         <div
-          className="
-            flex
-            gap-4
-            transition-transform
-            duration-500
-            ease-out
-            will-change-transform
-          "
+          className="flex gap-4 transition-transform duration-500 ease-out will-change-transform"
           style={{
             transform: `
               translateX(
@@ -268,26 +206,9 @@ function MobileFeatureCarousel({
                     card._id ||
                     index
                   }
-                  className="
-                    w-[calc(100vw-48px)]
-                    shrink-0
-                  "
-                >
+                  className="w-[calc(100vw-48px)] shrink-0">
 
-                  {/* =========================================
-                      IMAGE
-                  ========================================= */}
-
-                  <div
-                    className="
-                      relative
-                      h-[270px]
-                      w-full
-                      overflow-hidden
-                      rounded-[24px]
-                      bg-gray-100
-                    "
-                  >
+                  <div className="relative h-[270px] w-full overflow-hidden rounded-[24px] bg-gray-100">
 
                     {img && (
                       <Image
@@ -298,42 +219,20 @@ function MobileFeatureCarousel({
                         }
                         fill
                         sizes="calc(100vw - 48px)"
-                        className="
-                          object-cover
-                        "
+                        className="object-cover"
                       />
                     )}
 
                   </div>
 
-                  {/* =========================================
-                      CONTENT
-                  ========================================= */}
-
                   <div className="px-1 pt-6">
 
-                    <h4
-                      className="
-                        font-body
-                        text-[16px]
-                        font-semibold
-                        leading-tight
-                        text-gray-900
-                      "
-                    >
+                    <h4 className="font-body text-[16px] font-semibold leading-tight text-gray-900">
                       {card.title}
                     </h4>
 
                     {card.desc && (
-                      <p
-                        className="
-                          mt-4
-                          font-body
-                          text-[14px]
-                          leading-[1.9]
-                          text-gray-800
-                        "
-                      >
+                      <p className="mt-4 font-body text-[14px] leading-[1.9] text-gray-800">
                         {card.desc}
                       </p>
                     )}
@@ -349,22 +248,8 @@ function MobileFeatureCarousel({
 
       </div>
 
-      {/* =====================================================
-          MOBILE CONTROLS
-      ===================================================== */}
-
       {total > 1 && (
-        <div
-          className="
-            mt-7
-            flex
-            items-center
-            justify-center
-            gap-5
-          "
-        >
-
-          {/* LEFT */}
+        <div className="mt-7 flex items-center justify-center gap-5">
 
           <ArrowButton
             direction="left"
@@ -372,18 +257,7 @@ function MobileFeatureCarousel({
             onClick={prevMobile}
           />
 
-          {/* COUNTER */}
-
-          <div
-            className="
-              min-w-[40px]
-              text-center
-              font-body
-              text-[14px]
-              tabular-nums
-              text-gray-900
-            "
-          >
+          <div className="min-w-[40px] text-center font-body text-[14px] tabular-nums text-gray-900">
             {mobileIndex + 1}/{total}
           </div>
 

@@ -3,7 +3,11 @@
 "use client";
 
 import Image from "next/image";
-import React, { useMemo, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import Container from "../Container";
 
 type GiveBackImage = {
@@ -49,6 +53,24 @@ export default function GiveBackSection() {
       prev <= 0 ? total - 1 : prev - 1
     );
   };
+
+  /* =========================================================
+     MOBILE AUTO SCROLL
+  ========================================================= */
+
+  useEffect(() => {
+    if (total <= 1) return;
+
+    const interval = setInterval(() => {
+      setMobileIndex((prev) =>
+        prev >= total - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [total]);
 
   /* =========================================================
      MOBILE SWIPE
@@ -268,7 +290,11 @@ export default function GiveBackSection() {
         <div className="mt-8 w-full overflow-hidden">
 
           <div
-            className="w-full overflow-hidden touch-pan-y"
+            className="
+              w-full
+              overflow-hidden
+              touch-pan-y
+            "
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -282,7 +308,9 @@ export default function GiveBackSection() {
                 will-change-transform
               "
               style={{
-                transform: `translateX(-${mobileIndex * 100}%)`,
+                transform: `translateX(-${
+                  mobileIndex * 100
+                }%)`,
               }}
             >
               {images.map((image, index) => (
@@ -310,6 +338,7 @@ export default function GiveBackSection() {
                       sizes="calc(100vw - 48px)"
                       priority={index === 0}
                       className="object-cover"
+                      draggable={false}
                     />
                   </div>
                 </div>
@@ -321,12 +350,22 @@ export default function GiveBackSection() {
               MOBILE DOTS
           ================================================= */}
 
-          <div className="mt-7 flex items-center justify-center gap-[5px]">
+          <div
+            className="
+              mt-7
+              flex
+              items-center
+              justify-center
+              gap-[5px]
+            "
+          >
             {images.map((_, index) => (
               <button
                 key={index}
                 type="button"
-                aria-label={`Go to image ${index + 1}`}
+                aria-label={`Go to image ${
+                  index + 1
+                }`}
                 onClick={() =>
                   setMobileIndex(index)
                 }

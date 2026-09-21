@@ -34,63 +34,22 @@ function StoryCard({
   story: Story;
 }) {
   return (
-    <div
-      className="
-        w-full
-        shrink-0
-        rounded-[24px]
-        border
-        border-gray-300
-        bg-white
-        px-8
-        py-8
-         shadow-[0_8px_25px_rgba(0,0,0,0.04)]
-        md:px-8
-        md:py-8
-        h-full
-      "
-    >
+    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full">
       {/* Stars */}
       <Stars />
 
       {/* Quote */}
-      <p
-        className="
-          mt-6
-          font-body
-          text-[15px]
-          leading-[1.9]
-          font-regular
-          text-gray-900
-          md:text-[16px]
-          lg:leading-[1.75]
-        "
-      >
+      <p className="mt-6 font-body text-[15px] leading-[1.9] font-regular text-gray-900 md:text-[16px] lg:leading-[1.75]">
         {story.quote}
       </p>
 
       {/* Guest */}
       <div className="mt-6">
-        <p
-          className="
-            font-body
-            text-[16px]
-            font-bold
-            text-gray-900
-          "
-        >
+        <p className="font-body text-[16px] font-bold text-gray-900">
           {story.author}
         </p>
 
-        <p
-          className="
-            mt-1
-            font-body
-            text-[16px]
-            font-regular
-            text-gray-800
-          "
-        >
+        <p className="mt-1 font-body text-[16px] font-regular text-gray-800">
           {story.country}
         </p>
       </div>
@@ -118,14 +77,14 @@ export default function GuestStories() {
       {
         id: "3",
         quote:
-          "Amazing location and peaceful mornings. The experience was luxury without being over the top — just perfect.",
+          "Amazing location and peaceful mornings. The experience was luxury without being over the top, just perfect.",
         author: "Sofia",
         country: "Sweden",
       },
       {
         id: "4",
         quote:
-          "Our family loved every moment. The pool, the staff, the privacy — everything exceeded expectations.",
+          "Our family loved every moment. The pool, the staff, the privacy, everything exceeded expectations.",
         author: "Nina",
         country: "Australia",
       },
@@ -139,7 +98,7 @@ export default function GuestStories() {
       {
         id: "6",
         quote:
-          "The best part was how personal it felt — they really cared about every detail of our stay.",
+          "The best part was how personal it felt, they really cared about every detail of our stay.",
         author: "Maya",
         country: "Singapore",
       },
@@ -245,22 +204,7 @@ export default function GuestStories() {
         ===================================================== */}
 
         <div className="flex items-center justify-between">
-          <h2
-            className="
-                font-heading
-                text-[22px]
-                md:text-[32px]
-                xl:text-[38px]
-                font-semibold
-                md:leading-[42px]
-                xl:leading-[48px]
-                tracking-[-0.5px]
-                text-gray-900
-                text-center
-                md:text-left
-                w-full
-            "
-          >
+          <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-semibold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left w-full">
             <span className="text-gray-900">
               Guest{" "}
             </span>
@@ -278,16 +222,7 @@ export default function GuestStories() {
               onClick={prevDesktop}
             />
 
-            <span
-              className="
-                min-w-[45px]
-                text-center
-                font-body
-                text-[15px]
-                tabular-nums
-                text-gray-900
-              "
-            >
+            <span className="min-w-[45px] text-center font-body text-[15px] tabular-nums text-gray-900">
               {index + 1} / {total}
             </span>
 
@@ -305,13 +240,7 @@ export default function GuestStories() {
 
         <div className="mt-12 hidden overflow-hidden sm:block md:mt-12">
           <div
-            className="
-              flex
-              gap-6
-              transition-transform
-              duration-500
-              ease-out
-            "
+            className="flex gap-6 transition-transform duration-500 ease-out"
             style={{
               transform: `translateX(calc(-${
                 index * 33.333333
@@ -321,10 +250,7 @@ export default function GuestStories() {
             {stories.map((story) => (
               <div
                 key={story.id}
-                className="
-                  min-w-[calc(33.333333%_-_16px)]
-                  w-[calc(33.333333%_-_16px)]
-                "
+                className="min-w-[calc(33.333333%_-_16px)] w-[calc(33.333333%_-_16px)]"
               >
                 <StoryCard story={story} />
               </div>
@@ -339,13 +265,7 @@ export default function GuestStories() {
         <div className="mt-8 block sm:hidden">
           <div className="overflow-hidden">
             <div
-              className="
-                flex
-                transition-transform
-                duration-500
-                ease-out
-                will-change-transform
-              "
+              className="flex transition-transform duration-500 ease-out will-change-transform"
               style={{
                 transform: `translateX(-${
                   index * 100
@@ -383,15 +303,7 @@ export default function GuestStories() {
             />
 
             <span
-              className="
-                min-w-[45px]
-                text-center
-                font-body
-                text-[14px]
-                tabular-nums
-                text-gray-900
-              "
-            >
+              className="min-w-[45px] text-center font-body text-[14px] tabular-nums text-gray-900">
               {index + 1} / {total}
             </span>
 
