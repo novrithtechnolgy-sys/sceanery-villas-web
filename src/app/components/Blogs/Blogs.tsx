@@ -375,7 +375,6 @@ export default function BlogPage() {
                         font-body
                         text-[14px]
                         font-semibold
-                        italic
                         text-gray-900
                         transition-colors
                         hover:text-[#FF751F]
@@ -386,7 +385,7 @@ export default function BlogPage() {
                       </span>
 
                       <ArrowRight
-                        className="h-5 w-5"
+                        className="h-4 w-4"
                         strokeWidth={1.8}
                       />
                     </Link>

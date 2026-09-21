@@ -84,7 +84,7 @@ export default function JourneySection() {
             {/* CTA */}
             <div className="mt-8 md:mt-12 flex justify-center md:justify-start">
               <Link
-                href="/experiences"
+                href="https://srilankatourcompany.com/"
                 className="
                   inline-flex
                   items-center
