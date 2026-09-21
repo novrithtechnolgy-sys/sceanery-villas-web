@@ -61,7 +61,7 @@ const posts = [
 
 export default function FollowUsSection() {
   return (
-    <section className="w-full overflow-hidden bg-white py-[32px] md:py-[64px]">
+    <section className="w-full overflow-hidden bg-white py-[32px] md:py-[64px] pb-[64px] md:pb-[128px]">
 
       {/* =====================================================
           HEADER
