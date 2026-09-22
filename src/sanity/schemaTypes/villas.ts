@@ -78,11 +78,20 @@ defineField({
             "Example: Bedrooms, Sleeps, Private Pool",
           validation: (Rule) => Rule.required(),
         }),
+
+        defineField({
+          name: "value",
+          title: "Value",
+          type: "string",
+          description: "Example: 4, 6, Yes",
+          validation: (Rule) => Rule.required(),
+        }),
       ],
 
       preview: {
         select: {
           label: "label",
+          value: "value",
         },
 
         prepare({ label }) {

@@ -34,7 +34,7 @@ function StoryCard({
   story: Story;
 }) {
   return (
-    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full">
+    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 md:shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full">
       {/* Stars */}
       <Stars />
 

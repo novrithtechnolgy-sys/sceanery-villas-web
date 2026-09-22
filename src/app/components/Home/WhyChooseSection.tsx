@@ -27,52 +27,19 @@ function FeatureCardDesktop({
   feature: Feature;
 }) {
   return (
-    <div
-      className="
-        h-full
-        rounded-[24px]
-        border
-        border-gray-300
-        bg-white
-        px-8
-        py-8
-        shadow-[0_8px_25px_rgba(0,0,0,0.04)]
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)]
-      "
-    >
+    <div className="h-full rounded-[24px] border border-gray-300 bg-white px-8 py-8 shadow-[0_8px_25px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)]">
       {/* Icon */}
       <div className="mb-5 text-[#FF751F]">
         {feature.icon}
       </div>
 
       {/* Title */}
-      <h3
-        className="
-          max-w-[230px]
-          font-body
-          text-[20px]
-          font-semibold
-          leading-[1.4]
-          text-gray-900
-          lg:text-[21px]
-        "
-      >
+      <h3 className="max-w-[230px] font-body text-[20px] font-semibold leading-[1.4] text-gray-900 lg:text-[21px]">
         {feature.title}
       </h3>
 
       {/* Description */}
-      <p
-        className="
-          mt-4
-          font-body
-          text-[14px]
-          leading-[30px]
-          text-gray-700
-        "
-      >
+      <p className="mt-4 font-body text-[14px] leading-[30px] text-gray-700">
         {feature.description}
       </p>
     </div>
@@ -91,50 +58,19 @@ function FeatureCardMobile({
   return (
     <div className="w-full shrink-0">
       <div
-        className="
-          flex
-          min-h-[240px]
-          flex-col
-          items-center
-          justify-start
-          rounded-[24px]
-          border
-          border-gray-200
-          bg-white
-          p-6
-          shadow-[0_8px_25px_rgba(0,0,0,0.04)]
-        "
-      >
+        className="flex min-h-[240px] flex-col items-center justify-start rounded-[24px] border border-gray-200 bg-white p-6">
         {/* Icon */}
         <div className="mb-4 text-[#FF751F]">
           {feature.icon}
         </div>
 
         {/* Title */}
-        <h3
-          className="
-            text-center
-            font-body
-            text-[18px]
-            font-semibold
-            leading-[1.4]
-            text-gray-900
-          "
-        >
+        <h3 className="text-center font-body text-[18px] font-semibold leading-[1.4] text-gray-900">
           {feature.title}
         </h3>
 
         {/* Description */}
-        <p
-          className="
-            mt-4
-            text-center
-            font-body
-            text-[14px]
-            leading-[1.9]
-            text-gray-700
-          "
-        >
+        <p className="mt-4 text-center font-body text-[14px] leading-[1.9] text-gray-700">
           {feature.description}
         </p>
       </div>
@@ -252,9 +188,6 @@ export default function WhyChooseSection() {
     );
   };
 
-  /* =========================================================
-     POINTER MOVE
-  ========================================================= */
 
   const onPointerMove = (
     e: React.PointerEvent<HTMLDivElement>
@@ -264,9 +197,7 @@ export default function WhyChooseSection() {
     lastX.current = e.clientX;
   };
 
-  /* =========================================================
-     POINTER UP
-  ========================================================= */
+
 
   const onPointerUp = (
     e: React.PointerEvent<HTMLDivElement>
@@ -304,9 +235,6 @@ export default function WhyChooseSection() {
     );
   };
 
-  /* =========================================================
-     POINTER CANCEL
-  ========================================================= */
 
   const onPointerCancel = () => {
     dragging.current = false;
@@ -324,21 +252,7 @@ export default function WhyChooseSection() {
         ===================================================== */}
 
         <div className="mb-8 md:mb-12">
-          <h2
-            className="
-              text-center
-              font-heading
-              text-[22px]
-              font-semibold
-              tracking-[-0.5px]
-              text-gray-900
-              md:text-left
-              md:text-[32px]
-              md:leading-[42px]
-              xl:text-[38px]
-              xl:leading-[48px]
-            "
-          >
+          <h2 className="text-center font-heading text-[22px] font-semibold tracking-[-0.5px] text-gray-900 md:text-left md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px]">
             <span className="text-gray-900">
               Why{" "}
             </span>
@@ -357,15 +271,7 @@ export default function WhyChooseSection() {
 
           {/* Mobile Slider */}
           <div className="overflow-hidden">
-            <div
-              className="
-                flex
-                touch-pan-y
-                transition-transform
-                duration-500
-                ease-out
-                will-change-transform
-              "
+            <div className="flex touch-pan-y transition-transform duration-500 ease-out will-change-transform"
               style={{
                 transform: `translateX(-${
                   mIndex * 100
@@ -391,15 +297,7 @@ export default function WhyChooseSection() {
               MOBILE CONTROLS
           ================================================= */}
 
-          <div
-            className="
-              mt-8
-              flex
-              items-center
-              justify-center
-              gap-4
-            "
-          >
+          <div className="mt-8 flex items-center justify-center gap-4">
             {/* Previous */}
             <ArrowButton
               direction="left"
@@ -408,16 +306,7 @@ export default function WhyChooseSection() {
             />
 
             {/* Counter */}
-            <div
-              className="
-                min-w-[40px]
-                text-center
-                font-body
-                text-[14px]
-                tabular-nums
-                text-gray-800
-              "
-            >
+            <div className="min-w-[40px] text-center font-body text-[14px] tabular-nums text-gray-800">
               {mIndex + 1}/{total}
             </div>
 
@@ -434,16 +323,7 @@ export default function WhyChooseSection() {
             DESKTOP
         ===================================================== */}
 
-        <div
-          className="
-            hidden
-            gap-5
-            sm:grid
-            sm:grid-cols-2
-            lg:grid-cols-4
-            lg:gap-6
-          "
-        >
+        <div className="hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {features.map((feature) => (
             <FeatureCardDesktop
               key={feature.id}

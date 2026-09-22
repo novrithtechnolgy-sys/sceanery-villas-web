@@ -40,17 +40,7 @@ function VillaCard({ villa }: { villa: Villa }) {
     <div className="w-full shrink-0">
       {/* Image */}
       <Link href={href} className="block">
-        <div
-          className="
-            relative
-            h-[320px]
-            w-full
-            overflow-hidden
-            rounded-[24px]
-            md:h-[320px]
-            lg:h-[320px]
-          "
-        >
+        <div className="relative h-[320px] w-full overflow-hidden rounded-[24px] md:h-[320px] lg:h-[320px]">
           {imgUrl && (
             <Image
               src={imgUrl}
@@ -61,13 +51,7 @@ function VillaCard({ villa }: { villa: Villa }) {
                 (max-width: 1023px) 50vw,
                 33vw
               "
-              className="
-                object-cover
-                transition-transform
-                duration-500
-                hover:scale-[1.03]
-              "
-            />
+              className="object-cover transition-transform duration-500 hover:scale-[1.03]"/>
           )}
 
           {/* Badge */}

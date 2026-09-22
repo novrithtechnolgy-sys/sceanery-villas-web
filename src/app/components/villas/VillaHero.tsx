@@ -4,9 +4,11 @@ import Image from "next/image";
 import {
   BedDouble,
   PersonStanding,
-  Waves,
   Mountain,
+  House,
 } from "lucide-react";
+
+import { FaSwimmer , FaTree ,FaUtensils,FaHeart,FaHome,} from "react-icons/fa";
 
 import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
@@ -55,7 +57,7 @@ export default function VillaHero({
       text.includes("pool") ||
       text.includes("swim")
     ) {
-      return Waves;
+      return FaSwimmer;
     }
 
     if (
@@ -63,6 +65,40 @@ export default function VillaHero({
       text.includes("panoramic")
     ) {
       return Mountain;
+    }
+
+    if (
+      text.includes("forest") ||
+      text.includes("garden")
+    ) {
+      return FaTree;
+    }
+
+    if (
+      text.includes("meals") ||
+      text.includes("dining")
+    ) {
+      return FaUtensils;
+    }
+
+    if (
+      text.includes("suite") ||
+      text.includes("bath")
+    ) {
+      return FaHeart;
+    }
+
+    if (
+      text.includes("living spaces") ||
+      text.includes("villa")
+    ) {
+      return FaHome;
+    }
+
+    if (
+      text.includes("rooftop terrace")
+    ) {
+      return House;
     }
 
     return Mountain;
@@ -114,41 +150,12 @@ export default function VillaHero({
             HERO CONTENT
         ================================================= */}
 
-        <div
-          className="
-            relative
-            z-10
-            flex
-            h-full
-            flex-col
-            items-center
-            justify-end
-            pb-8
-            text-center
-
-            md:pb-20
-          "
-        >
+        <div className="relative z-10 flex h-full flex-col items-center justify-end pb-8 text-center md:pb-20">
           {/* =================================================
               TITLE
           ================================================= */}
 
-          <h1
-            className="
-              max-w-[300px]
-              font-heading
-              text-[26px]
-              font-bold
-              leading-tight
-              tracking-wide
-              text-white
-
-              md:max-w-[1000px]
-              md:text-[34px]
-
-              xl:text-[44px]
-            "
-          >
+          <h1 className="max-w-[300px] font-heading text-[26px] font-bold leading-tight tracking-wide text-white md:max-w-[1000px] md:text-[34px] xl:text-[44px]">
             {villa.title}
           </h1>
 
@@ -157,24 +164,7 @@ export default function VillaHero({
           ================================================= */}
 
           {villa.tagline && (
-            <p
-              className="
-                mt-4
-                max-w-[300px]
-                font-body
-                text-[14px]
-                font-normal
-                leading-[26px]
-                text-white
-
-                md:mt-6
-                md:max-w-5xl
-                md:text-[16px]
-                md:leading-[30px]
-
-                xl:text-[16px]
-              "
-            >
+            <p className="mt-4 max-w-[300px] font-body text-[14px] font-normal leading-[26px] text-white md:mt-6 md:max-w-5xl md:text-[16px] md:leading-[30px] xl:text-[16px]">
               {villa.tagline}
             </p>
           )}
@@ -184,22 +174,7 @@ export default function VillaHero({
           ================================================= */}
 
           {/* {heroStats.length > 0 && ( */}
-            <div
-              className="
-                mt-5
-                flex
-                items-center
-                justify-center
-                rounded-full
-                bg-white
-                px-5
-                py-3
-
-                md:mt-8
-                md:px-7
-                md:py-4
-              "
-            >
+            <div className="mt-5 flex items-center justify-center rounded-full bg-white px-5 py-3 md:mt-8 md:px-7 md:py-4">
               {heroStats
                 .slice(0, 4)
                 .map(
@@ -224,49 +199,24 @@ export default function VillaHero({
                             MOBILE
                         ================================= */}
 
-                        <div
-                          className="
-                            flex
-                            items-center
-                            gap-2
-
-                            md:hidden
-                          "
-                        >
+                        <div className="flex items-center gap-2 md:hidden">
                           <Icon
                             size={20}
                             strokeWidth={2.2}
                             className="text-black"
                           />
-
-                          <span
-                            className="
-                              font-body
-                              text-[14px]
-                              font-semibold
-                              text-black
-                            "
-                          >
-                            {stat.value}
-                          </span>
+                          {String(stat.value).toLowerCase() !== "yes" && (
+                            <span className="font-body text-[14px] font-semibold text-black">
+                              {stat.value}
+                            </span>
+                          )}
                         </div>
 
                         {/* =================================
                             DESKTOP
                         ================================= */}
 
-                        <div
-                          className="
-                            hidden
-                            items-center
-                            whitespace-nowrap
-                            font-body
-                            text-[14px]
-                            text-gray-900
-
-                            md:flex
-                          "
-                        >  
+                        <div className="hidden items-center whitespace-nowrap font-body text-[14px] text-gray-900 md:flex">  
                         <span className="ml-1">
                             {stat.label}
                           </span>
@@ -282,16 +232,7 @@ export default function VillaHero({
                             4
                           ) -
                             1 && (
-                          <span
-                            className="
-                              mx-4
-                              h-5
-                              w-px
-                              bg-gray-400
-
-                              md:mx-6
-                            "
-                          />
+                          <span className="mx-4 h-5 w-px bg-gray-400 md:mx-6"/>
                         )}
                       </div>
                     );
@@ -310,17 +251,7 @@ export default function VillaHero({
         <div className="relative pt-10 md:pt-20">
           <Container>
             <div className="flex justify-center">
-              <div
-                className="
-                  relative
-                  h-[120px]
-                  w-full
-
-                  md:h-[160px]
-
-                  lg:h-[120px]
-                "
-              >
+              <div className="relative h-[120px] w-full md:h-[160px] lg:h-[120px]">
                 <Image
                   src={logoUrl}
                   alt={`${villa.title} Logo`}

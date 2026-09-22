@@ -13,7 +13,8 @@ const VILLA_BY_SLUG = `*[_type=="villas" && slug.current==$slug][0]{
   heroImage,
     heroStats[]{
     _key,
-    label
+    label,
+    value
   },
   logo,
   intro,
