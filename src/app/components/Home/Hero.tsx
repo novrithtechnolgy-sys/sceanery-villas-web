@@ -25,7 +25,7 @@ export default function Hero() {
           poster="https://res.cloudinary.com/dpjmcup95/image/upload/v1772939529/dji_mimo_20260302_175004_0_1772510342526_photo_jprutg.webp"
         >
           <source
-            src="https://res.cloudinary.com/vjp4gpfl/video/upload/v1789038488/Best_villas_in_Sri_Lanka___Scenery_Villas___Top_rated___Ideal_for_relaxing___Kids_friendly___Bentota.mp4"
+            src="https://res.cloudinary.com/vjp4gpfl/video/upload/v1790165438/for_web_1.mp4"
             type="video/mp4"
           />
         </video>
