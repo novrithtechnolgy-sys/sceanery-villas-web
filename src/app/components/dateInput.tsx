@@ -467,7 +467,7 @@ export default function DateInput({
               ? `
                 absolute
                 left-1/2
-                bottom-10
+                bottom-14
                 z-50
                 mt-3
                 w-[280px]

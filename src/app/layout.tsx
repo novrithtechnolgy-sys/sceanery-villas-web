@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "./components/Footer";
 import { Alan_Sans, Amaranth, Inter, Playfair_Display, Poppins } from "next/font/google";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sceneryvillassrilanka.com"),
@@ -83,7 +84,7 @@ export default function RootLayout({
       >
         {children}
         <Footer />
-
+        <WhatsAppButton />
       </body>
     </html>
   );

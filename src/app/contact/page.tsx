@@ -22,7 +22,6 @@ export default function Contact() {
         <InquirySection />
         <FAQSection />
         <WhereWeAreSection />
-        <WhatsAppButton />
         </>
     )
 }

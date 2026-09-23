@@ -21,7 +21,6 @@ export default function Gallery() {
         image="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789196611/b8bbd0802d62e98de65bc7558c36d4a991926b65.jpg" />
       <GallerySections />     
       <FollowUsSection/>
-      <WhatsAppButton />
     </>
     )
 

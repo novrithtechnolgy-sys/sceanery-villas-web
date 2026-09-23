@@ -19,7 +19,6 @@ export default function ExperiencesPage() {
                 image="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789468302/ac580694da08d2772eb078d7cefa92075f10eb83.jpg"
             />
             <ExperiencesSections />
-            <WhatsAppButton />
         </>
     );
 }

@@ -39,7 +39,7 @@ function StoryCard({
       <Stars />
 
       {/* Quote */}
-      <p className="mt-4 font-body text-[15px] leading-[1.9] font-regular text-gray-900 md:text-[16px] lg:leading-[1.75] ">
+      <p className="mt-4 font-body text-[14px] leading-[1.9] font-regular text-gray-900 md:text-[16px] lg:leading-[1.75] ">
         {story.quote}
       </p>
 
@@ -49,7 +49,7 @@ function StoryCard({
           {story.author}
         </p>
 
-        <p className="mt-1 font-body text-[16px] font-regular text-gray-800">
+        <p className="mt-1 font-body text-[14px] md:text-[14px] font-regular text-gray-800">
           {story.country}
         </p>
       </div>
