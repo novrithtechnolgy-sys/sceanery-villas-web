@@ -39,12 +39,12 @@ function StoryCard({
       <Stars />
 
       {/* Quote */}
-      <p className="mt-6 font-body text-[15px] leading-[1.9] font-regular text-gray-900 md:text-[16px] lg:leading-[1.75]">
+      <p className="mt-4 font-body text-[15px] leading-[1.9] font-regular text-gray-900 md:text-[16px] lg:leading-[1.75] ">
         {story.quote}
       </p>
 
       {/* Guest */}
-      <div className="mt-6">
+      <div className="mt-4">
         <p className="font-body text-[16px] font-bold text-gray-900">
           {story.author}
         </p>
@@ -77,29 +77,29 @@ export default function GuestStories() {
       {
         id: "3",
         quote:
-          "Amazing location and peaceful mornings. The experience was luxury without being over the top, just perfect.",
-        author: "Sofia",
-        country: "Sweden",
+          "Few weeks ago I enjoyed a delightful stay at Treetop Villa. offering a variety of delicious options that catered to diverse tastes. The atmosphere was serene, complemented by breathtaking views that enhanced the overall experience. I appreciated the relaxed environment, which allowed for a truly holiday trip. Highly recommend Treetop Villa for anyone seeking a peaceful and enjoyable stay.",
+        author: "Shannan Gunasekara",
+        country: "Local Guide",
       },
       {
         id: "4",
         quote:
-          "Our family loved every moment. The pool, the staff, the privacy, everything exceeded expectations.",
-        author: "Nina",
+          "A truly remarkable experience- stunning grounds and accommodations.  But it was the people who made it spectacular- the staff are amazingly warm, hospitable and knowledgeable.  The food is incredible and the grounds are kept meticulously beautiful.   A perfect place to discover Sri Lanka!",
+        author: "Rebicca Lightsey",
         country: "Australia",
       },
       {
         id: "5",
         quote:
-          "Perfect for a workation. Fast internet, beautiful views, and a calm environment to reset your mind.",
-        author: "Arjun",
-        country: "India",
+          "Our stay at this villa was incredibly rejuvenating. Surrounded by lush greenery, we were warmly welcomed and the villa was impeccably clean and equipped with all necessary amenities. The staff's hospitality was outstanding, making us feel truly cared for. The aesthetic charm and tranquility of the place made it an ideal escape from city life. Highly recommended for any one who loves a greenery escape from the urban rush.",
+        author: "Avishka Randima",
+        country: "Local Guide",
       },
       {
         id: "6",
         quote:
-          "The best part was how personal it felt, they really cared about every detail of our stay.",
-        author: "Maya",
+          "Fantastic experience when I stayed here with a group. Hosts really go out of their way to make you feel at home. Fresh juice from the garden every morning, incredible home cooked meals every day and all other needs met without any hassle. Villa is kept in great condition, pool is clean and area nice and chill. Look forward to staying there again.",
+        author: "Joe Rogan",
         country: "Singapore",
       },
     ],

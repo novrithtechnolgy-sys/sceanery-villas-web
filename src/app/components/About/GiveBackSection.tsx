@@ -127,49 +127,22 @@ export default function GiveBackSection() {
 
   return (
     <section className="bg-white py-[32px] md:py-[64px]">
-
-      {/* =====================================================
-          DESKTOP
-          Container only used on md and above
-      ===================================================== */}
-
       <div className="hidden md:block">
         <Container>
 
           {/* Heading */}
           <div className="mx-auto max-w-[1000px] text-center">
-            <h2
-              className="
-                font-heading
-                text-[32px]
-                font-bold
-                leading-[42px]
-                tracking-[-0.5px]
-                text-gray-900
-                lg:text-[36px]
-                xl:text-[38px]
-                xl:leading-[48px]
-              "
-            >
+            <h2 className="font-heading text-[32px] font-bold leading-[42px] tracking-[-0.5px] text-gray-900 lg:text-[36px] xl:text-[38px] xl:leading-[48px]">
               <span className="text-gray-900">
                 More Than a Stay,{" "}
               </span>
-
               <span className="text-[#FF751F]">
                 A Chance to Give Back
               </span>
             </h2>
 
             {/* Description */}
-            <p
-              className="
-                mt-8
-                font-body
-                text-[16px]
-                leading-[30px]
-                text-gray-700
-              "
-            >
+            <p className="mt-8 font-body text-[16px] leading-[30px] text-gray-700">
               At Scenery Villas, travel can create a positive
               impact beyond the stay itself. Many of our guests
               have generously supported nearby communities by
@@ -181,15 +154,7 @@ export default function GiveBackSection() {
           </div>
 
           {/* Desktop Images */}
-          <div
-            className="
-              mt-8
-              grid
-              grid-cols-3
-              gap-6
-              lg:mt-12
-            "
-          >
+          <div className="mt-8 grid grid-cols-3 gap-6 lg:mt-12">
             {images.map((image, index) => (
               <div
                 key={image.src}

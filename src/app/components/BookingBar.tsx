@@ -1,7 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
+
+import DateInput from "../components/dateInput";
 
 type BookingBarProps = {
   initialCheckIn?: string;
@@ -17,88 +19,145 @@ export default function BookingBar({
   const router = useRouter();
   const pathname = usePathname();
 
-  const checkInRef = useRef<HTMLInputElement>(null);
-  const checkOutRef = useRef<HTMLInputElement>(null);
+  /* =========================================================
+     DATES
+  ========================================================= */
 
-  const today = new Date().toISOString().split("T")[0];
-
-  const tomorrow = new Date(
-    Date.now() + 86400000
-  )
+  const today = new Date()
     .toISOString()
     .split("T")[0];
 
-  const initialTotalGuests = parseInt(initialGuests || "2");
+  /* =========================================================
+     INITIAL GUESTS
+  ========================================================= */
+
+  const initialTotalGuests = parseInt(
+    initialGuests || "2"
+  );
+
+  /* =========================================================
+     STATE
+  ========================================================= */
 
   const [checkIn, setCheckIn] = useState(
-    initialCheckIn || today
+    initialCheckIn || ""
   );
 
   const [checkOut, setCheckOut] = useState(
-    initialCheckOut || tomorrow
+    initialCheckOut || ""
   );
 
   const [adults, setAdults] = useState(
-    initialTotalGuests > 0 ? initialTotalGuests : 2
+    initialTotalGuests > 0
+      ? initialTotalGuests
+      : 2
   );
 
-  const [children, setChildren] = useState(0);
+  const [children, setChildren] =
+    useState(0);
 
-  const [guestOpen, setGuestOpen] = useState(false);
+  const [guestOpen, setGuestOpen] =
+    useState(false);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] =
+    useState(false);
 
-  const guests = adults + children;
+  const guests =
+    adults + children;
 
-  const formatDate = (date: string) => {
-    if (!date) return "";
+  /* =========================================================
+     CHECKOUT MIN DATE
+     
+     Checkout must be AFTER check-in.
+     
+     Example:
+     Check-in 25 Sep
+     Checkout minimum 26 Sep
+  ========================================================= */
 
-    const [year, month, day] = date.split("-");
+  const getCheckoutMinDate = () => {
+    if (!checkIn) {
+      return new Date();
+    }
 
-    return new Date(
-      Number(year),
-      Number(month) - 1,
-      Number(day)
-    ).toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-    });
+    const date = new Date(
+      `${checkIn}T00:00:00`
+    );
+
+    date.setDate(
+      date.getDate() + 1
+    );
+
+    return date;
   };
 
-  const openDatePicker = (
-    input: HTMLInputElement | null
-  ) => {
-    if (!input) return;
+  /* =========================================================
+     CHECK-IN CHANGE
+  ========================================================= */
 
-    try {
-      input.showPicker();
-    } catch {
-      input.focus();
+  const handleCheckInChange = (
+    value: string
+  ) => {
+    setCheckIn(value);
+
+    /*
+     * Do NOT automatically set checkout.
+     *
+     * If existing checkout becomes
+     * invalid, clear it.
+     */
+
+    if (
+      value &&
+      checkOut &&
+      checkOut <= value
+    ) {
+      setCheckOut("");
     }
   };
 
+  /* =========================================================
+     SEARCH
+  ========================================================= */
+
   const handleSearch = () => {
-    if (!checkIn || !checkOut) {
-      alert("Please select check-in and check-out dates.");
+    if (!checkIn) {
+      alert(
+        "Please select a check-in date."
+      );
+      return;
+    }
+
+    if (!checkOut) {
+      alert(
+        "Please select a check-out date."
+      );
       return;
     }
 
     if (checkOut <= checkIn) {
-      alert("Check-out date must be after check-in date.");
+      alert(
+        "Check-out date must be after check-in date."
+      );
       return;
     }
 
     setLoading(true);
 
-    const params = new URLSearchParams({
-      checkIn,
-      checkOut,
-      guests: guests.toString(),
-    });
+    const params =
+      new URLSearchParams({
+        checkIn,
+        checkOut,
+        guests: guests.toString(),
+      });
 
-    const url = `/available-villas?${params.toString()}`;
+    const url =
+      `/available-villas?${params.toString()}`;
 
-    if (pathname === "/available-villas") {
+    if (
+      pathname ===
+      "/available-villas"
+    ) {
       router.replace(url);
     } else {
       router.push(url);
@@ -109,187 +168,219 @@ export default function BookingBar({
 
   return (
     <div className="relative z-30 flex w-full justify-center">
+
+      {/* =====================================================
+          BOOKING BAR
+      ===================================================== */}
+
       <div
         className="
           flex
-          py-3
           w-full
           max-w-[490px]
           items-center
           rounded-full
           bg-white
           px-3
+          py-3
           shadow-lg
         "
       >
-        {/* ================= CHECK IN ================= */}
 
-        <button
-          type="button"
-          onClick={() =>
-            openDatePicker(checkInRef.current)
-          }
+        {/* ===================================================
+            CHECK IN
+        =================================================== */}
+
+        <div
           className="
-            relative
             flex
-            h-full
             flex-1
-            justify-center
-            cursor-pointer
             items-center
-            px-4
-            text-left
+            justify-center
+            px-3
           "
         >
-          <span className="whitespace-nowrap text-[14px] text-gray-500">
-            {checkIn
-              ? formatDate(checkIn)
-              : "Check-in"}
-          </span>
-
-          <input
-            ref={checkInRef}
-            type="date"
+          <DateInput
+            id="checkIn"
             value={checkIn}
-            min={today}
-            onChange={(e) => {
-              setCheckIn(e.target.value);
-
-              // Automatically make checkout at least next day
-              if (e.target.value >= checkOut) {
-                const nextDay = new Date(
-                  `${e.target.value}T00:00:00`
-                );
-
-                nextDay.setDate(
-                  nextDay.getDate() + 1
-                );
-
-                setCheckOut(
-                  nextDay.toISOString().split("T")[0]
-                );
-              }
-            }}
-            className="
-              pointer-events-none
-              absolute
-              inset-0
-              h-full
-              w-full
-              opacity-0
-            "
+            onChange={
+              handleCheckInChange
+            }
+            minDate={
+              new Date()
+            }
+            placeholder="Check-in Date"
+            variant="booking"
           />
-        </button>
+        </div>
 
-        {/* Divider */}
-        <div className="h-6 w-px shrink-0 bg-gray-400/70" />
+        {/* ===================================================
+            DIVIDER
+        =================================================== */}
 
-        {/* ================= CHECK OUT ================= */}
+        <div
+          className="
+            h-6
+            w-px
+            shrink-0
+            bg-gray-400/70
+          "
+        />
 
-        <button
-          type="button"
-          onClick={() =>
-            openDatePicker(checkOutRef.current)
-          }
+        {/* ===================================================
+            CHECK OUT
+        =================================================== */}
+
+        <div
+          className="
+            flex
+            flex-1
+            items-center
+            justify-center
+            px-3
+          "
+        >
+          <DateInput
+            id="checkOut"
+            value={checkOut}
+            onChange={(value) =>
+              setCheckOut(value)
+            }
+            minDate={
+              getCheckoutMinDate()
+            }
+            placeholder="Check-out Date"
+            variant="booking"
+          />
+        </div>
+
+        {/* ===================================================
+            DIVIDER
+        =================================================== */}
+
+        <div
+          className="
+            h-6
+            w-px
+            shrink-0
+            bg-gray-400/70
+          "
+        />
+
+        {/* ===================================================
+            GUESTS
+        =================================================== */}
+
+        <div
           className="
             relative
             flex
             h-full
             flex-1
-            justify-center
-            cursor-pointer
             items-center
-            px-4
-            text-left
+            px-3
           "
         >
-          <span className="whitespace-nowrap text-[14px] text-gray-500">
-            {checkOut
-              ? formatDate(checkOut)
-              : "Check-out"}
-          </span>
 
-          <input
-            ref={checkOutRef}
-            type="date"
-            value={checkOut}
-            min={checkIn || today}
-            onChange={(e) =>
-              setCheckOut(e.target.value)
-            }
-            className="
-              pointer-events-none
-              absolute
-              inset-0
-              h-full
-              w-full
-              opacity-0
-            "
-          />
-        </button>
+          {/* Guest Button */}
 
-        {/* Divider */}
-        <div className="h-6 w-px shrink-0 bg-gray-400/70" />
-
-        {/* ================= GUESTS ================= */}
-
-        <div className="relative flex h-full flex-1 items-center px-4">
           <button
             type="button"
             onClick={() =>
-              setGuestOpen((prev) => !prev)
+              setGuestOpen(
+                (prev) => !prev
+              )
             }
             className="
               flex
               w-full
               cursor-pointer
               items-center
-              whitespace-nowrap
               justify-center
-              text-left
+              whitespace-nowrap
               text-[14px]
               text-gray-500
+              outline-none
             "
           >
             {guests}{" "}
-            {guests === 1 ? "Guest" : "Guests"}
+            {guests === 1
+              ? "Guest"
+              : "Guests"}
           </button>
 
-          {/* Guest Dropdown */}
+          {/* =================================================
+              GUEST DROPDOWN
+          ================================================= */}
+
           {guestOpen && (
             <div
               className="
                 absolute
-                left-1/2
                 bottom-[65px]
+                left-1/2
                 z-50
-                w-[220px]
+                w-[230px]
                 -translate-x-1/2
                 rounded-2xl
                 border
                 border-gray-100
                 bg-white
                 p-4
+                shadow-xl
               "
             >
-              {/* Adults */}
-              <div className="flex items-center justify-between">
+
+              {/* =================================================
+                  ADULTS
+              ================================================= */}
+
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-between
+                "
+              >
                 <div>
-                  <p className="text-sm font-medium text-gray-800">
+                  <p
+                    className="
+                      text-sm
+                      font-medium
+                      text-gray-800
+                    "
+                  >
                     Adults
                   </p>
 
-                  <p className="text-xs text-gray-400">
+                  <p
+                    className="
+                      text-xs
+                      text-gray-400
+                    "
+                  >
                     Age 13+
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                  "
+                >
+
+                  {/* Minus */}
+
                   <button
                     type="button"
                     onClick={() =>
                       setAdults(
-                        Math.max(1, adults - 1)
+                        Math.max(
+                          1,
+                          adults - 1
+                        )
                       )
                     }
                     className="
@@ -310,14 +401,26 @@ export default function BookingBar({
                     −
                   </button>
 
-                  <span className="w-5 text-center text-sm">
+                  {/* Value */}
+
+                  <span
+                    className="
+                      w-5
+                      text-center
+                      text-sm
+                    "
+                  >
                     {adults}
                   </span>
+
+                  {/* Plus */}
 
                   <button
                     type="button"
                     onClick={() =>
-                      setAdults(adults + 1)
+                      setAdults(
+                        adults + 1
+                      )
                     }
                     className="
                       flex
@@ -336,27 +439,61 @@ export default function BookingBar({
                   >
                     +
                   </button>
+
                 </div>
               </div>
 
-              {/* Children */}
-              <div className="mt-5 flex items-center justify-between">
+              {/* =================================================
+                  CHILDREN
+              ================================================= */}
+
+              <div
+                className="
+                  mt-5
+                  flex
+                  items-center
+                  justify-between
+                "
+              >
                 <div>
-                  <p className="text-sm font-medium text-gray-800">
+                  <p
+                    className="
+                      text-sm
+                      font-medium
+                      text-gray-800
+                    "
+                  >
                     Children
                   </p>
 
-                  <p className="text-xs text-gray-400">
+                  <p
+                    className="
+                      text-xs
+                      text-gray-400
+                    "
+                  >
                     Age 0–12
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div
+                  className="
+                    flex
+                    items-center
+                    gap-3
+                  "
+                >
+
+                  {/* Minus */}
+
                   <button
                     type="button"
                     onClick={() =>
                       setChildren(
-                        Math.max(0, children - 1)
+                        Math.max(
+                          0,
+                          children - 1
+                        )
                       )
                     }
                     className="
@@ -377,14 +514,26 @@ export default function BookingBar({
                     −
                   </button>
 
-                  <span className="w-5 text-center text-sm">
+                  {/* Value */}
+
+                  <span
+                    className="
+                      w-5
+                      text-center
+                      text-sm
+                    "
+                  >
                     {children}
                   </span>
+
+                  {/* Plus */}
 
                   <button
                     type="button"
                     onClick={() =>
-                      setChildren(children + 1)
+                      setChildren(
+                        children + 1
+                      )
                     }
                     className="
                       flex
@@ -403,13 +552,19 @@ export default function BookingBar({
                   >
                     +
                   </button>
+
                 </div>
               </div>
 
-              {/* Done */}
+              {/* =================================================
+                  DONE
+              ================================================= */}
+
               <button
                 type="button"
-                onClick={() => setGuestOpen(false)}
+                onClick={() =>
+                  setGuestOpen(false)
+                }
                 className="
                   mt-5
                   w-full
@@ -425,24 +580,26 @@ export default function BookingBar({
               >
                 Done
               </button>
+
             </div>
           )}
+
         </div>
 
-        {/* ================= SEARCH ================= */}
+        {/* ===================================================
+            SEARCH
+        =================================================== */}
 
         <button
           type="button"
           onClick={handleSearch}
           disabled={loading}
           className="
-            flex
-            py-2
-            px-4
             shrink-0
             rounded-full
             bg-[#FF641F]
             px-6
+            py-2
             font-body
             text-[14px]
             font-medium
@@ -454,8 +611,11 @@ export default function BookingBar({
             disabled:opacity-70
           "
         >
-          {loading ? "..." : "Search"}
+          {loading
+            ? "..."
+            : "Search"}
         </button>
+
       </div>
     </div>
   );

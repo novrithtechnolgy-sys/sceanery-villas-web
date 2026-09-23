@@ -16,7 +16,7 @@ export default function PageHero({
   image,
 }: PageHeroProps) {
   return (
-    <section className="relative -mt-18 p-[20px]">
+    <section className="relative -mt-16 p-[16px]">
       <div
         className="relative h-[60vh] overflow-hidden rounded-[20px] md:h-[90vh] md:rounded-b-[20px]">
         <Image

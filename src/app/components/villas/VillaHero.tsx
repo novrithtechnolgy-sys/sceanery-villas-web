@@ -108,25 +108,9 @@ export default function VillaHero({
   console.log(villa);
 
   return (
-    <section className="relative -mt-18 p-[20px]">
-      {/* =====================================================
-          HERO
-      ===================================================== */}
+    <section className="relative -mt-16 p-[16px]">
 
-      <div
-        className="
-          relative
-          h-[60vh]
-          overflow-hidden
-          rounded-[20px]
-
-          md:h-[90vh]
-          md:rounded-b-[20px]
-        "
-      >
-        {/* =================================================
-            BACKGROUND IMAGE
-        ================================================= */}
+      <div className="relative h-[60vh] overflow-hidden rounded-[20px] md:h-[90vh] md:rounded-b-[20px]">
 
         {heroUrl && (
           <Image
