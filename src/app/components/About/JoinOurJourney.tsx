@@ -213,7 +213,7 @@ export default function JoinOurJourney() {
           {/* ================= YOUTUBE ================= */}
 
           <SocialCard
-            href="https://www.youtube.com/"
+            href="https://www.youtube.com/@SceneryvillasSrilanka"
             title="YouTube"
             description="
               Watch us on YouTube for immersive virtual
