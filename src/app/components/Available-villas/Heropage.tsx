@@ -24,7 +24,7 @@ export default function AvailableVillasHero() {
         {/* Content */}
         <div className="relative z-10 flex h-full flex-col items-center justify-end pb-8 text-center md:pb-10">
 
-          <h1 className="font-heading text-[20px] md:text-[36px] xl:text-[46px] tracking-wide text-white uppercase mb-8">
+          <h1 className="max-w-[300px] font-heading text-[26px] font-bold leading-tight tracking-wide text-white md:max-w-[1000px] md:text-[34px] xl:text-[44px] mb-8">
             Available Villas
           </h1>
 

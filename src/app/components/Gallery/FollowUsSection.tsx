@@ -152,7 +152,7 @@ export default function FollowUsSection() {
         <AutoScrollCarousel
           cardWidth={380}
           gap={24}
-          autoSpeed={0.5}
+          autoSpeed={0.7}
         >
           {posts.map((post) => (
             <div
