@@ -76,7 +76,7 @@ export default function FeaturedStory() {
             <div className="md:col-span-7 order-1 md:order-2">
               <div className="max-w-[650px]">
                 {/* Date */}
-                <div
+                {/* <div
                   className="
                     flex
                     items-center
@@ -94,7 +94,7 @@ export default function FeaturedStory() {
                   />
 
                   <span>21 Aug 2026</span>
-                </div>
+                </div> */}
 
                 {/* Title */}
                 <h2
