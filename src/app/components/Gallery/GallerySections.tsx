@@ -366,7 +366,7 @@ function FilterButton({
 
 export default function LuxuryGalleryPage() {
   const [activeCategory, setActiveCategory] =
-    useState("Villa Mandalay");
+    useState("All");
 
   /* =======================================================
      FILTER IMAGES
@@ -390,11 +390,11 @@ export default function LuxuryGalleryPage() {
      CATEGORIES
   ======================================================= */
 
-  const categories = [
+  const categories = ["All",
     ...gallerySections.map(
       (section) =>
         `${section.title}`
-    ),"All",
+    ),
   ];
 
   return (

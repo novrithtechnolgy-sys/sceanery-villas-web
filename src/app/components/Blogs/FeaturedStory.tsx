@@ -50,7 +50,7 @@ export default function FeaturedStory() {
                 "
               >
                 <Image
-                  src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1789985914/4c5fac0180c828a73939354693005362402c4da5-1920x1280.webp"
+                  src="https://res.cloudinary.com/vjp4gpfl/image/upload/v1790229974/aaf3f600e5ce898384ea9609cd40eaa2d5f57f00-669x446.webp"
                   alt="Why Bentota is the Perfect Alternative to Galle for Families"
                   fill
                   priority
@@ -113,7 +113,7 @@ export default function FeaturedStory() {
                 text-left
                   "
                 >
-                  Discover Paradise: Your Ultimate Guide to Bentota's Sun, Sea & Adventure
+                  Take a historic day trip from Bentota to Galle Fort.
                 </h2>
 
                 {/* Description */}
@@ -131,14 +131,14 @@ export default function FeaturedStory() {
                     text-left
                   "
                 >
-                  Galle Fort is famous, but Bentota offers the space, river, and golden beaches families truly need. Discover everything from thrilling water sports and river safaris to ancient temples and Ayurvedic spas—click to explore all our travel blogs and plan your getaway!
+                  Bentota is perfect for relaxation, rivers, and Ayurveda. But just an hour south lies a completely different world: Galle Fort. A UNESCO World Heritage site, Galle is a living, breathing city trapped in time. Built by the Portuguese in 1588 and fortified by the Dutch in the 1600s, walking through its gates feels like stepping into a European village, but with tropical heat and tuk-tuks. Because it is so close (approx. 50km), you don’t need to book a hotel there. You can easily explore the best of Galle in a single day and be back in Bentota for dinner. Here is your step-by-step itinerary.
                 </p>
 
                 {/* Button */}
                 <Button
                   onClick={() =>
                     router.push(
-                      "https://www.bentotatravelblogs.com/"
+                      "https://www.bentotatravelblogs.com/post/take-a-historic-day-trip-from-bentota-to-galle-fort"
                     )
                   }
                   className="

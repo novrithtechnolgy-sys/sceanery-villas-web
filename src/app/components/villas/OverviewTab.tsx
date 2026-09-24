@@ -87,6 +87,7 @@ export default function OverviewTab({
                 "
                 className="
                   object-cover
+                  
                   transition-transform
                   duration-500
                   hover:scale-[1.02]

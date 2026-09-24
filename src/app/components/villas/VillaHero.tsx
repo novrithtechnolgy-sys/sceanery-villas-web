@@ -8,10 +8,12 @@ import {
   House,
 } from "lucide-react";
 
-import { FaSwimmer , FaTree ,FaUtensils,FaHeart,FaHome,} from "react-icons/fa";
+import { FaSwimmer , FaTree ,FaUtensils,FaHeart,FaHome, FaLandmark,} from "react-icons/fa";
 
 import { urlFor } from "../../../sanity/lib/image";
 import Container from "../Container";
+import { FaUmbrellaBeach } from "react-icons/fa6";
+import { LuBedDouble } from "react-icons/lu";
 
 export default function VillaHero({
   villa,
@@ -85,14 +87,26 @@ export default function VillaHero({
       text.includes("suite") ||
       text.includes("bath")
     ) {
-      return FaHeart;
+      return BedDouble;
     }
 
     if (
       text.includes("living spaces") ||
-      text.includes("villa")
+      text.includes("private balconies")
     ) {
       return FaHome;
+    }
+
+    if (
+      text.includes("colonial architecture")
+    ) {
+      return FaLandmark ;
+    }
+
+    if(
+      text.includes("5 minutes to beach")
+    ){
+      return FaUmbrellaBeach  ;
     }
 
     if (
@@ -232,7 +246,7 @@ export default function VillaHero({
       ===================================================== */}
 
       {logoUrl && (
-        <div className="relative pt-10 md:pt-20">
+        <div className="relative pt-[32px] md:pt-[64px] md:mb-12">
           <Container>
             <div className="flex justify-center">
               <div className="relative h-[120px] w-full md:h-[160px] lg:h-[120px]">

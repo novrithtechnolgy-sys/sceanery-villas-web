@@ -477,7 +477,7 @@ function ExperienceGroupUI({
         className="
           mt-8
           block
-          md:hidden
+          hidden
         "
       >
         <MobileCardCarousel
@@ -492,7 +492,8 @@ function ExperienceGroupUI({
       <div
         className="
           mt-10
-          hidden
+          px-4
+          grid
           md:grid
           md:grid-cols-3
           md:gap-6

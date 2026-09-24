@@ -39,13 +39,13 @@ export default function AmenitiesTab({ villa }: { villa: any }) {
         <div className="order-first md:order-last">
 
           {/* Title */}
-        <h2 className="font-heading text-[22px] font-bold tracking-[-0.5px] text-gray-900 md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px] text-center md:text-left">
-            <span className="text-gray-700">Featured</span>{" "}
+        <h2 className="font-heading text-[22px] font-bold tracking-[-0.5px] text-black md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px] text-center md:text-left">
+            <span className="">Featured</span>{" "}
             <span className="font-semibold text-[#FF751F]">Amenities</span>
         </h2>
 
           {/* Card */}
-          <div className="mt-4 md:mt-8">
+          <div className="mt-4 md:mt-8 px-2">
 
             <ul className="space-y-2 md:space-y-4 font-body text-[14px] md:text-[16px]  text-gray-700 font-regular  border-gray-300">
               {amenities.map((a, i) => (

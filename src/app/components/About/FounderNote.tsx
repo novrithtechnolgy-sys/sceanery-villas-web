@@ -52,7 +52,7 @@ export default function FounderSection() {
               </p>
 
               <p className="md:mt-1">
-                I hope you discover more than a beautiful stay — the
+                I hope you discover more than a beautiful stay, the
                 warmth, care, and sense of belonging that make Sri Lanka
                 feel like home.
               </p>
