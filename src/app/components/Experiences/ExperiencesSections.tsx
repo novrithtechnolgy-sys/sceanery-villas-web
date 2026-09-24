@@ -392,114 +392,36 @@ function ExperienceGroupUI({
   );
 
   return (
-    <section
-      className="
-        py-[18px]
-        md:py-[64px]
-      "
-    >
-
-      {/* =================================================
-          HEADING
-      ================================================= */}
-
-      <div
-        className="
-          mx-auto
-          max-w-[1050px]
-          px-4
-          text-center
-          md:px-0
-        "
-      >
-
-        <h2
-          className="
-            font-heading
-            text-[22px]
-            font-bold
-            leading-[1.45]
-            tracking-[-0.5px]
-            text-gray-900
-
-            md:text-[32px]
-            md:leading-[42px]
-
-            xl:text-[38px]
-            xl:leading-[48px]
-          "
-        >
-
+    <section className="pt-[32px] md:py-[64px]">
+      <div className="mx-auto max-w-[1050px] px-4 text-center md:px-0">
+        <h2 className="font-heading text-[22px] font-bold leading-[1.45] tracking-[-0.5px] text-gray-900 md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px]">
           <span className="text-black">
             {group.eyebrowItalic}
           </span>
-
           {" "}
-
           <span className="text-[#FF751F]">
             {group.titleBold}
           </span>
 
         </h2>
 
-        {/* =================================================
-            SUBTITLE
-        ================================================= */}
-
         {group.subtitle && (
-          <p
-            className="
-              mx-auto
-              mt-4
-              max-w-[900px]
-              font-body
-              text-[14px]
-              leading-[26px]
-              text-gray-700
-
-              md:mt-8
-              md:text-[16px]
-              md:leading-[30px]
-            "
-          >
+          <p className="mx-auto mt-4 max-w-[900px] font-body text-[14px] leading-[26px] text-gray-700 md:mt-8 md:text-[16px] md:leading-[30px]">
             {group.subtitle}
           </p>
         )}
 
       </div>
 
-      {/* =================================================
-          MOBILE
-          NO CONTAINER
-      ================================================= */}
-
-      <div
-        className="
-          mt-8
-          block
-          hidden
+      {/* <div className="mt-8 block hidden
         "
       >
         <MobileCardCarousel
           cards={cards}
         />
-      </div>
+      </div> */}
 
-      {/* =================================================
-          DESKTOP
-      ================================================= */}
-
-      <div
-        className="
-          mt-10
-          px-4
-          grid
-          md:grid
-          md:grid-cols-3
-          md:gap-6
-          lg:mt-14
-        "
-      >
+      <div className="mt-8 grid md:grid md:grid-cols-3 gap-4 md:gap-6 md:mt-12">
 
         {cards.map((card) => (
           <ExperienceCard
@@ -645,19 +567,11 @@ export default function ExperiencesSectionsSanity() {
     );
   }
 
-  /* =======================================================
-     PAGE
-  ======================================================= */
 
   return (
     <section className="bg-white pb-[64px] md:pb-[128px]">
 
-      {/* =================================================
-          DESKTOP
-          CONTAINER ONLY
-      ================================================= */}
-
-      <div className="hidden md:block">
+      <div className="">
 
         <Container>
 
@@ -672,12 +586,7 @@ export default function ExperiencesSectionsSanity() {
 
       </div>
 
-      {/* =================================================
-          MOBILE
-          NO CONTAINER
-      ================================================= */}
-
-      <div className="block md:hidden">
+      {/* <div className="block md:hidden">
 
         {groups.map((group) => (
           <ExperienceGroupUI
@@ -686,7 +595,7 @@ export default function ExperiencesSectionsSanity() {
           />
         ))}
 
-      </div>
+      </div> */}
 
     </section>
   );
