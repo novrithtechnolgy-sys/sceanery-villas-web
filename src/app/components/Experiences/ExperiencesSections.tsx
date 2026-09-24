@@ -50,7 +50,7 @@ function ExperienceCard({
     : "";
 
   return (
-    <article className="w-full">
+    <article className="w-full mb-8 md:mb-0">
 
       {/* =================================================
           IMAGE
@@ -394,7 +394,7 @@ function ExperienceGroupUI({
   return (
     <section
       className="
-        py-[32px]
+        py-[18px]
         md:py-[64px]
       "
     >
