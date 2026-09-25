@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { Alan_Sans, Amaranth, Inter, Playfair_Display, Poppins } from "next/font/google";
 import WhatsAppButton from "./components/WhatsAppButton";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sceneryvillassrilanka.com"),
@@ -93,6 +94,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://app.termly.io/embed.min.js"
+          data-auto-block="off"
+          data-website-uuid="d96c7b33-155b-4fb9-990a-fdd2fc641e14"
+        />
+      </head>
       <body
         className={`${poppins.variable} antialiased`}
       >
