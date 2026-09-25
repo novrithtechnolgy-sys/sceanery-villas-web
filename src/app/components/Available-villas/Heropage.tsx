@@ -5,7 +5,7 @@ import BookingBar from "../BookingBar";
 
 export default function AvailableVillasHero() {
   return (
-    <section className="relative -mt-18 p-[20px]">
+    <section className="relative -mt-16  md:-mt-18 p-[16px] md:p-[20px]">
       <div className="py-[32px] relative overflow-hidden rounded-t-[20px] rounded-b-[20px] h-[60vh] md:h-[90vh]">
 
         {/* Background Image */}
@@ -28,7 +28,11 @@ export default function AvailableVillasHero() {
             Available Villas
           </h1>
 
+          <div className="hidden md:block">
+
           <BookingBar />
+
+          </div>
 
         </div>
 

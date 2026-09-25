@@ -26,6 +26,20 @@ export const metadata: Metadata = {
     "Bentota private pool villas",
   ],
 
+    alternates: {
+    canonical: "https://sceneryvillassrilanka.com",
+  },
+
+  robots: {
+  index: true,
+  follow: true,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+  },
+},
+
   openGraph: {
     type: "website",
     url: "https://sceneryvillassrilanka.com",
