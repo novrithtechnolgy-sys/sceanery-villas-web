@@ -252,7 +252,7 @@ export default function WhyChooseSection() {
         ===================================================== */}
 
         <div className="mb-8 md:mb-12">
-          <h2 className="text-center font-heading text-[22px] font-semibold tracking-[-0.5px] text-gray-900 md:text-left md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px]">
+          <h2 className="text-center font-heading text-[22px] font-bold tracking-[-0.5px] text-gray-900 md:text-left md:text-[32px] md:leading-[42px] xl:text-[38px] xl:leading-[48px]">
             <span className="text-gray-900">
               Why{" "}
             </span>

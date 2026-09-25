@@ -204,7 +204,7 @@ export default function GuestStories() {
         ===================================================== */}
 
         <div className="flex items-center justify-between">
-          <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-semibold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left w-full">
+          <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left w-full">
             <span className="text-gray-900">
               Guest{" "}
             </span>

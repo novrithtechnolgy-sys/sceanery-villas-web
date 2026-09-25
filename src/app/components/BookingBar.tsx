@@ -19,25 +19,18 @@ export default function BookingBar({
   const router = useRouter();
   const pathname = usePathname();
 
-  /* =========================================================
-     DATES
-  ========================================================= */
+
 
   const today = new Date()
     .toISOString()
     .split("T")[0];
 
-  /* =========================================================
-     INITIAL GUESTS
-  ========================================================= */
+
 
   const initialTotalGuests = parseInt(
-    initialGuests || "2"
+    initialGuests || "0"
   );
 
-  /* =========================================================
-     STATE
-  ========================================================= */
 
   const [checkIn, setCheckIn] = useState(
     initialCheckIn || ""
@@ -50,7 +43,7 @@ export default function BookingBar({
   const [adults, setAdults] = useState(
     initialTotalGuests > 0
       ? initialTotalGuests
-      : 2
+      : 1
   );
 
   const [children, setChildren] =
