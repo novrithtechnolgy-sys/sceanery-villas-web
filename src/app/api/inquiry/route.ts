@@ -69,12 +69,10 @@ export async function POST(req: Request) {
       },
     });
 
-    console.log(process.env.NEXT_PUBLIC_EMAIL_USER, process.env.NEXT_PUBLIC_EMAIL_PASS)
-
     const mailOptions = {
       from: `"${fullName}" <${email}>`,
       replyTo: email,
-      to: "sumalnadira123@gmail.com",//Sceneryvillassl@gmail.com
+      to: "Sceneryvillassl@gmail.com",//Sceneryvillassl@gmail.com
       subject: `📨 New Villa Inquiry from ${fullName}`,
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; padding: 40px;">
@@ -82,7 +80,7 @@ export async function POST(req: Request) {
             
             <div style="background-color: #131414; padding: 20px; text-align: center; color: white;">
               <img 
-                src="https://res.cloudinary.com/dpjmcup95/image/upload/v1772968765/c8f928687ebf28425689475c060719bf31a8df8f2_pzxi4y.png" 
+                src="https://www.sceneryvillassrilanka.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdpjmcup95%2Fimage%2Fupload%2Fv1782816848%2Fff39d169886e0675ffe3f235acfd60f0986faf78_lez9ym.png&w=384&q=75" 
                 alt="Scenery Villas Logo" 
                 style="width: 250px; margin-bottom: 10px;" 
               />
