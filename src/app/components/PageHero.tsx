@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Container from "./Container";
 
 type PageHeroProps = {
   title: string;
@@ -32,7 +33,7 @@ export default function PageHero({
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
 
         <div className="relative z-10 flex h-full flex-col items-center justify-end pb-8 text-center md:pb-40">
-   
+
           <h1
             className="max-w-[300px] font-heading text-[26px] font-bold leading-tight tracking-wide text-white md:max-w-[1000px] md:text-[34px] xl:text-[44px]">
             {title}
@@ -46,11 +47,12 @@ export default function PageHero({
           </h1>
           
           {paragraph && (
-            <p className="mt-4 max-w-[300px] font-body text-[14px] font-normal leading-[26px] md:leading-[30px] text-white md:mt-6 md:max-w-5xl md:text-[16px] xl:text-[16px]">
+            <p className="mt-4 mx-[16px] xl:mx-auto font-body text-[14px] font-normal leading-[26px] md:leading-[30px] text-white md:mt-6 md:max-w-5xl md:text-[16px] xl:text-[16px]">
               {paragraph}
             </p>
           )}
         </div>
+
       </div>
     </section>
   );

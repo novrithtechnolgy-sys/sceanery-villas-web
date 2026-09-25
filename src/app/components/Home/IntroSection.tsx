@@ -106,7 +106,7 @@ export default function IntroSection() {
 
           {/* ================= LEFT CONTENT ================= */}
 
-          <div className="max-w-[590px]">
+          <div className="max-w-[590px] mx-auto">
             <h2 className="font-heading text-[22px] md:text-[32px] xl:text-[38px] font-bold md:leading-[42px] xl:leading-[48px] tracking-[-0.5px] text-gray-900 text-center md:text-left">
               <span className="block">
                 More Than a Stay,

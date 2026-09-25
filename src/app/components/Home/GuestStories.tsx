@@ -34,7 +34,7 @@ function StoryCard({
   story: Story;
 }) {
   return (
-    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 md:shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full">
+    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 md:shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full ">
       {/* Stars */}
       <Stars />
 
@@ -215,7 +215,7 @@ export default function GuestStories() {
           </h2>
 
           {/* Desktop controls */}
-          <div className="hidden items-center gap-5 sm:flex">
+          <div className="hidden items-center gap-5 md:flex">
             <ArrowButton
               direction="left"
               disabled={false}
@@ -238,7 +238,7 @@ export default function GuestStories() {
             DESKTOP CAROUSEL
         ===================================================== */}
 
-        <div className="mt-12 hidden overflow-hidden sm:block md:mt-12">
+        <div className="mt-12 hidden overflow-hidden md:block md:mt-12">
           <div
             className="flex gap-6 transition-transform duration-500 ease-out"
             style={{
@@ -262,7 +262,7 @@ export default function GuestStories() {
             MOBILE CAROUSEL
         ===================================================== */}
 
-        <div className="mt-8 block sm:hidden">
+        <div className="mt-8 block md:hidden">
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-out will-change-transform"

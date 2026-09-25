@@ -202,7 +202,7 @@ export default function GiveBackSection() {
           <h2
             className="
               mx-auto
-              max-w-[340px]
+
               font-heading
               text-[22px]
               font-bold
@@ -230,7 +230,7 @@ export default function GiveBackSection() {
             className="
               mx-auto
               mt-6
-              max-w-[350px]
+      
               font-body
               text-[14px]
               font-regular

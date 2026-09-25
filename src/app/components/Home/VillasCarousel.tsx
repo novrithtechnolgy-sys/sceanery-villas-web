@@ -454,7 +454,7 @@ export default function VillasCarousel() {
           DESKTOP
       ===================================================== */}
 
-      <section className="hidden bg-white py-[32px] sm:block md:py-[64px]">
+      <section className="hidden bg-white py-[32px] md:block md:py-[64px]">
         <Container>
 
           {/* Heading */}
@@ -553,7 +553,7 @@ export default function VillasCarousel() {
           MOBILE
       ===================================================== */}
 
-      <section className="block overflow-hidden bg-white py-12 sm:hidden">
+      <section className="block overflow-hidden bg-white py-12 md:hidden">
 
         {/* Heading */}
         <div className="px-5 text-center">
