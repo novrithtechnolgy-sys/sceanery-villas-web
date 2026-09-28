@@ -125,7 +125,7 @@ export default function Footer() {
             © 2026 Scenery Villas. All rights reserved.  
           </p>
 
-          <p>Consepted by <a href="https://www.thedigitalescapes.com/" className="hover:underline text-gray-200"> Digital Escapes</a>. Developed by <a href="https://www.novrithtechnology.com/" className="hover:underline text-gray-200">Novrith Technologies</a>. </p>
+          <p>Developed by <a href="https://www.thedigitalescapes.com/" className="hover:underline text-gray-200">Digital Escapes Pvt Ltd.</a>. </p>
 
         </div>
       </Container>
