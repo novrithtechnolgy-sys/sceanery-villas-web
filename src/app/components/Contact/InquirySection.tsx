@@ -283,8 +283,7 @@ export default function InquirySection() {
                 <p
                   className="mt-4 font-body text-[14px] text-gray-800"
                 >
-                  122/2, Bentota,
-                  Sri Lanka
+                  Kottunna Walawwa, <br/> Danwattagoda Road, <br/> Heenmulla
                 </p>
               </div>
 

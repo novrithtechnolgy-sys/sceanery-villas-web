@@ -195,7 +195,7 @@ export default function DiscoverBentotaSection() {
       title: "Sea Turtle\nConservation",
       subtitle: "Visit local hatcheries dedicated to protecting marine life and witness the quiet effort to preserve Sri Lanka’s coastal ecosystems.",
       image:
-        "https://res.cloudinary.com/vjp4gpfl/image/upload/v1789031538/453225ae75904949724e102db94f05936139658d.jpg",
+        "https://res.cloudinary.com/vjp4gpfl/image/upload/v1790660719/453225ae75904949724e102db94f05936139658d2.jpg",
       icon: "turtle",
       variant: "tall",
     },
