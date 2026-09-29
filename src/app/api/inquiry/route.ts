@@ -72,7 +72,7 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: `"${fullName}" <${email}>`,
       replyTo: email,
-      to: "Sceneryvillassl@gmail.com",//Sceneryvillassl@gmail.com
+      to: "hello@sceneryvillassrilanka.com",//Sceneryvillassl@gmail.com
       subject: `📨 New Villa Inquiry from ${fullName}`,
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f8; padding: 40px;">

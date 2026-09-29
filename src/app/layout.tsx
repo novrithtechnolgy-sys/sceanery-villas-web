@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sceneryvillassrilanka.com"),
 
   title: {
-    default: "Scenery Villas Collection | Luxury Villas in Bentota Sri Lanka",
+    default: "Scenery Villas | Luxury Villas in Bentota Sri Lanka",
     template: "%s | Scenery Villas",
   },
 
