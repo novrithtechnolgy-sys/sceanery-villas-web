@@ -170,16 +170,11 @@ export default function JoinOurJourney() {
               from Sri Lanka.
             "
             icon={
+              <div className="h-[60px] w-[60px] rounded-full bg-[#1877F2] p-[14px] text-white flex justify-center item-center">
               <FaFacebookF
-                className="
-                  h-[60px]
-                  w-[60px]
-                  rounded-full
-                  bg-[#1877F2]
-                  p-[14px]
-                  text-white
-                "
+                className="w-10 h-auto"
               />
+              </div>
             }
           />
 

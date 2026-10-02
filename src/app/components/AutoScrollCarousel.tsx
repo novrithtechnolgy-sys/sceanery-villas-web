@@ -13,7 +13,7 @@ export default function AutoScrollCarousel({
   children,
   cardWidth = 440,
   gap = 40,
-  autoSpeed = 0.4,
+  autoSpeed = 0.5,
 }: Props) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
@@ -101,7 +101,7 @@ export default function AutoScrollCarousel({
 
     setTimeout(() => {
       normalizeScroll();
-    }, 450);
+    }, );
   };
 
   return (

@@ -60,16 +60,16 @@ export default function Footer() {
             <div className="mt-8 space-y-3 text-gray-300">
               <p>hello@sceneryvillassrilanka.com</p>
               <p>+94 77 908 2515</p>
-              <p>Dhargatown, Sri Lanka</p>
+              <p>Dharga Town, Sri Lanka</p>
             </div>
 
             {/* Social Icons */}
             <div className="flex items-center gap-4 mt-8">
               <SocialIcon href="https://www.facebook.com/p/Scenery-Villas-Sri-Lanka-61560604556336/"><FaFacebookF /></SocialIcon>
               <SocialIcon href="https://www.instagram.com/sceneryvillas.srilanka"><FaInstagram /></SocialIcon>
-              <SocialIcon href="https://www.linkedin.com/company/scenery-villas-sri-lanka/"><FaLinkedinIn /></SocialIcon>
+              <SocialIcon href="https://www.linkedin.com/company/scenery-villas/"><FaLinkedinIn /></SocialIcon>
               <SocialIcon href="https://www.youtube.com/@SceneryvillasSrilanka"><FaYoutube /></SocialIcon>
-              <SocialIcon href=""><FaTiktok /></SocialIcon>
+              <SocialIcon href="https://vm.tiktok.com/ZS9DMw4CWdK5H-QIOi0/"><FaTiktok /></SocialIcon>
             </div>
           </div>
 
