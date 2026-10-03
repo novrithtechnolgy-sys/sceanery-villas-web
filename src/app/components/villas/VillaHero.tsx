@@ -77,7 +77,7 @@ export default function VillaHero({
     }
 
     if (
-      text.includes("meals") ||
+      text.includes("living spaces") || text.includes("meals") ||
       text.includes("dining")
     ) {
       return FaUtensils;
@@ -91,7 +91,7 @@ export default function VillaHero({
     }
 
     if (
-      text.includes("living spaces") ||
+      // text.includes("living spaces") ||
       text.includes("private balconies")
     ) {
       return FaHome;
