@@ -55,13 +55,13 @@ export default function FeatureTab({ villa }: { villa: any }) {
                 key={i}
                 className="overflow-hidden bg-white"
               >
-                <div className="relative h-[300px] md:h-[340px] w-full rounded-[20px]">
+                <div className="relative h-[300px] md:h-[340px] w-full overflow-hidden rounded-[20px]">
                   {img && (
                     <Image
                       src={img}
                       alt={feature.title}
                       fill
-                      className="object-cover rounded-[20px]"
+                      className="object-cover transition-transform duration-500 hover:scale-[1.03]"
                     />
                   )}
                 </div>

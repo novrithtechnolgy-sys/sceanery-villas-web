@@ -280,7 +280,7 @@ export default function GuestStories() {
               {stories.map((story) => (
                 <div
                   key={story.id}
-                  className="w-full shrink-0 px-1"
+                  className="w-full shrink-0"
                 >
                   <StoryCard story={story} />
                 </div>

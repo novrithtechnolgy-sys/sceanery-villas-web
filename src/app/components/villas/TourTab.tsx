@@ -77,7 +77,7 @@ export default function TourTab({ villa }: { villa: any }) {
                   (max-width: 1024px) 100vw,
                   50vw
                 "
-                className="object-cover"
+                className="object-cover transition-transform duration-500 hover:scale-[1.03]"
               />
             ) : (
               <div className="flex h-full items-center justify-center text-sm text-gray-500">

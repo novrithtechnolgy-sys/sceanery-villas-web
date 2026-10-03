@@ -30,7 +30,7 @@ export default function AmenitiesTab({ villa }: { villa: any }) {
               src={img}
               alt="Villa amenities"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 hover:scale-[1.03]"
             />
           )}
         </div>
