@@ -162,7 +162,7 @@ function Card({ item }: { item: ExperienceCard }) {
         className="object-cover transition-transform  duration-500 hover:scale-[1.02]" />
 
       {/* overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent h-[50%] top-[50%]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 md:via-black/50 to-transparent md:h-[50%] md:top-[50%]" />
 
       {/* content */}
       <div className=" absolute left-4 md:left-8 right-4 md:right-8 bottom-4 md:bottom-8 text-white">
