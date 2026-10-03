@@ -34,7 +34,7 @@ function StoryCard({
   story: Story;
 }) {
   return (
-    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 md:shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full ">
+    <div className="w-full shrink-0 rounded-[24px] border border-gray-300 bg-white px-8 py-8 md:shadow-[0_8px_25px_rgba(0,0,0,0.04)] md:px-8 md:py-8 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)]">
       {/* Stars */}
       <Stars />
 
@@ -238,7 +238,7 @@ export default function GuestStories() {
             DESKTOP CAROUSEL
         ===================================================== */}
 
-        <div className="mt-12 hidden overflow-hidden md:block md:mt-12">
+        <div className="mt-12 hidden overflow-hidden px-[1px] py-[4px] md:block md:mt-12">
           <div
             className="flex gap-6 transition-transform duration-500 ease-out"
             style={{

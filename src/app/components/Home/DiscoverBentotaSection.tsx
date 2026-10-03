@@ -144,7 +144,7 @@ if (type === "turtle") {
 
 function Card({ item }: { item: ExperienceCard }) {
   const base =
-    "relative overflow-hidden rounded-[26px] shadow-[0_14px_34px_rgba(0,0,0,0.10)]";
+    "relative overflow-hidden rounded-[26px] shadow-[0_14px_34px_rgba(0,0,0,0.10)] ";
 
   const size =
     item.variant === "wide"
@@ -155,7 +155,7 @@ function Card({ item }: { item: ExperienceCard }) {
 
   return (
     <div className={`${base} ${size}`}>
-      <Image src={item.image} alt={item.title} fill className={`object-cover ${item.variant === "tall" ? "object-right" : ""}`} />
+      <Image src={item.image} alt={item.title} fill className={`object-cover transition-transform duration-500 hover:scale-[1.03] ${item.variant === "tall" ? "object-right" : ""}`} />
 
       {/* overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
