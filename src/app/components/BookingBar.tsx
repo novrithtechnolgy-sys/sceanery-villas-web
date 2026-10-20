@@ -144,8 +144,10 @@ export default function BookingBar({
         guests: guests.toString(),
       });
 
-    const url =
-      `/available-villas?${params.toString()}`;
+    // const url =
+    //   `/available-villas?${params.toString()}`;
+
+    const url = `/contact`;
 
     if (
       pathname ===

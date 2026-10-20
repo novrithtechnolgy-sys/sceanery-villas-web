@@ -49,8 +49,12 @@ export default function Navbar() {
     loadVillas();
   }, []);
 
+  // const handleBookStay = () => {
+  //   router.push("/available-villas");
+  // };
+
   const handleBookStay = () => {
-    router.push("/available-villas");
+    router.push("/contact");
   };
 
   const isVillaPage =
